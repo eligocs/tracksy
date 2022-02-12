@@ -1,0 +1,57 @@
+<div class="page-container">
+	<div class="page-content-wrapper">
+		<div class="page-content">
+		<?php if(isset($pages) && !empty($pages) ){ ?>
+													<a class="btn btn-success" href="<?php echo site_url("flipbook/viewpromotion/").$promotion[0]->id;?>" title="Back">View Promotion </a>
+									
+				<table class="table dataTable table-striped table-hover">
+						<thead>
+							<tr>
+								<th> # </th>
+								<th> Page ID </th>
+								<th> Page Title</th>
+								<th> Page Type</th>
+								<th> Order</th>
+						
+							</tr>
+						</thead>
+					<tbody>
+			<?php 	$i=1;
+			$count = count($pages);
+			foreach($pages as $page){ ?>
+			<tr>
+						<td><?php echo $i++; ?></td>
+						<td><?php echo $page->id; ?> </td>
+						<td><?php echo $page->page_title; ?></td>
+						<td><?php $type = $page->page_type; 
+								if($type == 1){
+									echo 'Text';
+								}
+								else{
+								echo 'Image';
+								}
+						?></td>
+						<td><select name="order[]" required='required' >
+						<option >Select</option> 
+					<?php  for($p=1; $p<=$count; $p++){
+							$selected =  $page->p_order == $p ? "selected=selected" : "";
+							echo "<option $selected value='$p'>$p</option>";
+						} ?> 
+						</select>
+						<input type="hidden" value="<?php echo $page->id; ?>" name="pageId[]" />
+					
+						</td>
+ 			<?php }
+			
+		?>
+
+		</tbody>
+</table>
+		
+			<?php  }
+else{
+	echo 'No Pages Available';
+}			?>
+		</div>	
+		</div>	
+		</div>	
