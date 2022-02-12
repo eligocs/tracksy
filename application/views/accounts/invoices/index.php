@@ -12,11 +12,10 @@
 					</div>
 					<a class="btn btn-success" href="<?php echo site_url("accounts/pending_invoices"); ?>" title="All Invoice">Generate Invoice</a>
 				</div>
-				
 			</div>
-			<div class="portlet-body">
+			<div class="portlet-body second_custom_card">
 				<div class="table-responsive">
-					<table class="table table-bordered">
+					<table class="table table-striped display">
 						<thead>
 							<tr>
 								<th> # </th>

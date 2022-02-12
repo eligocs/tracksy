@@ -14,9 +14,9 @@
 				</div>
 				
 			</div>
-			<div class="portlet-body">
+			<div class="portlet-body second_custom_card">
 				<div class="table-responsive">
-					<table class="table table-bordered">
+					<table class="table table-striped display">
 						<thead>
 							<tr>
 								<th> # </th>

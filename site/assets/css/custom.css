@@ -2617,6 +2617,24 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
     display: flex;
 }
 
+.check_order_status{
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.table>tbody>tr>td.border_top_zero{
+    border-top: none !important;
+}
+
+
+.status_query_response{
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+}
+
+
 /* ------dropdown_filter Css----- */
 /* 
 .dropdown_filter a {

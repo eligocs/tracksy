@@ -13,9 +13,9 @@
 					<a class="btn btn-success" href="<?php echo site_url("accounts/add_account"); ?>" title="Add New Account">Add account</a>
 				</div>
 			</div>
-			<div class="portlet-body">
-				<div class="table-responsive second_custom_card">
-					<table class="table table-bordered">
+			<div class="portlet-body second_custom_card">
+				<div class="table-responsive margin-top-20">
+					<table class="table table-striped display">
 						<thead>
 							<tr>
 								<th> # </th>

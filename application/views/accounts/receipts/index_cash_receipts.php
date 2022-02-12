@@ -13,9 +13,9 @@
 					<a class="btn btn-success" href="<?php echo site_url("accounts/create_receipt"); ?>" title="Create New Invoice">Generate New Receipt</a>
 				</div>
 			</div>
-			<div class="portlet-body">
-				<div class="table-responsive">
-					<table class="table table-bordered">
+			<div class="portlet-body second_custom_card">
+				<div class="table-responsive margin-top-20">
+					<table class="table table-striped display">
 					
 						<thead>
 							<tr>
@@ -78,23 +78,28 @@
 						</tbody>
 					</table>
 				</div>
-			</div>			</div>
+			</div>
+			</div>
 	</div>
 	<!-- END CONTENT BODY -->
 </div>
 <!-- Modal -->
 <script type="text/javascript">
-jQuery(document).ready(function($){	$(".table").DataTable();
+jQuery(document).ready(function($){
+	$(".table").DataTable();
 	$(document).on("click", ".ajax_delete_bank", function(){
 		var res= $("#res");
-		var bank_id = $(this).closest("tr").attr("data-id");		if (confirm("Are you sure?")) {			$.ajax({
+		var bank_id = $(this).closest("tr").attr("data-id");
+		if (confirm("Are you sure?")) {
+			$.ajax({
 				url: "<?php echo base_url(); ?>" + "accounts/delete_invoice?id=" + bank_id,
 				type:"GET",
 				data:bank_id,
 				dataType: "json",
 				cache: false,
 				success: function(r){
-					if(r.status = true){						alert(r.msg);
+					if(r.status = true){
+						alert(r.msg);
 						location.reload();
 					}else{
 						alert("Error! Please try again.");

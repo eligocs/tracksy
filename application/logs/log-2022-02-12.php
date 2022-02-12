@@ -110,3 +110,5 @@ ERROR - 2022-02-12 13:38:37 --> Severity: Warning --> Use of undefined constant 
 ERROR - 2022-02-12 13:38:37 --> Severity: Warning --> Use of undefined constant continue2 - assumed 'continue2' (this will throw an Error in a future version of PHP) C:\xampp\htdocs\trackv2\application\models\Packages_model.php 112
 ERROR - 2022-02-12 13:38:37 --> Severity: Warning --> Use of undefined constant continue2 - assumed 'continue2' (this will throw an Error in a future version of PHP) C:\xampp\htdocs\trackv2\application\models\Packages_model.php 112
 ERROR - 2022-02-12 13:39:32 --> Severity: Warning --> "continue" targeting switch is equivalent to "break". Did you mean to use "continue 2"? C:\xampp\htdocs\trackv2\application\views\accommodation\view.php 1582
+ERROR - 2022-02-12 16:29:32 --> Severity: Notice --> Undefined index: id C:\xampp\htdocs\trackv2\application\controllers\Search.php 457
+ERROR - 2022-02-12 16:29:36 --> Severity: Notice --> Undefined index: id C:\xampp\htdocs\trackv2\application\controllers\Search.php 457
