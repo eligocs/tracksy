@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
 	<meta charset="utf-8" />
-	<title>Testimonials | Sampuran Yatra Pvt. Lmt.</title>
+	<title>Testimonials | Track Itinerary Pvt. Lmt.</title>
     <!-- Bootstrap -->
    <!-- Latest compiled and minified CSS -->
 
@@ -351,19 +351,19 @@
 				<span>Stay Connected</span>
 				<ul class="social-media footer-social">
 					<li><a class="fa fa-google" href="https://plus.google.com/u/0/108839684823653144097"><span>Google</span></a></li>
-					<li><a class="fa fa-facebook" href="https://www.facebook.com/sampuranyatraaa/"><span>Facebook</span></a></li>
+					<li><a class="fa fa-facebook" href="https://www.facebook.com/trackitineraryaa/"><span>Facebook</span></a></li>
 					<li><a class="fa fa-rss" href="https://www.rss.com/"><span>RSS</span></a></li>
-					<li><a class="fa fa-pinterest-p" href="https://www.pinterest.com/sampuranyatra/"><span>Pinterest</span></a></li>
-					<li><a class="fa fa-twitter" href="https://twitter.com/sampuran_yatra"><span>Twitter</span></a></li>
+					<li><a class="fa fa-pinterest-p" href="https://www.pinterest.com/trackitinerary/"><span>Pinterest</span></a></li>
+					<li><a class="fa fa-twitter" href="https://twitter.com/Track Itinerary"><span>Twitter</span></a></li>
 					<li><a class="linkdin_link" href="https://www.linkedin.com/"><span>Linkdin</span></a></li>
 				</ul>
 			</div>
 			<div class="foot-box foot-box-md col-md-4">
-				<span class="contact-email"><i class="fa fa-envelope" aria-hidden="true"></i> &nbsp; <a href="mailto:info@sampuranyatra.com"> info@sampuranyatra.com</a></span>
+				<span class="contact-email"><i class="fa fa-envelope" aria-hidden="true"></i> &nbsp; <a href="mailto:info@trackitinerary.com"> info@trackitinerary.com</a></span>
 				<span class="contact-phone"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp; <a href="tel:+9816155636">9816155636</a></span>
 			</div>
 			<div class="foot-box col-md-4">
-	<span class="">© <?php echo date('Y');?> Sampuranyatra. All Rights Reserved.</span>
+	<span class="">© <?php echo date('Y');?> trackitinerary. All Rights Reserved.</span>
 			</div>
 		</div>
 	</div>
