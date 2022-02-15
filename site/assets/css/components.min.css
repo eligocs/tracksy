@@ -7797,13 +7797,13 @@ td>.mt-checkbox.mt-checkbox-single, td>.mt-radio.mt-radio-single, th>.mt-checkbo
 }
 
 .mt-checkbox>span:after {
-    left: 6px;
-    top: 2px;
-    width: 5px;
-    height: 10px;
-    border: solid #888;
+    left: 5px;
+    top: 1px;
+    width: 6px;
+    height: 12px;
+    border: solid #2b80f7;
     border-width: 0 2px 2px 0;
-    transform: rotate(45deg)
+    transform: rotate(45deg);
 }
 
 .mt-checkbox>input:disabled~span:after {

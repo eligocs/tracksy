@@ -385,15 +385,16 @@ class Hotels extends CI_Controller {
 					
 					if( is_admin()){
 						//Delete
-						$row_delete = "<a title='delete' href='javascript:void(0)' data-id = {$hotel->id} class='btn btn-danger ajax_delete_hotel'><i class='fa fa-trash-o'></i></a>";
+						$row_delete = "<a title='delete' href='javascript:void(0)' data-id = {$hotel->id} class=' btn_trash ajax_delete_hotel'><i class='fa fa-trash-o'></i></a>";
 					}
 					
 					if( $user['role'] != '96' ){
 						//edit
-						$row_edit = "<a title='edit' href=" . site_url("hotels/edit/{$hotel->id}") . " class='btn btn-success ajax_edit_hotel_table' ><i class='fa fa-pencil'></i></a>";
+						$row_edit = "<a title='edit' href=" . site_url("hotels/edit/{$hotel->id}") . " class='
+						btn_pencil ajax_edit_hotel_table' ><i class='fa fa-pencil'></i></a>";
 					}
 					// View 
-					$row[] = "<a title='view' href=" . site_url("hotels/view/{$hotel->id}") . " class='btn btn-success viewhotel' ><i class='fa fa-eye'></i></a>". $row_edit . $row_delete; 
+					$row[] = "<a title='view' href=" . site_url("hotels/view/{$hotel->id}") . " class='btn_eye viewhotel' ><i class='fa fa-eye'></i></a>". $row_edit . $row_delete; 
 					$data[] = $row;
 				}
 			}	

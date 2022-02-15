@@ -12,26 +12,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="clearfix"></div>
-			<div class="row marginBottom">
-				
-				<!--start filter section-->
-				<!--form id="form-filter" class="form-horizontal marginRight">
-					<div class="actions custom_filter pull-right">
-					<strong>Filter: </strong>
-						<div class="btn-group" data-toggle="buttons">
-							<label class="btn btn-default custom_active active"><input type="radio" name="filter" value="all" checked="checked" id="all"/>All</label>
-							<label class="btn btn-default custom_active"><input type="radio" name="filter" value="upcomming" id="upcomming" />Upcomming</label>
-							<label class="btn btn-default custom_active"><input type="radio" name="filter" value="past" id="past" />Past</label>
-						</div>
-					</div>
-					<input type="hidden" name="filter_val" id="filter_val" value="all">
-				</form--><!--End filter section-->
-			</div>			
+			<div class="clearfix"></div>			
 			<div class="clearfix"></div> 				
-			<div class="portlet-body">
+			<div class="portlet-body second_custom_card">
 				<div class="table-responsive">
-					<table id="table_vouchers" class="table table-bordered">
+					<table id="table_vouchers" class="table table-striped display">
 						<thead>
 							<tr>
 								<th> # </th>

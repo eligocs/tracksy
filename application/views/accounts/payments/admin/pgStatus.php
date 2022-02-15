@@ -52,14 +52,14 @@
 						</div>
 					</div>
 				</div>
-				<table  class='table' style="border: 1px solid nopadding" border="0">
+				<table  class='table table_payments_status table-striped' style="border: 1px solid nopadding" border="0">
 				<tbody>
 					<?php
 						foreach($responseParamList as $paramName => $paramValue) {
 						?>
 					<tr >
-						<td style="border: 1px solid"><label><?php echo $paramName?></label></td>
-						<td style="border: 1px solid"><?php echo $paramValue?></td>
+						<td><label><?php echo $paramName?></label></td>
+						<td><?php echo $paramValue?></td>
 					</tr>
 					<?php
 						}

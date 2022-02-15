@@ -20,9 +20,9 @@
 				//dump(get_indian_state_list());
 			?>
 			<div class="portlet-body">
-				<div class="marginBottom">
+				<div class="marginBottom second_custom_card">
 					<!--start filter section-->
-					<form id="form-filter" class="form-horizontal clearfix">
+					<form id="form-filter" class="form-horizontal clearfix margin_bottom_0">
 						<div class="actions custom_filter pull-right form-inline">
 							<!--strong>Filter: </strong-->
 							<div class="btn-group" data-toggle="buttons">
@@ -63,10 +63,9 @@
 						</div>
 					</form><!--End filter section-->
 					<div class="clearfix"></div>
-						<hr>					
 				</div> 
-				<div class="table-responsive">
-					<table id="hotels" class="table table-bordered">
+				<div class="table-responsive custom_card">
+					<table id="hotels" class="table table-striped display">
 						<thead>
 							<tr>
 								<th> # </th>

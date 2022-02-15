@@ -426,12 +426,12 @@ class Customers extends CI_Controller {
 				
 				if( $role == 99 ){
 					//Delete
-					$row_delete = "<a href='javascript:void(0)' data-id = {$customer->customer_id} class='btn-danger ajax_delete_customer' title='Delete Customer'><i class='fa fa-trash-o'></i></a>";
+					$row_delete = "<a href='javascript:void(0)' data-id = {$customer->customer_id} class='btn_trash ajax_delete_customer' title='Delete Customer'><i class='fa fa-trash-o'></i></a>";
 				}
 				
 				if( $role == 99 || $role == 98 ){
 					//edit
-					$row_edit = "<a href=" . site_url("customers/edit/{$customer->customer_id}") . " class='btn-success ajax_edit_customer_table' title='Edit Customer'><i class='fa fa-pencil'></i></a>";
+					$row_edit = "<a href=" . site_url("customers/edit/{$customer->customer_id}") . " class='btn_pencil ajax_edit_customer_table' title='Edit Customer'><i class='fa fa-pencil'></i></a>";
 					
 					//reassign option if no-followUp
 					if( empty( $customer->cus_status ) &&  empty($customer->cus_last_followup_status) ){
@@ -474,8 +474,8 @@ class Customers extends CI_Controller {
 						$add_iti = "<strong class='badge_success_pill'>Lead Verified</strong>";
 						break;
 					case 8:
-						$add_iti = "<strong class='btn btn-danger red'>Lead Declined</strong>";
-						$decUserStatus = "<strong class='btn btn-danger'>Lead Declined</strong>";
+						$add_iti = "<strong class='badge_danger_pill'>Lead Declined</strong>";
+						$decUserStatus = "<strong class='badge_danger_pill'>Lead Declined</strong>";
 						$iti_s = "DECLINED";
 						break;
 					default:
@@ -485,7 +485,7 @@ class Customers extends CI_Controller {
 						break;
 				}
 				
-				$view_lead = "<a href=" . site_url("customers/view_lead/") . $customer->customer_id . " target='_blank' title='View Customer' class='btn-success' ><i class='fa fa-eye'></i></a>";
+				$view_lead = "<a href=" . site_url("customers/view_lead/") . $customer->customer_id . " target='_blank' title='View Customer' class='btn_eye' ><i class='fa fa-eye'></i></a>";
 				
 				if( $role == '95' ){
 					$row[] = $view_lead . $decUserStatus;
@@ -610,7 +610,7 @@ class Customers extends CI_Controller {
 				$row[] = $customer->created;
 				
 				// View 
-				$row[] = "<a href=" . site_url("customers/view/{$customer->customer_id}/{$customer->temp_key}") . " title='View Customer' class='btn btn-success' ><i class='fa fa-eye'></i></a>";
+				$row[] = "<a href=" . site_url("customers/view/{$customer->customer_id}/{$customer->temp_key}") . " title='View Customer' class='btn_eye' ><i class='fa fa-eye'></i></a>";
 				$data[] = $row;
 			}
 		}	
@@ -653,7 +653,7 @@ class Customers extends CI_Controller {
 				$row[] = $customer->created;
 				
 				// View 
-				$row[] = "<a href=" . site_url("customers/view/{$customer->customer_id}/{$customer->temp_key}") . " title='View Customer' class='btn btn-success' ><i class='fa fa-eye'></i></a>";
+				$row[] = "<a href=" . site_url("customers/view/{$customer->customer_id}/{$customer->temp_key}") . " title='View Customer' class='btn_eye' ><i class='fa fa-eye'></i></a>";
 				$data[] = $row;
 			}
 		}	

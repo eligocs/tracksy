@@ -14,7 +14,7 @@
             </div>
             <div class="portlet-body">
                <div class="table-responsive">
-                  <table class="table table-bordered display" id="templatetable" cellspacing="0" width="100%">
+                  <table class="table table-striped display" id="templatetable" cellspacing="0" width="100%">
                      <thead>
                         <tr>
                            <th> # </th>

@@ -12,13 +12,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="clearfix"></div>
-			<div class="row marginBottom">
-			</div>			
+			<div class="clearfix"></div>			
 			<div class="clearfix"></div> 				
-			<div class="portlet-body">
+			<div class="portlet-body second_custom_card">
 				<div class="table-responsive">
-					<table id="table_vouchers" class="table table-bordered">
+					<table id="table_vouchers" class="table table-striped display">
 						<thead>
 							<tr>
 								<th> # </th>

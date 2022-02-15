@@ -12,9 +12,9 @@
 				</div>
 			</div>
 		</div>	
-			<div class="portlet-body">
+			<div class="portlet-body second_custom_card">
 				<div class="table-responsive">
-					<table id="customers" class="table table-bordered">
+					<table id="customers" class="table table-striped display">
 						<thead>
 							<tr>
 								<th> # </th>
@@ -29,6 +29,7 @@
 						</thead>
 						<tbody>
 						<?php $i=1; //dump($leads);die;
+						if(!empty($leads)){
 						foreach($leads as $lead){ 
  						?>
 								<tr>
@@ -47,7 +48,7 @@
 								</td>	
 								</tr>
 							
-						<?php }?>
+						<?php } }?>
 							<!--DataTable goes here-->
 						</tbody>
 					</table>

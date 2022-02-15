@@ -40,12 +40,12 @@
 									<td><?php echo $cat->name;?></td>
 									<td>
 										<?php if( $cat->id > 2 ){ ?>
-											<a title='edit' href=" <?php echo site_url("customers/savecustype/".$cat->id);?>" class="btn btn-success ajax_edit_cat_table" ><i class='fa fa-pencil'></i></a>
+											<a title='edit' href=" <?php echo site_url("customers/savecustype/".$cat->id);?>" class="btn_pencil ajax_edit_cat_table" ><i class='fa fa-pencil'></i></a>
 										<?php } ?>
 										
 										
 										<?php if( $cat->id > 2 ){ ?>
-											<a title="delete" href="javascript:void(0)" data-id = "<?php echo $cat->id;?>" class='btn btn-danger ajax_delete_cat'><i class='fa fa-trash-o'></i></a>
+											<a title="delete" href="javascript:void(0)" data-id = "<?php echo $cat->id;?>" class='btn_trash ajax_delete_cat'><i class='fa fa-trash-o'></i></a>
 										<?php }  ?>
 										
 									</td>

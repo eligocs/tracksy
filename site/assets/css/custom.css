@@ -931,7 +931,7 @@ label#filter-error {
 
 
 .form_vl {
-    background: #f9f9f9;
+    /* background: #f9f9f9; */
     /* margin-bottom: 1px; */
     padding: 5px 0 5px 10px;
     border-right: 1px solid #d8d8d8;
@@ -2111,7 +2111,7 @@ blockquote>div {
 }
 
 .mt-checkbox>span:after {
-    border: solid #000 !important;
+    /* border: solid #000 !important; */
 }
 
 div#return {
@@ -2575,6 +2575,10 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
     background-color: #F2F2F2  !important;
 }
 
+.table_payments_status.table>tbody>tr>td{
+    border: 1px solid #e4e7ed;
+    height: 58px;
+}
 
 .dataTables_wrapper{
     padding-bottom: 22px;
@@ -2587,15 +2591,14 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
 
 /* --table-responsive action button Css-- */
 .table-responsive tr td a {
-    margin-right: 8px;
-    background: transparent;
-    color: #7a6666;
+    margin-right: 12px;
+    /* background: transparent; */
 }
 
-.table-responsive tr td a:hover {
+/* .table-responsive tr td a:hover {
     background: transparent;
     color: #7a6666;
-}
+} */
 
 
 .badge_success_pill {
@@ -2607,6 +2610,16 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
     display: inline-block;
 }
 
+
+.badge_danger_pill {
+    background: #d9534f;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 15px;
+    font-size: 12px;
+    display: inline-block;
+    margin-right: 5px;
+}
 
 
 .d_inline_block{
@@ -2635,91 +2648,51 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
 }
 
 
-/* ------dropdown_filter Css----- */
-/* 
-.dropdown_filter a {
-    text-decoration: none;
-    color: #000000;
-  }
-  
- .dropdown_filter a:hover {
-    color: #222222
-  }
-    
-  .dropdown_filter {
-    display: inline-block;
-    position: relative;
-  }
-  
-  .dropdown_filter .dd-button {
-    display: inline-block;
-    border: 1px solid gray;
-    border-radius: 4px;
-    padding: 10px 30px 10px 20px;
-    background-color: #ffffff;
-    cursor: pointer;
-    white-space: nowrap;
-  }
-  
-  .dropdown_filter .dd-button:after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 15px;
-    transform: translateY(-50%);
-    width: 0; 
-    height: 0; 
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid black;
-  }
-  
-  .dropdown_filter .dd-button:hover {
-    background-color: #eeeeee;
-  }
-  
-  
-  .dropdown_filter .dd-input {
-    display: none;
-  }
-  
-  .dropdown_filter .dd-menu {
-    position: absolute;
-    top: 100%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 0;
-    margin: 2px 0 0 0;
-    box-shadow: 0 0 6px 0 rgba(0,0,0,0.1);
-    background-color: #ffffff;
-    list-style-type: none;
-  }
-  
-  .dropdown_filter .dd-input + .dd-menu {
-    display: none;
-  } 
-  
-  .dropdown_filter .dd-input:checked + .dd-menu {
-    display: block;
-  } 
-  
-  .dropdown_filter .dd-menu li {
-    padding: 10px 20px;
-    cursor: pointer;
-    white-space: nowrap;
-  }
-  
-  .dropdown_filter .dd-menu li:hover {
-    background-color: #f6f6f6;
-  }
-  
-  .dropdown_filter .dd-menu li a {
-    display: block;
-    margin: -10px -20px;
-    padding: 10px 20px;
-  }
-  
-  .dropdown_filter .dd-menu li.divider{
-    padding: 0;
-    border-bottom: 1px solid #cccccc;
-  } */
+  .page-sidebar.navbar-collapse.collapse {
+    position: fixed;
+    overflow: scroll !important;
+    height: 100vh !important;
+    padding-bottom: 50px;
+}
+
+.margin_bottom_0{
+    margin-bottom: 0;
+}
+
+/* common tables action butoons  */
+
+.btn_eye {
+    color: #1bd460;
+}
+
+.btn_eye:hover, .btn_eye:focus{
+    color: #1bd460;
+}
+
+.btn_pencil {
+    color: #0090ff;
+}
+
+.btn_pencil:hover, .btn_pencil:focus{
+    color: #0090ff;
+}
+
+.btn_trash{
+    color: #f51414;
+}
+
+.btn_trash:hover, .btn_trash:focus{
+    color: #f51414;
+}
+
+.align_items_center{
+    align-items: center;
+}
+
+.repopen_lead[type="checkbox"]{
+    margin: 0 5px 0 0 !important;
+}
+
+.font_size_18{
+    font-size: 18px;
+}

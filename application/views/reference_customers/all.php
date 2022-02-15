@@ -34,7 +34,7 @@
                      </select>
                   </div>
                </div>
-               <div class="col-md-4">
+               <div class="col-md-4 margin-top-15">
                   <div class="margin-top-10">
                      <button type="submit" class="btn green uppercase add_user">Filter</button>
                      <a href="javascript:void(0);" class="btn green uppercase reset_filter"><i class="fa fa-refresh"></i> Reset</a>
@@ -58,7 +58,7 @@
                   <div class="col-md-4">
                      <div class="form-group">
                         <label class="control-label" for="filebutton">Select Csv File</label>
-                        <div class="">
+                        <div class="d_inline_block">
                            <input required type="file" name="file" id="file" class="input-large">
                         </div>
                      </div>
@@ -67,7 +67,7 @@
                      <!-- Button -->
                      <div class="form-group">
                         <label class="control-label" for="singlebutton">Import Customers</label>
-                        <div class="">
+                        <div class="d_inline_block">
                            <button type="submit" id="submit" name="Import" class="btn green uppercase button-loading" data-loading-text="Loading...">Import</button>
                         </div>
                      </div>
