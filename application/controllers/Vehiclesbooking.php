@@ -194,10 +194,13 @@ class Vehiclesbooking extends CI_Controller {
 	
 	//Ajax request to insert data train/volvo/flight
 	public function volTrainFlight_booking_details(){
-		if( isset($_POST['inp']['t_name']) && !empty($_POST['inp']['dep_date']) && $_POST['inp']['cost_per_seat'] < 0 ) {
+		// var_dump( (int)$_POST['inp']['cost_per_seat'] > 0);die;
+		// if( isset($_POST['inp']['t_name']) && !empty($_POST['inp']['dep_date']) && (int)$_POST['inp']['cost_per_seat'] < 0 ) {
+		if( isset($_POST['inp']['t_name']) && !empty($_POST['inp']['dep_date']) && (int)$_POST['inp']['cost_per_seat'] > 0 ) {
 			$iti_id = $_POST['inp']['iti_id'];
 			$inp = $this->input->post('inp', TRUE);
 			$booking_id = $this->global_model->insert_data("travel_booking", $inp);
+			// var_dump($booking_id);die;
 			if( $booking_id){
 				$this->session->set_flashdata('success',"Booking Added Successfully.");
 				$res = array('status' => true, 'msg' => "Booking Details Add Successfully", "booking_id" => $booking_id );

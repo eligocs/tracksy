@@ -88,7 +88,8 @@ class Vehiclesbooking_model extends CI_Model{
 					$this->db->order_by( "picking_date", "DESC" );
 					break;	
 				default:
-					continue22;
+					// continue22;
+					break;
 			} 
         }
 		
