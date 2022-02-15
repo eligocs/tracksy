@@ -139,7 +139,7 @@
 								<td><div class="col-mdd-10 form_vr"><?php echo $cab_booking->total_cabs; ?></div></td>				
 							</tr>			
 							<?php $cab_meta = unserialize($cab_booking->cab_meta); 
-								$count_cab_meta = count( $cab_meta ); ?>
+								$count_cab_meta = !empty($cab_meta) ?  count( $cab_meta ) : ''; ?>
 								<?php 
 								if( $count_cab_meta > 0 ){
 									for ( $i = 0; $i < $count_cab_meta; $i++ ) {

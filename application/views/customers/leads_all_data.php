@@ -968,11 +968,11 @@
                                           <div id="appCatListDiv">
                                              <select required class='form-control' id='appCatList' name='approved_package_category'>
                                                 <option value="">Select package category</option>
-                                                <?php /* if($get_iti_package_category){
+                                                <?php  if($get_iti_package_category){
                                                    foreach( $get_iti_package_category as $book_cat ){
                                                    	echo "<option value='{$book_cat->name}'>{$book_cat->name}</option>";
                                                    }
-                                                   } */ ?>
+                                                   } ?>
                                              </select>
                                           </div>
                                        </div>

@@ -2955,6 +2955,9 @@ class Itineraries extends CI_Controller {
 				$customer_id 	= $iti->customer_id;
 				$email_count 	= $iti->email_count;
 				
+
+
+				$data['agentData'] = get_user_all($iti->agent_id);
 				//Get customer info
 				$get_customer_info = get_customer( $iti->customer_id ); 
 				$cust = $get_customer_info[0];
@@ -3045,6 +3048,7 @@ class Itineraries extends CI_Controller {
 	
 	/* View PDF */
 	public function pdf(){
+		
 		$this->load->library('Pdf');
 		$iti_id = trim($this->uri->segment(3));
 		$temp_key = trim($this->uri->segment(4));

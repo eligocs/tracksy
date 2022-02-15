@@ -144,7 +144,7 @@ class Payments_model extends CI_Model{
 	
 	
 	/* update Data function */
-	function update_discount( $tablename, $where = array(), $discount ){
+	function update_discount( $tablename, $where = array(), $discount = null ){
 		if (!empty($where)) {
 			$this->db->set('total_discount', "total_discount + $discount", FALSE);
 			

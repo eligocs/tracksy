@@ -1,10 +1,17 @@
-
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
     xmlns:o="urn:schemas-microsoft-com:office:office">
 
 <head>
+    <!--[if gte mso 9]>
+      <xml>
+         <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+         </o:OfficeDocumentSettings>
+      </xml>
+      <![endif]-->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width">
     <!--[if !mso]><!-->
@@ -150,8 +157,6 @@
 				$iti_id = $iti->iti_id;
 			$get_customer_info = get_customer( $iti->customer_id ); 
 			$cust = $get_customer_info[0];
-			// echo "<pre>";
-			// print_r($cust);
 			$customer_name = $cust->customer_name;
 			$cab = get_car_name($iti->cab_category);
 
@@ -171,6 +176,11 @@
         <tbody>
             <tr style="vertical-align: top;" valign="top">
                 <td style="word-break: break-word; vertical-align: top;" valign="top">
+                    <!--[if (mso)|(IE)]>
+                     <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                           <td align="center" style="background-color:#e1e4e9">
+                              <![endif]-->
                     <div style="background-color:transparent;">
                         <div class="block-grid mixed-two-up no-stack"
                             style="min-width: 320px; max-width: 600px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #ffffff;">
@@ -191,6 +201,11 @@
                                                     style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 150px; max-width: 100%; display: block;"
                                                     width="70">
                                                 <div style="font-size:1px;line-height:10px">&nbsp;</div>
+                                                <!--[if mso]>
+                           </td>
+                        </tr>
+                     </table>
+                     <![endif]-->
                                             </div>
                                             <!--[if (!mso)&(!IE)]><!-->
                                         </div>
@@ -209,16 +224,22 @@
                                                     style="font-size: 14px; line-height: 1.2; color: #66787f; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; mso-line-height-alt: 17px;">
                                                     <p
                                                         style="margin: 0; font-size: 12px; line-height: 1.2; word-break: break-word; text-align: right; mso-line-height-alt: 14px; margin-top: 0; margin-bottom: 0;">
-                                                        <span
-                                                            style="font-size: 12px;"><?= $cust->customer_name ?></span>
+                                                        <span style="font-size: 12px;"><?= $agentData->first_name . ' ' .$agentData->last_name?></span>
                                                     </p>
                                                     <p
                                                         style="margin: 0; font-size: 12px; line-height: 1.2; word-break: break-word; text-align: right; mso-line-height-alt: 14px; margin-top: 0; margin-bottom: 0;">
                                                         <span style="font-size: 12px;">Email ID. <strong><span
-                                                                    style="color: #0377ea;"><?= $cust->customer_email ?></span>
+                                                                    style="color: #0377ea;"><?= $agentData->email ?></span>
                                                             </strong>|
-                                                            Designation <strong><span style="color: #0377ea;">Sales
-                                                                    Executive</span></strong></span>
+                                                            Designation <strong><span style="color: #0377ea;"><?php
+                                                           $userType = $agentData->user_type;
+                                                            if($userType == 96){
+                                                                echo "Sales Executive";
+                                                            }elseif($userType == 98){
+                                                                echo "Manager";
+
+                                                            }  ?>
+                                                            </span></strong></span>
                                                     </p>
                                                     <p
                                                         style="margin: 0; font-size: 12px; line-height: 1.2; word-break: break-word; text-align: right; mso-line-height-alt: 14px; margin-top: 0; margin-bottom: 0;">
@@ -234,17 +255,17 @@
                     </div>
                     <div style="background-color:transparent;">
                         <div class="block-grid "
-                            style="min-width: 320px; max-width: 600px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #0377ea;">
-                            <div style="border-collapse: collapse;display: table;width: 100%;background-color:#0377ea;">
+                            style="min-width: 320px; max-width: 600px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #ffffff;">
+                            <div style="border-collapse: collapse;display: table;width: 100%;background-color:#ffffff;">
                                 <div class="col num12"
                                     style="min-width: 320px; max-width: 600px; display: table-cell; vertical-align: top; width: 600px;">
                                     <div class="col_cont" style="width:100% !important;">
                                         <div
                                             style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:10px; padding-bottom:10px; padding-right: 0px; padding-left: 0px;">
                                             <div
-                                                style="color:#ffffff;font-family:'Merriwheater', 'Georgia', serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
+                                                style="color:#0377ea;font-family:'Merriwheater', 'Georgia', serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
                                                 <div class="txtTinyMce-wrapper"
-                                                    style="font-size: 14px; line-height: 1.2; font-family: 'Merriwheater', 'Georgia', serif; color: #ffffff; mso-line-height-alt: 17px;">
+                                                    style="font-size: 14px; line-height: 1.2; font-family: 'Merriwheater', 'Georgia', serif; color: #0377ea; mso-line-height-alt: 17px;">
                                                     <p
                                                         style="margin: 0; font-size: 30px; line-height: 1.2; text-align: center; word-break: break-word; mso-line-height-alt: 36px; margin-top: 0; margin-bottom: 0;">
                                                         <span style="font-size: 30px;">Greetings for the
@@ -280,8 +301,8 @@
                                             <div class="img-container center autowidth big" align="center"
                                                 style="padding-right: 0px;padding-left: 0px;">
                                                 <img class="center autowidth" align="center" border="0"
-                                                    src="./images/flight_image.png" alt="Flying Airplane Image "
-                                                    title="Flying Airplane Image "
+                                                    src="https://d1oco4z2z1fhwp.cloudfront.net/templates/default/4456/Airplane_fIRST_Image_.png"
+                                                    alt="Flying Airplane Image " title="Flying Airplane Image "
                                                     style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 600px; max-width: 100%; display: block;"
                                                     width="600">
                                             </div>
@@ -295,8 +316,8 @@
                     </div>
                     <div style="background-color:transparent;">
                         <div class="block-grid "
-                            style="min-width: 320px; max-width: 600px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #0377ea;">
-                            <div style="border-collapse: collapse;display: table;width: 100%;background-color:#0377ea;">
+                            style="min-width: 320px; max-width: 600px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #ffffff;">
+                            <div style="border-collapse: collapse;display: table;width: 100%;background-color:#ffffff;">
                                 <div class="col num12"
                                     style="min-width: 320px; max-width: 600px; display: table-cell; vertical-align: top; width: 600px;">
                                     <div class="col_cont" style="width:100% !important;">
@@ -304,21 +325,21 @@
                                         <div
                                             style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:20px; padding-bottom:5px; padding-right: 15px; padding-left: 15px;">
                                             <div
-                                                style="color:#ffffff;font-family:'Merriwheater', 'Georgia', serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
+                                                style="color:#0685cf;font-family:'Merriwheater', 'Georgia', serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
                                                 <div class="txtTinyMce-wrapper"
-                                                    style="font-size: 14px; line-height: 1.2; font-family: 'Merriwheater', 'Georgia', serif; color: #ffffff; mso-line-height-alt: 17px;">
+                                                    style="font-size: 14px; line-height: 1.2; font-family: 'Merriwheater', 'Georgia', serif; color: #0685cf; mso-line-height-alt: 17px;">
                                                     <p
                                                         style="margin: 0; font-size: 30px; line-height: 1.2; text-align: center; word-break: break-word; mso-line-height-alt: 36px; margin-top: 0; margin-bottom: 0;">
                                                         <span style="font-size: 22px;">Dear
-                                                            [<?= $cust->customer_name ?>] greetings in
-                                                            holiday terms</span>
+                                                            [<?= $cust->customer_name ?>] greetings in holiday
+                                                            terms</span>
                                                     </p>
                                                 </div>
                                             </div>
                                             <div
-                                                style="color:#ffffff;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
+                                                style="color:#0685cf;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
                                                 <div class="txtTinyMce-wrapper"
-                                                    style="font-size: 14px; line-height: 1.2; color: #ffffff; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; mso-line-height-alt: 17px;">
+                                                    style="font-size: 14px; line-height: 1.2; color: #0685cf; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; mso-line-height-alt: 17px;">
                                                     <p
                                                         style="margin: 0; font-size: 16px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;">
                                                         Here is your [<?= $iti->package_name ?>] tour detais as per your
@@ -334,57 +355,15 @@
                     </div>
                     <div style="background-color:transparent;">
                         <div class="block-grid three-up no-stack"
-                            style="min-width: 320px; max-width: 600px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #0377ea;">
-                            <div style="border-collapse: collapse;display: table;width: 100%;background-color:#0377ea;">
+                            style="min-width: 320px; max-width: 600px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #ffffff;">
+                            <div style="border-collapse: collapse;display: table;width: 100%;background-color:#ffffff;">
                             </div>
                         </div>
                     </div>
-                    <div style="background-color:transparent;">
-                        <div class="block-grid "
-                            style="min-width: 320px; max-width: 600px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #0377ea;">
-                            <div style="border-collapse: collapse;display: table;width: 100%;background-color:#0377ea;">
-                                <div class="col num12"
-                                    style="min-width: 320px; max-width: 600px; display: table-cell; vertical-align: top; width: 600px;">
-                                    <div class="col_cont" style="width:100% !important;">
-                                        <!--[if (!mso)&(!IE)]><!-->
-                                        <div
-                                            style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
-                                            <!--<![endif]-->
-                                            <table class="divider" border="0" cellpadding="0" cellspacing="0"
-                                                width="100%"
-                                                style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;"
-                                                role="presentation" valign="top">
-                                                <tbody>
-                                                    <tr style="vertical-align: top;" valign="top">
-                                                        <td class="divider_inner"
-                                                            style="word-break: break-word; vertical-align: top; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px;"
-                                                            valign="top">
-                                                            <table class="divider_content" border="0" cellpadding="0"
-                                                                cellspacing="0" width="90%"
-                                                                style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-top: 1px solid #FFFFFF; width: 90%;"
-                                                                align="center" role="presentation" valign="top">
-                                                                <tbody>
-                                                                    <tr style="vertical-align: top;" valign="top">
-                                                                        <td style="word-break: break-word; vertical-align: top; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;"
-                                                                            valign="top"><span></span></td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <!--[if (!mso)&(!IE)]><!-->
-                                        </div>
-                                        <!--<![endif]-->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                     <div style="background-color:transparent;">
                         <div class="block-grid three-up no-stack"
-                            style="min-width: 320px; max-width: 600px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #0377ea;">
+                            style="min-width: 320px; max-width: 600px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #ffffff;">
                             <table class="html_block package_details" width="100%" border="0" cellpadding="0"
                                 cellspacing="0" role="presentation"
                                 style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
@@ -396,77 +375,76 @@
                                                 style="width:95%; border-collapse:collapse;border-spacing:0; margin: 0 auto;">
                                                 <tr>
                                                     <td
-                                                        style="padding:10px;vertical-align:top;color:white; border:1px solid">
+                                                        style="padding:10px;vertical-align:top;color:rgb(0, 0, 0); border:1px solid">
                                                         <strong> Name of Package</strong>
                                                     </td>
                                                     <td
-                                                        style="padding:10px;vertical-align:top;color:white; border:1px solid">
+                                                        style="padding:10px;vertical-align:top;color:rgb(0, 0, 0); border:1px solid">
                                                         <?= $iti->package_name ?>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td
-                                                        style="padding:10px;vertical-align:top;color:white; border:1px solid">
+                                                        style="padding:10px;vertical-align:top;color:rgb(0, 0, 0); border:1px solid">
                                                         <strong> Routing</strong>
                                                     </td>
                                                     <td
-                                                        style="padding:10px;vertical-align:top;color:white; border:1px solid">
+                                                        style="padding:10px;vertical-align:top;color:rgb(0, 0, 0); border:1px solid">
                                                         <?= $iti->package_routing?>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td
-                                                        style="padding:10px;vertical-align:top;color:white; border:1px solid">
+                                                        style="padding:10px;vertical-align:top;color:rgb(0, 0, 0); border:1px solid">
                                                         <strong> No. of Travelers</strong>
                                                     </td>
                                                     <td
-                                                        style="padding:10px;vertical-align:top;color:white; border:1px solid">
-                                                        <!-- <strong>Adult's</strong> 2 -->
-                                                        <?= 
+                                                        style="padding:10px;vertical-align:top;color:rgb(0, 0, 0); border:1px solid">
+                                                        <strong> <?= 
 															$total_tra
-														?>
+														?></strong> 
                                                     </td>
                                                 </tr>
-                                                <!-- <tr>
-                                                    <td
-                                                        style="padding:10px;vertical-align:top;color:white; border:1px solid">
-                                                        <strong>Tour Start Date</strong>
-                                                    </td>
-                                                    <td
-                                                        style="padding:10px;vertical-align:top;color:white; border:1px solid">
-                                                        26/11/2021
-                                                    </td>
-                                                </tr> -->
                                                 <tr>
                                                     <td
-                                                        style="padding:10px;vertical-align:top;color:white; border:1px solid">
+                                                        style="padding:10px;vertical-align:top;color:rgb(0, 0, 0); border:1px solid">
                                                         <strong> Travel Date</strong>
                                                     </td>
                                                     <td
-                                                        style="padding:10px;vertical-align:top;color:white; border:1px solid">
+                                                        style="padding:10px;vertical-align:top;color:rgb(0, 0, 0); border:1px solid">
                                                         <?= $iti->quatation_date ?>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td
+                                                        style="padding:10px;vertical-align:top;color:rgb(0, 0, 0); border:1px solid">
+                                                        <strong>Tour Duration</strong>
+                                                    </td>
+                                                    <td
+                                                        style="padding:10px;vertical-align:top;color:rgb(0, 0, 0); border:1px solid">
+                                                        <?= $iti->duration?>
                                                     </td>
                                                 </tr>
                                                 <!-- <tr>
                                                     <td
-                                                        style="padding:10px;vertical-align:top;color:white; border:1px solid">
+                                                        style="padding:10px;vertical-align:top;color:rgb(0, 0, 0); border:1px solid">
                                                         <strong>Total Nights</strong>
                                                     </td>
                                                     <td
-                                                        style="padding:10px;vertical-align:top;color:white; border:1px solid">
+                                                        style="padding:10px;vertical-align:top;color:rgb(0, 0, 0); border:1px solid">
                                                         4
                                                     </td>
-                                                </tr> -->
+                                                </tr>
                                                 <tr>
                                                     <td
-                                                        style="padding:10px;vertical-align:top;color:white; border:1px solid">
+                                                        style="padding:10px;vertical-align:top;color:rgb(0, 0, 0); border:1px solid">
                                                         <strong>Tour Duration</strong>
                                                     </td>
                                                     <td
-                                                        style="padding:10px;vertical-align:top;color:white; border:1px solid">
-                                                        <?= $iti->duration?>
+                                                        style="padding:10px;vertical-align:top;color:rgb(0, 0, 0); border:1px solid">
+                                                        4 Nights 5 Days
                                                     </td>
-                                                </tr>
+                                                </tr> -->
                                             </table>
                                         </div>
                                     </td>
@@ -495,53 +473,25 @@
                         <div class="block-grid "
                             style="min-width: 320px; max-width: 600px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #ffffff;">
                             <div
-                                style="border-collapse: collapse;display: table;width: 100%;background-color:#ffffff;background-image:url('./images/blue_paper_bg.png');background-position:center top;background-repeat:no-repeat">
+                                style="border-collapse: collapse;display: table;width: 100%;background-color:#ffffff; background-position:center top;background-repeat:no-repeat">
                                 <div class="col num12"
                                     style="min-width: 320px; max-width: 600px; display: table-cell; vertical-align: top; width: 600px;">
                                     <div class="col_cont" style="width:100% !important;">
                                         <!--[if (!mso)&(!IE)]><!-->
                                         <div
-                                            style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:20px; padding-bottom:10px; padding-right: 15px; padding-left: 15px;">
+                                            style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:35px; padding-bottom:10px; padding-right: 15px; padding-left: 15px;">
                                             <!--<![endif]-->
                                             <div class="button-container" align="center"
                                                 style="padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
                                                 <a href="<?= site_url("promotion/itinerary/{$iti->iti_id}/{$iti->temp_key}") ?>"
                                                     target="_blank"
-                                                    style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #0377ea; background-color: #ffdb29; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; width: auto; width: auto; border-top: 1px solid #ffdb29; border-right: 1px solid #ffdb29; border-bottom: 1px solid #ffdb29; border-left: 1px solid #ffdb29; padding-top: 05px; padding-bottom: 05px; font-family: 'Merriwheater', 'Georgia', serif; text-align: center; mso-border-alt: none; word-break: keep-all;"><span
+                                                    style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #fff; background-color: #0377ea; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; width: auto; width: auto; border-top: 1px solid #0377ea; border-right: 1px solid #0377ea; border-bottom: 1px solid #0377ea; border-left: 1px solid #0377ea; padding-top: 05px; padding-bottom: 05px; font-family: 'Merriwheater', 'Georgia', serif; text-align: center; mso-border-alt: none; word-break: keep-all;"><span
                                                         style="padding-left:34px;padding-right:34px;font-size:16px;display:inline-block;letter-spacing:undefined;"><span
                                                             style="font-size: 12px; line-height: 2; word-break: break-word; mso-line-height-alt: 24px;"><span
                                                                 style="font-size: 16px; line-height: 32px;"
                                                                 data-mce-style="font-size: 16px; line-height: 32px;">View
                                                                 Itinerary</span></span></span></a>
                                             </div>
-                                            <table class="divider" border="0" cellpadding="0" cellspacing="0"
-                                                width="100%"
-                                                style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;"
-                                                role="presentation" valign="top">
-                                                <tbody>
-                                                    <tr style="vertical-align: top;" valign="top">
-                                                        <td class="divider_inner"
-                                                            style="word-break: break-word; vertical-align: top; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;"
-                                                            valign="top">
-                                                            <table class="divider_content" border="0" cellpadding="0"
-                                                                cellspacing="0" width="100%"
-                                                                style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-top: 0px solid transparent; height: 35px; width: 100%;"
-                                                                align="center" role="presentation" height="35"
-                                                                valign="top">
-                                                                <tbody>
-                                                                    <tr style="vertical-align: top;" valign="top">
-                                                                        <td style="word-break: break-word; vertical-align: top; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;"
-                                                                            height="35" valign="top">
-                                                                            <span></span>
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <!--[if (!mso)&(!IE)]><!-->
                                         </div>
                                         <!--<![endif]-->
                                     </div>
@@ -549,51 +499,7 @@
                             </div>
                         </div>
                     </div>
-                    <div style="background-color:transparent;">
-                        <div class="block-grid "
-                            style="min-width: 320px; max-width: 600px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #ffffff;">
-                            <div style="border-collapse: collapse;display: table;width: 100%;background-color:#ffffff;">
-                                <div class="col num12"
-                                    style="min-width: 320px; max-width: 600px; display: table-cell; vertical-align: top; width: 600px;">
-                                    <div class="col_cont" style="width:100% !important;">
-                                        <!--[if (!mso)&(!IE)]><!-->
-                                        <div
-                                            style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
-                                            <!--<![endif]-->
-                                            <table class="divider" border="0" cellpadding="0" cellspacing="0"
-                                                width="100%"
-                                                style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;"
-                                                role="presentation" valign="top">
-                                                <tbody>
-                                                    <tr style="vertical-align: top;" valign="top">
-                                                        <td class="divider_inner"
-                                                            style="word-break: break-word; vertical-align: top; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;"
-                                                            valign="top">
-                                                            <table class="divider_content" border="0" cellpadding="0"
-                                                                cellspacing="0" width="100%"
-                                                                style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-top: 0px solid transparent; height: 20px; width: 100%;"
-                                                                align="center" role="presentation" height="20"
-                                                                valign="top">
-                                                                <tbody>
-                                                                    <tr style="vertical-align: top;" valign="top">
-                                                                        <td style="word-break: break-word; vertical-align: top; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;"
-                                                                            height="20" valign="top"><span></span>
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <!--[if (!mso)&(!IE)]><!-->
-                                        </div>
-                                        <!--<![endif]-->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                     <div style="background-color:transparent;">
                         <div class="block-grid "
                             style="min-width: 320px; max-width: 600px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #ffffff;">
@@ -604,7 +510,16 @@
                                         <!--[if (!mso)&(!IE)]><!-->
                                         <div
                                             style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:20px; padding-bottom:30px; padding-right: 0px; padding-left: 0px;">
-
+                                            <!--<![endif]-->
+                                            <!-- <div class="img-container center autowidth big" align="center"
+                              style="padding-right: 0px;padding-left: 0px;">
+                              <img class="center autowidth" align="center" border="0"
+                                 src="./images/road_img.jpg"
+                                 alt="Flying Airplane Illustration"
+                                 title="Flying Airplane Illustration"
+                                 style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 600px; max-width: 100%; display: block;"
+                                 width="600">
+                           </div> -->
                                             <div
                                                 style="color:#00255b;font-family:'Merriwheater', 'Georgia', serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
                                                 <div class="txtTinyMce-wrapper"
@@ -626,7 +541,7 @@
                                                             valign="top">
                                                             <table class="divider_content" border="0" cellpadding="0"
                                                                 cellspacing="0" width="30%"
-                                                                style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-top: 4px solid #FFDB29; width: 30%;"
+                                                                style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-top: 4px solid #0377ea; width: 30%;"
                                                                 align="center" role="presentation" valign="top">
                                                                 <tbody>
                                                                     <tr style="vertical-align: top;" valign="top">
@@ -640,7 +555,7 @@
                                                 </tbody>
                                             </table>
                                             <div
-                                                style="color:#66787f;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;line-height:1.2;padding-top:10px;padding-right:30px;padding-bottom:10px;padding-left:30px;">
+                                                style="color:#66787f;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;line-height:1.2;padding-top:30px;padding-right:30px;padding-bottom:10px;padding-left:30px;">
                                                 <div class="txtTinyMce-wrapper"
                                                     style="font-size: 14px; line-height: 1.2; color: #66787f; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; mso-line-height-alt: 17px;">
                                                     <p
@@ -653,6 +568,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <!--<![endif]-->
                                     </div>
                                 </div>
                             </div>
@@ -665,12 +581,14 @@
                                 <div class="col num12"
                                     style="min-width: 320px; max-width: 600px; display: table-cell; vertical-align: top; width: 600px;">
                                     <div class="col_cont" style="width:100% !important;">
+                                        <!--[if (!mso)&(!IE)]><!-->
                                         <div
                                             style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:30px; padding-bottom:20px; padding-right: 0px; padding-left: 0px;">
+                                            <!--<![endif]-->
                                             <div class="img-container center autowidth" align="center"
                                                 style="padding-right: 0px;padding-left: 0px;">
                                                 <img class="center autowidth" align="center" border="0"
-                                                    src="./images/logo_email.png" alt="Your Logo Here image"
+                                                    src="<?= !empty($logo_url) ? $logo_url : base_url() . "site/images/trackv2-logo.png" ?>" alt="Your Logo Here image"
                                                     title="Your Logo Here image"
                                                     style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 150px; max-width: 100%; display: block;"
                                                     width="70">
@@ -729,7 +647,7 @@
                                                                                 href="https://www.facebook.com/"
                                                                                 target="_blank"><img width="32"
                                                                                     height="32"
-                                                                                    src="./images/facebook_icon.png"
+                                                                                    src="https://d2fi4ri5dhpqd1.cloudfront.net/public/resources/social-networks-icon-sets/t-only-logo-dark-gray/facebook@2x.png"
                                                                                     alt="Facebook" title="Facebook"
                                                                                     style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; display: block;"></a>
                                                                         </td>
@@ -737,7 +655,7 @@
                                                                             valign="top"><a href="https://twitter.com/"
                                                                                 target="_blank"><img width="32"
                                                                                     height="32"
-                                                                                    src="./images/twitter_icon.png"
+                                                                                    src="https://d2fi4ri5dhpqd1.cloudfront.net/public/resources/social-networks-icon-sets/t-only-logo-dark-gray/twitter@2x.png"
                                                                                     alt="Twitter" title="Twitter"
                                                                                     style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; display: block;"></a>
                                                                         </td>
@@ -746,7 +664,7 @@
                                                                                 href="https://instagram.com/"
                                                                                 target="_blank"><img width="32"
                                                                                     height="32"
-                                                                                    src="./images/instagram_icon.png"
+                                                                                    src="https://d2fi4ri5dhpqd1.cloudfront.net/public/resources/social-networks-icon-sets/t-only-logo-dark-gray/instagram@2x.png"
                                                                                     alt="Instagram" title="Instagram"
                                                                                     style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; display: block;"></a>
                                                                         </td>
@@ -755,7 +673,7 @@
                                                                                 href="https://www.linkedin.com/"
                                                                                 target="_blank"><img width="32"
                                                                                     height="32"
-                                                                                    src="./images/linkedin_icon.png"
+                                                                                    src="https://d2fi4ri5dhpqd1.cloudfront.net/public/resources/social-networks-icon-sets/t-only-logo-dark-gray/linkedin@2x.png"
                                                                                     alt="LinkedIn" title="LinkedIn"
                                                                                     style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; display: block;"></a>
                                                                         </td>

@@ -57,6 +57,17 @@
 		}	
 		return $res;
 	}
+
+
+	function get_user_all($id) {
+		if( trim($id) ){
+			$ci = & get_instance();
+			$res = $ci->global_model->getuserdata($id);
+		}else{
+			$res = false;
+		}	
+		return $res;
+	}
 	
 	/* 
 	* Itinerary STATUS PAYMENT 
