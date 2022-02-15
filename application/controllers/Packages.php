@@ -208,14 +208,14 @@ class Packages extends CI_Controller {
 				$row[] = $package->created;
 				
 				//buttons
-				$btn_edit = "<a title='Edit' href=" . site_url("packages/edit/{$package_id}/{$key}") . " class='btn btn-success' ><i class='fa fa-pencil' aria-hidden='true'></i></a>";
-				$btn_view = "<a title='View' href=" . site_url("packages/view/{$package_id}/{$key}") . " class='btn btn-success' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
+				$btn_edit = "<a title='Edit' href=" . site_url("packages/edit/{$package_id}/{$key}") . " class='btn_pencil' ><i class='fa fa-pencil' aria-hidden='true'></i></a>";
+				$btn_view = "<a title='View' href=" . site_url("packages/view/{$package_id}/{$key}") . " class='btn_eye' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
 				
 				//if Package status is publish
 				if( $pub_status == "publish" ){
 					//delete Package button only for admin
 					if( ( is_admin() || is_manager() ) ){ 
-						$row_delete = "<a data-id={$package_id} title='Delete Package' href='javascript:void(0)' class='btn btn-danger ajax_delete_package'><i class='fa fa-trash-o' aria-hidden='true'></i></a>";
+						$row_delete = "<a data-id={$package_id} title='Delete Package' href='javascript:void(0)' class='btn_trash ajax_delete_package'><i class='fa fa-trash-o' aria-hidden='true'></i></a>";
 					}
 					
 					$allBtns = $btn_edit . $btn_view . $row_delete;
@@ -223,7 +223,7 @@ class Packages extends CI_Controller {
 				}else{ 
 					//if Package in draft hide buttons for sales team
 					$row[] = $btn_edit . "
-						<a data-id={$package_id} title='Delete Package Permanent' href='javascript:void(0)' class='btn btn-danger delete_package_permanent'><i class='fa fa-trash-o' aria-hidden='true'></i></a>";
+						<a data-id={$package_id} title='Delete Package Permanent' href='javascript:void(0)' class='btn_trash delete_package_permanent'><i class='fa fa-trash-o' aria-hidden='true'></i></a>";
 				}	 
 				
 				$data[] = $row;
@@ -266,10 +266,10 @@ class Packages extends CI_Controller {
 				$row[] = $cat->added_date;
 				
 				//buttons
-				$btn_edit = "<a title='Edit' href=" . site_url("packages/editcat/{$catId}") . " class='btn btn-success' ><i class='fa fa-pencil' aria-hidden='true'></i></a>";
+				$btn_edit = "<a title='Edit' href=" . site_url("packages/editcat/{$catId}") . " class='btn_pencil' ><i class='fa fa-pencil' aria-hidden='true'></i></a>";
 				//delete Package button only for admin
 				if( ( is_admin() || is_manager() ) && $catId != 1 ){ 
-					$row_delete = "<a data-id={$catId} title='Delete Package Category' href='javascript:void(0)' class='btn btn-danger ajax_delete_package_cat'><i class='fa fa-trash-o' aria-hidden='true'></i></a>";
+					$row_delete = "<a data-id={$catId} title='Delete Package Category' href='javascript:void(0)' class='btn_trash ajax_delete_package_cat'><i class='fa fa-trash-o' aria-hidden='true'></i></a>";
 				}
 					
 				$allBtns = $btn_edit . $row_delete;

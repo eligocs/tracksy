@@ -12,7 +12,7 @@
 					<a class="btn btn-success" href="<?php echo site_url("marketing"); ?>" title="Back">Back</a>
 				</div>
 			</div>
-			<div class="portlet-body">
+			<div class="portlet-body second_custom_card">
 				<div class="col-md-4">	
 					<div class="form-group">
 						<label class="control-label">Choose Category*</label>
@@ -118,7 +118,6 @@
 				
 			
 			<div class="clearfix"></div>
-			<hr>
 			<div class="col-md-12">
 				<div class="margiv-top-2 ">
 					<input type="hidden" name="m_id" id="id" value="<?php echo $muser->id; ?>">

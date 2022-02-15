@@ -595,10 +595,10 @@ class Itineraries extends CI_Controller {
 				if( $iti->pending_price == 2 && $role == 96 ){
 					$btn_edit = "<a title='Edit' href='javascript: void(0)' class='btn btn-success editPop' ><i class='fa fa-pencil' aria-hidden='true'></i></a>";
 				}else{
-					$btn_edit = "<a title='Edit' href=" . site_url("itineraries/edit/{$iti_id}/{$key}") . " class='btn btn-success' ><i class='fa fa-pencil' aria-hidden='true'></i></a>";
+					$btn_edit = "<a title='Edit' href=" . site_url("itineraries/edit/{$iti_id}/{$key}") . " class='btn_pencil' ><i class='fa fa-pencil' aria-hidden='true'></i></a>";
 				}
 				
-				$btnview = "<a target='_blank' title='View' href=" . site_url("itineraries/view_iti/{$iti_id}/{$key}") . " class='btn btn-success' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
+				$btnview = "<a target='_blank' title='View' href=" . site_url("itineraries/view_iti/{$iti_id}/{$key}") . " class='btn_eye' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
 				
 				$btnview .= "<a target='_blank' title='View Pdf' href=" . site_url("itineraries/pdf/{$iti_id}/{$key}") . " class='btn btn-success' ><i class='fa fa-file-pdf-o' aria-hidden='true'></i></a>";
 				
@@ -627,7 +627,7 @@ class Itineraries extends CI_Controller {
 				if( $pub_status == "publish" || $pub_status == "price pending" ){
 					//delete itinerary button only for admin
 					if( is_admin_or_manager() && empty( $countChildIti ) ){ 
-						$row_delete = "<a data-id={$iti_id} title='Delete Itinerary' href='javascript:void(0)' class='btn btn-danger ajax_delete_iti'><i class='fa fa-trash-o' aria-hidden='true'></i></a>";
+						$row_delete = "<a data-id={$iti_id} title='Delete Itinerary' href='javascript:void(0)' class='btn_trash ajax_delete_iti'><i class='fa fa-trash-o' aria-hidden='true'></i></a>";
 					}
 					//Check for iti status
 					if( isset( $iti->booking_status ) && $iti->booking_status != 0 ){
@@ -710,7 +710,7 @@ class Itineraries extends CI_Controller {
 				}else{ 
 					//if itinerary in draft hide buttons for sales team
 					$row[] = $btn_edit . "
-						<a data-id={$iti_id} title='Delete Itinerary Permanent' href='javascript:void(0)' class='btn btn-danger delete_iti_permanent'><i class='fa fa-trash-o' aria-hidden='true'></i></a>";
+						<a data-id={$iti_id} title='Delete Itinerary Permanent' href='javascript:void(0)' class='btn_trash delete_iti_permanent'><i class='fa fa-trash-o' aria-hidden='true'></i></a>";
 				}	
 				//$row[] = $iti->added;
 				$row[] = $sent_status;
@@ -803,7 +803,7 @@ class Itineraries extends CI_Controller {
 				$row[] = $iti->travel_date;
 				$row[] = !empty($iti->iti_close_status) ? "<strong class='red'>CLOSED</strong>" : "<strong class='green'>OPEN</strong>";
 				//buttons
-				$btn_view = "<a target='_blank' title='View' href=" . site_url("itineraries/view/{$iti_id}/{$key}") . " class='btn btn-success' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
+				$btn_view = "<a target='_blank' title='View' href=" . site_url("itineraries/view/{$iti_id}/{$key}") . " class='btn_eye' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
 				
 				//check if itinerary closed
 				$btn_view_receipt = "";

@@ -78,7 +78,7 @@
                         	$m_target_input = "<input class='hideinputbox' min='5' max='100' type='number' value='{$m_target}' >";
                         	
                         	$booked_pkg = get_agents_booked_packages( $target->user_id, $month );
-                        	$update_btn = "<a title='Update Target' href='javascript: void(0)' class='btn btn-success assign_target' ><i class='fa fa-pencil' aria-hidden='true'></i></a>";
+                        	$update_btn = "<a title='Update Target' href='javascript: void(0)' class='btn_pencil assign_target' ><i class='fa fa-pencil' aria-hidden='true'></i></a>";
                         	
                         	echo "<tr data-total_target= '{$m_target}' data-agent_id='{$target->user_id}' >
                         		<td>{$counter}.</td>

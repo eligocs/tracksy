@@ -22,8 +22,8 @@
 				if($message){ echo '<span class="help-block help-block-success">'.$message.'</span>'; }
 			?>
 			<div class="portlet-body">
-				<div class="table-responsive">
-					<table class="table table-bordered">
+				<div class="table-responsive margin-top-15">
+					<table class="table table-striped display">
 						<thead>
 							<tr>
 								<th> # </th>

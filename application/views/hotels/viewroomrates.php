@@ -10,8 +10,8 @@
 				<a class="btn btn-success" href="<?php echo site_url("hotels/addroomrates"); ?>" title="Add Hotel Room Rates">Add Hotel Room Rates</a>
 			</div>
 			<div class="portlet-body">
-				<div class="table-responsive">
-					<table id="room_rates" class="table table-bordered">
+				<div class="table-responsive margin-top-15">
+					<table id="room_rates" class="table table-striped display">
 						<thead>
 							<tr>
 								<th> # </th>

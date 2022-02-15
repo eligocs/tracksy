@@ -7,7 +7,7 @@
 					<a class="btn btn-success" href="<?php echo site_url("marketing"); ?>" title="Back">Back</a>
 				</div>
 			</div>
-			<div class="portlet-body">
+			<div class="portlet-body second_custom_card">
 			<?php if($m_user){ 
 				$muser = $m_user[0];
 				$view = $views[0];
@@ -119,7 +119,6 @@
 				
 			
 			<div class="clearfix"></div>
-			<hr>
 			<div class="col-md-12">
 				<div class="margiv-top-10 ">
 					<input type="hidden" name="m_id" id="id" value="<?php echo $muser->id; ?>">

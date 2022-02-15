@@ -649,7 +649,7 @@ div#accordion3 .panel.panel-default {
     background: rgb(236, 238, 239) !important;
 }
 
-table#itinerary tbody tr td a {
+table#itinerary tbody tr td .btn-success {
     padding: 4px 8px !important;
     margin-bottom: 3px !important;
 }
@@ -2591,7 +2591,7 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
 
 /* --table-responsive action button Css-- */
 .table-responsive tr td a {
-    margin-right: 12px;
+    margin-right: 6px;
     /* background: transparent; */
 }
 
@@ -2695,4 +2695,12 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
 
 .font_size_18{
     font-size: 18px;
+}
+
+.border_right_none{
+    border-right: none !important; 
+}
+
+.margin_left_15{
+    margin-left: 15px;
 }

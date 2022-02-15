@@ -438,11 +438,11 @@ class Hotels extends CI_Controller {
 					
 					if( is_admin() ){
 						//Delete
-						$row_delete = "<a title='delete' href='javascript:void(0)' data-id = {$rate->htr_id} class='btn btn-danger ajax_delete_hotelroomrates'><i class='fa fa-trash-o'></i></a>";
+						$row_delete = "<a title='delete' href='javascript:void(0)' data-id = {$rate->htr_id} class='btn_trash ajax_delete_hotelroomrates'><i class='fa fa-trash-o'></i></a>";
 					}
 		
 					// edit 
-					$row[] = "<a title='edit' href=" . site_url("hotels/editroomrates/{$rate->htr_id}") . " class='btn btn-success' ><i class='fa fa-pencil'></i></a>". $row_delete; 
+					$row[] = "<a title='edit' href=" . site_url("hotels/editroomrates/{$rate->htr_id}") . " class='btn_pencil' ><i class='fa fa-pencil'></i></a>". $row_delete; 
 					
 					$data[] = $row;
 				}

@@ -1518,9 +1518,12 @@ tr.repeat_follow:hover {
 }
 
 .select_user {
-  color: #FFF;
+  /* color: #FFF;
   background-color: #d64635;
-  border-color: #d84f3f;
+  border-color: #d84f3f; */
+  color: #060606;
+  background-color: #ffffff;
+  border-color: #cecac9;
 }
 
 .dataTables_processing {

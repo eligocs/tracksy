@@ -27,6 +27,7 @@
 		</div>	
 		
 			<div class=" ">
+				<div class="second_custom_card  margin-bottom-20">
 				<!--start filter section-->
 				<form id="form-filter" class="form-horizontal <?php echo $hideClass; ?>">
 					<div class="actions custom_filter">
@@ -65,12 +66,13 @@
 						<input type="submit" class="btn btn-success btn-block" value="Filter">
 						</div>
 					
-				</form><!--End filter section-->	
+				</form><!--End filter section-->
+				</div>
 			</div> 
 			
-			<div class="portlet-body">
+			<div class="portlet-body custom_card">
 				<div class="table-responsive">
-					<table id="payments" class="table table-bordered">
+					<table id="payments" class="table table-striped">
 						<thead>
 							<tr>
 								<th> # </th>

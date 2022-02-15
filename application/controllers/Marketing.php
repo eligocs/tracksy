@@ -251,10 +251,10 @@ class Marketing extends CI_Controller {
 					$row[] = get_marking_cat_name($cat->cat_id);
 					
 					if( is_admin() ){
-						$del = "<a title='delete' href='javascript:void(0)' data-id = {$cat->id} class='btn btn-danger ajax_delete_user'><i class='fa fa-trash-o'></i></a>";
+						$del = "<a title='delete' href='javascript:void(0)' data-id = {$cat->id} class='btn_trash ajax_delete_user'><i class='fa fa-trash-o'></i></a>";
 					}
-					$btn = "<a title='edit' href=" . site_url("marketing/edit/{$cat->id}") . " class='btn btn-success ajax_edit_user_table' ><i class='fa fa-pencil'></i></a>"; 
-					$btn .= "<a title='edit' href=" . site_url("marketing/view/{$cat->id}") . " class='btn btn-success' ><i class='fa fa-eye'></i></a>"; 
+					$btn = "<a title='edit' href=" . site_url("marketing/edit/{$cat->id}") . " class='btn_pencil ajax_edit_user_table' ><i class='fa fa-pencil'></i></a>"; 
+					$btn .= "<a title='edit' href=" . site_url("marketing/view/{$cat->id}") . " class='btn_Eye' ><i class='fa fa-eye'></i></a>"; 
 					
 					$row[] = $btn . $del;
 					$row[] = !empty($cat->agent_id) ? get_user_name( $cat->agent_id ) : "";
