@@ -488,7 +488,7 @@
 														</div>
 													<?php break;
 													default:
-														continue2;
+														// continue;
 													break; ?>
 												<?php } ?>
 												<!--End Installment Condition-->

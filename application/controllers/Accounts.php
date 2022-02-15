@@ -537,6 +537,7 @@
    	//Send invoice
    	public function ajax_send_receipt(){
    		$user = $this->session->userdata('logged_in');
+		//    var_dump($user);die;
    		$user_id = $user['user_id'];
    		if( ( $user['role'] == '99' || $user['role'] == '98' || $user['role'] == '93' ) && isset( $_POST['lead_id'] ) ){
    			$id 	= $this->input->post("id", true);

@@ -3048,6 +3048,7 @@ class Itineraries extends CI_Controller {
 	
 	/* View PDF */
 	public function pdf(){
+		
 		$this->load->library('Pdf');
 		$iti_id = trim($this->uri->segment(3));
 		$temp_key = trim($this->uri->segment(4));
