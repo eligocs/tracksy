@@ -2970,6 +2970,7 @@ class Itineraries extends CI_Controller {
 				$bccEmails 	= !empty($bcc_emails) ? $bcc_emails : "";
 				$ccEmails 	= !empty($cc_email) ? $cc_email : "";
 				
+				// var_dump($iti->iti_type);die;
 				/* //get message template */
 				if( $iti->iti_type == 2 ){
 					$message = $this->load->view("accommodation/mail", $data, TRUE);
@@ -2977,6 +2978,7 @@ class Itineraries extends CI_Controller {
 					$message = $this->load->view("itineraries/mail", $data, TRUE);
 				}
 				
+				// var_dump($message);die;
 				$to = trim( $customer_email );
 				/*send email*/
 				$sent_mail = sendEmail($to, $subject, $message, $bccEmails, $ccEmails);

@@ -216,8 +216,7 @@
 										<div class="mt-repeater-hotel tour_hotel_repeater">
 											<div data-repeater-list="hotel_meta" class="hotel_repeater">
 											<?php $hotel_meta = unserialize( $iti->hotel_meta ); 
-												$count_hotel = count( $hotel_meta );
-												//print_r( $hotel_meta );
+												$count_hotel = !empty($hotel_meta) ? count( $hotel_meta ) : '';
 												if( !empty( $hotel_meta ) ){ ?>
 													<input type="hidden" id="edit_type" value="edit">
 													<?php for ( $i = 0; $i < $count_hotel; $i++ ) { ?>

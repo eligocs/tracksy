@@ -333,7 +333,7 @@
 										</div>
 										<div class="clearfix"></div>
 										<!--Flight Section-->
-										<?php $flight = $flight_details[0]; ?>
+										<?php $flight =!empty($flight_details[0]) ? $flight_details[0] : ''; ?>
 										<section class="well details-package" id="flight_section" <?php if( isset($iti->is_flight) && $iti->is_flight  == 1 ){ echo "style='display: block;'"; } ?> >
 											<h3 class="text-center">Flight Details</h3>
 											<div class="text-center">
@@ -457,7 +457,7 @@
 										</section>	
 										<!--End Flight Section-->
 										<!--Train Section-->
-										<?php $train = $train_details[0]; ?>
+										<?php $train =  !empty($train_details[0]) ?  $train_details[0] : ''; ?>
 										<section class="well details-package" id="train_section" <?php if( isset($iti->is_train) && $iti->is_train  == 1 ){ echo "style='display: block;'"; } ?> >
 											<h3 class="text-center">Train Details</h3>
 											<div class="text-center">

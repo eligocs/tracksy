@@ -1578,9 +1578,9 @@
 														<td>{$total_nights}</td>
 													</tr>";
 												break;
-												default:
-													continue;
-												break;
+												// default:
+												// 	continue;
+												// break;
 											}
 										}
 									}
