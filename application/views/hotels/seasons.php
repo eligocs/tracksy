@@ -22,7 +22,7 @@
 			</div>
 			<div class="portlet-body">
 				<div class="table-responsive">
-					<table id="hotels" class="table table-bordered">
+					<table id="hotels" class="table table-striped display">
 						<thead>
 							<tr>
 								<th> # </th>
@@ -37,7 +37,7 @@
 								foreach( $seasons as $season ){
 									echo "<tr><td>{$i}</td>
 										<td>{$season->season_name}</td>
-									<td><a href=" . site_url("hotels/editseason/{$season->id}") . " class='btn btn-success' >Edit</a>";
+									<td><a href=" . site_url("hotels/editseason/{$season->id}") . " class='btn_pencil' ><i class='fa fa-pencil' aria-hidden='true'></i></a>";
 									
 									//Show delete button if season greater than four
 									/* if( $i > 4 ){

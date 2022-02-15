@@ -117,11 +117,11 @@ class Vehicles extends CI_Controller {
 					$row[] = $vehicle->car_rate ? $vehicle->car_rate . " /-" : '';
 					if( is_admin() ){
 						//Delete
-						$row_delete = "<a title='delete' href='javascript:void(0)' data-id = {$vehicle->id} class='btn btn-danger ajax_delete_cabs'><i class='fa fa-trash-o'></i></a>";
+						$row_delete = "<a title='delete' href='javascript:void(0)' data-id = {$vehicle->id} class='btn_trash ajax_delete_cabs'><i class='fa fa-trash-o'></i></a>";
 					}
 					
 					//edit
-					$row[] = "<a title='edit' href=" . site_url("vehicles/edit/{$vehicle->id}") . " class='btn btn-success' ><i class='fa fa-pencil'></i></a>" . $row_delete;
+					$row[] = "<a title='edit' href=" . site_url("vehicles/edit/{$vehicle->id}") . " class='btn_pencil' ><i class='fa fa-pencil'></i></a>" . $row_delete;
 					$data[] = $row;
 					
 				}
@@ -175,13 +175,13 @@ class Vehicles extends CI_Controller {
 					$row[] = $c;
 					if( is_admin() ){
 						//Delete
-						$row_delete = "<a title='delete' href='javascript:void(0)' data-id = {$trans->id} class='btn btn-danger ajax_delete_trans'><i class='fa fa-trash-o'></i></a>";
+						$row_delete = "<a title='delete' href='javascript:void(0)' data-id = {$trans->id} class='btn_trash ajax_delete_trans'><i class='fa fa-trash-o'></i></a>";
 					}
 					//edit
-					$edit = "<a title='edit' href=" . site_url("vehicles/transporteredit/{$trans->id}") . " class='btn btn-success' ><i class='fa fa-pencil'></i></a>";
+					$edit = "<a title='edit' href=" . site_url("vehicles/transporteredit/{$trans->id}") . " class='btn_pencil' ><i class='fa fa-pencil'></i></a>";
 					
 					//view
-					$row[] = "<a title='view' href=" . site_url("vehicles/transporterview/{$trans->id}") . " class='btn btn-success' ><i class='fa fa-eye'></i></a>" . $edit . $row_delete;
+					$row[] = "<a title='view' href=" . site_url("vehicles/transporterview/{$trans->id}") . " class='btn_eye' ><i class='fa fa-eye'></i></a>" . $edit . $row_delete;
 					$data[] = $row;
 					
 				}
