@@ -311,6 +311,26 @@ class Global_Model extends CI_Model
         return $result;
     }
 	
+
+	public function getuserdata( $id) { 
+		$this->db->select('*'); 
+		$this->db->from('users'); 
+		$this->db->where('user_id', $id ); 
+		$q = $this->db->get();
+		$res = $q->row(); 
+			if ($res) {
+				if (!empty($getCol)) {
+					$result =  $res[0]->$getCol;
+				}else{
+					$result = $res;
+				}
+			} else {
+				$result = false;
+			}
+			return $result;
+    }
+
+
 	//get all data without key=>value in where
 	public function getdata_where( $tablename, $where = NULL , $getCol = NULL, $order_key = NULL, $limit=NULL ) {
         $table = $tablename;

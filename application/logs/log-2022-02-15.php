@@ -29,3 +29,5 @@ ERROR - 2022-02-15 14:50:27 --> Severity: Warning --> count(): Parameter must be
 ERROR - 2022-02-15 14:50:27 --> Severity: 8192 --> The each() function is deprecated. This message will be suppressed on further calls C:\xampp\htdocs\trackv2\application\libraries\TCPDF\tcpdf.php 16542
 ERROR - 2022-02-15 15:44:57 --> Severity: Warning --> Use of undefined constant continue2 - assumed 'continue2' (this will throw an Error in a future version of PHP) C:\xampp\htdocs\trackv2\application\models\Hotelbooking_model.php 132
 ERROR - 2022-02-15 15:44:57 --> Severity: Warning --> Use of undefined constant continue2 - assumed 'continue2' (this will throw an Error in a future version of PHP) C:\xampp\htdocs\trackv2\application\models\Hotelbooking_model.php 132
+ERROR - 2022-02-15 15:54:18 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\tracksy\application\helpers\yatra_helper.php 159
+ERROR - 2022-02-15 15:54:19 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\tracksy\application\helpers\yatra_helper.php 159
