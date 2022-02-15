@@ -1303,7 +1303,7 @@ class Itineraries extends CI_Controller {
 				//pending_price = 4 (Request to super manager) 
 				$update_data["pending_price"] = 4;
 				$to		 	= super_manager_email();
-				$subject 	= "Sampuran Yatra <Price verfiy/update request of Itinerary id: {$iti_id}>";
+				$subject 	= "Track Itinerary <Price verfiy/update request of Itinerary id: {$iti_id}>";
 				$msg 		= "Price request to update by manager.Click below link to update/verfiy price.<br>";
 				$msg 		.= "{$link}";
 			}else{
@@ -1311,7 +1311,7 @@ class Itineraries extends CI_Controller {
 				$update_data["pending_price"] = 2;
 				//Message to agent
 				$to		 	= get_user_email($agent_id);
-				$subject 	= "Sampuran Yatra <Price Updated of Itinerary id: {$iti_id}>";
+				$subject 	= "Track Itinerary <Price Updated of Itinerary id: {$iti_id}>";
 				$msg 		= "Price successfully updated by manager.Click below link to view itinerary.<br>";
 				$msg 		.= "{$link}";
 			}
@@ -1424,7 +1424,7 @@ class Itineraries extends CI_Controller {
 			
 			//Message to agent
 			$to		 = get_user_email($agent_id);
-			$subject = "Sampuran Yatra <Price Updated of Itinerary id: {$iti_id}>";
+			$subject = "Track Itinerary <Price Updated of Itinerary id: {$iti_id}>";
 			$msg = "Price successfully updated by manager.Click below link to view itinerary.<br>";
 			$msg .= "{$link}";
 			//Update data	
@@ -1499,7 +1499,7 @@ class Itineraries extends CI_Controller {
 				//sent mail to agent after price updated
 				$link = "<a class='btn btn-success' target='_blank' href=" . site_url("itineraries/view/{$iti_id}/{$temp_key}") . " title='View'>Click to view itinerary</a>";
 				$to		 = get_user_email($agent_id);;
-				$subject = "Sampuran Yatra < Itinerary Rejected Itinerary id: {$iti_id}>";
+				$subject = "Track Itinerary < Itinerary Rejected Itinerary id: {$iti_id}>";
 				$msg = "Itinerary rejected by manager.Click below link to view itinerary.<br>";
 				$msg .= "{$link}";
 				
@@ -1908,7 +1908,7 @@ class Itineraries extends CI_Controller {
 				//sent mail to agent after price updated
 				$link = "<a class='btn btn-success' target='_blank' href=" . site_url("itineraries/view/{$iti_id}/{$tmp}") . " title='View'>Click to view itinerary</a>";
 				
-				$sub 			= "New Itinerary Booked <sampuranyatra.org>";
+				$sub 			= "New Itinerary Booked <Track Itinerary.org>";
 				$msg 			= "Itinerary Booked <br>";
 				$msg 			.= "Final Amount: {$final_amount} <br>";
 				$msg 			.= "Itinerary Id: {$iti_id} <br>";
@@ -1920,13 +1920,13 @@ class Itineraries extends CI_Controller {
 				/*
 				$link = "<a class='btn btn-success' target='_blank' href=" . site_url("itineraries/view/{$iti_id}/{$tmp}") . " title='View'>Click to view itinerary</a>";
 				$linkClientView = "<a title='View' target='_blank' href=" . site_url("promotion/itinerary/{$iti_id}/{$tmp}") . " class='btn btn-success' >Click to check itinerary</a>";
-				$sub 			= "New Itinerary Booked <sampuranyatra.org>";
+				$sub 			= "New Itinerary Booked <Track Itinerary.org>";
 				$msg 			= "Itinerary Booked <br>";
 				$msg 			.= "Final Amount: {$final_amount} <br>";
 				$msg 			.= "Itinerary Id: {$iti_id} <br>";
 				$msg 			.= "Customer Name: {$customer_name} <br>";
 				$msg 			.= "{$link}<br>";
-				$sub_c 			= "Itinerary Booked <sampuranyatra.org>";
+				$sub_c 			= "Itinerary Booked <Track Itinerary.org>";
 				$msg_c 			= "Itinerary Booked <br>";
 				$msg_c 			.= "Final Amount: {$final_amount} <br>";
 				$msg_c 			.= "Itinerary Id: {$iti_id} <br>";
@@ -1939,7 +1939,7 @@ class Itineraries extends CI_Controller {
 				//send msg for customer on Itinerary Booked 
 				$iti_link = site_url("promotion/itinerary/{$iti_id}/{$tmp}");
 				
-				$mobile_customer_sms = "Your itinerary is booked. Please {$iti_link} .For more info contact us. Thanks<Sampuranyatra>";
+				$mobile_customer_sms = "Your itinerary is booked. Please {$iti_link} .For more info contact us. Thanks<Track Itinerary>";
 				$cus_mobile = "{$customer_contact}";
 				if( !empty( $cus_mobile ) ){
 					$sendcustomer_sms = pm_send_sms( $cus_mobile, $mobile_customer_sms );
@@ -2117,7 +2117,7 @@ class Itineraries extends CI_Controller {
 					//discount_rate_request = 2 (Sent to supermanager) 
 					$update_data["discount_rate_request"] = 2;
 					$to		 = super_manager_email();
-					$subject = "Sampuran Yatra <Price verfiy/update request of Itinerary id: {$iti_id}>";
+					$subject = "Track Itinerary <Price verfiy/update request of Itinerary id: {$iti_id}>";
 					$msg = "Price request to update by manager.Click below link to update/verfiy price.<br>";
 					$msg .= "{$link}";
 				}else{
@@ -2148,7 +2148,7 @@ class Itineraries extends CI_Controller {
 				
 					//Message to agent
 					$to		 = get_user_email($agent_id);
-					$subject = "Sampuran Yatra <Price Updated of Itinerary id: {$iti_id}>";
+					$subject = "Track Itinerary <Price Updated of Itinerary id: {$iti_id}>";
 					$msg = "Price successfully updated by manager.Click below link to view itinerary.<br>";
 					$msg .= "{$link}";
 					
@@ -2156,14 +2156,14 @@ class Itineraries extends CI_Controller {
 					//Sent Mail to Customer 
 					$link1 = "<a title='View' target='_blank' href=" . site_url("promotion/itinerary/{$iti_id}/{$temp_key}") . " class='btn btn-success' >Click to check itinerary</a>";
 					$to_c = get_customer_email( $customer_id );
-					$sub = "Check new rates on your itinerary <Sampuranyatra.org>";
+					$sub = "Check new rates on your itinerary <Track Itinerary.org>";
 					$msgs = "New rates updated on your itinerary please check below link.<br>";
 					$msgs .= "{$link1}";
 					sendEmail($to_c, $sub, $msgs); 
 					
 					//send msg for customer on price updated
 					$iti_link = site_url("promotion/itinerary/{$iti_id}/{$temp_key}");
-					$mobile_customer_sms = "Discount Price Updated on your itinerary. Please {$iti_link} .Thanks <Sampuranyatra Pvt Ltd.>";
+					$mobile_customer_sms = "Discount Price Updated on your itinerary. Please {$iti_link} .Thanks <Track Itinerary Pvt Ltd.>";
 					$cus_mobile = "{$customer_contact}";
 					if( !empty( $cus_mobile ) ){
 						$sendcustomer_sms = pm_send_sms( $cus_mobile, $mobile_customer_sms );
@@ -2278,14 +2278,14 @@ class Itineraries extends CI_Controller {
 					$link1 = "<a title='View' target='_blank' href=" . site_url("promotion/itinerary/{$iti_id}/{$temp_key}") . " class='btn btn-success' >Click to check itinerary</a>";
 					
 					$to_c = get_customer_email( $customer_id );
-					$sub = "Check new rates on your itinerary <Sampuranyatra.org>";
+					$sub = "Check new rates on your itinerary <Track Itinerary.org>";
 					$msgs = "New rates updated on your itinerary please check below link.<br>";
 					$msgs .= "{$link1}";
 					sendEmail($to_c, $sub, $msgs); 
 					
 					// send msg for customer on price updated 
 					$iti_link = site_url("promotion/itinerary/{$iti_id}/{$temp_key}");
-					$mobile_customer_sms = "Discount Price Updated on your itinerary. Please {$iti_link} .Thanks <Sampuranyatra Pvt Ltd.>";
+					$mobile_customer_sms = "Discount Price Updated on your itinerary. Please {$iti_link} .Thanks <Track Itinerary Pvt Ltd.>";
 					$cus_mobile = "{$customer_contact}";
 					if( !empty( $cus_mobile ) ){
 						$sendcustomer_sms = pm_send_sms( $cus_mobile, $mobile_customer_sms );
@@ -2296,7 +2296,7 @@ class Itineraries extends CI_Controller {
 					$link = "<a class='btn btn-success' target='_blank' href=" . site_url("itineraries/view/{$iti_id}/{$temp_key}") . " title='View'>Click to view itinerary</a>";
 					//Message to agent
 					$to		 = get_user_email($agent_id);
-					$subject = "Sampuran Yatra <Price Updated of Itinerary id: {$iti_id}>";
+					$subject = "Track Itinerary <Price Updated of Itinerary id: {$iti_id}>";
 					$msg = "Price successfully updated by manager.Click below link to view itinerary.<br>";
 					$msg .= "{$link}";
 				
@@ -2475,7 +2475,7 @@ class Itineraries extends CI_Controller {
 				$agent_username = get_user_name( trim($agent_id) );
 				$link = "<a title='View' target='_blank' href=" . site_url("promotion/itinerary/{$iti_id}/{$temp_key}") . " class='btn btn-success' >Click to check itinerary</a>";
 				$to = get_customer_email( $customer_id );
-				$subject = "New comment on your itinerary <Sampuranyatra.org>";
+				$subject = "New comment on your itinerary <Track Itinerary.org>";
 				$msg = "New comment on your itinerary by : <strong> {$agent_username} </strong>.<br>";
 				$msg .= "{$link}";
 				$sent_mail = sendEmail($to, $subject, $msg);
@@ -2557,7 +2557,7 @@ class Itineraries extends CI_Controller {
 			//sent mail to manager
 			$manager_email = manager_email();
 			$to		 	= $manager_email;
-			$subject 	= "Sampuran Yatra <price update request of itinerary id: {$iti_id}>";
+			$subject 	= "Track Itinerary <price update request of itinerary id: {$iti_id}>";
 			$msg 		= "New itnerary created by <strong> {$agent_username} </strong>.<br>";
 			$msg 		.= "{$link}";
 			$sent_mail 	= sendEmail( $to, $subject, $msg );
@@ -2628,7 +2628,7 @@ class Itineraries extends CI_Controller {
 			$link = "<a class='btn btn-success' target='_blank' href=" . site_url("itineraries/view/{$iti_id}/{$temp_key}") . " title='View'>Click to view itinerary</a>";
 			$manager_email = manager_email();
 			$to		 = $manager_email;
-			$subject = "Sampuran Yatra <Price Discount request of itinerary id: {$iti_id}>";
+			$subject = "Track Itinerary <Price Discount request of itinerary id: {$iti_id}>";
 			$msg = "Price discount request by <strong> {$agent_username} </strong>.<br>";
 			$msg .= "{$link}";
 			
@@ -2700,7 +2700,7 @@ class Itineraries extends CI_Controller {
 					/* send msg for customer on itinerary send */
 					$iti_link = site_url("promotion/itinerary/{$iti_id}/{$temp_key}");
 					
-					$mobile_customer_sms = "Updated Itinerary send to your email {$customer_email}. If you not recieve itinerary in your inbox please find the mail in spam. {$iti_link} .Thanks <Sampuranyatra Pvt Ltd.>";
+					$mobile_customer_sms = "Updated Itinerary send to your email {$customer_email}. If you not recieve itinerary in your inbox please find the mail in spam. {$iti_link} .Thanks <Track Itinerary Pvt Ltd.>";
 					
 					//Check if additional contact is not empty
 					$addContact = !empty($additonal_contact) ? $additonal_contact : "";
@@ -3141,7 +3141,7 @@ class Itineraries extends CI_Controller {
 			$manager_email = manager_email();
 			$admin_email = admin_email();
 			$to	= array( $manager_email, $admin_email );
-			$subject = "Sampuran Yatra <price Amendment request of itinerary id: {$iti_id}>";
+			$subject = "Track Itinerary <price Amendment request of itinerary id: {$iti_id}>";
 			$msg = "Itnerary amendment request By Agent: <strong> {$agent_username} </strong>.<br>";
 			$msg .= "{$link}";
 			$sent_mail = sendEmail($to, $subject, $msg);
@@ -3213,7 +3213,7 @@ class Itineraries extends CI_Controller {
 				//sent mail to agent after price updated
 				$link = "<a class='btn btn-success' target='_blank' href=" . site_url("itineraries/view_amendment/{$id}") . " title='View'>Click to view itinerary</a>";
 				$to		 = get_user_email($agent_id);;
-				$subject = "Sampuran Yatra <Amendment In Price of Itinerary id: {$iti_id}>";
+				$subject = "Track Itinerary <Amendment In Price of Itinerary id: {$iti_id}>";
 				$msg = "Price successfully updated by manager.Click below link to view itinerary.<br>";
 				$msg .= "{$link}";
 				
@@ -3438,19 +3438,19 @@ class Itineraries extends CI_Controller {
 				//sent mail to client and agent tmp
 				$manager_email 	= manager_email();
 				$hotel_booking_email = hotel_booking_email();
-				$admins 		= array( $hotel_booking_email, "accounts1@sampuranyatra.in" );
+				$admins 		= array( $hotel_booking_email, "accounts1@Track Itinerary.in" );
 				$to				= get_customer_email( $customer_id );
 				
 				//sent mail to agent after price updated
 				$link = "<a class='btn btn-success' target='_blank' href=" . site_url("itineraries/view/{$iti_id}/{$temp_key}") . " title='View'>Click to view itinerary</a>";
 				$linkClientView = "<a title='View' target='_blank' href=" . site_url("promotion/itinerary/{$iti_id}/{$temp_key}") . " class='btn btn-success' >Click to check itinerary</a>";
-				$sub 			= "New Itinerary Booked <sampuranyatra.org>";
+				$sub 			= "New Itinerary Booked <Track Itinerary.org>";
 				$msg 			= "Itinerary Booked <br>";
 				$msg 			.= "Final Amount: {$final_amount} <br>";
 				$msg 			.= "Itinerary Id: {$iti_id} <br>";
 				$msg 			.= "Customer Name: {$customer_name} <br>";
 				$msg 			.= "{$link}<br>";
-				$sub_c 			= "Itinerary Booked <sampuranyatra.org>";
+				$sub_c 			= "Itinerary Booked <Track Itinerary.org>";
 				
 				$msg_c 			= "Itinerary Booked <br>";
 				$msg_c 			.= "Final Amount: {$final_amount} <br>";
@@ -3464,7 +3464,7 @@ class Itineraries extends CI_Controller {
 				}
 				
 				$msg_c 		.= "{$linkClientView}<br>";
-				$msg_c 		.= " Thanks <Sampuranyatra><br>";
+				$msg_c 		.= " Thanks <Track Itinerary><br>";
 				
 				//send mail to customer
 				$sent_mail	 = sendEmail($to, $sub_c, $msg_c);
@@ -3475,7 +3475,7 @@ class Itineraries extends CI_Controller {
 				/* send msg for customer on Itinerary Booked */
 				$iti_link = site_url("promotion/itinerary/{$iti_id}/{$temp_key}");
 				
-				$mobile_customer_sms = "Your itinerary is booked. Please {$iti_link} .For more info contact us. Thanks<Sampuranyatra>";
+				$mobile_customer_sms = "Your itinerary is booked. Please {$iti_link} .For more info contact us. Thanks<Track Itinerary>";
 				$cus_mobile = "{$customer_contact}";
 				if( !empty( $cus_mobile ) ){
 					$sendcustomer_sms = pm_send_sms( $cus_mobile, $mobile_customer_sms );

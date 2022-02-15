@@ -369,7 +369,7 @@ class Newsletters extends CI_Controller {
 				/* clear email variable */
 				$this->email->clear();
 					$this->email
-					->from($from, 'Sampuran Yatra Pvt. Ltd.')
+					->from($from, 'Track Itinerary Pvt. Ltd.')
 					->to( $admin_email )
 					->bcc( $filtered_emails )
 					->subject( $subject )
