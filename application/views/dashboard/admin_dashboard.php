@@ -821,7 +821,7 @@
             <div class="portlet-title">
                <div class="caption">
                   <i class="fa fa-bar-chart" style="font-size:18px;"></i>
-                  <span class="caption-subject font-green bold uppercase">Statistics</span>
+                  <span class="caption-subject bold uppercase">Statistics</span>
                </div>
             </div>
             <div class="col-md-6">

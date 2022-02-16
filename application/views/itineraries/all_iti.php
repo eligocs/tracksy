@@ -45,7 +45,7 @@
                      
                      ?>
                         <!--start filter section-->
-                        <form id="form-filter" class="flex form-horizontal marginRight<?php echo $hideClass; ?>">
+                        <form id="form-filter" class=" form-horizontal <?php echo $hideClass; ?>">
                             <div class="actions custom_filter">
                                 <div class="row">
                                     <!--Calender-->
@@ -62,9 +62,15 @@
                                             <option value="2">Accommodation</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-6">
-                                        <strong>&nbsp; </strong><br>
-                                        <div class="btn-group" data-toggle="buttons">
+                                    <div class="col-md-3">
+                                        <label class="d_block margin_bottom_0" for="">&nbsp;</label>
+                                        <select class="form-control" name="" id="">
+                                            <option name="filter" value="all" id="all">All</option>
+                                            <option name="filter" value="9" id="approved">Approved</option>
+                                            <option name="filter" value="revised" id="revised">Revised</option>
+                                            <option name="filter" value="travel_date" id="travel_date">TD</option>
+                                        </select>
+                                        <!-- <div class="btn-group" data-toggle="buttons">
                                             <label class="btn btn-default btn-primary custom_active"><input type="radio"
                                                     name="filter" value="all" id="all" />All</label>
                                             <label class="btn btn-default btn-success custom_active"><input type="radio"
@@ -74,7 +80,7 @@
                                             <label title="Travel Date"
                                                 class="btn btn-default btn-danger custom_active"><input type="radio"
                                                     name="filter" value="travel_date" id="travel_date" />TD</label>
-                                        </div>
+                                        </div> -->
                                         <input type="hidden" name="date_from" id="date_from"
                                             data-date_from="<?php if( isset( $_GET["leadfrom"] ) ){ echo $_GET["leadfrom"] ; }  else { echo $first_day_this_month; } ?>"
                                             value="">
@@ -87,6 +93,9 @@
                                             value="<?php if( isset( $_GET['quotation'] ) ){ echo "true"; }else{ echo "false"; } ?>">
                                         <input type="hidden" name="todayStatus" id="todayStatus"
                                             value="<?php if( isset( $_GET["todayStatus"] ) ){ echo $_GET["todayStatus"]; } ?>">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="d_block margin_bottom_0" for="">&nbsp;</label>
                                         <input type="submit" class="btn btn-success" value="Filter">
                                     </div>
                                 </div>
