@@ -8,7 +8,7 @@ class Indiatourizm extends CI_Controller {
 		$this->load->library('form_validation');
 	}
 	
-	//Get all leads from india tourizm
+	//Get all leads from Itinerary Genrator
 	public function index(){
 		$user = $this->session->userdata('logged_in');
 		$u_id = $user['user_id'];
@@ -104,7 +104,7 @@ class Indiatourizm extends CI_Controller {
 		die(json_encode($res));
 	}
 	
-	//Get Instant call details from india tourizm
+	//Get Instant call details from Itinerary Genrator
 	public function instant_call(){
 		$user = $this->session->userdata('logged_in');
 		$u_id = $user['user_id'];

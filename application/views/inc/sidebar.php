@@ -60,7 +60,7 @@
 						<li class="nav-item  <?php if( $menu_name == "indiatourizm" || $menu_name == "customers" || $menu_name == "search" ){ echo 'active'; }?>">
 							<a href="javascript:;" class="nav-link nav-toggle">
 								<i class="fa fa-tripadvisor" aria-hidden="true"></i>
-								<span class="title">India Tourizm</span>
+								<span class="title">Itinerary Genrator</span>
 								<span class="arrow"></span>
 							</a>
 							<ul class="sub-menu">
@@ -89,7 +89,7 @@
 									</a>
 								</li>
 							</ul>
-						</li><!--end leads from india tourizm-->
+						</li><!--end leads from Itinerary Genrator-->
 					<?php }else{ ?>
 					
 						<li class="nav-item  <?php if( $menu_name == "customers" || $menu_name == "search"){ echo 'active'; }?>">
@@ -759,12 +759,12 @@
 						</ul>
 					</li>
 					
-					<!--all leads from india tourizm-->
+					<!--all leads from Itinerary Genrator-->
 					<?php if( is_leads_manager() ){ ?>
 					<li class="nav-item  <?php if( $menu_name == "indiatourizm" || $menu_name == "customers" || $menu_name == "search" ){ echo 'active'; }?>">
 						<a href="javascript:;" class="nav-link nav-toggle">
 							<i class="fa fa-tripadvisor" aria-hidden="true"></i>
-							<span class="title">India Tourizm</span>
+							<span class="title">Itinerary Genrator</span>
 							<span class="arrow"></span>
 						</a>
 						<ul class="sub-menu">
@@ -794,7 +794,7 @@
 								</a>
 							</li>
 						</ul>
-					</li><!--end leads from india tourizm-->
+					</li><!--end leads from Itinerary Genrator-->
 					<?php }else{ ?>
 						<li class="nav-item  <?php if( $menu_name == "customers" || $menu_name == "search" ){ echo 'active'; }?>">
 							<a href="javascript:;" class="nav-link nav-toggle">

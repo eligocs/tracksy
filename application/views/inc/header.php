@@ -69,8 +69,9 @@
                </a>
             </div>
             <strong class="red"> <?php //echo get_last_login() ?></strong>
-            <!--clock section-->
+            <!--clock section
             <div id="MyClockDisplay" class="clock"></div>
+         -->
             <!--new year-->
             <!--div class="marq_h">
                Welcome to 2019

@@ -2717,6 +2717,7 @@ class Itineraries extends CI_Controller {
 					"agent_id"			=> $team_leader,
 				);
 				
+				var_dump($notification_data);die;
 				//Insert notification
 				$this->global_model->insert_data( "notifications", $notification_data );
 				

@@ -210,7 +210,7 @@
                            <div class="number">
                               <span data-counter="counterup" data-value="<?php echo isset($today_ind_tour_query) ? $today_ind_tour_query : 0; ?>">0</span> 
                            </div>
-                           <div class="desc"> India Tourizm <br> Query  </div>
+                           <div class="desc"> Itinerary Genrator <br> Query  </div>
                         </div>
                      </a>
                   </div>

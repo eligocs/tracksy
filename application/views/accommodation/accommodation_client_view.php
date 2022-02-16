@@ -559,7 +559,7 @@
 													</tr>";
 												break;
 												default:
-													continue;
+													// continue;
 												break;
 											}
 										}

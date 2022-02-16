@@ -280,7 +280,7 @@
 													</tr>";
 												break;
 												default:
-													continue;
+													continue2;
 												break;
 											}
 										}
