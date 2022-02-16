@@ -39,6 +39,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
       <link href="<?php echo base_url();?>site/assets/css/custom.min.css" rel="stylesheet" type="text/css" />
       <link href="<?php echo base_url();?>site/assets/css/custom.css" rel="stylesheet" type="text/css" />
+      <link href="<?php echo base_url();?>site/assets/css/custom-new.css" rel="stylesheet" type="text/css" />
    </head>
    <!-- END HEAD -->
    <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white <?php echo $theme_css; ?>">
