@@ -424,6 +424,7 @@ ERROR - 2022-02-16 12:53:17 --> Severity: Warning --> "continue" targeting switc
 ERROR - 2022-02-16 12:54:07 --> Severity: Warning --> "continue" targeting switch is equivalent to "break". Did you mean to use "continue 2"? C:\xampp\htdocs\tracksy\application\views\accommodation\view_followup.php 283
 ERROR - 2022-02-16 13:18:34 --> Severity: Warning --> Undefined property: stdClass::$temp_key C:\xampp\htdocs\tracksy\application\controllers\Accounts.php 600
 ERROR - 2022-02-16 13:21:53 --> Severity: Compile Error --> Array and string offset access syntax with curly braces is no longer supported C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 16893
+<<<<<<< Updated upstream
 ERROR - 2022-02-16 14:32:01 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\tracksy\application\helpers\yatra_helper.php 159
 ERROR - 2022-02-16 14:32:22 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\tracksy\application\helpers\yatra_helper.php 159
 ERROR - 2022-02-16 14:32:23 --> Severity: Warning --> Trying to access array offset on value of type null C:\xampp\htdocs\tracksy\application\helpers\yatra_helper.php 159
@@ -994,3 +995,59 @@ ERROR - 2022-02-16 17:01:53 --> Severity: 8192 --> Required parameter $currentfo
 ERROR - 2022-02-16 17:01:53 --> Severity: 8192 --> Required parameter $currentfont follows optional parameter $str C:\xampp\htdocs\tracksy\application\libraries\TCPDF\include\tcpdf_fonts.php 2088
 ERROR - 2022-02-16 17:01:53 --> Severity: Warning --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\tracksy\system\core\Exceptions.php:271) C:\xampp\htdocs\tracksy\system\core\Common.php 570
 ERROR - 2022-02-16 17:01:53 --> Severity: Compile Error --> Array and string offset access syntax with curly braces is no longer supported C:\xampp\htdocs\tracksy\application\libraries\TCPDF\include\tcpdf_images.php 318
+=======
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
+>>>>>>> Stashed changes
+ERROR - 2022-02-16 18:18:22 --> Severity: Warning --> "continue" targeting switch is equivalent to "break". Did you mean to use "continue 2"? C:\xampp\htdocs\trackv2\application\views\accommodation\pdf.php 225
+ERROR - 2022-02-16 18:18:22 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\trackv2\application\libraries\TCPDF\tcpdf.php 6962
+ERROR - 2022-02-16 18:18:22 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\trackv2\application\libraries\TCPDF\tcpdf.php 6963
+ERROR - 2022-02-16 18:18:22 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\trackv2\application\libraries\TCPDF\tcpdf.php 6962
+ERROR - 2022-02-16 18:18:22 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\trackv2\application\libraries\TCPDF\tcpdf.php 6963
+ERROR - 2022-02-16 18:18:22 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\trackv2\application\libraries\TCPDF\tcpdf.php 6962
+ERROR - 2022-02-16 18:18:22 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\trackv2\application\libraries\TCPDF\tcpdf.php 6963
+ERROR - 2022-02-16 18:18:22 --> Severity: Notice --> Undefined variable: iti C:\xampp\htdocs\trackv2\application\views\accommodation\pdf.php 278
+ERROR - 2022-02-16 18:18:22 --> Severity: Notice --> Trying to get property 'iti_close_status' of non-object C:\xampp\htdocs\trackv2\application\views\accommodation\pdf.php 278
+ERROR - 2022-02-16 18:18:22 --> Severity: Notice --> Undefined variable: iti C:\xampp\htdocs\trackv2\application\views\accommodation\pdf.php 438
+ERROR - 2022-02-16 18:18:22 --> Severity: Notice --> Trying to get property 'booking_benefits_meta' of non-object C:\xampp\htdocs\trackv2\application\views\accommodation\pdf.php 438
+ERROR - 2022-02-16 18:18:22 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable C:\xampp\htdocs\trackv2\application\views\accommodation\pdf.php 439
+ERROR - 2022-02-16 18:18:22 --> Severity: 8192 --> The each() function is deprecated. This message will be suppressed on further calls C:\xampp\htdocs\trackv2\application\libraries\TCPDF\tcpdf.php 16542

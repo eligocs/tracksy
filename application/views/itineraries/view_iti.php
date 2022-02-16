@@ -53,13 +53,13 @@
          <div class="portlet box blue">
             <div class="portlet-title">
                <div class="caption">
-                  <i class="fa fa-users"></i> <strong>Lead Id: </strong><span class="mehroon"><?php echo $iti->customer_id; ?></span> &nbsp; &nbsp; 
+                  <i class="fa fa-users"></i> <strong>Lead Id: </strong><span class="text-white"><?php echo $iti->customer_id; ?></span> &nbsp; &nbsp; 
                   <?php if( is_admin_or_manager() ){ ?>
-                  <strong class=''>Lead Type: </strong> <span class='mehroon'><?php echo $cus_type; ?></span> <?php echo $ref_name . $ref_contact; ?>
+                  <strong class=''>Lead Type: </strong> <span><?php echo $cus_type; ?></span> <?php echo $ref_name . $ref_contact; ?>
                   <?php } ?>
                   <!--client country / state -->
-                  <?php echo !empty($country_name) ? " From: <span class='red'>" . $country_name . " ( $state_name ) </span>" : ""; ?>
-                  Q. Type: <strong class="red"> <?php echo check_iti_type( $iti->iti_id ) . ' ( ' . $iti->iti_package_type . ')'; ?></strong>
+                  <?php echo !empty($country_name) ? " From: <span>" . $country_name . " ( $state_name ) </span>" : ""; ?>
+                  Q. Type: <strong > <?php echo check_iti_type( $iti->iti_id ) . ' ( ' . $iti->iti_package_type . ')'; ?></strong>
                </div>
                <a class="btn btn-success pull-right" href="<?php echo site_url("itineraries"); ?>" title="Back">Back</a>
             </div>
@@ -74,10 +74,10 @@
             if( $pay_detail->iti_booking_status == 0 ){
             	echo '<h1 class="text-center green uppercase">Booked Itinerary</h1>';
             }else if( $pay_detail->iti_booking_status == 1 ){
-            	echo '<h1 class="text-center red uppercase">Itinerary On Hold</h1>';
+            	echo '<h1 class="text-center uppercase">Itinerary On Hold</h1>';
             }else{
-            	echo '<h1 class="text-center red uppercase">Itinerary Rejected By Manager</h1>';
-            	echo "<p class='text-center'><strong class='red'> Reason: </strong> {$pay_detail->approved_note}</p>";
+            	echo '<h1 class="text-center  uppercase">Itinerary Rejected By Manager</h1>';
+            	echo "<p class='text-center'><strong> Reason: </strong> {$pay_detail->approved_note}</p>";
             } ?>
          <div class="mt-element-step">
             <div class="row step-background-thin ">

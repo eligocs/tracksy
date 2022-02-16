@@ -8478,7 +8478,8 @@ h1 .label, h2 .label, h3 .label, h4 .label, h5 .label, h6 .label {
 }
 
 .modal-backdrop, .modal-backdrop.fade.in {
-    background-color: #333 !important
+    background-color: #333 !important;
+    z-index: inherit;
 }
 
 .note .highlight, .note code, .note.note-default {
