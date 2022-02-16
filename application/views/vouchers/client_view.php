@@ -12,6 +12,7 @@
    <body>
       <?php 
          if( isset(  $itinerary[0] ) && !empty( $vouchers[0] ) && !empty( $hotels[0] ) ){
+            var_dump("dfsajflkdsf");die;
          	$iti 		= $itinerary[0];
          	$pay		= $iti_payment_details[0];
          	$voucher 	= $vouchers[0];

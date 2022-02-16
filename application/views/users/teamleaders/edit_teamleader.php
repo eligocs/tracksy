@@ -26,17 +26,17 @@
 					<?php //dump( $assigned_mem ); ?>
 					<?php //echo $leader_data[0]->leader_id; ?>
 					<?php// dump( $all_unassigned_sales_agent ); ?>
-					<div class="col-md-4">
-						<div class="form-group-2">
-							<label class="control-label">Select Team Leader*</label>
-							<select name="leader_id" id="leader_id" required class="form-control">
-								<option value="">Select team leader</option>
 								<?php 
 								foreach ($assigned_mem as $user){
 									$selected =  $leader_data[0]->leader_id == $user ? "selected=selected" : "";
 									echo "<option ". $selected ." value='".$user . "'>" . ucfirst(get_user_name($user)) . "</option>";
 								}
 								?>
+					<div class="col-md-4">
+						<div class="form-group-2">
+							<label class="control-label">Select Team Leader*</label>
+							<select name="leader_id" id="leader_id" required class="form-control">
+								<option value="">Select team leader</option>
 							</select>		
 						</div>
 					</div>

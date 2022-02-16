@@ -3527,6 +3527,7 @@ class Itineraries extends CI_Controller {
 		$btype			= ucfirst($b_type);
 		
 		$account_team_email = get_accounts_team_email();
+		// var_dump($account_team_email);die;
 		
 		//check if iti status already updated
 		$check_iti = $this->global_model->getdata("iti_vouchers_status", array("iti_id" => $iti_id ));
