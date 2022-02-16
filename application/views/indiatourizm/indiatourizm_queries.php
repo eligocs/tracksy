@@ -4,7 +4,7 @@
 			<div class="portlet box blue">
 				<div class="portlet-title">
 					<div class="caption">
-						<i class="fa fa-cogs"></i>View All Queries From Itinerary Genrator
+						<i class="fa fa-cogs"></i>View All Queries From Query Generator
 					</div>
 					<?php if( is_admin() || is_leads_manager() ){ ?>
 						<a class="btn btn-success" href="<?php echo site_url("customers/add"); ?>" title="Add Customer">Add customer</a>

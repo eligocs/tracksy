@@ -8,7 +8,7 @@
 					<a class="btn btn-success" href="<?php echo site_url("marketing/viewcat"); ?>" title="Back">Back</a>
 				</div>
 			</div>
-			<div class="portlet-body">
+			<div class="portlet-body custom_card">
 				<div class="form-group col-md-4">
 					<label class="control-label">Category Name*</label>
 					<input  required type="text" name="category_name" placeholder="Category Name" class="form-control" value="" /> </div>

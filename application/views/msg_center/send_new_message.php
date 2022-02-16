@@ -17,7 +17,7 @@
 				if($eerr){ echo '<span class="help-block help-block-success"><span class="red">'.$eerr.'</span></span>'; }
 			?>
 			<!--Filter-->
-			<div class="cat_wise_filter">
+			<div class="cat_wise_filter custom_card margin-bottom-25">
 				<form id="filter_frm" >
 					<!--Get customers added by current agent if sales team-->
 					<?php if( isset( $user_role ) && $user_role == 96  ){ ?>
@@ -93,6 +93,7 @@
 					<?php }	?>
 					<div class="col-md-3">	
 						<div class="margiv-top-10">
+							<label class="d_block" for="">&nbsp;</label>
 							<button type="submit" class="btn green uppercase add_user">Get Customers</button>
 							<a href="javascript:void(0);" class="btn green uppercase reset_filter"><i class="fa fa-refresh"></i> Reset</a>
 						</div>
@@ -103,22 +104,24 @@
 			</div>
 			<div class="clearfix"></div>
 			<!--Sent Message Form -->
-			<form role='form' class='' method="post" style="display: none;" id='sendMessage'>
-				<div class="clearfix" id="customer_listing"></div>
-				<hr>
-				<div class="col-md-6">
-					<label>Type a text message* <span style='color: red; font-size: 12px;'>Note: Max 160 character</span></label>
-					<textarea required maxlength="160" name="text_message" class="form-control"></textarea>
-				</div>
-				<div class="clearfix"></div>
-				<hr class="clreafix" />
-				<div class="col-md-3">	
-					<div class="margiv-top-10">
-						<button type="submit" class="btn green uppercase add_user">Send Message</button>
+			<div class="row custom_card">
+				<form role='form' class='' method="post" style="display: none;" id='sendMessage'>
+					<div class="clearfix" id="customer_listing"></div>
+					<hr>
+					<div class="col-md-6">
+						<label>Type a text message* <span style='color: red; font-size: 12px;'>Note: Max 160 character</span></label>
+						<textarea required maxlength="160" name="text_message" class="form-control"></textarea>
 					</div>
-				</div>
-				<input type="hidden" name="action_type" value="add">
-			</form>
+					<div class="clearfix"></div>
+					<hr class="clreafix" />
+					<div class="col-md-3">	
+						<div class="margiv-top-10">
+							<button type="submit" class="btn green uppercase add_user">Send Message</button>
+						</div>
+					</div>
+					<input type="hidden" name="action_type" value="add">
+				</form>
+			</div>
 			<div class="clearfix" id="res"></div>
 		</div>	
 			

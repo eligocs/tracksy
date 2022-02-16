@@ -1535,7 +1535,7 @@ tr.repeat_follow:hover {
 .custom_filter .btn-group .btn {
   border: 1px solid #ffffff00;
 }
-
+/* 
 .custom_filter .btn-group .btn:nth-child(1) {
   background: #337ab7 !important;
 }
@@ -1571,7 +1571,7 @@ tr.repeat_follow:hover {
 .custom_filter .btn-group .btn:nth-child(9) {
   background: #bb3424 !important;
 }
-
+ */
 
 /* ------------------------ */
 /* ===Border Color Css */

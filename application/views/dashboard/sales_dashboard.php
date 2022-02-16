@@ -56,6 +56,61 @@
 		<h1 class="page-title"> Sales Team Dashboard
 			<small>recent itineraries,today's leads,today's followup, today's checkout</small>
 		</h1>
+		
+		<?php $user_data = get_user_info(); 
+         $h_user_role = isset( $user_data[0]->user_type ) ? $user_data[0]->user_type : "";
+         $h_user_id = isset( $user_data[0]->user_id ) ? $user_data[0]->user_id : "";
+          
+		  //if saleteam user show monthly target
+               if( $h_user_role == 99 || $h_user_role == 98   ){
+               	$mtarget = (int)get_total_target_by_month(); 
+               	$mbooked = (int)get_agents_booked_packages();
+               	//$mtarget = 10; 
+               	//$mbooked = 10;
+               	$percentage =  !empty( $mtarget ) ?  floor(($mbooked / $mtarget) * 100) : 0; ?>
+            <div class='header_target_section'>
+               <a href="<?php echo base_url("incentive"); ?>" title="Go to incentive page">
+                  <div class="progress" style="max-width:100%; min-width:250px;">
+                     <span class="target"><span style="color:#6200ff;">Booked: <?php echo $mbooked; ?></span> / <span style="color:red;">Target: <?php echo $mtarget; ?> </span></span>
+                     <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
+                        aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $percentage; ?>%">
+                     </div>
+                  </div>
+               </a>
+            </div>
+            <?php }else if( $h_user_role == 96 ){ ?>
+            <!--check teamleader-->
+            <?php if( !empty( get_teamleader() ) ){
+               $team_leader = get_teamleader();
+               echo "<div class='header_team-leader-name'>TEAM : <span title='Team Name ( Leader )'>{$team_leader}</span></div>";
+               } ?>
+            <!--end check teamleader-->
+            <?php
+               if( is_teamleader() ){ 
+               	$agent_in = is_teamleader();
+               	$mtarget = (int)get_total_target_by_month( $agent_in ); 
+               	$mbooked = (int)get_agents_booked_packages( NULL, NULL, $agent_in );
+               	//$mtarget = 10; 
+               	//$mbooked = 10;
+               	$percentage = !empty( $mtarget ) ? floor( ( $mbooked / $mtarget ) * 100) : 0;
+               }else{ 
+               	$mtarget = (int)get_agent_monthly_target(); 
+               	$mbooked = (int)get_agents_booked_packages();
+               	//$mtarget = 10; 
+               	//$mbooked = 10;
+               	$percentage =  !empty( $mtarget ) ?  floor(($mbooked / $mtarget) * 100) : 0;
+               } ?>
+            <div class='header_target_section'>
+               <a href="<?php echo base_url("incentive"); ?>" title="Go to incentive page">
+                  <div class="progress" style="max-width:100%; min-width:250px;">
+                     <span class="target"><span style="color:#6200ff;">Booked: <?php echo $mbooked; ?></span> / <span style="color:red;">Target: <?php echo $mtarget; ?> </span></span>
+                     <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
+                        aria-valuenow="<?php echo $percentage; ?>" aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $percentage; ?>%">
+                     </div>
+                  </div>
+               </a>
+            </div>
+            <?php }	?>
 		<!-- End ManyChat Button Booster -->
 		<div class="clearfix"></div>
 		

@@ -15,8 +15,8 @@
 		</div>
 		<!--start filter section-->
 		<div class="row marginBottom second_custom_card">
-			<form id="form-filter" class="form-horizontal marginRight">
-				<div class="actions custom_filter pull-right">
+			<form id="form-filter" class="form-horizontal marginRight margin-bottom-0 bg_white padding_zero">
+				<div class="actions custom_filter ">
 					<strong>Filter: </strong>
 					<div class="btn-group" data-toggle="buttons">
 						<label class="btn btn-default custom_active active"><input type="radio" name="filter" value="all" checked="checked" id="all"/>All</label>

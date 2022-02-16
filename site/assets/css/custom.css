@@ -2482,7 +2482,7 @@ input[type=checkbox] {
 
 
 .padding_zero{
-    padding: 0;
+    padding: 0 !important;
 }
 
 .margin_top_4{
@@ -2619,6 +2619,7 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
     font-size: 12px;
     display: inline-block;
     margin-right: 5px;
+    margin-bottom: 5px;
 }
 
 
@@ -2628,6 +2629,10 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
 
 .d-flex{
     display: flex;
+}
+
+.d_block{
+    display: block;
 }
 
 .check_order_status{
@@ -2656,7 +2661,7 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
 }
 
 .margin_bottom_0{
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
 }
 
 /* common tables action butoons  */
@@ -2671,6 +2676,14 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
 
 .btn_pencil {
     color: #0090ff;
+}
+
+.btn_send {
+    color: #4d97db;
+}
+
+.btn_send:hover{
+    columns: #4d97db;
 }
 
 .btn_pencil:hover, .btn_pencil:focus{
@@ -2703,4 +2716,14 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
 
 .margin_left_15{
     margin-left: 15px;
+}
+
+.bg_white{
+    background: #fff !important;
+}
+
+.btn.btn-default.custom_active.active {
+    color: white;
+    background: #e0296a;
+    border-radius: 5px !important;
 }

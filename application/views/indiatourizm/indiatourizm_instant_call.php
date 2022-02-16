@@ -4,7 +4,7 @@
 			<div class="portlet box blue">
 				<div class="portlet-title">
 					<div class="caption">
-						<i class="fa fa-cogs"></i>View All Instant Call From Itinerary Genrator
+						<i class="fa fa-cogs"></i>View All Instant Call From Query Generator
 					</div>
 				</div>
 			</div>

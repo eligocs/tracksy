@@ -15,18 +15,18 @@
          </div>
          <div class="marginBottom second_custom_card">
             <!--start filter section-->
-            <form id="form-filter" class="form-horizontal">
-               <div class="actions custom_filter pull-right">
+            <form id="form-filter" class="form-horizontal bg_white padding_zero margin_bottom_0">
+               <div class="actions custom_filter">
                   <label class="control-label col-md-1"><strong>Filter: </strong></label>
                   <div class="col-md-11">
-                     <div class="btn-group btn-group-justified" data-toggle="buttons">
-                        <label class="btn btn-default btn-primary custom_active active"><input type="radio" name="filter" value="all" checked="checked" id="all"/>All</label>
-                        <label class="btn btn-default btn-success custom_active"><input type="radio" name="filter" value="upcomming" id="upcomming" />Upcomming</label>
-                        <label class="btn btn-default grey-cascade custom_active"><input type="radio" name="filter" value="past" id="past" />Past</label>
-                        <label class="btn btn-default blue-madison custom_active"><input type="radio" name="filter" value="approved" id="approved" />Approved</label>
-                        <label class="btn btn-default blue-hoki custom_active"><input type="radio" name="filter" value="declined" id="declined" />Declined</label>
-                        <label class="btn btn-default btn-danger custom_active"><input type="radio" name="filter" value="cancel" id="cancel" />Cancel</label>
-                        <label class="btn btn-default purple custom_active"><input type="radio" name="filter" value="pending" id="pending" />Pending</label>
+                     <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-default  custom_active active"><input type="radio" name="filter" value="all" checked="checked" id="all"/>All</label>
+                        <label class="btn btn-default  custom_active"><input type="radio" name="filter" value="upcomming" id="upcomming" />Upcomming</label>
+                        <label class="btn btn-default  custom_active"><input type="radio" name="filter" value="past" id="past" />Past</label>
+                        <label class="btn btn-default  custom_active"><input type="radio" name="filter" value="approved" id="approved" />Approved</label>
+                        <label class="btn btn-default  custom_active"><input type="radio" name="filter" value="declined" id="declined" />Declined</label>
+                        <label class="btn btn-default  custom_active"><input type="radio" name="filter" value="cancel" id="cancel" />Cancel</label>
+                        <label class="btn btn-default  custom_active"><input type="radio" name="filter" value="pending" id="pending" />Pending</label>
                         <!--label class="btn btn-default blue-madison custom_active"><input type="radio" name="filter" value="pending_gm" id="pending_gm" />Pending GM</label-->
                      </div>
                   </div>
