@@ -22,7 +22,7 @@
 							<span class="title">Dashboard</span>
 							<span class="arrow"></span>
 						</a>
-						<ul class="sub-menu">
+						<!-- <ul class="sub-menu">
 							<li class="nav-item">
 								<a href="<?php echo site_url("dashboard"); ?>" class="nav-link ">
 									<i class="icon-home"></i>
@@ -35,7 +35,7 @@
 									<span class="title">User Dashboard</span>
 								</a>
 							</li>
-						</ul>
+						</ul> -->
 					</li>
 					
 					<!--li class="nav-item  <?php if( $menu_name == "flipbook" ){ echo 'active'; }?>">
@@ -57,6 +57,9 @@
 					</li-->
 					
 					<?php if( is_admin() ){ ?>
+						<div class='sidebar_heading'>
+							<span>	Leads/Sales	</span>
+						</div>
 						<li class="nav-item  <?php if( $menu_name == "indiatourizm" || $menu_name == "customers" || $menu_name == "search" ){ echo 'active'; }?>">
 							<a href="javascript:;" class="nav-link nav-toggle">
 								<i class="fa fa-tripadvisor" aria-hidden="true"></i>
@@ -68,7 +71,7 @@
 								<li class="nav-item  ">
 									<a href="<?php echo site_url("indiatourizm"); ?>" class="nav-link ">
 										<i class="fa fa-users" aria-hidden="true"></i>
-										<span class="title">Queries</span>
+										<span class="title">Query Generator</span>
 									</a>
 								</li>
 								<!--li class="nav-item  ">
@@ -92,11 +95,13 @@
 							</ul>
 						</li><!--end leads from Itinerary Genrator-->
 					<?php }else{ ?>
-					
+						<div class='sidebar_heading'>
+							<span>	Leads/Sales	</span>
+						</div>
 						<li class="nav-item  <?php if( $menu_name == "customers" || $menu_name == "search"){ echo 'active'; }?>">
 							<a href="javascript:;" class="nav-link nav-toggle">
 								<i class="fa fa-users" aria-hidden="true"></i>
-								<span class="title">Customers</span>
+								<span class="title">Leads</span>
 								<span class="arrow"></span>
 							</a>
 							<ul class="sub-menu">
@@ -187,7 +192,9 @@
 						</ul>
 					</li>
 					
-					
+						<div class='sidebar_heading'>
+							<span>	Accounts	</span>
+						</div>
 					<li class="nav-item start">
 						<a href="javascript:;" class="nav-link nav-toggle">
 							<i class="icon-home"></i>
@@ -215,456 +222,6 @@
 							</li>
 						</ul>
 					</li>
-					
-					
-					<!--li class="nav-item <?php if( $menu_name == "hotelbooking" ){ echo 'active'; }?> ">
-						<a href="javascript:;" class="nav-link nav-toggle">
-							<i class="icon-briefcase" aria-hidden="true"></i>
-							<span class="title">Hotel Booking</span>
-							<span class="arrow"></span>
-						</a>
-						<ul class="sub-menu">
-						
-							<li class="nav-item  ">
-								<a href="<?php echo site_url("hotelbooking"); ?>" class="nav-link ">
-									<i class="icon-share-alt" aria-hidden="true"></i>
-									<span class="title">All Hotel Booking</span>
-								</a>
-							</li>
-
-							
-							<!--li class="nav-item  ">
-								<a href="<?php echo site_url("hotelbooking/pending_confirmation_request"); ?>" class="nav-link ">
-									<i class="fa fa-clock-o" aria-hidden="true"></i>
-									<span class="title">Pending Request</span>
-								</a>
-							</li-->
-							
-						<!--/ul>
-					</li>
-					<li class="nav-item  <?php if( $menu_name == "vehiclesbooking" ){ echo 'active'; }?> ">
-						<a href="javascript:;" class="nav-link nav-toggle">
-							<i class="fa fa-bus" aria-hidden="true"></i>
-							<span class="title">Vehicle Booking</span>
-							<span class="arrow"></span>
-						</a>
-						<ul class="sub-menu">
-							
-							<!--li class="nav-item  ">
-								<a href="<?php echo site_url("vehiclesbooking/pending_confirmation_request"); ?>" class="nav-link ">
-									<i class="fa fa-clock-o" aria-hidden="true"></i>
-									<span class="title">Pending Cab Request</span>
-								</a>
-							</li-->
-							<!--li class="nav-item  ">
-								<a href="<?php echo site_url("vehiclesbooking/allvehiclesbookings"); ?>" class="nav-link ">
-									<i class="fa fa-bus" aria-hidden="true"></i>
-									<span class="title">All Volvo/Train/Flight Booking</span>
-								</a>
-							</li>
-							<!--li class="nav-item  ">
-								<a title="Pending request volvo/train/flight ticket quotations" href="<?php echo site_url("vehiclesbooking/pending_vtf_confirmation_request"); ?>" class="nav-link ">
-									<i class="fa fa-clock-o" aria-hidden="true"></i>
-									<span class="title">Pending V/T/F Request</span>
-								</a>
-							</li-->
-						<!--/ul>
-					</li-->
-					
-					<li class="nav-item  <?php if( $menu_name == "marketing" ){ echo 'active'; }?>">
-						<a href="javascript:;" class="nav-link nav-toggle">
-							<i class="fa fa-bar-chart" aria-hidden="true"></i>
-							<span class="title">Marketing</span>
-							<span class="arrow"></span>
-						</a>
-						<ul class="sub-menu">
-							<li class="nav-item  ">
-								<a href="<?php echo site_url("marketing"); ?>" class="nav-link ">
-									<i class="fa fa-bar-chart" aria-hidden="true"></i>
-									<span class="title">All User List</span>
-								</a>
-							</li>
-
-							<li class="nav-item  ">
-								<a href="<?php echo site_url("marketing/viewcat"); ?>" class="nav-link ">
-									<i class="icon-plus"></i>
-									<span class="title">Marketing Categories</span>
-								</a>
-							</li>
-							
-							<li class="nav-item  ">
-								<a href="<?php echo site_url("marketing/state_codes"); ?>" class="nav-link ">
-									<i class="fa fa-building" aria-hidden="true"></i>
-									<span class="title">State Codes</span>
-								</a>
-							</li>
-							
-							<li class="nav-item  ">
-								<a href="<?php echo site_url("reference_customers"); ?>" class="nav-link ">
-									<i class="fa fa-users" aria-hidden="true"></i>
-									<span class="title">All Ref Customers</span>
-								</a>
-							</li>
-							<li class="nav-item  ">
-								<a href="<?php echo site_url("msg_center"); ?>" class="nav-link ">
-									<i class="fa fa-envelope" aria-hidden="true"></i>
-									<span class="title">Send Text Message</span>
-								</a>
-							</li>
-							<li class="nav-item  ">
-								<a href="<?php echo site_url("newsletters"); ?>" class="nav-link ">
-									<i class="fa fa-envelope" aria-hidden="true"></i>
-									<span class="title">Send Emails</span>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a href="<?php echo site_url("newsletters/template"); ?>" class="nav-link ">
-									<i class="fa fa-columns" aria-hidden="true"></i>
-									<span class="title">Defult Email Template</span>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a href="<?php echo site_url("newsletters/imagetemplateList"); ?>" class="nav-link ">
-									<i class="fa fa-columns" aria-hidden="true"></i>
-									<span class="title">Image Template</span>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a href="<?php echo site_url("newsletters/templateList"); ?>" class="nav-link ">
-									<i class="fa fa-columns" aria-hidden="true"></i>
-									<span class="title">Text Template</span>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a href="<?php echo site_url("newsletters/offers"); ?>" class="nav-link ">
-									<i class="fa fa-columns" aria-hidden="true"></i>
-									<span class="title">Offers</span>
-								</a>
-							</li>
-						</ul>
-					</li>
-					
-					<!--li class="nav-item  <?php if( $menu_name == "reference_customers" ){ echo 'active'; }?>">
-						<a href="javascript:;" class="nav-link nav-toggle">
-							<i class="fa fa-users" aria-hidden="true"></i>
-							<span class="title">Ref Customers</span>
-							<span class="arrow"></span>
-						</a>
-						<ul class="sub-menu">
-							
-						</ul>
-					</li-->
-					
-					
-					<li class="nav-item  <?php if( $menu_name == "bank" ){ echo 'active'; }?> ">
-						<a href="javascript:;" class="nav-link nav-toggle">
-							<i class="icon-globe"></i>
-							<span class="title">Settings</span>
-							<span class="arrow"></span>
-						</a>
-						<ul class="sub-menu">
-							<li class="nav-item">
-								<a href="<?php echo site_url("bank"); ?>" class="nav-link ">
-									<i class="icon-wallet"></i>
-									<span class="title">All Bank</span>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a href="<?php echo site_url("terms"); ?>" class="nav-link ">
-									<i class="icon-notebook icons"></i>
-									<span class="title">Holiday Terms</span>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a href="<?php echo site_url("terms/hotel_terms"); ?>" class="nav-link ">
-									<i class="fa fa-h-square" aria-hidden="true"></i>
-									<span class="title">Hotel Booking Terms</span>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a href="<?php echo site_url("terms/cab_terms"); ?>" class="nav-link ">
-									<i class="fa fa-car" aria-hidden="true"></i>
-									<span class="title">Cab Booking Terms</span>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a href="<?php echo site_url("terms/office_branches"); ?>" class="nav-link ">
-									<i class="fa fa-home" aria-hidden="true"></i>
-									<span class="title">Office Address</span>
-								</a>
-							</li>
-							
-							<li class="nav-item">
-								<a href="<?php echo site_url("settings/sms"); ?>" class="nav-link ">
-									<i class="fa fa-envelope" aria-hidden="true"></i>
-									<span class="title">Sms Settings</span>
-								</a>
-							</li> 
-							<li class="nav-item">
-								<a href="<?php echo site_url("settings/social"); ?>" class="nav-link ">
-									<i class="fa fa-share-square" aria-hidden="true"></i>
-									<span class="title">Social Media Settings</span>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a href="<?php echo site_url("settings"); ?>" class="nav-link ">
-									<i class="icon-settings icons"></i>
-									<span class="title">Settings</span>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a href="<?php echo site_url("settings/homepage"); ?>" class="nav-link ">
-									<i class="icon-settings icons"></i>
-									<span class="title">Homepage Settings</span>
-								</a>
-							</li>							
-						</ul>
-					</li>
-					
-					<!--li class="nav-item  <?php if( $menu_name == "payments" ){ echo 'active'; }?>">
-						<a href="javascript:;" class="nav-link nav-toggle">
-							<i class="fa fa-inr" aria-hidden="true"></i>
-							<span class="title">Payment Details</span>
-							<span class="arrow"></span>
-						</a>
-						<ul class="sub-menu">
-							
-						</ul>
-					</li-->
-					
-					<li class="nav-item  <?php if( $menu_name == "hotels" ){ echo 'active'; }?>">
-						<a href="javascript:;" class="nav-link nav-toggle">
-							<i class="icon-pointer"></i>
-							<span class="title">Hotels</span>
-							<span class="arrow"></span>
-						</a>
-						<ul class="sub-menu">
-							<li class="nav-item  ">
-								<a href="<?php echo site_url("hotels"); ?>" class="nav-link ">
-									<i class="icon-pointer"></i>
-									<span class="title">All Hotels</span>
-								</a>
-							</li>
-							<li class="nav-item  ">
-								<a href="<?php echo site_url("hotels/viewroomcategory"); ?>" class="nav-link ">
-									<i class="icon-list"></i>
-									<span class="title">View Room Category</span>
-								</a>
-							</li>
-							<li class="nav-item  ">
-								<a href="<?php echo site_url("hotels/viewroomrates"); ?>" class="nav-link ">
-									<i class="icon-calculator"></i>
-									<span class="title">View Room Rates</span>
-								</a>
-							</li>
-							<li class="nav-item  ">
-								<a href="<?php echo site_url("hotels/seasons"); ?>" class="nav-link ">
-									<i class="fa fa-refresh" aria-hidden="true"></i>
-									<span class="title">All Season</span>
-								</a>
-							</li>
-							<li class="nav-item  ">
-								<a href="<?php echo site_url("hotels/mealplan"); ?>" class="nav-link ">
-									<i class="fa fa-cutlery" aria-hidden="true"></i>
-									<span class="title">All Meal Plan</span>
-								</a>
-							</li>
-						</ul>
-					</li>
-					
-					<li class="nav-item  <?php if( $menu_name == "vehicles" ){ echo 'active'; }?>">
-						<a href="javascript:;" class="nav-link nav-toggle">
-							<i class="fa fa-car" aria-hidden="true"></i>
-							<span class="title">Vehicles</span>
-							<span class="arrow"></span>
-						</a>
-						<ul class="sub-menu">
-							<li class="nav-item  ">
-								<a href="<?php echo site_url("vehicles"); ?>" class="nav-link ">
-									<i class="fa fa-car" aria-hidden="true"></i>
-									<span class="title">All Vehicles</span>
-								</a>
-							</li>
-							
-							<!--li class="nav-item  ">
-								<a href="<?php echo site_url("vehicles/vehicle_packages"); ?>" class="nav-link ">
-									<i class="fa fa-money" aria-hidden="true"></i>
-									<span class="title">Vehicles Packages</span>
-								</a>
-							</li-->
-							
-							<li class="nav-item  ">
-								<a href="<?php echo site_url("vehicles/transporters"); ?>" class="nav-link ">
-									<i class="fa fa-handshake-o" aria-hidden="true"></i>
-									<span class="title">All Transporters</span>
-								</a>
-							</li>
-						</ul>
-					</li>
-					
-					<!--li class="nav-item  <?php if( $menu_name == "clientsection" ){ echo 'active'; }?>">
-						<a href="javascript:;" class="nav-link nav-toggle">
-							<i class="fa fa-briefcase" aria-hidden="true"></i>
-							<span class="title">Client Section</span>
-							<span class="arrow"></span>
-						</a>
-						<ul class="sub-menu">
-							<li class="nav-item  ">
-								<a href="<?php echo site_url("clientsection/reviews"); ?>" class="nav-link ">
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<span class="title">Reviews</span>
-								</a>
-							</li>
-
-							<li class="nav-item  ">
-								<a href="<?php echo site_url("clientsection/youtube"); ?>" class="nav-link ">
-									<i class="fa fa-youtube-play" aria-hidden="true"></i>
-									<span class="title">Youtube</span>
-								</a>
-							</li>
-							<li class="nav-item  ">
-								<a href="<?php echo site_url("clientsection/sliders"); ?>" class="nav-link ">
-									<i class="fa fa-sliders" aria-hidden="true"></i>
-									<span class="title">Sliders</span>
-								</a>
-							</li>
-							<li class="nav-item  ">
-								<a href="<?php echo site_url("clientsection/offers"); ?>" class="nav-link ">
-									<i class="fas fa-gift"></i>
-									<span class="title">Offers</span>
-								</a>
-							</li>
-						</ul>
-					</li-->
-					<li class="nav-item  <?php if( $menu_name == "agents" ){ echo 'active'; }?>">
-						<a href="javascript:;" class="nav-link nav-toggle">
-							<i class="icon-user"></i>
-							<span class="title">Users</span>
-							<span class="arrow"></span>
-						</a>
-						
-						<ul class="sub-menu">
-							<li class="nav-item">
-								<a href="<?php echo site_url("agents"); ?>" class="nav-link ">
-									<i class="icon-user"></i>
-									<span class="title">All Users</span>
-								</a>
-							</li>
-							
-							<li class="nav-item">
-								<a href="<?php echo base_url("agents/teamleaders"); ?>" class="nav-link">
-									<i class="fa fa-user-secret" aria-hidden="true"></i>
-									<span class="title">Teams</span>
-								</a>
-							</li>
-							
-							<li class="nav-item">
-								<a href="<?php echo site_url("agents/pending_leads"); ?>" class="nav-link ">
-									<i class="fa fa-users"></i>
-									<span class="title">TL's Pending Leads</span>
-								</a>
-							</li>
-							
-							<li class="nav-item">
-								<a href="<?php echo base_url("agents/loginrequest"); ?>" class="nav-link">
-									<i class="fa fa-sign-in" aria-hidden="true"></i>
-									<span class="title">Login Requests</span>
-								</a>
-							</li>
-							
-							<li class="nav-item">
-								<a href="<?php echo site_url("agents/view_assign_area"); ?>" class="nav-link ">
-									<i class="fa fa-eye"></i>
-									<span class="title">View Assign Area</span>
-								</a>
-							</li>
-							
-							<li class="nav-item">
-								<a href="<?php echo site_url("agents/thought_of_day"); ?>" class="nav-link ">
-									<i class="fa fa-cloud"></i>
-									<span class="title">Latest Update</span>
-								</a>
-							</li>
-							
-						</ul>
-					</li>
-					
-					<li class="nav-item  <?php if( $menu_name == "incentive" ||  $menu_name == "incentive" ){ echo 'active'; }?>">
-						<a href="javascript:;" class="nav-link nav-toggle">
-							<i class="fa fa-gift" aria-hidden="true"></i>
-							<span class="title">Incentive</span>
-							<span class="arrow"></span>
-						</a>
-						<ul class="sub-menu">
-							<li class="nav-item  ">
-								<a href="<?php echo site_url("incentive"); ?>" class="nav-link ">
-									<i class="fa fa-gift" aria-hidden="true"></i>
-									<span class="title">Agents Incentive</span>
-								</a>
-							</li>
-							<li class="nav-item  ">
-								<a href="<?php echo site_url("incentive/agenttargets"); ?>" class="nav-link ">
-									<i class="fa fa-bullseye" aria-hidden="true"></i>
-									<span class="title">Targets</span>
-								</a>
-							</li>
-						</ul>
-					</li>
-					
-					<li class="nav-item" <?php if( $menu_name == "search" ){ echo 'active'; }?>>
-						<a href="<?php echo site_url("search"); ?>" class="nav-link nav-toggle">
-							<i class="fa fa-search"></i>
-							<span class="title">Search</span>
-							<span class="arrow"></span>
-						</a>
-					</li>
-					
-					<!--li class="nav-item  <?php if( $menu_name == "msg_center" ||  $menu_name == "newsletters" ){ echo 'active'; }?>">
-						<a href="javascript:;" class="nav-link nav-toggle">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-							<span class="title">Message Center</span>
-							<span class="arrow"></span>
-						</a>
-						<ul class="sub-menu">
-							<li class="nav-item  ">
-								<a href="<?php echo site_url("msg_center"); ?>" class="nav-link ">
-									<i class="fa fa-envelope" aria-hidden="true"></i>
-									<span class="title">Send Text Message</span>
-								</a>
-							</li>
-							<li class="nav-item  ">
-								<a href="<?php echo site_url("newsletters"); ?>" class="nav-link ">
-									<i class="fa fa-envelope" aria-hidden="true"></i>
-									<span class="title">Send Emails</span>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a href="<?php echo site_url("newsletters/template"); ?>" class="nav-link ">
-									<i class="fa fa-columns" aria-hidden="true"></i>
-									<span class="title">Defult Email Template</span>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a href="<?php echo site_url("newsletters/imagetemplateList"); ?>" class="nav-link ">
-									<i class="fa fa-columns" aria-hidden="true"></i>
-									<span class="title">Image Template</span>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a href="<?php echo site_url("newsletters/templateList"); ?>" class="nav-link ">
-									<i class="fa fa-columns" aria-hidden="true"></i>
-									<span class="title">Text Template</span>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a href="<?php echo site_url("newsletters/offers"); ?>" class="nav-link ">
-									<i class="fa fa-columns" aria-hidden="true"></i>
-									<span class="title">Offers</span>
-								</a>
-							</li>
-						</ul>
-					</li-->
-					
 					<li class="nav-item  <?php if( $menu_name == "accounts" ){ echo 'active'; }?>">
 						<a href="javascript:;" class="nav-link nav-toggle">
 							<i class="fa fa-cart-plus" aria-hidden="true"></i>
@@ -772,7 +329,6 @@
 							
 						</ul>
 					</li>
-					
 					<li class="nav-item  <?php if( $menu_name == "vouchers" ){ echo 'active'; }?>">
 						<a href="javascript:;" class="nav-link nav-toggle">
 							<i class="icon-folder" aria-hidden="true"></i>
@@ -794,6 +350,476 @@
 							</li>
 						</ul>
 					</li>
+					
+					
+					<!--li class="nav-item <?php if( $menu_name == "hotelbooking" ){ echo 'active'; }?> ">
+						<a href="javascript:;" class="nav-link nav-toggle">
+							<i class="icon-briefcase" aria-hidden="true"></i>
+							<span class="title">Hotel Booking</span>
+							<span class="arrow"></span>
+						</a>
+						<ul class="sub-menu">
+						
+							<li class="nav-item  ">
+								<a href="<?php echo site_url("hotelbooking"); ?>" class="nav-link ">
+									<i class="icon-share-alt" aria-hidden="true"></i>
+									<span class="title">All Hotel Booking</span>
+								</a>
+							</li>
+
+							
+							<!--li class="nav-item  ">
+								<a href="<?php echo site_url("hotelbooking/pending_confirmation_request"); ?>" class="nav-link ">
+									<i class="fa fa-clock-o" aria-hidden="true"></i>
+									<span class="title">Pending Request</span>
+								</a>
+							</li-->
+							
+						<!--/ul>
+					</li>
+					<li class="nav-item  <?php if( $menu_name == "vehiclesbooking" ){ echo 'active'; }?> ">
+						<a href="javascript:;" class="nav-link nav-toggle">
+							<i class="fa fa-bus" aria-hidden="true"></i>
+							<span class="title">Vehicle Booking</span>
+							<span class="arrow"></span>
+						</a>
+						<ul class="sub-menu">
+							
+							<!--li class="nav-item  ">
+								<a href="<?php echo site_url("vehiclesbooking/pending_confirmation_request"); ?>" class="nav-link ">
+									<i class="fa fa-clock-o" aria-hidden="true"></i>
+									<span class="title">Pending Cab Request</span>
+								</a>
+							</li-->
+							<!--li class="nav-item  ">
+								<a href="<?php echo site_url("vehiclesbooking/allvehiclesbookings"); ?>" class="nav-link ">
+									<i class="fa fa-bus" aria-hidden="true"></i>
+									<span class="title">All Volvo/Train/Flight Booking</span>
+								</a>
+							</li>
+							<!--li class="nav-item  ">
+								<a title="Pending request volvo/train/flight ticket quotations" href="<?php echo site_url("vehiclesbooking/pending_vtf_confirmation_request"); ?>" class="nav-link ">
+									<i class="fa fa-clock-o" aria-hidden="true"></i>
+									<span class="title">Pending V/T/F Request</span>
+								</a>
+							</li-->
+						<!--/ul>
+					</li-->
+					<div class='sidebar_heading'>
+							<span>	Marketing	</span>
+						</div>
+					<li class="nav-item  <?php if( $menu_name == "marketing" ){ echo 'active'; }?>">
+						<a href="javascript:;" class="nav-link nav-toggle">
+							<i class="fa fa-bar-chart" aria-hidden="true"></i>
+							<span class="title">Marketing</span>
+							<span class="arrow"></span>
+						</a>
+						<ul class="sub-menu">
+							<li class="nav-item  ">
+								<a href="<?php echo site_url("marketing"); ?>" class="nav-link ">
+									<i class="fa fa-bar-chart" aria-hidden="true"></i>
+									<span class="title">Leads</span>
+								</a>
+							</li>
+
+							<li class="nav-item  ">
+								<a href="<?php echo site_url("marketing/viewcat"); ?>" class="nav-link ">
+									<i class="icon-plus"></i>
+									<span class="title">Leads Categories</span>
+								</a>
+							</li>
+							
+							<li class="nav-item  ">
+								<a href="<?php echo site_url("marketing/state_codes"); ?>" class="nav-link ">
+									<i class="fa fa-building" aria-hidden="true"></i>
+									<span class="title">State Codes</span>
+								</a>
+							</li>
+							
+							<li class="nav-item  ">
+								<a href="<?php echo site_url("reference_customers"); ?>" class="nav-link ">
+									<i class="fa fa-users" aria-hidden="true"></i>
+									<span class="title">Ref Customers</span>
+								</a>
+							</li>
+							<li class="nav-item  ">
+								<a href="<?php echo site_url("msg_center"); ?>" class="nav-link ">
+									<i class="fa fa-envelope" aria-hidden="true"></i>
+									<span class="title">Send Sms</span>
+								</a>
+							</li>
+							<li class="nav-item  ">
+								<a href="<?php echo site_url("newsletters"); ?>" class="nav-link ">
+									<i class="fa fa-envelope" aria-hidden="true"></i>
+									<span class="title">Send Emails</span>
+								</a>
+							</li>
+							<!-- <li class="nav-item">
+								<a href="<?php echo site_url("newsletters/template"); ?>" class="nav-link ">
+									<i class="fa fa-columns" aria-hidden="true"></i>
+									<span class="title">Defult Email Template</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="<?php echo site_url("newsletters/imagetemplateList"); ?>" class="nav-link ">
+									<i class="fa fa-columns" aria-hidden="true"></i>
+									<span class="title">Image Template</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="<?php echo site_url("newsletters/templateList"); ?>" class="nav-link ">
+									<i class="fa fa-columns" aria-hidden="true"></i>
+									<span class="title">Text Template</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="<?php echo site_url("newsletters/offers"); ?>" class="nav-link ">
+									<i class="fa fa-columns" aria-hidden="true"></i>
+									<span class="title">Offers</span>
+								</a>
+							</li> -->
+						</ul>
+					</li>
+
+						<div class='sidebar_heading'>
+							<span>	User Management	</span>
+						</div>
+						<li class="nav-item  <?php if( $menu_name == "agents" ){ echo 'active'; }?>">
+						<a href="javascript:;" class="nav-link nav-toggle">
+							<i class="icon-user"></i>
+							<span class="title">Users</span>
+							<span class="arrow"></span>
+						</a>
+						
+						<ul class="sub-menu">
+							<li class="nav-item">
+								<a href="<?php echo site_url("agents"); ?>" class="nav-link ">
+									<i class="icon-user"></i>
+									<span class="title">All Users</span>
+								</a>
+							</li>
+							
+							<li class="nav-item">
+								<a href="<?php echo base_url("agents/teamleaders"); ?>" class="nav-link">
+									<i class="fa fa-user-secret" aria-hidden="true"></i>
+									<span class="title">Teams</span>
+								</a>
+							</li>
+							
+							<li class="nav-item">
+								<a href="<?php echo site_url("agents/pending_leads"); ?>" class="nav-link ">
+									<i class="fa fa-users"></i>
+									<span class="title">TL's Pending Leads</span>
+								</a>
+							</li>
+							
+							<li class="nav-item">
+								<a href="<?php echo base_url("agents/loginrequest"); ?>" class="nav-link">
+									<i class="fa fa-sign-in" aria-hidden="true"></i>
+									<span class="title">Login Requests</span>
+								</a>
+							</li>
+							
+							<li class="nav-item">
+								<a href="<?php echo site_url("agents/view_assign_area"); ?>" class="nav-link ">
+									<i class="fa fa-eye"></i>
+									<span class="title">View Assign Area</span>
+								</a>
+							</li>
+							
+							<li class="nav-item">
+								<a href="<?php echo site_url("agents/thought_of_day"); ?>" class="nav-link ">
+									<i class="fa fa-cloud"></i>
+									<span class="title">Latest Update</span>
+								</a>
+							</li>
+							
+						</ul>
+					</li>
+					<li class="nav-item  <?php if( $menu_name == "incentive" ||  $menu_name == "incentive" ){ echo 'active'; }?>">
+						<a href="javascript:;" class="nav-link nav-toggle">
+							<i class="fa fa-gift" aria-hidden="true"></i>
+							<span class="title">Incentive</span>
+							<span class="arrow"></span>
+						</a>
+						<ul class="sub-menu">
+							<li class="nav-item  ">
+								<a href="<?php echo site_url("incentive"); ?>" class="nav-link ">
+									<i class="fa fa-gift" aria-hidden="true"></i>
+									<span class="title">Agents Incentive</span>
+								</a>
+							</li>
+							
+						</ul>
+					</li>
+					<li class="nav-item  ">
+						<a href="<?php echo site_url("incentive/agenttargets"); ?>" class="nav-link ">
+							<i class="fa fa-bullseye" aria-hidden="true"></i>
+							<span class="title">Targets</span>
+						</a>
+					</li>
+					<div class='sidebar_heading'>
+							<span>	Configuration	</span>
+						</div>
+					
+					
+					<!--li class="nav-item  <?php if( $menu_name == "reference_customers" ){ echo 'active'; }?>">
+						<a href="javascript:;" class="nav-link nav-toggle">
+							<i class="fa fa-users" aria-hidden="true"></i>
+							<span class="title">Ref Customers</span>
+							<span class="arrow"></span>
+						</a>
+						<ul class="sub-menu">
+							
+						</ul>
+					</li-->
+					<li class="nav-item">
+								<a href="<?php echo site_url("terms"); ?>" class="nav-link ">
+									<i class="icon-notebook icons"></i>
+									<span class="title">Holiday Terms</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="<?php echo site_url("terms/office_branches"); ?>" class="nav-link ">
+									<i class="fa fa-home" aria-hidden="true"></i>
+									<span class="title">Office Address</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="<?php echo site_url("settings/sms"); ?>" class="nav-link ">
+									<i class="fa fa-envelope" aria-hidden="true"></i>
+									<span class="title">Sms Settings</span>
+								</a>
+							</li> 
+							<li class="nav-item">
+								<a href="<?php echo site_url("settings/homepage"); ?>" class="nav-link ">
+									<i class="icon-settings icons"></i>
+									<span class="title">Homepage Settings</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="<?php echo site_url("bank"); ?>" class="nav-link ">
+									<i class="icon-wallet"></i>
+									<span class="title">Banks</span>
+								</a>
+							</li>
+
+					
+					
+					
+					<!--li class="nav-item  <?php if( $menu_name == "payments" ){ echo 'active'; }?>">
+						<a href="javascript:;" class="nav-link nav-toggle">
+							<i class="fa fa-inr" aria-hidden="true"></i>
+							<span class="title">Payment Details</span>
+							<span class="arrow"></span>
+						</a>
+						<ul class="sub-menu">
+							
+						</ul>
+					</li-->
+					
+					<li class="nav-item  <?php if( $menu_name == "hotels" ){ echo 'active'; }?>">
+						<a href="javascript:;" class="nav-link nav-toggle">
+							<i class="icon-pointer"></i>
+							<span class="title">Hotels</span>
+							<span class="arrow"></span>
+						</a>
+						<ul class="sub-menu">
+							<li class="nav-item  ">
+								<a href="<?php echo site_url("hotels"); ?>" class="nav-link ">
+									<i class="icon-pointer"></i>
+									<span class="title">All Hotels</span>
+								</a>
+							</li>
+							<li class="nav-item  ">
+								<a href="<?php echo site_url("hotels/viewroomcategory"); ?>" class="nav-link ">
+									<i class="icon-list"></i>
+									<span class="title">View Room Category</span>
+								</a>
+							</li>
+							<li class="nav-item  ">
+								<a href="<?php echo site_url("hotels/viewroomrates"); ?>" class="nav-link ">
+									<i class="icon-calculator"></i>
+									<span class="title">View Room Rates</span>
+								</a>
+							</li>
+							<!-- <li class="nav-item  ">
+								<a href="<?php echo site_url("hotels/seasons"); ?>" class="nav-link ">
+									<i class="fa fa-refresh" aria-hidden="true"></i>
+									<span class="title">All Season</span>
+								</a>
+							</li> -->
+							<li class="nav-item  ">
+								<a href="<?php echo site_url("hotels/mealplan"); ?>" class="nav-link ">
+									<i class="fa fa-cutlery" aria-hidden="true"></i>
+									<span class="title">All Meal Plan</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					
+					<li class="nav-item  <?php if( $menu_name == "vehicles" ){ echo 'active'; }?>">
+						<a href="javascript:;" class="nav-link nav-toggle">
+							<i class="fa fa-car" aria-hidden="true"></i>
+							<span class="title">Vehicles</span>
+							<span class="arrow"></span>
+						</a>
+						<ul class="sub-menu">
+							<li class="nav-item  ">
+								<a href="<?php echo site_url("vehicles"); ?>" class="nav-link ">
+									<i class="fa fa-car" aria-hidden="true"></i>
+									<span class="title">All Vehicles</span>
+								</a>
+							</li>
+							
+							<!--li class="nav-item  ">
+								<a href="<?php echo site_url("vehicles/vehicle_packages"); ?>" class="nav-link ">
+									<i class="fa fa-money" aria-hidden="true"></i>
+									<span class="title">Vehicles Packages</span>
+								</a>
+							</li-->
+							
+							<li class="nav-item  ">
+								<a href="<?php echo site_url("vehicles/transporters"); ?>" class="nav-link ">
+									<i class="fa fa-handshake-o" aria-hidden="true"></i>
+									<span class="title">All Transporters</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					
+					<!--li class="nav-item  <?php if( $menu_name == "clientsection" ){ echo 'active'; }?>">
+						<a href="javascript:;" class="nav-link nav-toggle">
+							<i class="fa fa-briefcase" aria-hidden="true"></i>
+							<span class="title">Client Section</span>
+							<span class="arrow"></span>
+						</a>
+						<ul class="sub-menu">
+							<li class="nav-item  ">
+								<a href="<?php echo site_url("clientsection/reviews"); ?>" class="nav-link ">
+									<i class="fa fa-star" aria-hidden="true"></i>
+									<span class="title">Reviews</span>
+								</a>
+							</li>
+
+							<li class="nav-item  ">
+								<a href="<?php echo site_url("clientsection/youtube"); ?>" class="nav-link ">
+									<i class="fa fa-youtube-play" aria-hidden="true"></i>
+									<span class="title">Youtube</span>
+								</a>
+							</li>
+							<li class="nav-item  ">
+								<a href="<?php echo site_url("clientsection/sliders"); ?>" class="nav-link ">
+									<i class="fa fa-sliders" aria-hidden="true"></i>
+									<span class="title">Sliders</span>
+								</a>
+							</li>
+							<li class="nav-item  ">
+								<a href="<?php echo site_url("clientsection/offers"); ?>" class="nav-link ">
+									<i class="fas fa-gift"></i>
+									<span class="title">Offers</span>
+								</a>
+							</li>
+						</ul>
+					</li-->
+					
+					
+					
+					<li class="nav-item" <?php if( $menu_name == "search" ){ echo 'active'; }?>>
+						<a href="<?php echo site_url("search"); ?>" class="nav-link nav-toggle">
+							<i class="fa fa-search"></i>
+							<span class="title">Search</span>
+							<span class="arrow"></span>
+						</a>
+					</li>
+					
+					<!--li class="nav-item  <?php if( $menu_name == "msg_center" ||  $menu_name == "newsletters" ){ echo 'active'; }?>">
+						<a href="javascript:;" class="nav-link nav-toggle">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<span class="title">Message Center</span>
+							<span class="arrow"></span>
+						</a>
+						<ul class="sub-menu">
+							<li class="nav-item  ">
+								<a href="<?php echo site_url("msg_center"); ?>" class="nav-link ">
+									<i class="fa fa-envelope" aria-hidden="true"></i>
+									<span class="title">Send Text Message</span>
+								</a>
+							</li>
+							<li class="nav-item  ">
+								<a href="<?php echo site_url("newsletters"); ?>" class="nav-link ">
+									<i class="fa fa-envelope" aria-hidden="true"></i>
+									<span class="title">Send Emails</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="<?php echo site_url("newsletters/template"); ?>" class="nav-link ">
+									<i class="fa fa-columns" aria-hidden="true"></i>
+									<span class="title">Defult Email Template</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="<?php echo site_url("newsletters/imagetemplateList"); ?>" class="nav-link ">
+									<i class="fa fa-columns" aria-hidden="true"></i>
+									<span class="title">Image Template</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="<?php echo site_url("newsletters/templateList"); ?>" class="nav-link ">
+									<i class="fa fa-columns" aria-hidden="true"></i>
+									<span class="title">Text Template</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="<?php echo site_url("newsletters/offers"); ?>" class="nav-link ">
+									<i class="fa fa-columns" aria-hidden="true"></i>
+									<span class="title">Offers</span>
+								</a>
+							</li>
+						</ul>
+					</li-->
+					
+					<li class="nav-item  <?php if( $menu_name == "bank" ){ echo 'active'; }?> ">
+						<a href="javascript:;" class="nav-link nav-toggle">
+							<i class="icon-globe"></i>
+							<span class="title">Settings</span>
+							<span class="arrow"></span>
+						</a>
+						<ul class="sub-menu">
+							
+							
+							<li class="nav-item">
+								<a href="<?php echo site_url("terms/hotel_terms"); ?>" class="nav-link ">
+									<i class="fa fa-h-square" aria-hidden="true"></i>
+									<span class="title">Hotel Booking Terms</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="<?php echo site_url("terms/cab_terms"); ?>" class="nav-link ">
+									<i class="fa fa-car" aria-hidden="true"></i>
+									<span class="title">Cab Booking Terms</span>
+								</a>
+							</li>
+						
+							
+							
+							<li class="nav-item">
+								<a href="<?php echo site_url("settings/social"); ?>" class="nav-link ">
+									<i class="fa fa-share-square" aria-hidden="true"></i>
+									<span class="title">Social Media Settings</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="<?php echo site_url("settings"); ?>" class="nav-link ">
+									<i class="icon-settings icons"></i>
+									<span class="title">Settings</span>
+								</a>
+							</li>
+														
+						</ul>
+					</li>
+					
+					
 					<li class="nav-item">
 						<a href="<?php echo base_url("dashboard/logout"); ?>" class="nav-link">
 							<i class="fa fa-power-off" aria-hidden="true"></i>

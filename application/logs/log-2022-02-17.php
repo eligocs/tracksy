@@ -744,3 +744,5 @@ ERROR - 2022-02-17 11:52:17 --> Severity: Warning --> A non-numeric value encoun
 ERROR - 2022-02-17 11:52:17 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 6962
 ERROR - 2022-02-17 11:52:17 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 6963
 ERROR - 2022-02-17 11:52:17 --> Severity: 8192 --> The each() function is deprecated. This message will be suppressed on further calls C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 16542
+ERROR - 2022-02-17 12:29:51 --> Severity: Notice --> Undefined index: id C:\xampp\htdocs\tracksy\application\controllers\Search.php 457
+ERROR - 2022-02-17 12:32:04 --> Severity: Notice --> Undefined index: id C:\xampp\htdocs\tracksy\application\controllers\Search.php 457
