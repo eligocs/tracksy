@@ -217,3 +217,10 @@ form#itiForm_form textarea.form-control{min-height:150px;}
 .page-sidebar-closed .menu-toggler.sidebar-toggler i {
     left: -40px;
 }
+
+
+.sidebar_heading {
+    margin: 20px 0;
+    font-size: 17px;
+    font-weight: 700;
+}

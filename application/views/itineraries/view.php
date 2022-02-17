@@ -2520,7 +2520,7 @@
                <?php } ?>
                <!--Sent Itinerary To Customer-->
                <?php if( is_admin_or_manager_or_sales() && $iti->publish_status == "publish" ) { ?>
-               <div class="form-group col-md-12">
+               <div class="form-group col-md-12 margin-top-30">
                   <input type="hidden" name="iti_id" value="<?php echo $iti->iti_id; ?>" id="iti_send_id">
                   <input type="hidden" name="temp_key" value="<?php echo $iti->temp_key; ?>" id="iti_send_key">
                   <a href="<?php echo site_url("itineraries"); ?>" class="btn green uppercase iti_back"

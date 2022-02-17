@@ -24441,7 +24441,8 @@ body.stop-scrolling {
 }
 
 .font-blue-madison {
-    color: #578ebe !important
+    /* color: #578ebe !important; */
+    color: #fff !important;
 }
 
 .bg-font-blue-madison {

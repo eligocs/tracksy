@@ -8,7 +8,7 @@
 				<div class="col-md-12">
 					<div class="profile-content">
 						<div class="row">
-							<div class="col-md-12">
+							<div class="col-md-12 custom_card">
 								<div class="portlet light ">
 									<div class="portlet-title tabbable-line">
 										<div class="caption caption-md">
