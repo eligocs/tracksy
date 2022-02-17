@@ -1371,7 +1371,7 @@ table {
 }
 
 .modal .modal-header {
-    background: #3e193e;
+    background: #ec407a;
     color: #fff;
 }
 
@@ -1477,7 +1477,7 @@ table {
 }
 
 #calendar_customer_followup, #calendar_iti_followup, #calendar_payment_followup, .calender_dashboard {
-    max-width: 1100px;
+    max-width: 90%;
     margin: 0 auto;
 }
 
@@ -1645,7 +1645,7 @@ ul#theme_color_listing li.current {
 .modal.right .modal-dialog {
     position: fixed;
     margin: auto;
-    width: 1200px;
+    width: 100%;
     height: 100%;
     -webkit-transform: translate3d(0%, 0, 0);
     -ms-transform: translate3d(0%, 0, 0);
@@ -1827,25 +1827,33 @@ ul.sidebar-buttons li .btn {
     border-left: 0;
     border-right: 0;
     margin-bottom: -1px;
+    min-height: 70px !important;
 }
 
 ul.sidebar-buttons li .btn:hover {
-    background: #d64635;
+    background: #ec407a;
     color: #fff;
-    border-color: #fff;
+    border-color: transparent;
 }
 
 ul.sidebar-buttons {
     box-shadow: 0px 0px 100px 20px rgba(0, 0, 0, 0.18);
     clear: both;
-    border: 1px solid #d2d2d2;
+    /*! border: 1px solid #d2d2d2; */
     padding: 5px 5px;
     top: 64px;
     z-index: 99999;
     margin: 0 !important;
-    background: #3d3d3d;
+    /*! background: #3d3d3d; */
     /* border-radius: 15px !important; */
     overflow: hidden;
+    position: fixed;
+    z-index: 9999999;
+    left:    50% !important;
+    top: 50%;
+    width: 450px;
+    transform: translate(-50%, -50%) !important;
+    /*! translate: ; */
 }
 
 .quick-nav ul>li:last-child {
@@ -1853,12 +1861,12 @@ ul.sidebar-buttons {
 }
 
 ul.sidebar-buttons li .btn i {
-    background: #d64635;
+    background: #5e72e4;
     width: 30px;
     height: 30px;
     vertical-align: middle;
     padding-top: 7px;
-    border: 1px solid #c51500;
+    border: 1px solid #5e72e4;
     border-radius: 50%;
     color: #fff;
     font-size: 15px;
@@ -1868,12 +1876,12 @@ ul.sidebar-buttons li .btn i {
 
 ul.sidebar-buttons li .btn:hover i {
     color: #fff;
-    border: 2px solid #ffffff;
+    border: 2px solid #ec407a;
     padding-top: 6px;
 }
 
 .quick-nav .quick-nav-bg {
-    background: #d64635;
+    background: #E53773;
 }
 
 a.event_link {
@@ -2757,3 +2765,8 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
     background: #e0296a;
     border-radius: 5px !important;
 }
+
+
+.sidebar-buttons li {
+    margin-bottom: 10px;
+  }

@@ -593,7 +593,7 @@ class Itineraries extends CI_Controller {
 				//buttons
 				//if price is updated remove edit for agent get_iti_booking_status
 				if( $iti->pending_price == 2 && $role == 96 ){
-					$btn_edit = "<a title='Edit' href='javascript: void(0)' class='btn btn-success editPop' ><i class='fa fa-pencil' aria-hidden='true'></i></a>";
+					$btn_edit = "<a title='Edit' href='javascript: void(0)' class='btn_pencil editPop' ><i class='fa fa-pencil' aria-hidden='true'></i></a>";
 				}else{
 					$btn_edit = "<a title='Edit' href=" . site_url("itineraries/edit/{$iti_id}/{$key}") . " class='btn_pencil' ><i class='fa fa-pencil' aria-hidden='true'></i></a>";
 				}

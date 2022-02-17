@@ -479,7 +479,7 @@ class Customers extends CI_Controller {
 						$iti_s = "DECLINED";
 						break;
 					default:
-						$add_iti = "<strong class='btn btn-success'>Working...</strong>";
+						$add_iti = "<strong class='badge_success_pill'>Working...</strong>";
 						$decUserStatus = "<strong class='btn btn-success'>Working...</strong>";
 						$iti_s = empty( $customer->followup_id ) ? "NOT PROCESS" : "WORKING";
 						break;

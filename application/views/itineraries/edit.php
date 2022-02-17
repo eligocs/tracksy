@@ -15,7 +15,7 @@
 				<div class="portlet box blue">
 					<div class="portlet-title">
 						<div class="caption"><i class="fa fa-newspaper-o" aria-hidden="true"></i>Edit Itinerary <?php echo $iti->iti_id; ?>
-						Package Type: <strong class="red"> <?php echo check_iti_type( $iti->iti_id ); ?></strong>
+						Package Type: <strong class=""> <?php echo check_iti_type( $iti->iti_id ); ?></strong>
 						</div>
 						<a class="btn btn-success pull-right" href="<?php echo site_url("itineraries"); ?>" title="Back">Back</a>
 					</div>

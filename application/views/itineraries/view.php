@@ -104,7 +104,8 @@
             echo "<p class='text-center'><strong class='red'> Reason: </strong> {$pay_detail->approved_note}</p>";
             }*/ ?>
          <!--if final_amount exits-->
-         <?php if( isset( $paymentDetails[0] ) && !empty( $paymentDetails[0] ) && $iti->iti_status == 9 ){ 
+            <div class="custom_card">
+            <?php if( isset( $paymentDetails[0] ) && !empty( $paymentDetails[0] ) && $iti->iti_status == 9 ){ 
             $pay_detail = $paymentDetails[0];
             //$is_gst_final = $pay_detail->is_gst == 1 ? "GST Inc." : "GST Extra";
             $is_gst_final = "";
@@ -145,6 +146,7 @@
                </div>
             </div>
          </div>
+         
          <div class="clearfix"></div>
          <div class="mt-element-step">
             <div class="row step-background-thin ">
@@ -173,6 +175,7 @@
             </div>
          </div>
          <div class="clearfix"></div>
+            </div>
          <!--show payment screenshot details-->
          <hr>
          <div id="update_iti_hold_status">
@@ -256,6 +259,7 @@
                <?php } ?>
             </div>
             <div class="clearfix"></div>
+            
             <hr>
             <!--approved /reject onhold itierary by manager -->
             <?php 
@@ -1632,7 +1636,50 @@
             <!--START PRINTABLE SECTION -->
             <?php if( isset( $paymentDetails[0] ) && !empty( $paymentDetails[0] ) && $iti->iti_status == 9 ){ 
                $pay_detail = $paymentDetails[0]; ?>
-            <h3 style="background: #3d3d3d; color: #fff; padding: 5px;">PAYMENT DETAILS</h3>
+            <div class="portlet box blue">
+               <div class="portlet-title">
+                  <div class="caption">PAYMENT DETAILS</div>
+               </div>
+               <div class="portlet-body">
+               <div class="table-responsive">
+               <table class="table table-bordered ">
+                  <tbody>
+                     <tr class="thead-inverse">
+                        <td width="33%"><strong>FINAL COST</strong></td>
+                        <td width="33%"><strong>Package Category</strong></td>
+                        <td width="33%"><strong>Travel Date</strong></td>
+                     </tr>
+                     <tr class="">
+                        <td width="33%"><strong>INR
+                           <?php echo $paymentDetails[0]->total_package_cost; ?>/-</strong>
+                        </td>
+                        <td width="33%"><strong><?php echo $iti->approved_package_category; ?></strong></td>
+                        <td width="33%"><strong><?php echo !empty($t_date) ? $t_date : "--/--/----"; ?></strong>
+                        </td>
+                     </tr>
+                     <tr class="thead-inverse">
+                        <td width="33%"><strong>Advance Recieved</strong></td>
+                        <td width="33%"><strong>Balance Pending</strong></td>
+                        <td width="33%"><strong>Booking Date</strong></td>
+                     </tr>
+                     <?php $booking_d = $paymentDetails[0]->booking_date; ?>
+                     <tr class="">
+                        <td width="33%"><strong>INR
+                           <?php echo $paymentDetails[0]->advance_recieved; ?>/-</strong>
+                        </td>
+                        <td width="33%">
+                           <strong><?php echo $paymentDetails[0]->total_balance_amount; ?>/-</strong>
+                        </td>
+                        <td width="33%">
+                           <strong><?php echo !empty($booking_d) ? display_month_name($booking_d ) : "--/--/----"; ?></strong>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+               </div>
+            </div>
+            <!-- <h3 style="background: #3d3d3d; color: #fff; padding: 5px;">PAYMENT DETAILS</h3>
             <div class="clearfix"></div>
             <div class="table-responsive">
                <table class="table table-bordered ">
@@ -1669,7 +1716,7 @@
                      </tr>
                   </tbody>
                </table>
-            </div>
+            </div> -->
             <?php } ?>
             <div class="portlet box blue">
                <div class="portlet-title">

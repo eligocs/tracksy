@@ -2946,9 +2946,9 @@
 .quick-nav {
     position: fixed;
     z-index: 10103;
-    top: 50%;
+    top: 50px;
     right: 10px;
-    margin-top: -230px;
+    /* margin-top: -230px; */
     pointer-events: none
 }
 

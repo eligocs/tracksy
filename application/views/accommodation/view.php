@@ -61,13 +61,13 @@
 				<div class="portlet box blue mb0">
 					<div class="portlet-title">
 						<div class="caption"><i class="fa fa-users"></i> 
-							<strong>Lead Id: </strong><span class="mehroon"> <?php echo $iti->customer_id; ?></span> &nbsp; &nbsp;
+							<strong>Lead Id: </strong><span class=""> <?php echo $iti->customer_id; ?></span> &nbsp; &nbsp;
 							<?php if( is_admin_or_manager() ){ ?>
-								<strong>Lead Type: </strong><span class="mehroon"><?php echo $cus_type; ?>&nbsp; &nbsp;
+								<strong>Lead Type: </strong><span class=""><?php echo $cus_type; ?>&nbsp; &nbsp;
 								</span> <?php echo $ref_name . $ref_contact; ?>
 							<?php } ?>
-							<?php echo !empty($country_name) ? " From: <span class='red'>" . $country_name . " ( $state_name ) </span>" : ""; ?>
-							Q. Type: <strong class="red"> <?php echo check_iti_type( $iti->iti_id ) . ' ( ' . $iti->iti_package_type . ')'; ?></strong>
+							<?php echo !empty($country_name) ? " From: <span class=''>" . $country_name . " ( $state_name ) </span>" : ""; ?>
+							Q. Type: <strong class=""> <?php echo check_iti_type( $iti->iti_id ) . ' ( ' . $iti->iti_package_type . ')'; ?></strong>
 						</div>
 						<a class="btn btn-success pull-right" href="<?php echo site_url("itineraries"); ?>" title="Back">Back</a>
 						<a class="btn btn-info pull-right" style='margin: 5px;' onclick="Print_iti();" href="javscript:void(0)" title="Back">Print</a>

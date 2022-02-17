@@ -133,15 +133,15 @@ body.default:before {
     border-color: #9c7777;
 }
 
-form#itiForm_form .nav li {
+#itiForm_form .nav li {
     display: none;
 }
 
-form#itiForm_form .nav li.done {
+#itiForm_form .nav li.done {
     display: none;
 }
 
-form#itiForm_form .nav li.active {
+#itiForm_form .nav li.active {
     display: table-cell;
 }
 

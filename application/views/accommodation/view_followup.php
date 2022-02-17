@@ -52,14 +52,14 @@
 				?>
 				<div class="portlet box blue">
 					<div class="portlet-title">
-						<div class="caption"><i class="fa fa-users"></i> <strong>Lead Id: </strong><span class="mehroon"><?php echo $iti->customer_id; ?></span> &nbsp; &nbsp;
+						<div class="caption"><i class="fa fa-users"></i> <strong>Lead Id: </strong><span class=""><?php echo $iti->customer_id; ?></span> &nbsp; &nbsp;
 							
 						<?php if( is_admin_or_manager() ){ ?>
-							<strong class=''>Lead Type: </strong> <span class='mehroon'><?php echo $cus_type; ?></span> <?php echo $ref_name . $ref_contact; ?>
+							<strong class=''>Lead Type: </strong> <span class=''><?php echo $cus_type; ?></span> <?php echo $ref_name . $ref_contact; ?>
 						<?php } ?>
-						<?php echo !empty($country_name) ? " From: <span class='red'>" . $country_name . " ( $state_name ) </span>" : ""; ?>
+						<?php echo !empty($country_name) ? " From: <span class=''>" . $country_name . " ( $state_name ) </span>" : ""; ?>
 						
-						Q. Type: <strong class="red"> <?php echo check_iti_type( $iti->iti_id ) . ' ( ' . $iti->iti_package_type . ')'; ?></strong>
+						Q. Type: <strong class=""> <?php echo check_iti_type( $iti->iti_id ) . ' ( ' . $iti->iti_package_type . ')'; ?></strong>
 						</div>
 						<a class="btn btn-success pull-right" href="<?php echo site_url("itineraries"); ?>" title="Back">Back</a>
 					</div>
