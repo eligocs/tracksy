@@ -233,7 +233,7 @@
                      <span class="arrow"></span>
                  </a>
                  <ul class="sub-menu">
-                     <li class="nav-item  ">
+                     <li class="nav-item">
                          <a href="javascript:;" class="nav-link nav-toggle">
                              <i class="fa fa-user-circle-o"></i>
                              <span class="title">Accounts</span>
@@ -247,7 +247,7 @@
                                  </a>
                              </li>
 
-                             <li class="nav-item  ">
+                             <li class="nav-item">
                                  <a href="<?php echo site_url("accounts/customeraccounts"); ?>" class="nav-link ">
                                      <i class="fa fa-user-circle-o" aria-hidden="true"></i>
                                      <span class="title">Customer Accounts</span>
@@ -729,7 +729,7 @@
 					</li-->
 
 
-<!-- 
+             <!-- 
              <li class="nav-item" <?php if( $menu_name == "search" ){ echo 'active'; }?>>
                  <a href="<?php echo site_url("search"); ?>" class="nav-link nav-toggle">
                      <i class="fa fa-search"></i>

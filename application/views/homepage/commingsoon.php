@@ -20,7 +20,7 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="https://googlereviews.cws.net/google-reviews.js"></script>
 
-    <link rel="shortcut icon" type="image/x-icon" href="<?php echo site_url(); ?>site/images/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo site_url()  . 'site/images/' . getLogo() ?>" />
     <style>
     body,
     html {
@@ -100,7 +100,9 @@
 <body>
     <div class="bgimg">
         <div class="topleft">
-            <img src="<?php echo site_url() ?>site/images/trackv2logo.png" alt="Track Itineray Software">
+        <div class="topleft">
+            <!-- <img src="<?php echo site_url() ?>site/images/trackv2logo.png" alt="Track Itineray Software"> -->
+            <img src="<?php echo site_url()  . 'site/images/' . getLogo() ?>" alt="Track Itineray Software">
         </div>
         <div class="middle">
             <h1 class="uppercase">It's Time to <br> Adventure </h1>

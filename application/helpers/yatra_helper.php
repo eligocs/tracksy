@@ -16,6 +16,19 @@
 		}	
 		return $result;
 	}
+
+
+	function getLogo(){
+		$ci = & get_instance();
+		$image_name = $ci->global_model->getdata( "homepage_setting", "", "logo_url","",1 );
+		if( $image_name ){
+			$result = $image_name;
+		}else{
+			$result = "Track It";
+		}	
+		return $result;
+
+	}
 	
 	/* 
 	* Get User Name by ID

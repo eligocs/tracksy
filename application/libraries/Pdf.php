@@ -13,7 +13,8 @@ class Pdf extends TCPDF{
 			// Set font
 			$this->SetFont('helvetica', 'B', 14);
 			$this->SetTextColor(255,255,255);
-			$image_file = K_PATH_IMAGES.'logo.png';
+			// $image_file = K_PATH_IMAGES.'logo.png';
+			$image_file = site_url()  . 'site/images/' . getLogo();
 			// set image scale factor
 			$this->Rect(0, 0, 2000, 25,'F',array(),array(0,51,103));
 			//#Rect(x, y, w, h, style = '', border_style = {}, fill_color = {}) ⇒ Object

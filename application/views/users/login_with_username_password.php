@@ -11,7 +11,7 @@
       <link href="<?php echo base_url();?>site/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
       <link href="<?php echo base_url();?>site/assets/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
       <link href="<?php echo base_url();?>site/assets/css/login.min.css" rel="stylesheet" type="text/css" />
-      <link rel="shortcut icon" type="image/x-icon" href="<?php echo site_url(); ?>site/images/favicon.ico" />
+      <link rel="shortcut icon" type="image/x-icon" href="<?php echo site_url()  . 'site/images/' . getLogo() ?>" />
       <style>
          div .alert-danger {
             background-color: white; 
@@ -64,7 +64,8 @@
    </head>
    <body class="login">
       <div class="overlay"></div>
-      <div class="logo text-center"><img src="<?php echo site_url() ?>site/images/trackv2-logo.png" alt="Itinerary Software"></div>
+      <div class="logo text-center"><img src="<?php echo site_url()  . 'site/images/' . getLogo() ?>" alt="Itinerary Software"></div>
+      <!-- <div class="logo text-center"><img src="<?php echo site_url() ?>site/images/trackv2-logo.png" alt="Itinerary Software"></div> -->
       <div class="content">
          <!-- BEGIN LOGIN FORM -->
          <form class="login-form" action="<?php echo base_url();?>login/validation" method="post">
