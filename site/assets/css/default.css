@@ -1514,7 +1514,8 @@ tr.repeat_follow:hover {
 
 .thead-default th {
   color: #ffffff;
-  background-color: #d64635;
+  /* background-color: #d64635; */
+  background-color: #5e72e4;
 }
 
 .select_user {
