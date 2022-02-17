@@ -23,7 +23,7 @@ class Pdf extends TCPDF{
 			//  $this->Image($image_file, 10, 10, 15, '', 'PNG', '', 'T', false, 300, '', false, false, 0, false, false, false);
 			// Title
 			$this->SetFont('helvetica', '', 10);
-			$this->Cell(0, 7, 'Phone No: 0177-2625636', 0, false, 'R', 0, '', 0, false, 'M', 'M');
+			// $this->Cell(0, 7, 'Phone No: 0177-000', 0, false, 'R', 0, '', 0, false, 'M', 'M');
 			$this->Ln();
 			$this->Cell(0, 7, 'Email: info@trackitinerary.com', 0, false, 'R', 0, '', 0, false, 'M', 'M');
 			$this->Ln();

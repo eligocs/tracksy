@@ -995,6 +995,7 @@ ERROR - 2022-02-16 17:01:53 --> Severity: 8192 --> Required parameter $currentfo
 ERROR - 2022-02-16 17:01:53 --> Severity: 8192 --> Required parameter $currentfont follows optional parameter $str C:\xampp\htdocs\tracksy\application\libraries\TCPDF\include\tcpdf_fonts.php 2088
 ERROR - 2022-02-16 17:01:53 --> Severity: Warning --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\tracksy\system\core\Exceptions.php:271) C:\xampp\htdocs\tracksy\system\core\Common.php 570
 ERROR - 2022-02-16 17:01:53 --> Severity: Compile Error --> Array and string offset access syntax with curly braces is no longer supported C:\xampp\htdocs\tracksy\application\libraries\TCPDF\include\tcpdf_images.php 318
+<<<<<<< Updated upstream
 =======
 ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
 ERROR - 2022-02-16 15:58:53 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\trackv2\application\views\customers\leads_all_data.php 893
@@ -1051,3 +1052,177 @@ ERROR - 2022-02-16 18:18:22 --> Severity: Notice --> Undefined variable: iti C:\
 ERROR - 2022-02-16 18:18:22 --> Severity: Notice --> Trying to get property 'booking_benefits_meta' of non-object C:\xampp\htdocs\trackv2\application\views\accommodation\pdf.php 438
 ERROR - 2022-02-16 18:18:22 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable C:\xampp\htdocs\trackv2\application\views\accommodation\pdf.php 439
 ERROR - 2022-02-16 18:18:22 --> Severity: 8192 --> The each() function is deprecated. This message will be suppressed on further calls C:\xampp\htdocs\trackv2\application\libraries\TCPDF\tcpdf.php 16542
+=======
+ERROR - 2022-02-16 18:34:02 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'trackv2' C:\xampp\htdocs\tracksy\system\database\drivers\mysqli\mysqli_driver.php 201
+ERROR - 2022-02-16 18:34:02 --> Unable to connect to the database
+ERROR - 2022-02-16 18:34:02 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'trackv2' C:\xampp\htdocs\tracksy\system\database\drivers\mysqli\mysqli_driver.php 201
+ERROR - 2022-02-16 18:34:02 --> Unable to connect to the database
+ERROR - 2022-02-16 18:34:02 --> Query error: Unknown database 'trackv2' - Invalid query: SELECT *
+FROM `homepage_setting`
+ERROR - 2022-02-16 18:34:02 --> Severity: error --> Exception: Call to a member function result() on bool C:\xampp\htdocs\tracksy\application\models\Global_model.php 301
+>>>>>>> Stashed changes
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:39:26 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:40:11 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\tracksy\application\views\customers\leads_all_data.php 893
+ERROR - 2022-02-16 18:41:23 --> Severity: Warning --> mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() C:\xampp\htdocs\tracksy\system\libraries\Email.php 1896
