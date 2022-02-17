@@ -60,7 +60,7 @@ EOF;
 	$pdf_html .= "Hi {$customer_name},";
 	// Set font
 	$pdf_html .= '<div class="clear-fix"></div>';
- 		$pdf_html .= '<table  cellpadding="7"  cellspacing="0"  width="100%"><tr><td class="heading">GREETINGS FROM  Track Itinerary</td></tr></table>';
+ 		$pdf_html .= '<table  cellpadding="7"  cellspacing="0"  width="100%"><tr><td class="heading">GREETINGS FROM  TRACKITINERARY</td></tr></table>';
 		$pdf_html .= "<br>";
 		$pdf_html .= "<br>";
 		$pdf_html .= $greeting;
