@@ -52,7 +52,7 @@ class Promotion extends CI_Controller {
 	
 	//package for client view
 	public function itinerary(){
-		redirect(404);
+		redirect('dashboard');
 		$iti_id = trim($this->uri->segment(3));
 		$temp_key = trim($this->uri->segment(4));
 		if( !empty( $iti_id ) && !empty( $temp_key ) ){
@@ -101,7 +101,6 @@ class Promotion extends CI_Controller {
 	
 	//closed itinerary view
 	public function closeitineraryurl(){
-		redirect(404);
 		$iti_id = trim($this->uri->segment(3));
 		$temp_key = trim($this->uri->segment(4));
 		if( !empty( $iti_id ) && is_numeric( $iti_id ) && !empty( $temp_key ) ){

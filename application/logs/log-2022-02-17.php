@@ -158,3 +158,55 @@ ERROR - 2022-02-17 10:26:25 --> Severity: Notice --> Undefined variable: iti C:\
 ERROR - 2022-02-17 10:26:25 --> Severity: Notice --> Trying to get property 'booking_benefits_meta' of non-object C:\xampp\htdocs\tracksy\application\views\accommodation\pdf.php 438
 ERROR - 2022-02-17 10:26:25 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable C:\xampp\htdocs\tracksy\application\views\accommodation\pdf.php 439
 ERROR - 2022-02-17 10:26:25 --> Severity: 8192 --> The each() function is deprecated. This message will be suppressed on further calls C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 16542
+ERROR - 2022-02-17 10:37:45 --> Severity: Warning --> "continue" targeting switch is equivalent to "break". Did you mean to use "continue 2"? C:\xampp\htdocs\tracksy\application\views\accommodation\pdf.php 225
+ERROR - 2022-02-17 10:37:45 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 6962
+ERROR - 2022-02-17 10:37:45 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 6963
+ERROR - 2022-02-17 10:37:45 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 6962
+ERROR - 2022-02-17 10:37:45 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 6963
+ERROR - 2022-02-17 10:37:45 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 6962
+ERROR - 2022-02-17 10:37:45 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 6963
+ERROR - 2022-02-17 10:37:45 --> Severity: Notice --> Undefined variable: iti C:\xampp\htdocs\tracksy\application\views\accommodation\pdf.php 278
+ERROR - 2022-02-17 10:37:45 --> Severity: Notice --> Trying to get property 'iti_close_status' of non-object C:\xampp\htdocs\tracksy\application\views\accommodation\pdf.php 278
+ERROR - 2022-02-17 10:37:45 --> Severity: Notice --> Undefined variable: iti C:\xampp\htdocs\tracksy\application\views\accommodation\pdf.php 438
+ERROR - 2022-02-17 10:37:45 --> Severity: Notice --> Trying to get property 'booking_benefits_meta' of non-object C:\xampp\htdocs\tracksy\application\views\accommodation\pdf.php 438
+ERROR - 2022-02-17 10:37:45 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable C:\xampp\htdocs\tracksy\application\views\accommodation\pdf.php 439
+ERROR - 2022-02-17 10:37:45 --> Severity: 8192 --> The each() function is deprecated. This message will be suppressed on further calls C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 16542
+ERROR - 2022-02-17 10:38:17 --> Severity: Warning --> "continue" targeting switch is equivalent to "break". Did you mean to use "continue 2"? C:\xampp\htdocs\tracksy\application\views\accommodation\pdf.php 225
+ERROR - 2022-02-17 10:38:17 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 6962
+ERROR - 2022-02-17 10:38:17 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 6963
+ERROR - 2022-02-17 10:38:17 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 6962
+ERROR - 2022-02-17 10:38:17 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 6963
+ERROR - 2022-02-17 10:38:17 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 6962
+ERROR - 2022-02-17 10:38:17 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 6963
+ERROR - 2022-02-17 10:38:17 --> Severity: Notice --> Undefined variable: iti C:\xampp\htdocs\tracksy\application\views\accommodation\pdf.php 278
+ERROR - 2022-02-17 10:38:17 --> Severity: Notice --> Trying to get property 'iti_close_status' of non-object C:\xampp\htdocs\tracksy\application\views\accommodation\pdf.php 278
+ERROR - 2022-02-17 10:38:17 --> Severity: Notice --> Undefined variable: iti C:\xampp\htdocs\tracksy\application\views\accommodation\pdf.php 438
+ERROR - 2022-02-17 10:38:17 --> Severity: Notice --> Trying to get property 'booking_benefits_meta' of non-object C:\xampp\htdocs\tracksy\application\views\accommodation\pdf.php 438
+ERROR - 2022-02-17 10:38:17 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable C:\xampp\htdocs\tracksy\application\views\accommodation\pdf.php 439
+ERROR - 2022-02-17 10:38:17 --> Severity: 8192 --> The each() function is deprecated. This message will be suppressed on further calls C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 16542
+ERROR - 2022-02-17 10:44:23 --> Severity: Warning --> "continue" targeting switch is equivalent to "break". Did you mean to use "continue 2"? C:\xampp\htdocs\tracksy\application\views\accommodation\pdf.php 225
+ERROR - 2022-02-17 10:44:23 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 6962
+ERROR - 2022-02-17 10:44:23 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 6963
+ERROR - 2022-02-17 10:44:23 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 6962
+ERROR - 2022-02-17 10:44:23 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 6963
+ERROR - 2022-02-17 10:44:23 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 6962
+ERROR - 2022-02-17 10:44:23 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 6963
+ERROR - 2022-02-17 10:44:23 --> Severity: Notice --> Undefined variable: iti C:\xampp\htdocs\tracksy\application\views\accommodation\pdf.php 278
+ERROR - 2022-02-17 10:44:23 --> Severity: Notice --> Trying to get property 'iti_close_status' of non-object C:\xampp\htdocs\tracksy\application\views\accommodation\pdf.php 278
+ERROR - 2022-02-17 10:44:23 --> Severity: Notice --> Undefined variable: iti C:\xampp\htdocs\tracksy\application\views\accommodation\pdf.php 438
+ERROR - 2022-02-17 10:44:23 --> Severity: Notice --> Trying to get property 'booking_benefits_meta' of non-object C:\xampp\htdocs\tracksy\application\views\accommodation\pdf.php 438
+ERROR - 2022-02-17 10:44:23 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable C:\xampp\htdocs\tracksy\application\views\accommodation\pdf.php 439
+ERROR - 2022-02-17 10:44:23 --> Severity: 8192 --> The each() function is deprecated. This message will be suppressed on further calls C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 16542
+ERROR - 2022-02-17 10:51:30 --> Severity: Warning --> "continue" targeting switch is equivalent to "break". Did you mean to use "continue 2"? C:\xampp\htdocs\tracksy\application\views\accommodation\pdf.php 225
+ERROR - 2022-02-17 10:51:30 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 6962
+ERROR - 2022-02-17 10:51:30 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 6963
+ERROR - 2022-02-17 10:51:30 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 6962
+ERROR - 2022-02-17 10:51:30 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 6963
+ERROR - 2022-02-17 10:51:30 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 6962
+ERROR - 2022-02-17 10:51:30 --> Severity: Warning --> A non-numeric value encountered C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 6963
+ERROR - 2022-02-17 10:51:30 --> Severity: Notice --> Undefined variable: iti C:\xampp\htdocs\tracksy\application\views\accommodation\pdf.php 278
+ERROR - 2022-02-17 10:51:30 --> Severity: Notice --> Trying to get property 'iti_close_status' of non-object C:\xampp\htdocs\tracksy\application\views\accommodation\pdf.php 278
+ERROR - 2022-02-17 10:51:30 --> Severity: Notice --> Undefined variable: iti C:\xampp\htdocs\tracksy\application\views\accommodation\pdf.php 438
+ERROR - 2022-02-17 10:51:30 --> Severity: Notice --> Trying to get property 'booking_benefits_meta' of non-object C:\xampp\htdocs\tracksy\application\views\accommodation\pdf.php 438
+ERROR - 2022-02-17 10:51:30 --> Severity: Warning --> count(): Parameter must be an array or an object that implements Countable C:\xampp\htdocs\tracksy\application\views\accommodation\pdf.php 439
+ERROR - 2022-02-17 10:51:30 --> Severity: 8192 --> The each() function is deprecated. This message will be suppressed on further calls C:\xampp\htdocs\tracksy\application\libraries\TCPDF\tcpdf.php 16542
