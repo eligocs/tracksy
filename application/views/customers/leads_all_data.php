@@ -402,20 +402,22 @@ div#quotation_type_section,
                                  	//buttons
                                  	//if price is updated remove edit for agent get_iti_booking_status
                                  	if( $iti->pending_price == 2 && $role == 96 ){
-                                 		$btn_edit = "<a title='Edit' href='javascript: void(0)' class='btn btn-success editPop' ><i class='fa fa-pencil' aria-hidden='true'></i></a>";
+                                 		$btn_edit = "<a title='Edit' href='javascript: void(0)' class='btn_pencil editPop' ><i class='fa fa-pencil' aria-hidden='true'></i></a>";
                                  	}else{
-                                 		$btn_edit = "<a title='Edit' href=" . site_url("itineraries/edit/{$iti_id}/{$key}") . " class='btn btn-success' ><i class='fa fa-pencil' aria-hidden='true'></i></a>";
+                                 		$btn_edit = "<a title='Edit' href=" . site_url("itineraries/edit/{$iti_id}/{$key}") . " class='btn_pencil' ><i class='fa fa-pencil' aria-hidden='true'></i></a>";
                                  	}
                                  	
-                                 	$btnview = "<a target='_blank' title='View' href=" . site_url("itineraries/view_iti/{$iti_id}/{$key}") . " class='btn btn-success' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
+                                 	$btnview = "<a target='_blank' title='View' href=" . site_url("itineraries/view_iti/{$iti_id}/{$key}") . " class='btn_eye' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
                                  	
                                  	$btnview .= "<a target='_blank' title='View Pdf' href=" . site_url("itineraries/pdf/{$iti_id}/{$key}") . " class='btn btn-success' ><i class='fa fa-file-pdf-o' aria-hidden='true'></i></a>";
                                  	
-                                 	$btn_view = "<a title='client view' target='_blank' href=" . site_url("promotion/itinerary/{$iti_id}/{$key}") . " class='btn btn-success' >Client view New</a>";
+                                     $btn_view ="";
+
+                                 	// $btn_view = "<a title='client view' target='_blank' href=" . site_url("promotion/itinerary/{$iti_id}/{$key}") . " class='btn btn-success' >Client view New</a>";
                                  	
                                  	//Show if type=1=itinerary
                                  	if( $iti->iti_type == 1 ){
-                                 		$btn_view .= "<a title='client view' target='_blank' href=" . site_url("promotion/package/{$iti_id}/{$key}") . " class='btn btn-success' >Client view</a>";
+                                 		//$btn_view .= "<a title='client view' target='_blank' href=" . site_url("promotion/package/{$iti_id}/{$key}") . " class='btn btn-success' >Client view</a>";
                                  	}
                                  	
                                  	//clone button
@@ -477,7 +479,7 @@ div#quotation_type_section,
                                  			$btns = $btnview;
                                  		}else{
                                  			$allBtns = $btncmt. $btn_edit . $btnview. $btn_view . $row_delete . $it_status . $showChildItiBtn;
-                                 			$btns = "<a href='' class='btn btn-success optionToggleBtn'>View</a><div class='optionTogglePanel'>{$allBtns}</div>" . $st . $showChildItiBtn . $amend_btn;
+                                 			$btns = "<a href='' class='btn btn-success optionToggleBtn margin-bottom-10'>View</a><div class='optionTogglePanel'>{$allBtns}</div>" . $st . $showChildItiBtn . $amend_btn;
                                  		}	
                                  	}else{ 
                                  		//if itinerary in draft hide buttons for sales team

@@ -2431,6 +2431,8 @@
                   ?>
                   </div>
                <hr>
+               <div class="custom_card">
+
                <?php
                   $agent_id = $iti->agent_id;
                   $user_info = get_user_info($agent_id);
@@ -2458,7 +2460,7 @@
                   <?php $old_count++; } ?>
                </p>
                <?php } ?>
-               <hr>
+               
                <!--Request manager to add price to itinerary get_iti_booking_status == rejected iti-->
                <?php if( $user_role == 96 && ($iti->pending_price == "1" || $iti->pending_price == "4" || $iti->pending_price == "5" ) ){ ?>
                <p class="text-center"><strong class="alert alert-info">Waiting for price update from
@@ -2471,6 +2473,9 @@
                      data-temp_key="<?php echo $iti->temp_key; ?>" href="#"
                      data-agent_id="<?php echo $iti->agent_id; ?>" id="send_price_request"
                      title="Sent Price request for manager">Sent Price Request To Manager</a>
+
+                     </div>
+
                <div class="modal fade" id="price_req_modal" role="dialog">
                   <div class="modal-dialog modal-lg2">
                      <div class="modal-content">

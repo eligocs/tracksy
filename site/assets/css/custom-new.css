@@ -6,9 +6,10 @@ body>.page-container {padding: 20px;}
  
 .page-content-wrapper .page-content {
     margin-left: 255px;
-    border-radius: 10px !important; 
+    border-radius: 10px !important;
     position: relative;
     z-index: 1;
+    transition: all ease 1.5s;
 }
 
 .page-sidebar.navbar-collapse.collapse {
@@ -26,7 +27,7 @@ body.default:before {
     background-image: linear-gradient(12deg,#ffffff 50%, #5e72e4 50%);
 }
 
-.page-header.navbar {/* background: transparent !important; */display: none;}
+.page-header.navbar {background: transparent !important;/* display: none; */}
 
 .portlet.box.blue {
     border-radius: 15px !important;
@@ -62,6 +63,7 @@ body.default:before {
 
 .page-header-fixed .page-container {
     margin-top: 0;
+    overflow: hidden;
 }
   ::-webkit-scrollbar-thumb {
     border-radius: 10px;
@@ -80,8 +82,8 @@ body.default:before {
 }
 
 
-.form-control{border-radius: 5px !important;}
-.form-wizard div#bar {position: absolute;z-index: 0;width: 100%;top: 35px;}
+.form-control{border-radius: 5px !important;height: 40px;}
+.form-wizard div#bar {position: absolute;z-index: 0;width: 100%;top: 35px;border-radius: 15px !important;}
 .form-wizard {position: relative;}
 .form-wizard ul.nav {position: relative; z-index: 2;}
 .form-wizard .steps, .form-wizard .steps>li>a.step {background: none;}
@@ -101,21 +103,117 @@ body.default:before {
 
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
     border-radius: 50% !important;
-    background: #e1e1e1;
+    /* background: #e1e1e1; */
     /* border: transparent; */
 }
 .table>caption+thead>tr:first-child>td, .table>caption+thead>tr:first-child>th, .table>colgroup+thead>tr:first-child>td, .table>colgroup+thead>tr:first-child>th, .table>thead:first-child>tr:first-child>td, .table>thead:first-child>tr:first-child>th {
     border: none;
 }
 
-.btn_success{
-    background-color: #5cb85c !important;
-    border-color: #5cb85c !important;
-    color: #fff !important;
+.btn-info {
+        background-color: #63b3ed;
+        border-color: #5eace4;
+    }
+
+    .btn-success {
+        background-color: #4caf50;
+        border-color: #3c913f;
+    }
+
+    .btn-danger {
+        background-color: #e91e63;
+        border-color: #d21b59;
+    }
+
+    .btn-info, .btn-success, .btn-danger {
+       border-radius: 5px !important;
+    }
+
+.has-error .form-control {
+    border-color: #9c7777;
 }
 
-.sidebar_heading {
-    margin: 20px 0px;
-    font-weight: 700 !important;
-    font-size: 17px;
+form#itiForm_form .nav li {
+    display: none;
+}
+
+form#itiForm_form .nav li.done {
+    display: none;
+}
+
+form#itiForm_form .nav li.active {
+    display: table-cell;
+}
+
+.alert-danger {
+    background: #f44335;
+    color: #fff;
+}.mt-repeater-hotel-note-item.form-group {
+    margin-bottom: 15px;
+}
+.btn {
+    border-radius: 5px !important;
+}
+.help-block-error {
+    color: #e91e63 !important;
+    font-size: 10px;
+}
+
+div#itiForm_form .col-md-offset-3.col-md-9.text-right {
+    margin: 0 !important;
+    width: 100% !important;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px !important;
+    /* background: #df2869; */
+}
+
+.page-header-inner>* {
+    display: none;
+}
+
+
+.page-logo>* {
+    display: none !important;
+}
+
+.page-header-inner .menu-toggler.sidebar-toggler {
+    display: block !important;
+    left: 10px;
+}
+
+.header_target_section {
+    display: none;
+}
+
+.top-menu {
+    display: none;
+}
+
+
+
+.page-sidebar-closed .page-sidebar-wrapper {
+    position: relative;
+    transform: translateX(100px);
+    transition: all ease .5s;
+}
+
+.page-sidebar-closed {
+    transition: all ease .5s;
+}
+
+.page-sidebar-closed .page-content-wrapper .page-content {
+    margin-left: 0 !important;
+}
+form#itiForm_form textarea.form-control{min-height:150px;}
+
+.menu-toggler.sidebar-toggler i {
+    position: relative;
+    left: 30px;
+    top: 10px;
+}
+
+.page-sidebar-closed .menu-toggler.sidebar-toggler i {
+    left: -40px;
 }

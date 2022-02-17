@@ -203,8 +203,8 @@
          <p>&nbsp;</p>
       </div>
       <!-- footer -->  
-      <footer class="bg-blue">
-         <div class="container">
+      <!-- <footer class="">
+         <div class="container bg-blue">
             <div class="row">
                <div class="col-md-6">
                   <div class="Approved">
@@ -225,7 +225,7 @@
             </div>
             <div class="row">
                <nav class="col-md-12">
-                  <ul class="footer-menu">
+                  <ul class="footer-menu" style="margin-top:64px;">
                      <li><a href="https://Trackitinerary.org/promotion/testimonials">Clients Feedback</a></li>
                      <li><a href="https://Trackitinerary.org/promotion/contact_us">Contact Us</a></li>
                   </ul>
@@ -252,7 +252,7 @@
                </div>
             </div>
          </div>
-      </footer>
+      </footer> -->
       <!-- footer end -->  
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
