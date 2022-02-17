@@ -2509,9 +2509,9 @@ input[type=checkbox] {
 
 /* ----table-responsive Css---- */
 
-.table-responsive{
+/* .table-responsive{
     min-height: 500px;
-}
+} */
 
 .table-responsive table td {
     border: 1px solid #e4e7ed;

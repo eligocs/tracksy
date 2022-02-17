@@ -19073,33 +19073,34 @@ body.stop-scrolling {
 }
 
 .mt-element-step .step-background-thin .mt-step-number {
-    font-size: 120px;
+    font-size: 87px;
     position: absolute;
     bottom: 0;
     right: 0;
     line-height: .79em;
     color: #dae1e4;
-    z-index: 4
+    z-index: 4;
+    display: none;
 }
 
 .mt-element-step .step-background-thin .mt-step-title {
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 100;
-    text-align: right;
+    text-align: left;
     padding-right: 25%;
     z-index: 5;
     position: relative
 }
 
 .mt-element-step .step-background-thin .mt-step-content {
-    text-align: right;
+    text-align: left;
     position: relative;
     padding-right: 25%;
     z-index: 5
 }
 
 .mt-element-step .step-background-thin .active {
-    background-color: #32c5d2 !important
+    background-color: #3d3d3d !important;
 }
 
 .mt-element-step .step-background-thin .active .mt-step-number {
@@ -19111,7 +19112,7 @@ body.stop-scrolling {
 }
 
 .mt-element-step .step-background-thin .done {
-    background-color: #26C281 !important
+    background-color: #5e72e4 !important;
 }
 
 .mt-element-step .step-background-thin .done .mt-step-number {
@@ -19123,7 +19124,7 @@ body.stop-scrolling {
 }
 
 .mt-element-step .step-background-thin .error {
-    background-color: #E7505A !important
+    background-color: #e12c6c !important;
 }
 
 .mt-element-step .step-background-thin .error .mt-step-number {
