@@ -42,7 +42,7 @@
 								<tr data-id={$category->room_cat_id}>
 									<td> ${i} </td>
 									<td> {$category->room_cat_name}</td>
-									<td colspan='2'><a href=" . site_url("hotels/roomcategoryedit/{$category->room_cat_id}") . " class='btn btn-success ajax_edit_hotel_table' ><i class='fa fa-pencil' aria-hidden='true'></i></a>";
+									<td colspan='2'><a href=" . site_url("hotels/roomcategoryedit/{$category->room_cat_id}") . " class='btn_pencil ajax_edit_hotel_table' ><i class='fa fa-pencil' aria-hidden='true'></i></a>";
 									
 									//Remove delete option
 									/* if( $i > 4 ){

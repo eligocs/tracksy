@@ -303,7 +303,7 @@
 				</div>
 			</div>	
 			<div class="row dashboard-tables-all-info">
-			<div class="col-lg-6 col-xs-12 col-sm-12">
+			<div class="col-lg-6 col-xs-12 col-sm-12 margin-bottom-30">
 				<div class="portlet light bordered">
 					<div class="portlet-title tabbable-line">
 						<div class="caption">

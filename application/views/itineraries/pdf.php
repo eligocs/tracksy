@@ -5,10 +5,10 @@ $iti = $itinerary[0];
 	$pdf_html = "";
 	$pdf_html .= <<<EOF
 	<style>
-		.heading{    border: 1px solid #e8ce00; background-color: #FFE200; font-family: 'Open Sans', sans-serif; font-size: 14px !important; text-transform: uppercase; color: rgb(0, 64, 130); font-weight:bold; }
+		.heading{    border: 1px solid #5E76E0; background-color: #5E76E0; font-family: 'Open Sans', sans-serif; font-size: 14px !important; text-transform: uppercase; color: rgb(255,255,255); font-weight:bold; }
 		th{background-color: #003367; font-weight:bold; color:#fff;}
 		ul.list_style{ }
-		.strikeLine{ text-decoration: line-through !important; }
+		.strikeLine{ text-decoration: line-through !important; }	
 		.fa{font-family: fontawesome; color: #004082; font-size: 16px;}
 		.pdf{font-family:georg; font-size:14px;}
 		.pdf {font-family: sans-serif; color: #484848; line-height:130%;}

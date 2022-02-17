@@ -2106,7 +2106,7 @@ blockquote>div {
 }
 
 .tour_info {
-    background: #f7f7f7;
+    /* background: #f7f7f7; */
     margin-bottom: 50px;
 }
 
@@ -2631,6 +2631,8 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
     display: flex;
 }
 
+
+
 .d_block{
     display: block;
 }
@@ -2699,7 +2701,11 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
 }
 
 .align_items_center{
-    align-items: center;
+    align-items: center !important;
+}
+
+.justify_content_between{
+    justify-content: space-between !important;
 }
 
 .repopen_lead[type="checkbox"]{

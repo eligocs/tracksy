@@ -600,13 +600,13 @@ class Itineraries extends CI_Controller {
 				
 				$btnview = "<a target='_blank' title='View' href=" . site_url("itineraries/view_iti/{$iti_id}/{$key}") . " class='btn_eye' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
 				
-				$btnview .= "<a target='_blank' title='View Pdf' href=" . site_url("itineraries/pdf/{$iti_id}/{$key}") . " class='btn btn-success' ><i class='fa fa-file-pdf-o' aria-hidden='true'></i></a>";
-				
-				$btn_view = "<a title='client view' target='_blank' href=" . site_url("promotion/itinerary/{$iti_id}/{$key}") . " class='btn btn-success' >Client view New</a>";
+				// $btnview .= "<a target='_blank' title='View Pdf' href=" . site_url("itineraries/pdf/{$iti_id}/{$key}") . " class='btn btn-success' ><i class='fa fa-file-pdf-o' aria-hidden='true'></i></a>";
+				$btn_view = "";
+				// $btn_view = "<a title='client view' target='_blank' href=" . site_url("promotion/itinerary/{$iti_id}/{$key}") . " class='btn btn-success' >Client view New</a>";
 				
 				//Show if type=1=itinerary
 				if( $iti->iti_type == 1 ){
-					$btn_view .= "<a title='client view' target='_blank' href=" . site_url("promotion/package/{$iti_id}/{$key}") . " class='btn btn-success' >Client view</a>";
+					//$btn_view .= "<a title='client view' target='_blank' href=" . site_url("promotion/package/{$iti_id}/{$key}") . " class='btn btn-success' >Client view</a>";
 				}
 				
 				//clone button
@@ -808,9 +808,9 @@ class Itineraries extends CI_Controller {
 				//check if itinerary closed
 				$btn_view_receipt = "";
 				if( $iti->iti_close_status == 1 ){
-					$btn_view .= "<a title='client view' target='_blank' href=" . site_url("promotion/closeitineraryurl/{$iti_id}/{$key}") . " class='btn btn-danger' >Client view </a>";
+					//$btn_view .= "<a title='client view' target='_blank' href=" . site_url("promotion/closeitineraryurl/{$iti_id}/{$key}") . " class='btn btn-danger' >Client view </a>";
 				}else{
-					$btn_view .= "<a title='client view' target='_blank' href=" . site_url("promotion/itinerary/{$iti_id}/{$key}") . " class='btn btn-success' >Client view </a>";
+					//$btn_view .= "<a title='client view' target='_blank' href=" . site_url("promotion/itinerary/{$iti_id}/{$key}") . " class='btn btn-success' >Client view </a>";
 					
 					$btn_view_receipt = "<a title='Create New Receipt' target='_blank' href=" . site_url("accounts/create_receipt/{$iti->customer_id}") . " class='btn btn-success' ><i class='fa fa-file-alt'></i> New Receipt </a>";
 				}

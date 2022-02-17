@@ -3461,8 +3461,7 @@
 </script>
 <script>
    jQuery(document).ready(function($) {
-       <
-       !--show rate perperson section-- >
+      //  show rate perperson section
        $(document).on("click", "#per_person_rate", function(e) {
            if ($(this).is(":checked")) {
                $(".perperson_section").show();
@@ -3487,8 +3486,7 @@
        });
    
    
-       <
-       !--end show rate perperson section-- >
+      //  end show rate perperson section
        $("#send_price_request").click(function(e) {
            e.preventDefault();
            $("#price_req_modal").modal('show');
