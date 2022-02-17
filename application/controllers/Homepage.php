@@ -58,6 +58,54 @@ class Homepage extends CI_Controller {
 		} 
 				die();
 	}	
+
+
+	/*public function do_upload(){
+		// dump($_POST['type']);die;
+		if(isset($_POST['type'])){
+			$data = $_POST['image'];
+			
+			list($type, $data) = explode(';', $data);
+			list(, $data)      = explode(',', $data);
+			
+			
+			$data = base64_decode($data);
+			$imageName = 'logo'.time().'.png';
+			file_put_contents('site/images/'.$imageName, $data);
+			$data = array( "favicon" => $imageName );
+			$id=1;
+			$where = array("id"=>$id);	
+			// dump( $imageName);die;
+			// dump($where);die;
+			$result = $this->global_model->update_data("homepage_setting", $where, $data);			
+			if( $result ){
+				echo 'success';
+			}else{
+				echo "error";
+				} 
+						die();
+		}else{
+			$data = $_POST['image'];
+			
+			list($type, $data) = explode(';', $data);
+			list(, $data)      = explode(',', $data);
+			
+			
+			$data = base64_decode($data);
+			$imageName = 'logo'.time().'.png';
+			file_put_contents('site/images/'.$imageName, $data);
+			$data = array( "logo_url" => $imageName );
+			$id=1;
+			$where = array("id"=>$id);	
+			$result = $this->global_model->update_data("homepage_setting", $where, $data);			
+			if( $result ){
+				echo 'success';
+			}else{
+				echo "error";
+				} 
+						die();
+			}
+		}*/
 	
 } 
   

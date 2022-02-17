@@ -29,6 +29,18 @@
 		return $result;
 
 	}
+
+	function getFav(){
+		$ci = & get_instance();
+		$image_name = $ci->global_model->getdata( "homepage_setting", "", "favicon","",1 );
+		if( $image_name ){
+			$result = $image_name;
+		}else{
+			$result = "Track It";
+		}	
+		return $result;
+		
+	}
 	
 	/* 
 	* Get User Name by ID
