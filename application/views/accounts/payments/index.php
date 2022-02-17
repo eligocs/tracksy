@@ -170,7 +170,7 @@
 	</div><!--FORM SECTION -->	
 </div>
 <!--FOOTER-->
-<div class="bg-blue">
+<!-- <div class="bg-blue">
 	<div class="container">
 		<div class="row">
 			<div class="row iata">
@@ -198,7 +198,7 @@
 			</div>
 		</div>
 	</div>
-</div>		
+</div>		 -->
 
 	<!--Include all compiled plugins (below), or include individual files as needed -->
 	<script src="<?php echo base_url();?>site/assets/js/jquery.min.js" type="text/javascript"></script>

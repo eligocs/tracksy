@@ -98,7 +98,7 @@ class Payments extends CI_Controller {
 				}else if( is_empty( $balance ) && empty($refund_exist) ){
 					$st = "<strong class='btn btn-success'>Done</strong>";
 				}else{
-					$st = "<strong class='btn btn-default'>Processing</strong>";
+					$st = "<strong class='badge_lightpurple_pill'>Processing</strong>";
 				} 
 				
 				$row = array();
@@ -113,14 +113,14 @@ class Payments extends CI_Controller {
 				$row[] = $st;
 				
 				//buttons
-				$update_btn = "<a title='Update Payments Detail' href=" . site_url("payments/update_payment/{$payment->id}/{$payment->iti_id}") . " class='btn btn-success' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
+				$update_btn = "<a title='Update Payments Detail' href=" . site_url("payments/update_payment/{$payment->id}/{$payment->iti_id}") . " class='btn_eye' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
 				
 				//$btn_view = "<a title='View' href=" . site_url("payments/view/{$payment->id}/{$payment->iti_id}") . " class='btn btn-success' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
 				
 				$row[] = $update_btn . $refund_exist . $refunded;
 				
 				//payment status
-				$row[] = $payment->payement_confirmed_status == 0 ? "<label class='mt-checkbox'> <input type='checkbox' title='Checked if package cost confirmed' value='0' data-id ={$payment->id} class='form-control is_payment_confirmed' ><span></span></label> <i class='fa fa-spinner fa-spin' aria-hidden='true'></i>" : "<span class='btn btn-success' title='Payment Confirmed'><i title='Processing' class='fa fa-check' aria-hidden='true'></i> Confirmed</span>";
+				$row[] = $payment->payement_confirmed_status == 0 ? "<label class='mt-checkbox'> <input type='checkbox' title='Checked if package cost confirmed' value='0' data-id ={$payment->id} class='form-control is_payment_confirmed' ><span></span></label> <i class='fa fa-spinner fa-spin' aria-hidden='true'></i>" : "<span class='badge_success_pill' title='Payment Confirmed'><i title='Processing' class='fa fa-check' aria-hidden='true'></i> Confirmed</span>";
 				
 				
 				$row[] = $payment->travel_date;

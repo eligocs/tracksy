@@ -164,7 +164,7 @@ table#reviews .form-control {
 }
 
 .text-white {
-    color: #fff;
+    color: #fff !important;
 }
 
 .dropdown-menu>li>a:hover {
@@ -2605,7 +2605,7 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
     background: #5cb85c;
     color: white;
     padding: 3px 6px;
-    border-radius: 15px;
+    border-radius: 15px  !important;
     font-size: 12px;
     display: inline-block;
 }
@@ -2615,15 +2615,32 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
     background: #d9534f;
     color: white;
     padding: 3px 6px;
-    border-radius: 15px;
+    border-radius: 15px !important; 
     font-size: 12px;
     display: inline-block;
     margin-right: 5px;
     margin-bottom: 5px;
 }
 
+
+.badge_lightpurple_pill {
+    background: #5e72e4;
+    color: white;
+    padding: 2px 14px;
+    border-radius: 15px !important;
+}
+
+.bg_lightpurple{
+    background-color: #5e72e4 !important;
+}
+
+
 .margin_zero{
     margin: 0 !important;
+}
+
+.padding_10{
+    padding: 10px !important;
 }
 
 .d_inline_block{
@@ -2634,6 +2651,10 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
     display: flex;
 }
 
+
+.font_size_16{
+    font-size: 16px !important;
+}
 
 
 .d_block{
