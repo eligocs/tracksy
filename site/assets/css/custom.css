@@ -2500,8 +2500,8 @@ input[type=checkbox] {
 /* ---------Custom_card for Css-------- */
 
 .custom_card {
-    background: white;
-    padding: 15px;
+    background: white !important;
+    padding: 15px !important;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
     border-radius: 4px !important;
 }
@@ -2766,7 +2766,14 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
     border-radius: 5px !important;
 }
 
+.font_size_20{
+    font-size: 20px !important;
+}
 
 .sidebar-buttons li {
     margin-bottom: 10px;
+  }
+
+  .outline_none{
+      outline: none !important;
   }
