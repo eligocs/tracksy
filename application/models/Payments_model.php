@@ -45,7 +45,7 @@ class Payments_model extends CI_Model{
 						$this->db->like( "created", $todayDate );
 						break;
 					default:
-						continue2;
+						continue 2;
 				} 
 			}else if( !empty($filter_data) && !empty($date_from) && !empty($date_end) ){
 				$d_from 	= date('Y-m-d', strtotime($date_from));
@@ -82,7 +82,7 @@ class Payments_model extends CI_Model{
 						$this->db->where("(created BETWEEN '" . $d_from . "' AND '". $d_to ."')");
 						break;
 					default:
-						continue2;
+						continue 2;
 				}
 					
 			}
