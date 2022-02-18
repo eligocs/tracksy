@@ -392,7 +392,7 @@ class Customer_Model extends CI_Model{
 						$this->db->set($key, $currentDate );
 					break;
 					default:
-						continue2; 
+						continue 2; 
 					break;
 				}
 			}//endforeach

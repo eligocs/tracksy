@@ -122,7 +122,8 @@ class Customer_Model extends CI_Model{
 						$this->db->like( "customers_inquery.created", $todayDate );
 						break;
 					default:
-						continue2;
+						// continue2;
+						break;
 				} 
 			}else if( !empty($filter_data) && !empty($date_from) && !empty($date_end) ){
 				$d_from 	= date('Y-m-d', strtotime($date_from));
@@ -173,7 +174,8 @@ class Customer_Model extends CI_Model{
 						$this->db->where("customers_inquery.created <=", $d_to ); 
 						break;
 					default:
-						continue2;
+						// continue2;
+						break;
 				} 
 			}
         }
@@ -286,7 +288,7 @@ class Customer_Model extends CI_Model{
 						$this->db->set($key, $currentDate );
 					break;
 					default:
-						continue; 
+						continue 2; 
 					break;
 				}
 			}//endforeach

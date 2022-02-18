@@ -219,7 +219,8 @@ class Itinerary_model extends CI_Model{
 						$this->db->like( "itinerary.added", $todayDate );
 						break;
 					default:
-						continue2;
+						// continue2;
+						break;
 				} 
 			}else if( !empty($filter_data) && !empty($date_from) && !empty($date_end) ){
 				$_month = date('Y-m', strtotime($date_from));
@@ -315,7 +316,8 @@ class Itinerary_model extends CI_Model{
 						$this->db->where("itinerary.added <=", date('Y-m-d H:i:s', strtotime($date_end . "23:59:59")) ); 
 						break;
 					default:
-						continue2;
+						// continue2;
+						break;
 				} 
 			}
         }
@@ -444,7 +446,7 @@ class Itinerary_model extends CI_Model{
 						$this->db->set($key, $currentDate );
 					break;
 					default:
-						continue2; 
+						continue 2; 
 					break;
 				}
 			}//endforeach
@@ -482,7 +484,7 @@ class Itinerary_model extends CI_Model{
 						$this->db->set($key, $unique_key); 
 					break;
 					default:
-						continue2; 
+						continue 2; 
 					break;
 				}
 				
@@ -526,7 +528,7 @@ class Itinerary_model extends CI_Model{
 						$this->db->set($key, $unique_key); 
 					break;
 					default:
-						continue2; 
+						continue 2; 
 					break;
 				}
 				
@@ -586,7 +588,7 @@ class Itinerary_model extends CI_Model{
 						$this->db->set($key, $newItiId);
 					break;
 					default:
-						continue2; 
+						continue 2; 
 					break;
 				}
 				
@@ -688,7 +690,7 @@ class Itinerary_model extends CI_Model{
 						$this->db->set($key, $agent_id); 
 					break;
 					case ($key == "created" || $key == "package_id" || $key == "p_cat_id" || $key == "state_id"  ):	
-						continue2;
+						continue 2;
 					break;
 					default:
 						$this->db->set($key, $val); 
