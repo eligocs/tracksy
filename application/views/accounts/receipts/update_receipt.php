@@ -10,7 +10,11 @@
 		<?php echo validation_errors('<span class="help-block1 help-block-error">', '</span>'); ?>
 		<?php $message = $this->session->flashdata('error'); 
 		if($message){ echo '<span class="help-block1 help-block-error">'.$message.'</span>';}
-		?>		<style>		.dis_block{display: block;}		.hide_div, .shownewbooking{display: none;}		</style>
+		?>
+		<style>
+		.dis_block{display: block;}
+		.hide_div, .shownewbooking{display: none;}
+		</style>
 		
 		<?php 
 		//get customer info
@@ -25,7 +29,7 @@
 				<div class="portlet-title">
 					<div class="caption">
 						<i class="icon-plus"></i>Update Receipt
-						<span class='red'> &nbsp; &nbsp; Lead ID: <strong> <?php echo $invoice[0]->lead_id; ?></strong></span>
+						<span class=''> &nbsp; &nbsp; Lead ID: <strong> <?php echo $invoice[0]->lead_id; ?></strong></span>
 					</div>
 					
 					<?php if( $invoice[0]->receipt_type == "cash" ){ ?>
@@ -36,7 +40,7 @@
 				</div>
 			</div>
 			
-			<div class="portlet-body">
+			<div class="portlet-body custom_card">
 				<div class="row">
 				<form id="addAcc_frm">
 				<div class="col-md-4">
@@ -122,11 +126,13 @@
 						</div>
 					</div>
 				</div> <!-- row close -->
-				<div class="clearfix"></div>				<hr>
+				<div class="clearfix"></div>
 				<div class="margiv-top-10">
 					<input type="hidden" id="invoice_id" name="id" value="<?php echo $invoice[0]->id; ?>" >
-					<button type="submit" class="btn green uppercase add_Bank">Update Receipt</button>
-				</div>				<div class="clearfix"></div>				<div id="res"></div>
+					<button type="submit" class="btn green uppercase add_Bank margin_left_15">Update Receipt</button>
+				</div>
+				<div class="clearfix"></div>
+				<div id="res"></div>
 			</form>
 			
 		<?php }else{ ?>
@@ -136,7 +142,8 @@
 			</div><!-- portlet body -->
 			</div> <!-- portlet -->
 		</div>
- <script>jQuery(document).ready(function($){
+ <script>
+jQuery(document).ready(function($){
 	
 	//date picker
 	$(".datepicker").datepicker({ 
@@ -183,8 +190,45 @@
 	//select iti change function
 	
 	
-	//submit form	$('#addAcc_frm').validate({		submitHandler: function(form) {			var resp = $("#res");			var invoice_id = $("#invoice_id").val();
-			var ajaxReq;			var formData = $("#addAcc_frm").serializeArray();
-						//console.log(formData);			if (ajaxReq) {				ajaxReq.abort();			}
-						ajaxReq = $.ajax({				type: "POST",				url: "<?php echo base_url('accounts/ajax_update_receipt_details'); ?>" ,				dataType: 'json',				data: formData,				beforeSend: function(){					resp.html('<p class="alert alert-info"><i class="fa fa-spinner fa-spin"></i> Please wait...</p>');				},				success: function(res) {					if (res.status == true){						resp.html('<div class="alert alert-success"><strong>Success! </strong>'+res.msg+'</div>');						console.log("done");						//$("#addAcc_frm")[0].reset();						window.location.href = "<?php echo site_url("accounts/view_receipt/");?>" + invoice_id; 					}else{						resp.html('<div class="alert alert-danger"><strong>Error! </strong>'+res.msg+'</div>');						console.log("error");					}				},				error: function(e){					console.log(e);					//response.html('<div class="alert alert-danger"><strong>Error!</strong>Please Try again later! </div>');				}			});			return false;		}	}); });
+	//submit form
+	$('#addAcc_frm').validate({
+		submitHandler: function(form) {
+			var resp = $("#res");
+			var invoice_id = $("#invoice_id").val();
+			var ajaxReq;
+			var formData = $("#addAcc_frm").serializeArray();
+			
+			//console.log(formData);
+			if (ajaxReq) {
+				ajaxReq.abort();
+			}
+			
+			ajaxReq = $.ajax({
+				type: "POST",
+				url: "<?php echo base_url('accounts/ajax_update_receipt_details'); ?>" ,
+				dataType: 'json',
+				data: formData,
+				beforeSend: function(){
+					resp.html('<p class="alert alert-info"><i class="fa fa-spinner fa-spin"></i> Please wait...</p>');
+				},
+				success: function(res) {
+					if (res.status == true){
+						resp.html('<div class="alert alert-success"><strong>Success! </strong>'+res.msg+'</div>');
+						console.log("done");
+						//$("#addAcc_frm")[0].reset();
+						window.location.href = "<?php echo site_url("accounts/view_receipt/");?>" + invoice_id; 
+					}else{
+						resp.html('<div class="alert alert-danger"><strong>Error! </strong>'+res.msg+'</div>');
+						console.log("error");
+					}
+				},
+				error: function(e){
+					console.log(e);
+					//response.html('<div class="alert alert-danger"><strong>Error!</strong>Please Try again later! </div>');
+				}
+			});
+			return false;
+		}
+	});
+ });
  </script>

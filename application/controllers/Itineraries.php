@@ -600,7 +600,7 @@ class Itineraries extends CI_Controller {
 				
 				$btnview = "<a target='_blank' title='View' href=" . site_url("itineraries/view_iti/{$iti_id}/{$key}") . " class='btn_eye' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
 				
-				 $btnview .= "<a target='_blank' title='View Pdf' href=" . site_url("itineraries/pdf/{$iti_id}/{$key}") . " class='btn btn-success' ><i class='fa fa-file-pdf-o' aria-hidden='true'></i></a>";
+				 $btnview .= "<a target='_blank' title='View Pdf' href=" . site_url("itineraries/pdf/{$iti_id}/{$key}") . " class='btn_pdf' ><i class='fa fa-file-pdf-o' aria-hidden='true'></i></a>";
 				$btn_view = "";
 				// $btn_view = "<a title='client view' target='_blank' href=" . site_url("promotion/itinerary/{$iti_id}/{$key}") . " class='btn btn-success' >Client view New</a>";
 				
@@ -643,8 +643,9 @@ class Itineraries extends CI_Controller {
 						$st = "<i title='itinerary declined' class='fa fa-ban' aria-hidden='true'></i>";
 						$iti_s = "DECLINED";
 					}else if( $iti_status == 6 ){
-						$it_status = "<a title='Itinerary Rejected' class='btn btn-danger'><i class='fa fa-ban' aria-hidden='true'></i></a>";
-						$st = "<span title='Itinerary Rejected' class='rejected_iti'>Rejected</span>";
+						$it_status ="";
+						//$it_status = "<a title='Itinerary Rejected' class='btn btn-danger'><i class='fa fa-ban' aria-hidden='true'></i></a>";
+						$st = "<span title='Itinerary Rejected' class='badge_danger_pill'>Rejected</span>";
 						$iti_s = "REJECTED";
 					}else{
 						$it_status = "<a title='working...' class='btn btn-success'><i class='fa fa-tasks' aria-hidden='true'></i></a>";
@@ -4392,7 +4393,7 @@ class Itineraries extends CI_Controller {
 				}
 				
 				//buttons
-				$row[] =  "<a title='View' target='_blank' href=" . site_url("itineraries/view/{$iti->iti_id}/{$iti->temp_key}") . " class='btn btn-success' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
+				$row[] =  "<a title='View' target='_blank' href=" . site_url("itineraries/view/{$iti->iti_id}/{$iti->temp_key}") . " class='btn_eye' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
 				
 				$row[] = $rev_btn; 
 				$row[] = date("d-m-Y", strtotime($iti->iti_decline_approved_date));

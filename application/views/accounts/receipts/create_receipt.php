@@ -10,7 +10,11 @@
 		<?php echo validation_errors('<span class="help-block1 help-block-error">', '</span>'); ?>
 		<?php $message = $this->session->flashdata('error'); 
 		if($message){ echo '<span class="help-block1 help-block-error">'.$message.'</span>';}
-		?>		<style>		.dis_block{display: block;}		.hide_div, .shownewbooking{display: none;}		</style>
+		?>
+		<style>
+		.dis_block{display: block;}
+		.hide_div, .shownewbooking{display: none;}
+		</style>
 		
 			<div class="portlet box blue">
 				<div class="portlet-title">
@@ -21,7 +25,7 @@
 				</div>
 			</div>
 		
-			<div class="portlet-body">
+			<div class="portlet-body custom_card">
 				<div class="row">
 				<form id="addAcc_frm">
 					<!--IF NEW CUSTOMER ACCOUNT DROPDOWN BOOKED ITI ID -->
@@ -105,11 +109,13 @@
 						</div>
 					</div>
 				</div> <!-- row close -->
-				<div class="clearfix"></div>				<hr>
+				<div class="clearfix"></div>
 				<div class="margiv-top-10">
 					<input type="hidden" name="customer_id" value="<?php echo isset( $get_customer_account[0]->lead_id ) && !empty( $get_customer_account[0]->lead_id ) ? $get_customer_account[0]->lead_id : "";?>" >
-					<button type="submit" class="btn green uppercase add_Bank">Generate Receipt</button>
-				</div>				<div class="clearfix"></div>				<div id="res"></div>
+					<button type="submit" class="btn green uppercase add_Bank margin_left_15">Generate Receipt</button>
+				</div>
+				<div class="clearfix"></div>
+				<div id="res"></div>
 				
 			</form>
 			
@@ -124,7 +130,8 @@
 			</div><!-- portlet body -->
 			</div> <!-- portlet -->
 		</div>
- <script>jQuery(document).ready(function($){
+ <script>
+jQuery(document).ready(function($){
 	 $('[data-toggle="tooltip"]').tooltip();
 	//date picker
 	$(".datepicker").datepicker({ 
@@ -171,7 +178,44 @@
 	//select iti change function
 	
 	
-	//submit form	$('#addAcc_frm').validate({		submitHandler: function(form) {			var resp = $("#res");			var ajaxReq;			var formData = $("#addAcc_frm").serializeArray();
-						//console.log(formData);			if (ajaxReq) {				ajaxReq.abort();			}
-						ajaxReq = $.ajax({				type: "POST",				url: "<?php echo base_url('accounts/ajax_add_receipt_details'); ?>" ,				dataType: 'json',				data: formData,				beforeSend: function(){					resp.html('<p class="alert alert-info"><i class="fa fa-spinner fa-spin"></i> Please wait...</p>');				},				success: function(res) {					if (res.status == true){						resp.html('<div class="alert alert-success"><strong>Success! </strong>'+res.msg+'</div>');						console.log("done");						$("#addAcc_frm")[0].reset();						window.location.href = "<?php echo site_url("accounts/view_receipt/");?>" + res.id; 					}else{						resp.html('<div class="alert alert-danger"><strong>Error! </strong>'+res.msg+'</div>');						console.log("error");					}				},				error: function(e){					console.log(e);					//response.html('<div class="alert alert-danger"><strong>Error!</strong>Please Try again later! </div>');				}			});			return false;		}	}); });
+	//submit form
+	$('#addAcc_frm').validate({
+		submitHandler: function(form) {
+			var resp = $("#res");
+			var ajaxReq;
+			var formData = $("#addAcc_frm").serializeArray();
+			
+			//console.log(formData);
+			if (ajaxReq) {
+				ajaxReq.abort();
+			}
+			
+			ajaxReq = $.ajax({
+				type: "POST",
+				url: "<?php echo base_url('accounts/ajax_add_receipt_details'); ?>" ,
+				dataType: 'json',
+				data: formData,
+				beforeSend: function(){
+					resp.html('<p class="alert alert-info"><i class="fa fa-spinner fa-spin"></i> Please wait...</p>');
+				},
+				success: function(res) {
+					if (res.status == true){
+						resp.html('<div class="alert alert-success"><strong>Success! </strong>'+res.msg+'</div>');
+						console.log("done");
+						$("#addAcc_frm")[0].reset();
+						window.location.href = "<?php echo site_url("accounts/view_receipt/");?>" + res.id; 
+					}else{
+						resp.html('<div class="alert alert-danger"><strong>Error! </strong>'+res.msg+'</div>');
+						console.log("error");
+					}
+				},
+				error: function(e){
+					console.log(e);
+					//response.html('<div class="alert alert-danger"><strong>Error!</strong>Please Try again later! </div>');
+				}
+			});
+			return false;
+		}
+	});
+ });
  </script>

@@ -484,7 +484,7 @@ div#quotation_type_section,
                                  	}else{ 
                                  		//if itinerary in draft hide buttons for sales team
                                  		$btns =  $btn_edit . "
-                                 			<a data-id={$iti_id} title='Delete Itinerary Permanent' href='javascript:void(0)' class='btn btn-danger delete_iti_permanent'><i class='fa fa-trash-o' aria-hidden='true'></i></a>";
+                                 			<a data-id={$iti_id} title='Delete Itinerary Permanent' href='javascript:void(0)' class='btn_trash delete_iti_permanent'><i class='fa fa-trash-o' aria-hidden='true'></i></a>";
                                  	}
                                  	
                                  	//get iti sent status

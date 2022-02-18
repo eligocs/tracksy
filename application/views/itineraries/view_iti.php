@@ -68,34 +68,63 @@
                         title="Back">Back</a>
                 </div>
             </div>
-			<div class="header_table table-responsive custom_card">
-					<table class="table table-bordered">
-						<tr>
-							<td>Lead Id</td>
-							<td>18</td>
-						</tr>
-						<tr>
-							<td>Lead Type</td>
-							<td>Diract Customer</td>
-						</tr>
-						<tr>
-							<td>From</td>
-							<td>India</td>
-						</tr>
-						<tr>
-							<td>Q. Type</td>
-							<td>Holiday (Fixed Depature)</td>
-						</tr>
-						<tr>
-							<td>Status</td>
-							<td>Booked Itinerary</td>
-						</tr>
-						<tr>
-							<td>Final Package Cost</td>
-							<td>INR 50,000/-</td>
-						</tr>
-					</table>
-				</div>
+            <div class="itinerary_status">
+                <h4 class='text-center red uppercase'>Fixed Depature</h4>
+                <h1 class="text-center green uppercase">Booked Itinerary</h1>
+            </div>
+            <div class="mt-element-step">
+                <div class="row step-background-thin ">
+                    <div class="col-md-4 bg-grey-steel mt-step-col error ">
+                        <div class="mt-step-number">1</div>
+                        <div class="mt-step-title uppercase font-grey-cascade"><strong>INR
+                                50,000/-</strong></div>
+                        <div class="mt-step-content font-grey-cascade">Package Final Cost: <span
+                                style="color: #fff;">()</span></div>
+                    </div>
+                    <div class="col-md-4 bg-grey-steel mt-step-col active">
+                        <div class="mt-step-number">2</div>
+                        <div class="mt-step-title uppercase font-grey-cascade">
+                            <strong>Deluxe</strong>
+                        </div>
+                        <div class="mt-step-content font-grey-cascade">Package Category</div>
+                    </div>
+                    <div class="col-md-4 bg-grey-steel mt-step-col done">
+                        <div class="mt-step-number">3</div>
+                        <div class="mt-step-title uppercase font-grey-cascade">
+                            <strong>26/11/2022</strong>
+                        </div>
+                        <div class="mt-step-content font-grey-cascade">Travel Date</div>
+                    </div>
+                </div>
+            </div>
+            <div class="header_table table-responsive custom_card">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Lead Id</th>
+                        <td>18</td>
+                    </tr>
+                    <tr>
+                        <th>Lead Type</th>
+                        <td>Diract Customer</td>
+                    </tr>
+                    <tr>
+                        <th>From</th>
+                        <td>India</td>
+                    </tr>
+                    <tr>
+                        <th>Q. Type</th>
+                        <td>Holiday (Fixed Depature)</td>
+                    </tr>
+                    <tr>
+                        <th>Status</th>
+                        <td>Booked Itinerary</td>
+                    </tr>
+                    <tr>
+                        <th>Final Package Cost</th>
+                        <td>INR 50,000/-</td>
+                    </tr>
+                </table>
+            </div>
             <?php if( $iti->iti_status == 9 && isset( $paymentDetails[0] ) && !empty( $paymentDetails[0] )){ 
             $pay_detail = $paymentDetails[0];
             //echo $is_amendment . $amendment_note; 
@@ -459,8 +488,8 @@
                               	} 
                               
                               	$rate_comment = isset( $iti->rate_comment ) && $iti->pending_price == 2 && $iti->discount_rate_request == 0 ? $iti->rate_comment : "";
-                              	echo "<tr><td colspan=5><p class='red'><strong>Note: </strong>{$rate_comment} </td></tr>";
-                              	echo "<tr><td colspan=5><p class='red'><strong>Final Package Cost: </strong>{$f_cost} </td></tr>";
+                              	echo "<tr><td colspan=5><p class='red margin_bottom_0'><strong>Note: </strong>{$rate_comment} </td></tr>";
+                              	echo "<tr><td colspan=5><p class='red margin_bottom_0'><strong>Final Package Cost: </strong>{$f_cost} </td></tr>";
                               } ?>
                                 </tbody>
                             </table>
@@ -558,12 +587,11 @@
                             </div>
                         </div>
                         <!--show payment screenshot details-->
-                        <hr>
                         <!-- client_aadhar_card payment_screenshot -->
                         <?php $doc_path =  base_url() .'site/assets/client_docs/';
-                  $aadhar_card_img = !empty( $pay_detail->client_aadhar_card ) ? $pay_detail->client_aadhar_card : "";
-                  $payment_screenshot = !empty( $pay_detail->payment_screenshot ) ? $pay_detail->payment_screenshot : "";
-                  ?>
+							$aadhar_card_img = !empty( $pay_detail->client_aadhar_card ) ? $pay_detail->client_aadhar_card : "";
+							$payment_screenshot = !empty( $pay_detail->payment_screenshot ) ? $pay_detail->payment_screenshot : "";
+							?>
                         <div class="col-md-4">
                             <h3>Aadhar Card Screenshot</h3>
                             <?php if($aadhar_card_img){ ?>
@@ -573,9 +601,9 @@
                                     class="image-responsive example-image">
                             </a>
                             <?php }else{
-                     echo "<strong class='red'>Aadhar card Not Updated</strong>";
-                     //echo '<img src=" ' . $doc_path . 'dummy.jpg" width="150" height="150" class="image-responsive">';
-                     } ?>
+							echo "<strong class='red'>Aadhar card Not Updated</strong>";
+							//echo '<img src=" ' . $doc_path . 'dummy.jpg" width="150" height="150" class="image-responsive">';
+							} ?>
                         </div>
                         <div class="col-md-4">
                             <h3>Payment Screenshot</h3>
@@ -587,17 +615,17 @@
                                     class="image-responsive">
                             </a>
                             <?php }else{
-                     echo "<strong class='red'>Payment Screenshot Not Updated</strong>";
-                     //echo '<img src=" ' . $doc_path . 'dummy.jpg" width="150" height="150" class="image-responsive">';
-                     } ?>
+							echo "<strong class='red'>Payment Screenshot Not Updated</strong>";
+							//echo '<img src=" ' . $doc_path . 'dummy.jpg" width="150" height="150" class="image-responsive">';
+							} ?>
                         </div>
                         <div class="col-md-4">
                             <h3>Iti Status</h3>
                             <?php if( $pay_detail->iti_booking_status == 0 ){ 
-                     echo '<strong class="green">APPROVED</strong>';
-                     }else{
-                     echo "<strong class='red'>ON HOLD</strong>";
-                     } ?>
+									echo '<strong class="green">APPROVED</strong>';
+									}else{
+									echo "<strong class='red'>ON HOLD</strong>";
+									} ?>
                             <p><span class="red">Note: </span><?php echo $pay_detail->approved_note; ?></p>
                         </div>
                     </div>
@@ -1239,35 +1267,35 @@
                 </div>
                 <?php  }   ?>
                 <?php if( !empty( $followUpData ) ){ ?>
-				<hr>
-				<div class="custom_card">
-				<div class="panel-group accordion" id="accordion3">
-                    <?php
+                <hr>
+                <div class="custom_card">
+                    <div class="panel-group accordion" id="accordion3">
+                        <?php
                   $count = 1;
                   foreach( $followUpData as $callDetails ){ ?>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse"
-                                    data-parent="#accordion3"
-                                    href="#collapse_3_<?php echo $count;?>"><?php echo $callDetails->currentCallTime;?></a>
-                            </h4>
-                        </div>
-                        <div id="collapse_3_<?php echo $count;?>" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <p><strong>Itinerary Id:</strong> <?php echo $callDetails->iti_id;?></p>
-                                <p><strong><?php echo $callDetails->callType;?></strong></p>
-                                <p><strong>Call summary:</strong> <?php echo $callDetails->callSummary;?></p>
-                                <p><strong>Next Call Time:</strong> <?php echo $callDetails->nextCallDate;?></p>
-                                <p><strong>Comment:</strong> <?php echo $callDetails->comment;?></p>
-                                <p><strong><?php echo $callDetails->itiProspect;?></strong></p>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse"
+                                        data-parent="#accordion3"
+                                        href="#collapse_3_<?php echo $count;?>"><?php echo $callDetails->currentCallTime;?></a>
+                                </h4>
+                            </div>
+                            <div id="collapse_3_<?php echo $count;?>" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p><strong>Itinerary Id:</strong> <?php echo $callDetails->iti_id;?></p>
+                                    <p><strong><?php echo $callDetails->callType;?></strong></p>
+                                    <p><strong>Call summary:</strong> <?php echo $callDetails->callSummary;?></p>
+                                    <p><strong>Next Call Time:</strong> <?php echo $callDetails->nextCallDate;?></p>
+                                    <p><strong>Comment:</strong> <?php echo $callDetails->comment;?></p>
+                                    <p><strong><?php echo $callDetails->itiProspect;?></strong></p>
+                                </div>
                             </div>
                         </div>
+                        <?php $count++; ?>
+                        <?php } ?>
                     </div>
-                    <?php $count++; ?>
-                    <?php } ?>
                 </div>
-				</div>
 
                 <?php } ?>
             </div>
@@ -1940,7 +1968,7 @@ jQuery(document).ready(function($) {
                         //window.location.href = "<?php echo site_url('itineraries/view/');?>" + hid_iti_id + "/" + hid_temp_key + "?firework=true";
                         alert(
                             "Form Submited Successfully. Itnerary is booked after verified by the sales manager."
-                            );
+                        );
                         window.location.href =
                             "<?php echo site_url('itineraries/view/');?>" + hid_iti_id +
                             "/" + hid_temp_key;

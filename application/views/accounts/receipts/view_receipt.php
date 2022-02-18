@@ -1,12 +1,12 @@
-<?php if($invoice){ 	$invoice = $invoice[0];		?>
+z<?php if($invoice){ 	$invoice = $invoice[0];		?>
 <div class="page-container">
 	<div class="page-content-wrapper">
 		<div class="page-content">
 			<div class="portlet box blue">
 				<div class="portlet-title">
 					<div class="caption"><i class="fa fa-users"></i>
-						<strong>Lead: <span class="red"><?php echo $invoice->lead_id; ?></span></strong>
-						<strong>Voucher Number: <span class="red"><?php echo $invoice->voucher_number; ?></span></strong>
+						<strong>Lead: <span class=""><?php echo $invoice->lead_id; ?></span></strong>
+						<strong>Voucher Number: <span class=""><?php echo $invoice->voucher_number; ?></span></strong>
 					</div>
 					<?php if( $invoice->receipt_type == "cash" ){ ?>
 						<a class="btn btn-success" href="<?php echo site_url("accounts/cash_receipts"); ?>" title="Back">Back</a>
@@ -27,11 +27,11 @@
 				$customer_contact = isset( $get_cus_info[0]->customer_contact ) ? $get_cus_info[0]->customer_contact : "";
 			?>
 		
-			<div class="portlet-body">
+			<div class="portlet-body custom_card">
 			
 				<div class="form-group ">
 					<?php $hotelbooking_sent = $invoice->sent_count; ?>
-					<div  class="mail-info well ">
+					<div  class="mail-info well padding_zero bg_white d-flex align_items_center justify_content_between">
 						<?php 
 						echo '<a id="hotel_email_sent" href="#" class="btn green uppercase ">Send</a><div class="clearfix"></div>';
 						echo "<div class=' btn btn-outline sbold green-haze '>Receipt Sent " . $hotelbooking_sent . " Times.</div>";
@@ -43,80 +43,80 @@
 				
 				<h3>Receipt Details</h3>
 				<div class="table-responsive">	
-				<table class="table table-condensed table-hover">
+				<table class="table table-condensed table-bordered table-hover">
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Name: </strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Name: </strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><?php echo $customer_name; ?></div></td>
 					</tr>
 					
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Email: </strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Email: </strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><?php echo $customer_email; ?></div></td>
 					</tr>
 					
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Mobile Number:</strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Mobile Number:</strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><?php echo $customer_contact; ?></div></td>
 					</tr>
 					
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Receipt Type:</strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Receipt Type:</strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><strong><?php echo $invoice->receipt_type; ?></strong></div></td>
 					</tr>
 					
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Account Name:</strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Account Name:</strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><strong><?php echo get_cash_bank_account_name($invoice->account_type_id); ?></strong></div></td>
 					</tr>
 					
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Voucher Number:</strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Voucher Number:</strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><strong><?php echo $invoice->voucher_number; ?></strong></div></td>
 					</tr>
 					
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Voucher Date:</strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Voucher Date:</strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><strong><?php echo date("d/m/Y", strtotime($invoice->voucher_date)); ?></strong></div></td>
 					</tr>
 					
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Transfer Type:</strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Transfer Type:</strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><strong><?php echo $invoice->transfer_type; ?></strong></div></td>
 					</tr>
 					
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Transfer Ref:</strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Transfer Ref:</strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><strong><?php echo $invoice->transfer_ref; ?></strong></div></td>
 					</tr>
 					
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Transfer Date:</strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Transfer Date:</strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><strong><?php echo date("d/m/Y", strtotime($invoice->transfer_date)); ?></strong></div></td>
 					</tr>
 					
 					<tr class='green'>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Amount:</strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Amount:</strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><strong><?php echo $invoice->amount_received; ?></strong></div></td>
 					</tr>
 					
 					<tr class='red'>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Sent To Client:</strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Sent To Client:</strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><strong><?php echo $invoice->sent_count; ?> Times</strong></div></td>
 					</tr>
 					
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Narration:</strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Narration:</strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><strong><?php echo $invoice->narration; ?></strong></div></td>
 					</tr>
 					
 					
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Updated By:</strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Updated By:</strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><strong><?php echo get_user_name($invoice->agent_id); ?></strong></div></td>
 					</tr>
 					
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Created:</strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Created:</strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><strong><?php echo $invoice->created; ?></strong></div></td>
 					</tr>
 				</table>
