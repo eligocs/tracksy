@@ -221,7 +221,7 @@
                      <li class="nav-item  ">
                          <a href="<?php echo site_url("vehiclesbooking/allvehiclesbookings"); ?>" class="nav-link ">
                              <i class="fa fa-bus" aria-hidden="true"></i>
-                             <span class="title">All Volvo/Train/Flight Booking</span>
+                             <span class="title">All Bus/Train/Flight Booking</span>
                          </a>
                      </li>
                  </ul>
@@ -1066,7 +1066,7 @@
                      <li class="nav-item  ">
                          <a href="<?php echo site_url("vehiclesbooking/allvehiclesbookings"); ?>" class="nav-link ">
                              <i class="fa fa-bus" aria-hidden="true"></i>
-                             <span class="title">All Volvo/Train/Flight Booking</span>
+                             <span class="title">All Bus/Train/Flight Booking</span>
                          </a>
                      </li>
                      <!--li class="nav-item  ">
@@ -1357,7 +1357,7 @@
                      <li class="nav-item  ">
                          <a href="<?php echo site_url("vehiclesbooking/allvehiclesbookings"); ?>" class="nav-link ">
                              <i class="fa fa-bus" aria-hidden="true"></i>
-                             <span class="title">All Volvo/Train/Flight Booking</span>
+                             <span class="title">All Bus/Train/Flight Booking</span>
                          </a>
                      </li>
                  </ul>

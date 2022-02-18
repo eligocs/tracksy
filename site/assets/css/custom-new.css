@@ -224,3 +224,14 @@ form#itiForm_form textarea.form-control{min-height:150px;}
     font-size: 17px;
     font-weight: 700;
 }
+
+.itinerary-view .table-responsive table td {
+    height: auto;
+}
+
+.alert_warning{
+    background: #f4d435;
+    color: #fff !important;
+    text-align: left;
+    border-color: #f4d435;
+}
