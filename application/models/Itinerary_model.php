@@ -139,7 +139,7 @@ class Itinerary_model extends CI_Model{
 		if( $role == 97 ){
 			$this->db->join('iti_vouchers_status AS iti_v', 'itinerary.iti_id = iti_v.iti_id AND iti_v.confirm_voucher = 1', 'LEFT');
 			$this->db->where("pay.iti_booking_status", 0 );
-			$this->db->where("pay.approved_by_account_team", 1 );
+			//$this->db->where("pay.approved_by_account_team", 1 );
 			$this->db->where("iti_v.iti_id IS NULL");
 		}
 		

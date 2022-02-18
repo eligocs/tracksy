@@ -103,7 +103,7 @@
                                                                     value="<?php if(isset($val->website) && !empty($val->website)){echo $val->website; } ?>" />
                                                             </div>
                                                         </div>
-                                                        <?php $counter= unserialize($val->counter); ?>
+                                                        <?php $counter= !empty($val->counter) ?  unserialize($val->counter) : '' ;  ?>
                                                         <div class="form-group">
                                                             <label class="control-label col-md-3">Counter1:</label>
                                                             <div class="col-md-9">
