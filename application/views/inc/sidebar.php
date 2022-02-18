@@ -1167,12 +1167,12 @@
                              <span class="title">View Room Rates</span>
                          </a>
                      </li>
-                     <li class="nav-item  ">
+                     <!-- <li class="nav-item  ">
                          <a href="<?php echo site_url("hotels/seasons"); ?>" class="nav-link ">
                              <i class="fa fa-refresh" aria-hidden="true"></i>
                              <span class="title">All Season</span>
                          </a>
-                     </li>
+                     </li> -->
                      <li class="nav-item  ">
                          <a href="<?php echo site_url("hotels/mealplan"); ?>" class="nav-link ">
                              <i class="fa fa-cutlery" aria-hidden="true"></i>

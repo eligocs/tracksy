@@ -33,7 +33,7 @@
       <link href="<?php echo base_url();?>site/assets/css/<?php echo $theme_css ?>.css" data-style_colour = "<?php echo $theme_css ?>" rel="stylesheet" type="text/css" id="style_color" />
       <!--End User Theme Style -->
       <!-- END THEME LAYOUT STYLES -->
-      <link rel="shortcut icon" type="image/x-icon" href="<?php echo site_url()  . 'site/images/' . getLogo() ?>" />
+      <link rel="shortcut icon" type="image/x-icon" href="<?php echo site_url()  . 'site/images/' . favicon() ?>" />
       <script src="<?php echo base_url();?>site/assets/js/jquery.min.js" type="text/javascript"></script>
       <script src="<?php echo base_url();?>site/assets/js/jquery.validate.min.js" type="text/javascript"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>

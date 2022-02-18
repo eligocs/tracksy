@@ -2002,19 +2002,19 @@ class Dashboard extends CI_Controller {
 		die(json_encode( $res ));
     }
 	
-	/* //email test
-	public function mailtest(){
-		$admin_email 	= admin_email();
-		$manager_email 	= manager_email();
+	 //email test
+	// public function mailtest(){
+	// 	$admin_email 	= admin_email();
+	// 	$manager_email 	= manager_email();
 		
-		$to = array( "premthakur999@gmail.com" );
-		$sub = "test";
-		$msg = "<b>BCC</b>";
-		$msg .= "<strong>BCC</strong>";
-		sendEmail( $to, $sub, $msg, "sanjaythermosharma@gmail.com" );
-	}
+	// 	$to = array( "hem@eligocs.com" );
+	// 	$sub = "test";
+	// 	$msg = "<b>BCC</b>";
+	// 	$msg .= "<strong>BCC</strong>";
+	// 	sendEmail( $to, $sub, $msg, "hem@eligocs.com" );
+	// }
 	
-	*/
+	/*
 	//SMS Testing
 	/*
 	public function smstest(){

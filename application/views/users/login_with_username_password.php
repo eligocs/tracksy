@@ -11,7 +11,7 @@
       <link href="<?php echo base_url();?>site/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
       <link href="<?php echo base_url();?>site/assets/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
       <link href="<?php echo base_url();?>site/assets/css/login.min.css" rel="stylesheet" type="text/css" />
-      <link rel="shortcut icon" type="image/x-icon" href="<?php echo site_url()  . 'site/images/' . getLogo() ?>" />
+      <link rel="shortcut icon" type="image/x-icon" href="<?php echo site_url()  . 'site/images/' . favicon() ?>" />
       <style>
          div .alert-danger {
             background-color: white; 

@@ -153,7 +153,7 @@
             <?php 
                //check if special inclusion exists
                $sp_inc = unserialize($pack->special_inc_meta); 
-               $count_sp_inc = count( $sp_inc );
+               $count_sp_inc = !empty($sp_inc) ? count( $sp_inc ) : '';
                
                if( !empty($sp_inc) ){
                	echo '<div class="well well-sm"><h3>Special Inclusions</h3></div>';

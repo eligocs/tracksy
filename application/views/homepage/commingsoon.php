@@ -20,7 +20,7 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="https://googlereviews.cws.net/google-reviews.js"></script>
 
-    <link rel="shortcut icon" type="image/x-icon" href="<?php echo site_url()  . 'site/images/' . getLogo() ?>" />
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo site_url()  . 'site/images/' . favicon() ?>" />
     <style>
     body,
     html {
