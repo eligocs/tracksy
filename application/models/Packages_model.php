@@ -109,7 +109,7 @@ class packages_model extends CI_Model{
 						$this->db->set($key, $agent_id); 
 					break;
 					case ($key == "created" || $key == "package_id" || $key == "p_cat_id" || $key == "state_id"  ):	
-						continue2;
+						continue 2;
 					break;
 					default:
 						$this->db->set($key, $val); 

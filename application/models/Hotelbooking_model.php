@@ -129,7 +129,7 @@ class Hotelbooking_model extends CI_Model{
 					$this->db->order_by( "h_book.check_in", "DESC" );
 					break;	
 				default:
-					continue;
+					continue2;
 					break;
 			} 
         }

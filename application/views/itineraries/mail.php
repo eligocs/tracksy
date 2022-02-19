@@ -151,7 +151,10 @@
     <!--[if IE]>
       <div class="ie-browser">
          <![endif]-->
-    <?php 	$logo_url = base_url() . "site/images/trackv2-logo.png";
+    <?php 
+    	// $logo_url = base_url() . "site/images/trackv2-logo.png";
+        $logo_url = site_url()  . 'site/images/' . getLogo();
+        
 		if( !empty($itinerary )){
 			$iti = $itinerary[0];
 				$iti_id = $iti->iti_id;
@@ -224,7 +227,8 @@
                                                     style="font-size: 14px; line-height: 1.2; color: #66787f; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; mso-line-height-alt: 17px;">
                                                     <p
                                                         style="margin: 0; font-size: 12px; line-height: 1.2; word-break: break-word; text-align: right; mso-line-height-alt: 14px; margin-top: 0; margin-bottom: 0;">
-                                                        <span style="font-size: 12px;"><?= $agentData->first_name . ' ' .$agentData->last_name?></span>
+                                                        <span
+                                                            style="font-size: 12px;"><?= $agentData->first_name . ' ' .$agentData->last_name?></span>
                                                     </p>
                                                     <p
                                                         style="margin: 0; font-size: 12px; line-height: 1.2; word-break: break-word; text-align: right; mso-line-height-alt: 14px; margin-top: 0; margin-bottom: 0;">
@@ -239,7 +243,7 @@
                                                                 echo "Manager";
 
                                                             }  ?>
-                                                            </span></strong></span>
+                                                                </span></strong></span>
                                                     </p>
                                                     <p
                                                         style="margin: 0; font-size: 12px; line-height: 1.2; word-break: break-word; text-align: right; mso-line-height-alt: 14px; margin-top: 0; margin-bottom: 0;">
@@ -402,7 +406,7 @@
                                                         style="padding:10px;vertical-align:top;color:rgb(0, 0, 0); border:1px solid">
                                                         <strong> <?= 
 															$total_tra
-														?></strong> 
+														?></strong>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -483,7 +487,7 @@
                                             <!--<![endif]-->
                                             <div class="button-container" align="center"
                                                 style="padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-                                                <a href="<?= site_url("itineraries/pdf/{$iti->iti_id}/{$iti->temp_key}") ?>"
+                                                <a href="<?= site_url("promotion/pdf/{$iti->iti_id}/{$iti->temp_key}") ?>"
                                                     target="_blank"
                                                     style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #fff; background-color: #0377ea; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; width: auto; width: auto; border-top: 1px solid #0377ea; border-right: 1px solid #0377ea; border-bottom: 1px solid #0377ea; border-left: 1px solid #0377ea; padding-top: 05px; padding-bottom: 05px; font-family: 'Merriwheater', 'Georgia', serif; text-align: center; mso-border-alt: none; word-break: keep-all;"><span
                                                         style="padding-left:34px;padding-right:34px;font-size:16px;display:inline-block;letter-spacing:undefined;"><span
@@ -588,8 +592,8 @@
                                             <div class="img-container center autowidth" align="center"
                                                 style="padding-right: 0px;padding-left: 0px;">
                                                 <img class="center autowidth" align="center" border="0"
-                                                    src="<?= !empty($logo_url) ? $logo_url : base_url() . "site/images/trackv2-logo.png" ?>" alt="Your Logo Here image"
-                                                    title="Your Logo Here image"
+                                                    src="<?= !empty($logo_url) ? $logo_url : base_url() . "site/images/trackv2-logo.png" ?>"
+                                                    alt="Your Logo Here image" title="Your Logo Here image"
                                                     style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 150px; max-width: 100%; display: block;"
                                                     width="70">
                                             </div>
