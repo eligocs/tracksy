@@ -1780,7 +1780,7 @@ ul#theme_color_listing li.current {
     vertical-align: middle;
     border-top: 0;
     border: none;
-    background: #3d3d3d;
+    background: #5e72e4;
     font-size: 23px !important;
     color: #fff !important;
 }
@@ -2818,4 +2818,24 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
 
 .itinerary-view .itinerary_status {
     display: none
+}
+
+.select2-container--default .select2-selection--single {
+    background-color: #fff !important;
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    height: 40px !important;
+    padding: 5px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 7px !important;
+}
+
+.hotelbooking-page .table>tbody>tr>td:nth-child(2) {
+    width: 36%;
+}
+
+hotelbooking-page .table>tbody>tr>td{
+    padding: 15px;
 }

@@ -480,9 +480,9 @@
                               			
                               			echo "<tr class='{$strike_class} {$strike_class_final} {$bbp_css}'><td>Price {$below_base_price}</td>
                               			<td>BP( <strong>" . $s_price . "</strong>) {$agent_sp} </td>";
-                              			echo "<td>BP(<strong>" . $d_price . "</strong>) {$agent_dp} </td>";
-                              			echo "<td>BP(<strong>" . $sd_price . "</strong>) {$agent_sdp} </td>";
-                              			echo "<td>BP(<strong>" . $l_price . "</strong>) {$agent_lp} </td></tr>";
+                              			echo "<td> BP (<strong>" . $d_price . "</strong>) {$agent_dp} </td>";
+                              			echo "<td> BP (<strong>" . $sd_price . "</strong>) {$agent_sdp} </td>";
+                              			echo "<td> BP (<strong>" . $l_price . "</strong>) {$agent_lp} </td></tr>";
                               		}
                               	} 
                               	} 

@@ -17,16 +17,21 @@
 		$total_tra = "Adults: " . $iti->adults; 
 		$total_tra .= !empty($iti->child) ? " Child: {$iti->child} ( Age: {$iti->child_age} )" : ""; 
 		?>
+		<div class="custom_card">
 		<div class="tour_info text-left">
 			<h1 class="text-center">Tour Info</h1>
-			<div class="col-md-4 well"><?php echo "<strong>Cab Category:</strong>  " . get_car_name($iti->cab_category); ?></div>
-			<div class="col-md-4 well"><?php echo "<strong>Total Travellers:</strong> " . $total_tra ."<br>"; ?></div> 
-			<div class="col-md-4 well"><?php echo "<strong>Package Routing: </strong> " . $iti->package_routing ."<br>"; ?></div>
-			<div class="col-md-4 well"><?php echo "<strong>Itinerary Id:</strong>  " . $iti->iti_id ; ?></div>
+			<div class="col-md-4 note note-success"><?php echo "<strong>Cab Category:</strong>  " . get_car_name($iti->cab_category); ?></div>
+			<div class="col-md-4 note note-success"><?php echo "<strong>Total Travellers:</strong> " . $total_tra ."<br>"; ?></div> 
+			<div class="col-md-4 note note-success"><?php echo "<strong>Package Routing: </strong> " . $iti->package_routing ."<br>"; ?></div>
+			<div class="col-md-4 note note-success"><?php echo "<strong>Itinerary Id:</strong>  " . $iti->iti_id ; ?></div>
 		</div>	
 		<div class="clearfix"></div>
+		</div>
+
 		<hr>
 		
+		<div class="custom_card">
+
 		<!--Show hotel booking if any-->
 			<?php if( $existing_bookings ){  ?>
 			<div class="portlet box blue">
@@ -35,7 +40,7 @@
 				</div>
 			</div>
 			<div class="table-responsive">
-				<table class="table table-bordered">
+				<table class="table table-bordered table-hover">
 					<thead class="thead-default">
 						<tr>
 							<th> Cab </th>
@@ -65,7 +70,7 @@
 								<td><?php echo $c_book->pic_location . " - " . $c_book->drop_location; ?></td>
 								<td><?php echo $c_book->email_count . " Time Sent"; ?></td>
 								<td><?php echo $status; ?></td>
-								<td><a title='View' href="<?php echo site_url("vehiclesbooking/viewbooking/{$c_book->id}"); ?>" class='btn btn-success' ><i class='fa fa-eye' aria-hidden='true'></i></a></td>
+								<td><a title='View' href="<?php echo site_url("vehiclesbooking/viewbooking/{$c_book->id}"); ?>" class='btn_eye' ><i class='fa fa-eye' aria-hidden='true'></i></a></td>
 							</tr>
 						<?php } ?>
 					</tbody>
@@ -212,6 +217,9 @@
 		<?php }else{
 			redirect(404);
 		} ?>
+			</div>
+
+		
 	<!-- END CONTENT BODY -->
 	</div>
 	</div>

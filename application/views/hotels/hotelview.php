@@ -13,12 +13,12 @@
 			<?php $message = $this->session->flashdata('success'); 
 				if($message){ echo '<span class="help-block help-block-success">'.$message.'</span>'; }
 			?>
-			<div class="portlet-body">
+			<div class="portlet-body custom_card">
 				<h3>Hotel Details</h3>
 				<div class="table-responsive">	
 				<table class="table table-condensed table-hover">	
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Hotel Id: </strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl "><strong>Hotel Id: </strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><?php  echo $hotel->id; ?></div></td>
 					</tr>
 					<tr>

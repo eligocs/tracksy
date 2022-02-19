@@ -17,7 +17,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12 margin-bottom-20">
-                    <div class="text-center">
+                    <div class="d_inline_block">
                         <a title='View Quotation' target="_blank"
                             href=" <?php echo site_url("itineraries/view/{$pay->iti_id}/{$temp_key}") ; ?> "
                             class='btn btn-danger'><i class='fa fa-eye' aria-hidden='true'></i> View Quotation </a>
@@ -85,12 +85,12 @@
                     </div>
                     <hr>
                     <?php }elseif( $pay->iti_close_status == 1 ){
-						echo '<p class="text-center"><strong><i class="fa fa-close" aria-hidden="true"></i> Lead Closed</strong></p>'; ?>
+						echo '<p class="text-center d_inline_block"><strong class="badge_danger_pill"><i class="fa fa-close" aria-hidden="true"></i> Lead Closed</strong></p>'; ?>
 
-                    <div class="close_iti text-right">
+                    <div class="close_iti pull-right d_inline_block">
                         <a href="javascript: void(0)" id="update_closeStatus"
                             data-customer_id="<?php echo $pay->customer_id; ?>"
-                            data-iti_id="<?php echo $pay->iti_id; ?>" class="btn btn-success"
+                            data-iti_id="<?php echo $pay->iti_id; ?>" class="btn btn-success "
                             title="click to close itinerary"><i class="fa fa-close" aria-hidden="true"></i> Close
                             Itinerary (already closed)</a>
                     </div>
@@ -178,7 +178,8 @@
                     <table class="table table-bordered d-table">
                         <thead class="thead-default">
                             <tr>
-                                <p class="text-center uppercase green margin-bottom-10 margin-top-10 font_size_16"><strong>All Receipts</strong></p>
+                                <p class="text-center uppercase green margin-bottom-10 margin-top-10 font_size_16">
+                                    <strong>All Receipts</strong></p>
                             </tr>
                             <tr>
                                 <th> # </th>
@@ -215,63 +216,67 @@
                 <!--TRANSCTIONS-->
                 <div class="clearfix">&nbsp;</div>
                 <div class="col-md-12 custom_card margin-top-10">
-                    <table class="table table-bordered d-table">
-                        <thead class="thead-default">
-                            <tr>
-                                <p class="text-center uppercase green margin-bottom-10 margin-top-10 font_size_16"><strong>Payment Transactions</strong></p>
-                            </tr>
-                            <tr>
-                                <th> Sr.No</th>
-                                <th> Pay. Received</th>
-                                <th> Pay. Refund</th>
-                                <th> Date</th>
-                                <th> Bank Name</th>
-                                <th> Type</th>
-                                <th> Agent</th>
-                                <th> Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1.</td>
-                                <td><?php echo number_format($pay->advance_recieved) . " /-"; ?></td>
-                                <td>0</td>
-                                <td><?php echo !empty($pay->booking_date) ? date("d M, Y",strtotime($pay->booking_date)) : ""; ?>
-                                </td>
-                                <td><?php echo $pay->bank_name; ?></td>
-                                <td></td>
-                                <td><?php echo get_user_name($pay->agent_id); ?></td>
-                                <td></td>
-                            </tr>
+                    <div class="table-responsive">
+                        <table class="table table-bordered d-table">
+                            <thead class="thead-default">
+                                <tr>
+                                    <p class="text-center uppercase green margin-bottom-10 margin-top-10 font_size_16">
+                                        <strong>Payment Transactions</strong></p>
+                                </tr>
+                                <tr>
+                                    <th> Sr.No</th>
+                                    <th> Pay. Received</th>
+                                    <th> Pay. Refund</th>
+                                    <th> Date</th>
+                                    <th> Bank Name</th>
+                                    <th> Type</th>
+                                    <th> Agent</th>
+                                    <th> Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1.</td>
+                                    <td><?php echo number_format($pay->advance_recieved) . " /-"; ?></td>
+                                    <td>0</td>
+                                    <td><?php echo !empty($pay->booking_date) ? date("d M, Y",strtotime($pay->booking_date)) : ""; ?>
+                                    </td>
+                                    <td><?php echo $pay->bank_name; ?></td>
+                                    <td></td>
+                                    <td><?php echo get_user_name($pay->agent_id); ?></td>
+                                    <td></td>
+                                </tr>
 
-                            <?php 
+                                <?php 
 								$pay_received = 0;
 								$i = 2;
 								if( !empty( $payment_transaction ) ){ 
 									foreach( $payment_transaction as $pay_trans ){ ?>
-                            <tr data-tra_id="<?php echo $pay_trans->tra_id;?>">
-                                <td><?php echo $i++; ?>.</td>
-                                <td class="e_tra_amount" data-tra_amount="<?php echo $pay_trans->payment_received; ?>">
-                                    <?php echo number_format($pay_trans->payment_received) . " /-"; ?>
-                                </td>
-                                <td>0</td>
-                                <td class="e_tra_date" data-tra_date="<?php echo $pay_trans->invoice_date; ?>">
-                                    <?php echo date("d M ,Y", strtotime($pay_trans->invoice_date)); ?>
-                                </td>
-                                <td class="e_bank_name" data-bank_name="<?php echo $pay_trans->bank_name; ?>">
-                                    <?php echo $pay_trans->bank_name; ?></td>
-                                <td class="e_payment_type" data-payment_type="<?php echo $pay_trans->payment_type; ?>">
-                                    <?php echo $pay_trans->payment_type; ?></td>
-                                <td><?php echo get_user_name($pay_trans->agent_id); ?></td>
-                                <td>
-                                    <a title="Update details" class="btn btn-success edit_trans" target="_blank"
-                                        href="javascript: void(0)"><i class="fa fa-pencil"></i></a>
-                                    <a title="Delete" data-id="<?php echo $pay_trans->tra_id; ?>"
-                                        class="btn btn-danger del_trans" target="_blank" href="javascript: void(0)"><i
-                                            class="fa fa-trash-o"></i></a>
-                                </td>
-                            </tr>
-                            <?php 
+                                <tr data-tra_id="<?php echo $pay_trans->tra_id;?>">
+                                    <td><?php echo $i++; ?>.</td>
+                                    <td class="e_tra_amount"
+                                        data-tra_amount="<?php echo $pay_trans->payment_received; ?>">
+                                        <?php echo number_format($pay_trans->payment_received) . " /-"; ?>
+                                    </td>
+                                    <td>0</td>
+                                    <td class="e_tra_date" data-tra_date="<?php echo $pay_trans->invoice_date; ?>">
+                                        <?php echo date("d M ,Y", strtotime($pay_trans->invoice_date)); ?>
+                                    </td>
+                                    <td class="e_bank_name" data-bank_name="<?php echo $pay_trans->bank_name; ?>">
+                                        <?php echo $pay_trans->bank_name; ?></td>
+                                    <td class="e_payment_type"
+                                        data-payment_type="<?php echo $pay_trans->payment_type; ?>">
+                                        <?php echo $pay_trans->payment_type; ?></td>
+                                    <td><?php echo get_user_name($pay_trans->agent_id); ?></td>
+                                    <td>
+                                        <a title="Update details" class="btn_pencil edit_trans" target="_blank"
+                                            href="javascript: void(0)"><i class="fa fa-pencil"></i></a>
+                                        <a title="Delete" data-id="<?php echo $pay_trans->tra_id; ?>"
+                                            class="btn_trash del_trans" target="_blank" href="javascript: void(0)"><i
+                                                class="fa fa-trash-o"></i></a>
+                                    </td>
+                                </tr>
+                                <?php 
 										$pay_received += $pay_trans->payment_received;
 									} 
 								}
@@ -280,21 +285,22 @@
 								if( !empty( $refund_transaction ) ){ 
 									foreach( $refund_transaction as $ref_stat ){ 
 									?>
-                            <tr class='red'>
-                                <td><?php echo $j; ?>.</td>
-                                <td></td>
-                                <td><?php echo number_format($ref_stat->refund_amount) . " /-"; ?></td>
-                                <td><?php echo $ref_stat->created; ?></td>
-                                <td><?php echo $ref_stat->bank_name; ?></td>
-                                <td><?php echo get_user_name($ref_stat->agent_id); ?></td>
-                            </tr>
-                            <?php 
+                                <tr class='red'>
+                                    <td><?php echo $j; ?>.</td>
+                                    <td></td>
+                                    <td><?php echo number_format($ref_stat->refund_amount) . " /-"; ?></td>
+                                    <td><?php echo $ref_stat->created; ?></td>
+                                    <td><?php echo $ref_stat->bank_name; ?></td>
+                                    <td><?php echo get_user_name($ref_stat->agent_id); ?></td>
+                                </tr>
+                                <?php 
 										$r_amount += $ref_stat->refund_amount;
 										$j++;
 									} 
 								} ?>
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
                 <div class="clearfix">&nbsp;</div>
@@ -894,7 +900,7 @@ jQuery(document).ready(function($) {
                     beforeSend: function() {
                         resp.html(
                             '<p><i class="fa fa-spinner fa-spin"></i> Please wait...</p>'
-                            );
+                        );
                     },
                     success: function(res) {
                         //$("#refund_payment")[0].reset();
@@ -917,7 +923,7 @@ jQuery(document).ready(function($) {
                     error: function(e) {
                         resp.html(
                             '<div class="alert alert-danger"><strong>Error! </strong>Try again later.</div>'
-                            );
+                        );
                         console.log(e);
                     }
                 });
@@ -1045,7 +1051,7 @@ jQuery(document).ready(function($) {
                     beforeSend: function() {
                         resp.html(
                             '<p><i class="fa fa-spinner fa-spin"></i> Please wait...</p>'
-                            );
+                        );
                     },
                     success: function(res) {
                         //$("#form_postpone_dates")[0].reset();
@@ -1068,7 +1074,7 @@ jQuery(document).ready(function($) {
                     error: function(e) {
                         resp.html(
                             '<div class="alert alert-danger"><strong>Error! </strong>Try again later.</div>'
-                            );
+                        );
                         console.log(e);
                     }
                 });
@@ -1181,7 +1187,7 @@ jQuery(document).ready(function($) {
         if (_this_val == '' || !$.isNumeric(_this_val) || _this_val < 0) {
             $(".resPonse").html(
                 '<div class="alert alert-danger"><strong>Error! </strong>Please enter positive value</div>'
-                );
+            );
             _this.val("");
             return false;
         } else {
@@ -1396,7 +1402,7 @@ jQuery(document).ready(function($) {
                         $(".spinner_load").show();
                         resp.html(
                             '<p><i class="fa fa-spinner fa-spin"></i> Please wait...</p>'
-                            );
+                        );
                     },
                     success: function(res) {
                         $(".spinner_load").hide();
@@ -1419,7 +1425,7 @@ jQuery(document).ready(function($) {
                         $(".spinner_load").hide();
                         resp.html(
                             '<div class="alert alert-danger"><strong>Error! </strong>Try again later.</div>'
-                            );
+                        );
                     }
                 });
                 return false;
@@ -1595,7 +1601,7 @@ jQuery(document).ready(function($) {
                     beforeSend: function() {
                         resp.html(
                             '<p><i class="fa fa-spinner fa-spin"></i> Please wait...</p>'
-                            );
+                        );
                     },
                     success: function(res) {
                         $("#update_payment")[0].reset();
@@ -1627,7 +1633,7 @@ jQuery(document).ready(function($) {
                     error: function(e) {
                         resp.html(
                             '<div class="alert alert-danger"><strong>Error! </strong>Try again later.</div>'
-                            );
+                        );
                         console.log(e);
                     }
                 });

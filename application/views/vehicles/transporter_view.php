@@ -12,24 +12,24 @@
 			<?php $message = $this->session->flashdata('success'); 
 				if($message){ echo '<span class="help-block help-block-success">'.$message.'</span>'; }
 			?>
-			<div class="portlet-body">
+			<div class="portlet-body custom_card">
 				<h3>Transporter Details</h3>
 				<div class="table-responsive">	
-				<table class="table table-condensed table-hover">	
+				<table class="table table-condensed table-hover table-bordered table-striped">	
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Transporter Name: </strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Transporter Name: </strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><?php  echo $vehicle->trans_name; ?></div></td>
 					</tr>
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Email: </strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Email: </strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><?php  echo $vehicle->trans_email; ?></div></td>
 					</tr>
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Contact: </strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Contact: </strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><?php  echo $vehicle->trans_contact; ?></div></td>
 					</tr>
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Address: </strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Address: </strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><?php  echo $vehicle->trans_address; ?></div></td>
 					</tr>
 					<?php 
@@ -43,7 +43,7 @@
 						
 					} ?>
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Vehicles Available: </strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Vehicles Available: </strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><?php  echo $c; ?></div></td>
 					</tr>
 				</table>	

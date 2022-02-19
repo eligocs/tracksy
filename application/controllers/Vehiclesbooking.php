@@ -430,11 +430,11 @@ class Vehiclesbooking extends CI_Controller {
 				
 				$row_edit = "";
 				if( ( $role == 97 && $cab_book->is_approved_by_gm == 0 ) || is_gm() || $role == 99  ){
-					$row_edit = "<a title='Edit' href=" . site_url("vehiclesbooking/editcabbooking/{$booking_id}") . " class='btn btn-success' ><i class='fa fa-pencil' aria-hidden='true'></i></a>";
+					$row_edit = "<a title='Edit' href=" . site_url("vehiclesbooking/editcabbooking/{$booking_id}") . " class='btn_pencil' ><i class='fa fa-pencil' aria-hidden='true'></i></a>";
 				}
 				
 				
-				$row[] = "<a title='View' href=" . site_url("vehiclesbooking/viewbooking/{$booking_id}") . " class='btn btn-success' ><i class='fa fa-eye' aria-hidden='true'></i></a>" . $row_edit . $cab_info_btn . $row_delete;
+				$row[] = "<a title='View' href=" . site_url("vehiclesbooking/viewbooking/{$booking_id}") . " class='btn_eye' ><i class='fa fa-eye' aria-hidden='true'></i></a>" . $row_edit . $cab_info_btn . $row_delete;
 			
 				$data[] = $row;
 			}
@@ -524,7 +524,7 @@ class Vehiclesbooking extends CI_Controller {
 				
 				//UPDATE AND APPROVE TICKETS BUTTON
 				if( $veh_book->is_approved_by_gm == 2 && $veh_book->booking_status != 8  ){
-					$row_edit .= "<a title='Edit' href=" . site_url("vehiclesbooking/update_vtf_tickets/{$booking_id}") . " class='btn btn-success' ><i class='fa fa-refresh' aria-hidden='true'></i> Update Tickets</a>";
+					$row_edit .= "<a title='Edit' href=" . site_url("vehiclesbooking/update_vtf_tickets/{$booking_id}") . " class='btn_pencil' ><i class='fa fa-refresh' aria-hidden='true'></i> Update Tickets</a>";
 				}
 				
 				$row[] = "<a title='Edit' href=" . site_url("vehiclesbooking/viewvehiclebooking/{$booking_id}/{$iti_id}") . " class='btn_eye' ><i class='fa fa-eye' aria-hidden='true'></i></a>" . $row_edit . $row_delete;

@@ -37,7 +37,7 @@
 									$type = $voucher->iti_type == 2 ? "Accommodation" : "Holiday";
 									$tr_date = get_travel_date($voucher->iti_id);
 									$agent = get_user_name($voucher->agent_id);
-									$btn_view = "<a target='_blank' title='View' href=" . site_url("itineraries/view/{$voucher->iti_id}/{$voucher->temp_key}") . " class='btn btn-success' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
+									$btn_view = "<a target='_blank' title='View' href=" . site_url("itineraries/view/{$voucher->iti_id}/{$voucher->temp_key}") . " class='btn_eye' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
 									echo "<tr>
 										<td>{$counter}</td>
 										<td>{$voucher->customer_id}</td>

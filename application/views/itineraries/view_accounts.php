@@ -56,165 +56,168 @@
 				<div class="portlet box blue mb0">
 					<div class="portlet-title">
 						<div class="caption"><i class="fa fa-users"></i> 
-							<strong>Lead Id: </strong><span class="mehroon"> <?php echo $iti->customer_id; ?></span> &nbsp; &nbsp;&nbsp; &nbsp;
+							<strong>Lead Id: </strong><span class=""> <?php echo $iti->customer_id; ?></span> &nbsp; &nbsp;&nbsp; &nbsp;
 							<?php if( is_admin_or_manager() ){ ?>
-								<strong>Lead Type: </strong><span class="mehroon"><?php echo $cus_type; ?>&nbsp; &nbsp;&nbsp; &nbsp;
+								<strong>Lead Type: </strong><span class=""><?php echo $cus_type; ?>&nbsp; &nbsp;&nbsp; &nbsp;
 								</span> <?php echo $ref_name . $ref_contact; ?>
 							<?php } ?>
-							Q. Type: <strong class="red"> <?php echo check_iti_type( $iti->iti_id ) . ' ( ' . $iti->iti_package_type . ')'; ?></strong>
+							Q. Type: <strong class=""> <?php echo check_iti_type( $iti->iti_id ) . ' ( ' . $iti->iti_package_type . ')'; ?></strong>
 							
-							<?php echo !empty($country_name) ? " From: <span class='red'>" . $country_name . " ( $state_name ) </span>" : ""; ?>
+							<?php echo !empty($country_name) ? " From: <span class=''>" . $country_name . " ( $state_name ) </span>" : ""; ?>
 						</div>
 						<a class="btn btn-success pull-right" href="<?php echo site_url("itineraries"); ?>" title="Back">Back</a>
 						<a class="btn btn-info pull-right" style='margin: 5px;' onclick="Print_iti();" href="javscript:void(0)" title="Back">Print</a>
 					</div>
 				</div>
 				<div class="clearfix"></div>
-				<?php if( isset( $paymentDetails[0] ) && !empty( $paymentDetails[0] ) && $iti->iti_status == 9 ){ 
-					$pay_detail = $paymentDetails[0];
-					$doc_path =  base_url() .'site/assets/client_docs/';
-					//$is_gst_final = $paymentDetails[0]->is_gst == 1 ? "GST Inc." : "GST Extra";
-					$is_gst_final = "";
+				<div class="custom_card">
+					<?php if( isset( $paymentDetails[0] ) && !empty( $paymentDetails[0] ) && $iti->iti_status == 9 ){ 
+						$pay_detail = $paymentDetails[0];
+						$doc_path =  base_url() .'site/assets/client_docs/';
+						//$is_gst_final = $paymentDetails[0]->is_gst == 1 ? "GST Inc." : "GST Extra";
+						$is_gst_final = "";
+						
+						if( $iti->iti_close_status == 1 ){
+							$close_status = "<strong class='red'>ITINERARY CLOSED</strong>";
+							$invoice_btn = "";
+						}else{
+							$close_status = "<strong class='green'>ITINERARY OPEN</strong>";
+							$invoice_btn = "<a target='_blank' href='" . site_url("/accounts/create_receipt/{$iti->customer_id}") . "' title='Click here to generate invoice' class='btn btn-success'>Click Here To Generate Invoice</a>";
+						}
+						echo "<h1 class='text-center margin-bottom-30'>" . $close_status. "</h1>";
+						?>
 					
-					if( $iti->iti_close_status == 1 ){
-						$close_status = "<strong class='red'>ITINERARY CLOSED</strong>";
-						$invoice_btn = "";
-					}else{
-						$close_status = "<strong class='green'>ITINERARY OPEN</strong>";
-						$invoice_btn = "<a target='_blank' href='" . site_url("/accounts/create_receipt/{$iti->customer_id}") . "' title='Click here to generate invoice' class='btn btn-success'>Click Here To Generate Invoice</a>";
-					}
-					echo "<h1 class='text-center'>" . $close_status. "</h1>";
-					?>
-				
-					<div class="mt-element-step">
-						<div class="row step-background-thin ">
-							<div class="col-md-4 bg-grey-steel mt-step-col error ">
-								<div class="mt-step-number">1</div>
-								<div class="mt-step-title uppercase font-grey-cascade"><strong>INR <?php echo $iti->final_amount; ?>/- </strong></div>
-								
-								<div class="mt-step-content font-grey-cascade">Package Final Cost: <span style="color: #fff;">(<?php echo $is_gst_final;  ?>)</span></div>
-							</div>
-							<div class="col-md-4 bg-grey-steel mt-step-col active">
-								<div class="mt-step-number">2</div>
-								<div class="mt-step-title uppercase font-grey-cascade"><strong><?php echo $iti->approved_package_category; ?></strong></div>
-								<div class="mt-step-content font-grey-cascade">Package Category</div>
-							</div>
-							<div class="col-md-4 bg-grey-steel mt-step-col done">
-								<?php $t_date = get_travel_date($iti->iti_id); ?>
-								<div class="mt-step-number">3</div>
-								<div class="mt-step-title uppercase font-grey-cascade"><?php echo !empty($t_date) ? $t_date : "--/--/----"; ?></strong></div>
-								<div class="mt-step-content font-grey-cascade">Travel Date</div>
-							</div>
-						</div>
-					</div>
-					<div class="clearfix"></div>
-					<div class="mt-element-step">
-								<div class="row step-background-thin ">
-									<div class="col-md-4 bg-grey-steel mt-step-col done ">
-										<div class="mt-step-number">1</div>
-										<div class="mt-step-title uppercase font-grey-cascade"><strong>INR <?php echo $paymentDetails[0]->advance_recieved; ?>/- </strong></div>
-										<div class="mt-step-content font-grey-cascade">Advance Recieved </div>
-									</div>
-									<div class="col-md-4 bg-grey-steel mt-step-col error">
-										<div class="mt-step-number">2</div>
-										<div class="mt-step-title uppercase font-grey-cascade"><strong><?php echo $paymentDetails[0]->total_balance_amount; ?>/-</strong></div>
-										<div class="mt-step-content font-grey-cascade">Balance Pending</div>
-									</div>
-									<div class="col-md-4 bg-grey-steel mt-step-col active">
-										<?php $booking_d = $paymentDetails[0]->booking_date; ?>
-										<div class="mt-step-number">3</div>
-										<div class="mt-step-title uppercase font-grey-cascade"><?php echo !empty($booking_d) ? display_month_name($booking_d ) : "--/--/----"; ?></strong></div>
-										<div class="mt-step-content font-grey-cascade">Booking Date</div>
-									</div>
+						<div class="mt-element-step">
+							<div class="row step-background-thin ">
+								<div class="col-md-4 bg-grey-steel mt-step-col error ">
+									<div class="mt-step-number">1</div>
+									<div class="mt-step-title uppercase font-grey-cascade"><strong>INR <?php echo $iti->final_amount; ?>/- </strong></div>
+									
+									<div class="mt-step-content font-grey-cascade">Package Final Cost: <span style="color: #fff;">(<?php echo $is_gst_final;  ?>)</span></div>
+								</div>
+								<div class="col-md-4 bg-grey-steel mt-step-col active">
+									<div class="mt-step-number">2</div>
+									<div class="mt-step-title uppercase font-grey-cascade"><strong><?php echo $iti->approved_package_category; ?></strong></div>
+									<div class="mt-step-content font-grey-cascade">Package Category</div>
+								</div>
+								<div class="col-md-4 bg-grey-steel mt-step-col done">
+									<?php $t_date = get_travel_date($iti->iti_id); ?>
+									<div class="mt-step-number">3</div>
+									<div class="mt-step-title uppercase font-grey-cascade"><?php echo !empty($t_date) ? $t_date : "--/--/----"; ?></strong></div>
+									<div class="mt-step-content font-grey-cascade">Travel Date</div>
 								</div>
 							</div>
-					<div class="clearfix"></div>
-					<!--show payment screenshot details-->
-						<hr>
-						<div id="update_iti_hold_status">
-							<!-- client_aadhar_card payment_screenshot -->
-							<?php
-								$aadhar_card_img = !empty( $pay_detail->client_aadhar_card ) ? $pay_detail->client_aadhar_card : "";
-								$payment_screenshot = !empty( $pay_detail->payment_screenshot ) ? $pay_detail->payment_screenshot : "";
-							?>
-							<div class="col-md-4">
-								<h4 class="uppercase">Aadhar Card Screenshot</h4>
-								<?php if($aadhar_card_img){ ?>
-									<a target="_blank" href="<?php echo $doc_path . $aadhar_card_img; ?>" class="example-image-link" data-lightbox="example-set"  data-title="Adhar card Screenshot.">
-										<img src="<?php echo $doc_path . $aadhar_card_img; ?>" width="150" height="150" class="image-responsive">
-									</a>
-								<?php }else{
-									echo "<strong class='red'>Aadhar card Not Updated</strong>";
-									//echo '<img src=" ' . $doc_path . 'dummy.jpg" width="150" height="150" class="image-responsive">';
-								} ?>
-							</div>
-							<div class="col-md-4">
-								<h4 class="uppercase">Payment Screenshot</h4>
-								<?php if($payment_screenshot){ ?>
-									<a target="_blank" href="<?php echo $doc_path . $payment_screenshot; ?>" class="example-image-link" data-lightbox="example-set"  data-title="Client Payment Screenshot.">
-										<img src="<?php echo $doc_path . $payment_screenshot; ?>" width="150" height="150" class="image-responsive">
-									</a>
-								<?php }else{
-									echo "<strong class='red'>Payment Screenshot Not Updated</strong>";
-									//echo '<img src=" ' . $doc_path . 'dummy.jpg" width="150" height="150" class="image-responsive">';
-								} ?>
-							</div>
-							<div class="col-md-4">
-								<h4 class="uppercase">Iti Status</h4>
-								<?php 
-								if( $pay_detail->iti_booking_status == 0 ){
-									echo "<strong class='green'>APPROVED</strong>";
-								}else if( $pay_detail->iti_booking_status == 1 ){ 
-									echo '<strong class="red">ON HOLD</strong>';
-								}else{ 
-									echo '<strong class="red">REJECTED BY SALES MANAGER</strong>';
-								} ?>
-								<p><span class="red">Comment: </span><?php echo $pay_detail->approved_note; ?></p>
-							</div>
-							<div class="clearfix"></div>
-							
-							<!--INVOICE BUTTON -->
+						</div>
+						<div class="clearfix"></div>
+						<div class="mt-element-step">
+									<div class="row step-background-thin ">
+										<div class="col-md-4 bg-grey-steel mt-step-col done ">
+											<div class="mt-step-number">1</div>
+											<div class="mt-step-title uppercase font-grey-cascade"><strong>INR <?php echo $paymentDetails[0]->advance_recieved; ?>/- </strong></div>
+											<div class="mt-step-content font-grey-cascade">Advance Recieved </div>
+										</div>
+										<div class="col-md-4 bg-grey-steel mt-step-col error">
+											<div class="mt-step-number">2</div>
+											<div class="mt-step-title uppercase font-grey-cascade"><strong><?php echo $paymentDetails[0]->total_balance_amount; ?>/-</strong></div>
+											<div class="mt-step-content font-grey-cascade">Balance Pending</div>
+										</div>
+										<div class="col-md-4 bg-grey-steel mt-step-col active">
+											<?php $booking_d = $paymentDetails[0]->booking_date; ?>
+											<div class="mt-step-number">3</div>
+											<div class="mt-step-title uppercase font-grey-cascade"><?php echo !empty($booking_d) ? display_month_name($booking_d ) : "--/--/----"; ?></strong></div>
+											<div class="mt-step-content font-grey-cascade">Booking Date</div>
+										</div>
+									</div>
+								</div>
+						<div class="clearfix"></div>
+						<!--show payment screenshot details-->
 							<hr>
-							<div class="invoice_btn text-center margin-top-10 margin-bottom-10"><?php echo $invoice_btn; ?></div>
-							
-							<div class="clearfix"></div>
-							
-							<div class="col-md-12 other_docs">
-								<?php if (isset( $iti_clients_docs ) && !empty( $iti_clients_docs ) ){
-									echo '<hr><h4 class="uppercase">Other Documents</h4>'; ?>
-									<div class="table-responsive">
-										<table class="table table-striped table-hover">
-											<thead class="thead-default">
-												<tr>
-													<th> Sr. </th>
-													<th> Title</th>
-													<th> Comment</th>
-													<th> Action</th>
-												</tr>
-											</thead>
-											<tbody>
-												<?php 
-												$docindex = 1; 
-												foreach( $iti_clients_docs as $ind => $doc ){
-													echo "<tr>";
-														echo "<td>" . $docindex . "</td>";
-														echo "<td>" . $doc->file_url . "</td>";
-														echo "<td>" . $doc->comment . "</td>";
-														echo "<td>"; ?>
-															<a href="<?php echo $doc_path . $doc->file_url; ?>" target="_blank" class="btn btn-success" style="position:relative;">
-															<i class="fa fa-eye"></i> View</a>
-															</td>
-														<?php 	
-													echo "</tr>";	
-													$docindex++;
-												} ?>
-											</tbody>	
-										</table>	
-									</div>	
-								<?php } ?>
-							</div>
+							<div id="update_iti_hold_status">
+								<!-- client_aadhar_card payment_screenshot -->
+								<?php
+									$aadhar_card_img = !empty( $pay_detail->client_aadhar_card ) ? $pay_detail->client_aadhar_card : "";
+									$payment_screenshot = !empty( $pay_detail->payment_screenshot ) ? $pay_detail->payment_screenshot : "";
+								?>
+								<div class="col-md-4">
+									<h4 class="uppercase">Aadhar Card Screenshot</h4>
+									<?php if($aadhar_card_img){ ?>
+										<a target="_blank" href="<?php echo $doc_path . $aadhar_card_img; ?>" class="example-image-link" data-lightbox="example-set"  data-title="Adhar card Screenshot.">
+											<img src="<?php echo $doc_path . $aadhar_card_img; ?>" width="150" height="150" class="image-responsive">
+										</a>
+									<?php }else{
+										echo "<strong class='red'>Aadhar card Not Updated</strong>";
+										//echo '<img src=" ' . $doc_path . 'dummy.jpg" width="150" height="150" class="image-responsive">';
+									} ?>
+								</div>
+								<div class="col-md-4">
+									<h4 class="uppercase">Payment Screenshot</h4>
+									<?php if($payment_screenshot){ ?>
+										<a target="_blank" href="<?php echo $doc_path . $payment_screenshot; ?>" class="example-image-link" data-lightbox="example-set"  data-title="Client Payment Screenshot.">
+											<img src="<?php echo $doc_path . $payment_screenshot; ?>" width="150" height="150" class="image-responsive">
+										</a>
+									<?php }else{
+										echo "<strong class='red'>Payment Screenshot Not Updated</strong>";
+										//echo '<img src=" ' . $doc_path . 'dummy.jpg" width="150" height="150" class="image-responsive">';
+									} ?>
+								</div>
+								<div class="col-md-4">
+									<h4 class="uppercase">Iti Status</h4>
+									<?php 
+									if( $pay_detail->iti_booking_status == 0 ){
+										echo "<strong class='green'>APPROVED</strong>";
+									}else if( $pay_detail->iti_booking_status == 1 ){ 
+										echo '<strong class="red">ON HOLD</strong>';
+									}else{ 
+										echo '<strong class="red">REJECTED BY SALES MANAGER</strong>';
+									} ?>
+									<p><span class="red">Comment: </span><?php echo $pay_detail->approved_note; ?></p>
+								</div>
+								<div class="clearfix"></div>
 								
-				<?php } ?>
+								<!--INVOICE BUTTON -->
+								<hr>
+								<div class="invoice_btn text-center margin-top-10 margin-bottom-10"><?php echo $invoice_btn; ?></div>
+								
+								<div class="clearfix"></div>
+								
+								<div class="col-md-12 other_docs">
+									<?php if (isset( $iti_clients_docs ) && !empty( $iti_clients_docs ) ){
+										echo '<hr><h4 class="uppercase">Other Documents</h4>'; ?>
+										<div class="table-responsive">
+											<table class="table table-bordered table-hover">
+												<thead class="thead-default">
+													<tr>
+														<th> Sr. </th>
+														<th> Title</th>
+														<th> Comment</th>
+														<th> Action</th>
+													</tr>
+												</thead>
+												<tbody>
+													<?php 
+													$docindex = 1; 
+													foreach( $iti_clients_docs as $ind => $doc ){
+														echo "<tr>";
+															echo "<td>" . $docindex . "</td>";
+															echo "<td>" . $doc->file_url . "</td>";
+															echo "<td>" . $doc->comment . "</td>";
+															echo "<td>"; ?>
+																<a href="<?php echo $doc_path . $doc->file_url; ?>" target="_blank" class="btn_eye" style="position:relative;">
+																<i class="fa fa-eye"></i></a>
+																</td>
+															<?php 	
+														echo "</tr>";	
+														$docindex++;
+													} ?>
+												</tbody>	
+											</table>	
+										</div>	
+									<?php } ?>
+								</div>
+									
+					<?php } ?>
+				</div>
+
 				<div class="clearfix"></div>
 				
 				<?php if( $iti->iti_close_status == 0 ){ ?>
@@ -392,7 +395,7 @@
 															<td><?php echo get_hotel_name($h_book->hotel_id); ?></td>
 															<td><?php echo $h_book->email_count . " Time Sent"; ?></td>
 															<td><?php echo $status; ?></td>
-															<td><a title='View' href="<?php echo site_url("hotelbooking/view/{$h_book->id}/{$h_book->iti_id}"); ?>" class='btn btn-success' ><i class='fa fa-eye' aria-hidden='true'></i></a></td>
+															<td><a title='View' href="<?php echo site_url("hotelbooking/view/{$h_book->id}/{$h_book->iti_id}"); ?>" class='btn_eye' ><i class='fa fa-eye' aria-hidden='true'></i></a></td>
 														</tr>
 													<?php 
 														$ch++;

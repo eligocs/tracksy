@@ -11,13 +11,13 @@
 					<div class="portlet-title">
 						<div class="caption"><i class="fa fa-users"></i>Transporter Name: <strong><?php echo get_transporter_name($cab_booking->transporter_id); ?></strong></div>
 						<a class="btn btn-success" href="<?php echo site_url("vehiclesbooking"); ?>" title="Back">Back</a>
-						<a class="btn btn-danger" target="_blank" style="margin: 3px;" href="<?php echo iti_view_single_link($cab_booking->iti_id); ?>" title="View Itinerary">View Itinerary</a>
+						<a class="btn btn-danger pull-right" target="_blank" style="margin: 3px;" href="<?php echo iti_view_single_link($cab_booking->iti_id); ?>" title="View Itinerary">View Itinerary</a>
 						
 					</div>
 				</div>
 				
 				<!-- SHOW CAB BOOKING STATUS -->
-				<div class="well well-sm text-center">
+				<div class="well well-sm d-flex align_items_center justify_content_between custom_card margin-bottom-30">
 					<h4>Hotel Booking Status</h4>
 					<?php if($cab_booking->booking_status == 9 ){ ?>
 						<p class="green"><strong> BOOKING CONFIRMED </strong></p>
@@ -43,7 +43,7 @@
 					<?php } ?>
 				</div><!-- END CAB BOOKING STATUS -->
 				
-				<div class="portlet-body">
+				<div class="portlet-body custom_card">
 					<h3>Cab Details</h3>
 					<div class="form-group col-md-12">
 						<?php $cabbookingemail = $cab_booking->email_count; ?>
@@ -62,7 +62,7 @@
 								</div>
 							*/
 							?>
-						<div  class="mail-info well ">
+						<div  class="mail-info well align_items_center bg_white d-flex justify_content_between mail-info margin-top-20 padding_zero well">
 							<?php 
 							if( $role == 99 || $role == 98 || $role == 97  ){
 								//show sent button if booking not canceled or declined
@@ -94,7 +94,7 @@
 						<div class="table-responsive">	
 							<table class="table table-condensed table-hover">			
 							<tr>
-								<td width="20%"><div class="col-mdd-2 form_vl"><strong>Itinerary ID: </strong></div></td>	
+								<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Itinerary ID: </strong></div></td>	
 								<td><div class="col-mdd-10 form_vr"><?php echo $cab_booking->iti_id; ?></div></td>
 							</tr>
 							<tr>
@@ -115,7 +115,7 @@
 								</tr>								
 							<?php } ?>
 							<tr>
-								<td width="20%"><div class="col-mdd-2 form_vl"><strong>Client Name: </strong></div></td>	
+								<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Client Name: </strong></div></td>	
 								<td><div class="col-mdd-10 form_vr"><?php echo get_customer_name($cab_booking->customer_id); ?></div></td>
 							</tr>
 								<tr>
@@ -246,7 +246,7 @@
 				} ?>	
 			</div>	
 				<hr>
-		<div class="well">
+		<div class="well bg_white">
 			<?php
 			$agent_id = $cab_booking->agent_id;
 			$user_info = get_user_info($agent_id);

@@ -199,17 +199,17 @@ class Hotelbooking extends CI_Controller {
 				}
 				
 				if( is_admin() ){ 
-					$row_delete = "<a data-id={$booking_id} title='Delete Hotel Booking' href='javascript:void(0)' class='btn btn-danger ajax_delete_booking'><i class='fa fa-trash-o' aria-hidden='true'></i></a>";
+					$row_delete = "<a data-id={$booking_id} title='Delete Hotel Booking' href='javascript:void(0)' class='btn_trash ajax_delete_booking'><i class='fa fa-trash-o' aria-hidden='true'></i></a>";
 				}
 				
 				$view_mail = "<a title='Mail view' href=" . site_url("hotelbooking/view_mail/{$booking_id}/{$iti_id}") . " class='btn btn-success' >Mail View</a>";
 				
 				$edit = "";
 				if( ( $role == 97 && $hotel_book->is_approved_by_gm == 0 ) || is_gm() || $role == 99  ){
-					$edit = "<a title='edit' href=" . site_url("hotelbooking/edit/{$booking_id}/{$iti_id}") . " class='btn btn-success' ><i class='fa fa-pencil' aria-hidden='true'></i></a>";
+					$edit = "<a title='edit' href=" . site_url("hotelbooking/edit/{$booking_id}/{$iti_id}") . " class='btn_pencil' ><i class='fa fa-pencil' aria-hidden='true'></i></a>";
 				}	
 				
-				$row[] = "<a title='View' href=" . site_url("hotelbooking/view/{$booking_id}/{$iti_id}") . " class='btn btn-success' ><i class='fa fa-eye' aria-hidden='true'></i></a>" . $edit . $row_delete . $view_mail;
+				$row[] = "<a title='View' href=" . site_url("hotelbooking/view/{$booking_id}/{$iti_id}") . " class='btn_eye ' ><i class='fa fa-eye' aria-hidden='true'></i></a>" . $edit . $row_delete . $view_mail;
 				$row[] = get_user_name($hotel_book->agent_id); 
 				
 				$data[] = $row;

@@ -1531,8 +1531,8 @@
             <div class="caption">
                 <h3 style="background: green; color: #fff; padding: 5px;">BOOKING DETAILS</h3>
             </div>
-            <div class="table-responsive booking_details_pro" style="background: #c9e6e4;">
-                <table class="table table-bordered">
+            <div class="table-responsive booking_details_pro" style="">
+                <table class="table table-bordered bg_white">
                     <thead class="thead-default">
                         <tr>
                             <th>Sr.</th>
@@ -1551,7 +1551,7 @@
                      	$city = get_city_name($hotel_book->city_id);
                      	$total_cost	= number_format($hotel_book->total_cost);
                      	
-                     	$view_btn = "<a title='View' href=" . site_url("hotelbooking/view/{$hotel_book->id}/{$hotel_book->iti_id}") . " class='btn btn-success' target='_blank' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
+                     	$view_btn = "<a title='View' href=" . site_url("hotelbooking/view/{$hotel_book->id}/{$hotel_book->iti_id}") . " class='btn_eye' target='_blank' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
                      	
                      	echo "<tr>
                      		<td>{$sr}.</td>
@@ -1574,7 +1574,7 @@
                      	$total_cost = number_format($c_book->total_cost);
                      	$cab = get_car_name($c_book->cab_id);
                      	$total_cab = $c_book->total_cabs;
-                     	$view_btn = "<a title='View' href=" . site_url("vehiclesbooking/viewbooking/{$c_book->id}") . " class='btn btn-success' target='_blank' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
+                     	$view_btn = "<a title='View' href=" . site_url("vehiclesbooking/viewbooking/{$c_book->id}") . " class='btn_eye' target='_blank' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
                      	
                      	echo "<tr>
                      		<td>{$sr}.</td>
@@ -1596,7 +1596,7 @@
                      	$tc = $single_trip_cost + $return_trip_cost;
                      	$total_cost = number_format( $tc );
                      	
-                     	$view_btn = "<a title='View' href=" . site_url("vehiclesbooking/viewvehiclebooking/{$c_book->id}/{$vtf_book->id}/{$vtf_book->iti_id}") . " class='btn btn-success' target='_blank' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
+                     	$view_btn = "<a title='View' href=" . site_url("vehiclesbooking/viewvehiclebooking/{$c_book->id}/{$vtf_book->id}/{$vtf_book->iti_id}") . " class='btn_eye' target='_blank' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
                      	$type = ucfirst($vtf_book->booking_type);
                      	echo "<tr>
                      		<td>{$sr}.</td>
