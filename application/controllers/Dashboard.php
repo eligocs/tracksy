@@ -1914,6 +1914,15 @@ class Dashboard extends CI_Controller {
 		return $time_24;
 	}
 	
+
+	public function leadsFilter(){
+		$user = $this->session->userdata('logged_in');
+		
+		// $theYear = $this->input->post('date');
+		$res = array('res' => false, 'msg'=> 'No Data Found', 'data1' => '', 'data2' => '', 'data3' => '' );
+		die(json_encode( $theYear ));
+		// $agent_id = $this->input->post('agent_id');
+	}
 	
 	//Get Monthly Data for Itineraries Bar Chart
 	public function chart_data_monthly_iti_ajax(){
