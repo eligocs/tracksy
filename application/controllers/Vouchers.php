@@ -81,6 +81,7 @@ class Vouchers extends CI_Controller {
 				$voucher_btn = "<a title='Generate Voucher' href=" . site_url("vouchers/generate_voucher/{$voucher->iti_id}") . " class='btn btn-success' target='_blank' ><i class='fa fa-plus' aria-hidden='true'></i> Generate Voucher</a>";
 				
 				//client view
+				// dump($voucher->voucher_id);die;
 				$vid = base64_url_encode( $voucher->voucher_id );
 				$viti_id = base64_url_encode( $voucher->iti_id );
 				

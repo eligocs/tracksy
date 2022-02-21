@@ -3538,6 +3538,7 @@ class Itineraries extends CI_Controller {
 		}else{
 			$ins_d = array( $booking_type => 1, "iti_id" => $iti_id, "agent_id" => $user_id );
 			$insert_data = $this->global_model->insert_data("iti_vouchers_status", $ins_d );
+			$update_data =	$this->global_model->update_data("iti_vouchers_status", array("iti_id" => $iti_id ), array("voucher_id" => "VOU00-". $insert_data ) );
 			
 			//UPDATE VOUCHER ID
 			$this->global_model->insert_data("iti_vouchers_status", array("id" => $insert_data), array("voucher_id" => "VOU00-". $insert_data ) );
