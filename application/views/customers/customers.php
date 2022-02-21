@@ -1,7 +1,7 @@
 <style>
-.yellow_row {
+/* .yellow_row {
     background-color: yellow !important;
-}
+} */
 
 .hold_row {
     background-color: pink !important;

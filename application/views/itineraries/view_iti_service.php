@@ -463,8 +463,6 @@
                 </div> <!-- portlet body -->
             </div> <!-- portlet -->
 
-
-
             <hr>
             <!--Payment Detais section-->
             <?php if( isset( $paymentDetails  ) && !empty( $paymentDetails ) &&  $iti->iti_status == 9 ){ ?>

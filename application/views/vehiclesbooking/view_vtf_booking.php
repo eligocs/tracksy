@@ -11,12 +11,12 @@
 					<div class="portlet-title">
 						<div class="caption"><i class="fa fa-users"></i>Booking Type: <strong><?php echo ucfirst($tra_booking->booking_type); ?></strong></div>
 						<a class="btn btn-success" href="<?php echo site_url("vehiclesbooking/allvehiclesbookings"); ?>" title="Back">Back</a>
-						<a class="btn btn-danger" target="_blank" style="margin: 3px;" href="<?php echo iti_view_single_link($tra_booking->iti_id); ?>" title="View Itinerary">View Itinerary</a>
+						<a class="btn btn-danger pull-right" target="_blank" style="margin: 3px;" href="<?php echo iti_view_single_link($tra_booking->iti_id); ?>" title="View Itinerary">View Itinerary</a>
 					</div>
 				</div>
                 
 				
-				<div  class="mail-info well ">
+				<div  class="custom_card mail-info well d-flex justify_content_between align_items_center">
 					<?php 
 					if( $role == 99 || $role == 98 || $role == 97  ){
 						//show sent button if booking not canceled or declined
@@ -38,15 +38,15 @@
 
 					<?php if( $tra_booking->booking_status == 9 ){ ?>
 					<div class="close_iti text-right">
-						<p class="text-center d_inline_block margin_zero"><strong class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> Booking Approved</strong></p>
+						<p class="text-center d_inline_block margin_zero"><strong class="badge_success_pill"><i class="fa fa-check" aria-hidden="true"></i> Booking Approved</strong></p>
 						<?php if( $role == 99 || $role == 98 || $role == 97  ){ ?>
 							<a href="javascript: void(0)" id="update_closeStatus" data-id = "<?php echo $tra_booking->id; ?>" data-iti_id ="<?php echo $tra_booking->iti_id; ?>" class="btn btn-danger" title="click to Cancel Booking"><i class="fa fa-close" aria-hidden="true"></i> Cancel Booking</a>
 						<?php } ?>
 					</div>
 				<?php }elseif( $tra_booking->booking_status == 8 ){
-					echo '<p class="text-center"><strong class="btn btn-danger"><i class="fa fa-close" aria-hidden="true"></i> Booking Canceled</strong></p>';
+					echo '<p class="text-center"><strong class="badge_danger-pill"><i class="fa fa-close" aria-hidden="true"></i> Booking Canceled</strong></p>';
 				}else{
-					echo '<p class="text-center d_inline_block margin_zero"><strong class="btn btn-info"><i class="fa fa-spinner" aria-hidden="true"></i> Booking Processing</strong></p>'; ?>
+					echo '<p class="text-center d_inline_block margin_zero"><strong class="badge_lightpurple_pill"><i class="fa fa-spinner" aria-hidden="true"></i> Booking Processing</strong></p>'; ?>
 					<!--Cancel BOOKING -->
 					<?php if( $role == 99 || $role == 98 || $role == 97  ){ ?>
 					<div class="text-center">
@@ -58,12 +58,12 @@
 				</div>
 				<hr>
 				
-				<div class="portlet-body">
-					<h3>Booking Details ( <strong class='green'> <?php echo ucfirst($tra_booking->booking_type); ?></strong> )</h3>
+				<div class="portlet-body custom_card">
+					<h3 class="margin-bottom-30">Booking Details ( <strong class='green'> <?php echo ucfirst($tra_booking->booking_type); ?></strong> )</h3>
 						<div class="table-responsive">	
-							<table class="table table-condensed table-hover">			
+							<table class="table table-condensed table-hover table-striped table-bordered">			
 							<tr>
-								<td width="20%"><div class="col-mdd-2 form_vl"><strong>Itinerary ID: </strong></div></td>	
+								<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Itinerary ID: </strong></div></td>	
 								<td><div class="col-mdd-10 form_vr"><?php echo $tra_booking->iti_id; ?></div></td>
 							</tr>
 							<tr>
@@ -76,7 +76,7 @@
 							</tr>							
 							
 							<tr>
-								<td width="20%"><div class="col-mdd-2 form_vl"><strong>Total Passengers: </strong></div></td>	
+								<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Total Passengers: </strong></div></td>	
 								<td><div class="col-mdd-10 form_vr"><?php echo $tra_booking->total_travellers; ?></div></td>
 							</tr>
 							<tr>

@@ -2633,6 +2633,8 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
     display: inline-block;
     margin-right: 5px;
     margin-bottom: 5px;
+    min-width: 108px;
+    text-align: center;
 }
 
 
@@ -2838,4 +2840,9 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
 
 hotelbooking-page .table>tbody>tr>td{
     padding: 15px;
+}
+
+.voucher_sign_sec{
+    margin-left: 45px;
+    margin-top: 40px;
 }

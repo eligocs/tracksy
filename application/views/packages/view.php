@@ -30,7 +30,7 @@
             ?>
          <div class="portlet box blue">
             <div class="portlet-title">
-               <div class="caption"><i class="fa fa-users"></i>View Package ( State: <strong class='red'> <?php echo get_state_name($pack->state_id); ?></strong> )</div>
+               <div class="caption"><i class="fa fa-users"></i>View Package ( State: <strong class=''> <?php echo get_state_name($pack->state_id); ?></strong> )</div>
                <a class="btn btn-success pull-right" href="<?php echo site_url("packages"); ?>" title="Back">Back</a>
             </div>
          </div>

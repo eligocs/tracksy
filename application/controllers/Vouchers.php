@@ -87,9 +87,9 @@ class Vouchers extends CI_Controller {
 				
 				$voucher_btn .= "<a title='Generate Voucher' href=" . site_url("promotion/voucher/{$vid}/{$viti_id}") . " class='btn btn-danger' target='_blank' ><i class='fa fa-eye' aria-hidden='true'></i> Client View</a>";
 				
-				$pdf_btn = "<a title='Generate PDF' href=" . site_url("vouchers/generate_pdf/{$voucher->iti_id}") . " class='btn btn-success' target='_blank' ><i class='fa fa-file-pdf-o' aria-hidden='true'></i> Pdf</a>";
+				$pdf_btn = "<a title='Generate PDF' href=" . site_url("vouchers/generate_pdf/{$voucher->iti_id}") . " class='btn_pdf' target='_blank' ><i class='fa fa-file-pdf-o' aria-hidden='true'></i></a>";
 				
-				$row[] = "<a title='View' href=" . site_url("itineraries/view/{$voucher->iti_id}/{$voucher->temp_key}") . " class='btn btn-success' target='_blank' ><i class='fa fa-eye' aria-hidden='true'></i> View Iti</a>" . $voucher_btn . $pdf_btn;
+				$row[] = "<a title='View' href=" . site_url("itineraries/view/{$voucher->iti_id}/{$voucher->temp_key}") . " class='btn_eye' target='_blank' ><i class='fa fa-eye' aria-hidden='true'></i></a>" . $voucher_btn . $pdf_btn;
 				$data[] = $row;
 			}
 		}	

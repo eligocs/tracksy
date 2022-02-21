@@ -94,9 +94,9 @@ class Payments extends CI_Controller {
 				
 				//check iti close status
 				if( $payment->iti_close_status == 1 ){
-					$st = "<strong class='btn btn-danger'>Closed</strong>";
+					$st = "<strong class='badge_danger_pill'>Closed</strong>";
 				}else if( is_empty( $balance ) && empty($refund_exist) ){
-					$st = "<strong class='btn btn-success'>Done</strong>";
+					$st = "<strong class='badge_success_pil'>Done</strong>";
 				}else{
 					$st = "<strong class='badge_lightpurple_pill'>Processing</strong>";
 				} 

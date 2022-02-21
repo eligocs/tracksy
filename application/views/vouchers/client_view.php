@@ -135,7 +135,7 @@
                            <td> </td>
                            <td> </td>
                            <td> </td-->
-                        <td><?php echo $iti->adults + $iti->child; ?></td>
+                        <td><?php echo !empty($iti->child) ? $iti->adults + $iti->child : $iti->adults; ?></td>
                   </table>
                </div>
             </div>
