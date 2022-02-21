@@ -12,7 +12,7 @@
    <body>
       <?php 
          if( isset(  $itinerary[0] ) && !empty( $vouchers[0] ) && !empty( $hotels[0] ) ){
-            var_dump("dfsajflkdsf");die;
+            // var_dump("dfsajflkdsf");die;
          	$iti 		= $itinerary[0];
          	$pay		= $iti_payment_details[0];
          	$voucher 	= $vouchers[0];
@@ -677,7 +677,7 @@
       </div>
       <!--wrapper end-->
       <!-- footer -->  
-      <footer class="bg-blue">
+      <!-- <footer class="bg-blue">
          <div class="container">
             <div class="row">
                <div class="col-md-6">
@@ -726,7 +726,7 @@
                </div>
             </div>
          </div>
-      </footer>
+      </footer> -->
       <!-- footer end -->  
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
