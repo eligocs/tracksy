@@ -7,6 +7,7 @@
             $iti = $itinerary[0];
             //iti payement book status
             $book_status = get_iti_booking_status( $iti->iti_id );
+            // dump($book_status);die;
             
             $lFollow = "";			
             $amdment_btn = "";
@@ -68,7 +69,7 @@
                         title="Back">Back</a>
                 </div>
             </div>
-            <div class="itinerary_status">
+            <!-- <div class="itinerary_status">
                 <h4 class='text-center red uppercase'>Fixed Depature</h4>
                 <h1 class="text-center green uppercase">Booked Itinerary</h1>
             </div>
@@ -96,8 +97,8 @@
                         <div class="mt-step-content font-grey-cascade">Travel Date</div>
                     </div>
                 </div>
-            </div>
-            <div class="header_table table-responsive custom_card">
+            </div> -->
+            <!-- <div class="header_table table-responsive custom_card">
                 <table class="table table-bordered">
                     <tr>
                         <th>Lead Id</th>
@@ -124,7 +125,7 @@
                         <td>INR 50,000/-</td>
                     </tr>
                 </table>
-            </div>
+            </div> -->
             <?php if( $iti->iti_status == 9 && isset( $paymentDetails[0] ) && !empty( $paymentDetails[0] )){ 
             $pay_detail = $paymentDetails[0];
             //echo $is_amendment . $amendment_note; 
@@ -180,6 +181,36 @@
                 <p class="red">Reason: <strong><?php echo $iti->iti_reject_comment; ?></strong></p>
             </div>
             <?php } ?>
+            <div class="header_table table-responsive custom_card">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Lead Id</th>
+                        <td><?php echo $iti->customer_id; ?></td>
+                    </tr>
+                    <tr>
+                        <th>Lead Type</th>
+                        <td><?php echo $cus_type; ?></td>
+                    </tr>
+                    <tr>
+                        <th>From</th>
+                        <td><?php echo !empty($country_name) ? "<span>" . $country_name . " ( $state_name ) </span>" : ""; ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Q. Type</th>
+                        <td><?php echo check_iti_type( $iti->iti_id ) . ' ( ' . $iti->iti_package_type . ')'; ?></td>
+                    </tr>
+                    <tr>
+                        <th>Status</th>
+                        <td><?= $lead_status ?> Itinerary</td>
+                    </tr>
+                    <tr>
+                        <th>Final Package Cost</th>
+                        <td>INR
+                            <?php echo $iti->final_amount; ?>/- </td>
+                    </tr>
+                </table>
+            </div>
             <div class="row2">
                 <div class="portlet box blue">
                     <div class="portlet-title">
