@@ -1,5 +1,5 @@
-./application/config/config.php
-./application/config/database.php
+application/config/config.php
+application/config/database.php
 
 application/logs/log-2022-01-24.php
 application/logs/log-2022-01-24.php
