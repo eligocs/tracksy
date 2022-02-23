@@ -285,7 +285,7 @@ div#quotation_type_section,
                   		}	
                   		//$add_acc = "";
                   		//$add_iti = "";
-                  		$decUserStatus = "<strong class='btn btn-success green'>Lead Approved</strong>";
+                  		$decUserStatus = "<strong class='badge_success_pill green'>Lead Approved</strong>";
                   		break;
                   	case 8:
                   		$add_iti = "";
@@ -409,7 +409,7 @@ div#quotation_type_section,
                                  	
                                  	$btnview = "<a target='_blank' title='View' href=" . site_url("itineraries/view_iti/{$iti_id}/{$key}") . " class='btn_eye' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
                                  	
-                                 	$btnview .= "<a target='_blank' title='View Pdf' href=" . site_url("itineraries/pdf/{$iti_id}/{$key}") . " class='btn btn-success' ><i class='fa fa-file-pdf-o' aria-hidden='true'></i></a>";
+                                 	$btnview .= "<a target='_blank' title='View Pdf' href=" . site_url("itineraries/pdf/{$iti_id}/{$key}") . " class='btn_pdf' ><i class='fa fa-file-pdf-o' aria-hidden='true'></i></a>";
                                  	
                                      $btn_view ="";
 

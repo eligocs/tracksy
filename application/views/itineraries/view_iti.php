@@ -69,63 +69,7 @@
                         title="Back">Back</a>
                 </div>
             </div>
-            <!-- <div class="itinerary_status">
-                <h4 class='text-center red uppercase'>Fixed Depature</h4>
-                <h1 class="text-center green uppercase">Booked Itinerary</h1>
-            </div>
-            <div class="mt-element-step">
-                <div class="row step-background-thin ">
-                    <div class="col-md-4 bg-grey-steel mt-step-col error ">
-                        <div class="mt-step-number">1</div>
-                        <div class="mt-step-title uppercase font-grey-cascade"><strong>INR
-                                50,000/-</strong></div>
-                        <div class="mt-step-content font-grey-cascade">Package Final Cost: <span
-                                style="color: #fff;">()</span></div>
-                    </div>
-                    <div class="col-md-4 bg-grey-steel mt-step-col active">
-                        <div class="mt-step-number">2</div>
-                        <div class="mt-step-title uppercase font-grey-cascade">
-                            <strong>Deluxe</strong>
-                        </div>
-                        <div class="mt-step-content font-grey-cascade">Package Category</div>
-                    </div>
-                    <div class="col-md-4 bg-grey-steel mt-step-col done">
-                        <div class="mt-step-number">3</div>
-                        <div class="mt-step-title uppercase font-grey-cascade">
-                            <strong>26/11/2022</strong>
-                        </div>
-                        <div class="mt-step-content font-grey-cascade">Travel Date</div>
-                    </div>
-                </div>
-            </div> -->
-            <!-- <div class="header_table table-responsive custom_card">
-                <table class="table table-bordered">
-                    <tr>
-                        <th>Lead Id</th>
-                        <td>18</td>
-                    </tr>
-                    <tr>
-                        <th>Lead Type</th>
-                        <td>Diract Customer</td>
-                    </tr>
-                    <tr>
-                        <th>From</th>
-                        <td>India</td>
-                    </tr>
-                    <tr>
-                        <th>Q. Type</th>
-                        <td>Holiday (Fixed Depature)</td>
-                    </tr>
-                    <tr>
-                        <th>Status</th>
-                        <td>Booked Itinerary</td>
-                    </tr>
-                    <tr>
-                        <th>Final Package Cost</th>
-                        <td>INR 50,000/-</td>
-                    </tr>
-                </table>
-            </div> -->
+           
             <?php if( $iti->iti_status == 9 && isset( $paymentDetails[0] ) && !empty( $paymentDetails[0] )){ 
             $pay_detail = $paymentDetails[0];
             //echo $is_amendment . $amendment_note; 
@@ -176,12 +120,12 @@
             <?php } 
             else if($iti->iti_status == 6 ){ ?>
             <!-- Rejected Reason -->
-            <div class="well well-sm text-center">
+            <div class="custom_card margin-bottom-20 text-center">
                 <h2 class="red">Rejected Itinerary</h2>
                 <p class="red">Reason: <strong><?php echo $iti->iti_reject_comment; ?></strong></p>
             </div>
             <?php } ?>
-            <div class="header_table table-responsive custom_card">
+            <div class="header_table table-responsive custom_card margin-bottom-40">
                 <table class="table table-bordered">
                     <tr>
                         <th>Lead Id</th>

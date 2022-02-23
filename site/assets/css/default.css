@@ -1040,7 +1040,7 @@ ul.page-sidebar-menu.page-header-fixed.page-sidebar-menu-closed .nav-item:hover 
 
 .btn.btn-blue {
   background: #3598dc;
-  color: #fff;
+  color: #fff !important;
 }
 
 .red {
@@ -1201,12 +1201,12 @@ a.fc-more:hover {
 div#itiForm_form .well h3, .color-title {
   margin-top: 0;
   text-transform: uppercase;
-  background: #d64635;
   padding: 10px;
   font-weight: bold;
   margin-bottom: 25px;
   color: #fff;
   text-transform: none;
+  font-size: 16px;
 }
 
 .color-title {
@@ -1214,12 +1214,12 @@ div#itiForm_form .well h3, .color-title {
 }
 
 div#itiForm_form>.well label {
-  background: #d3dbe4;
+  /* background: #d3dbe4; */
   margin-bottom: -7px;
 }
 
 div#itiForm_form>.well>label {
-  background: #dfe1e2 !important;
+  /* background: #dfe1e2 !important; */
   border: 1px solid #ccc;
   margin-bottom: -11px;
   padding: 6px 6px;
@@ -1513,9 +1513,9 @@ tr.repeat_follow:hover {
 }
 
 .thead-default th {
-  color: #ffffff;
+  /* color: #ffffff; */
   /* background-color: #d64635; */
-  background-color: #5e72e4;
+  /* background-color: #5e72e4; */
 }
 
 .select_user {

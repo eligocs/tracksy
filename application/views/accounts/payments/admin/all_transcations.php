@@ -21,20 +21,32 @@
                      <div class="actions custom_filter">
                         <div class="row">
                            <!--Calender-->
-                           <div class="col-md-offset-3 col-md-4">	
+                           <div class=" col-md-4">	
                               <strong>Select Transactions Date: </strong><br>
                               <input type="text" autocomplete="off" class="form-control" id="daterange" name="dateRange" value="" required />
                            </div>
-                           <div class="col-md-5">
-                              <strong>&nbsp; </strong><br>
+                           <div class="col-md-4">
+                              <div class="filter_box">
+                                 <label for="" class="d_block margin_bottom_0">&nbsp;</label>
+                                 <select class="form-control" name="" id="">
+                                    <option name="filter" value="all" id="all">All</option>
+                                    <option name="filter" value="1" id="approved">Success</option>
+                                    <option name="filter" value="fail" id="">Success</option>
+                                 </select>
+                              </div>
+                              <!-- <strong>&nbsp; </strong><br>
                               <div class="btn-group" data-toggle="buttons">
                                  <label class="btn btn-default btn-primary custom_active"><input type="radio" name="filter" value="all" id="all"/>All</label>
                                  <label class="btn btn-default btn-success custom_active"><input type="radio" name="filter" value="1" id="approved" />SUCCESS</label>
                                  <label class="btn btn-default purple custom_active"><input type="radio" name="filter" value="fail" id="" />FAIL</label>
-                              </div>
+                              </div> -->
                               <input type="hidden" id="filter_val" value="" >
                               <input type="hidden" name="date_from" id="date_from" value="" >
                               <input type="hidden" name="date_to" id="date_to" value="">
+                              
+                           </div>
+                           <div class="col-md-3">
+                              <label for="" class="d_block margin_bottom_0">&nbsp;</label>
                               <input type="submit" class="btn btn-success" value="Filter">
                            </div>
                         </div>

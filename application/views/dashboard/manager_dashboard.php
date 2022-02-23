@@ -141,7 +141,7 @@
             </div>
             <div class="clearfix"></div>
             <div class="load-more-dashboard text-center">
-               <button type="button" data-target_id="todays_full_stats" class="btn purple pulse view_all_stat_btn"><i class="fa fa-angle-down"></i> View All Stats</button>
+               <button type="button" data-target_id="todays_full_stats" class="btn_blue_outline btn  pulse view_all_stat_btn"><i class="fa fa-angle-down"></i> View All Stats</button>
             </div>
             <div id="todays_full_stats" style="display: none;">
                <div class="col-md-20">
@@ -1446,7 +1446,7 @@
                </div>
                <div class="clearfix"></div>
                <div class="load-more-dashboard text-center">
-                  <button type="button" data-target_id="month_full_stat" class="btn pulse purple view_all_stat_btn"><i class="fa fa-angle-down"></i> View All Stats</button>
+                  <button type="button" data-target_id="month_full_stat" class="btn pulse btn_blue_outline view_all_stat_btn"><i class="fa fa-angle-down"></i> View All Stats</button>
                </div>
                <div id="month_full_stat" style="display: none;">
                   <div class="col-md-20">

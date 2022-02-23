@@ -30,51 +30,51 @@
 							<?php $get_customer_info = get_customer( $iti->customer_id ); 
 							$cust = $get_customer_info[0];
 							if( !empty( $get_customer_info ) ){  ?>
-								<section class="well">
+								<section class="well bg_white overflow_visible section_customer_details">
 								<p class="package-details-sub-heading">Customer Details</p>
-								<label class="col-md-2">Customer Name:</label>
-								<div class="col-md-2">
+								<label class="col-md-2 border_right_none">Customer Name:</label>
+								<div class="col-md-2 border_right_none">
 									<strong><?php if(isset($cust->customer_name)){ echo $cust->customer_name; }?></strong>
 								</div>
-								<label class="col-md-2">Contact:</label>
-								<div class="col-md-2">
+								<label class="col-md-2 border_right_none">Contact:</label>
+								<div class="col-md-2 border_right_none">
 									<strong><?php if(isset($cust->customer_contact)){ echo $cust->customer_contact; }?></strong>
 								</div>
-								<label class="col-md-2">Customer Email:</label>
+								<label class="col-md-2 border_right_none">Customer Email:</label>
 								<div class="col-md-2">
 									<strong><?php if(isset($cust->customer_email)){ echo $cust->customer_email; }?> </strong>
 								</div>
-								<div class="clearfix"></div>
-								<label class="col-md-2">Travel Date:</label>
-								<div class="col-md-2">
+								<!-- <div class="clearfix"></div> -->
+								<label class="col-md-2 border_right_none">Travel Date:</label>
+								<div class="col-md-2 border_right_none">
 									<strong><?php if(isset($cust->travel_date)){ echo $cust->travel_date; }?></strong>
 								</div>
-								<label class="col-md-2">Package Type:</label>
+								<label class="col-md-2 border_right_none">Package Type:</label>
 								<?php 
 									$pkBy =	$cust->package_type;
 									$pack_T = $pkBy == "Other" ? $cust->package_type_other : $pkBy; ?>
-								<div class="col-md-6 col-lg-2">
+								<div class="col-md-6 col-lg-2 border_right_none">
 									<strong><?php echo $pack_T;?></strong>
 								</div>
-								<label class="col-md-2">Destination:</label>
+								<label class="col-md-2 border_right_none">Destination:</label>
 								<div class="col-md-2">
 									<strong><?php if(isset($cust->destination)){ echo $cust->destination; }?> </strong>
 								</div>
-								<div class="clearfix"></div>
-								<label class="col-md-2">Meal Plan:</label>
-								<div class="col-md-2">
+								<!-- <div class="clearfix"></div> -->
+								<label class="col-md-2 border_right_none">Meal Plan:</label>
+								<div class="col-md-2 border_right_none">
 									<strong><?php if(isset($cust->meal_plan)){ echo $cust->meal_plan; }?></strong>
 								</div>
-								<label class="col-md-2">Hotel Category:</label>
-								<div class="col-md-2">
+								<label class="col-md-2 border_right_none">Hotel Category:</label>
+								<div class="col-md-2 border_right_none">
 									<strong><?php if(isset($cust->hotel_category)){ echo $cust->hotel_category; }?></strong>
 								</div>
-								<label class="col-md-2">Budget Approx:</label>
+								<label class="col-md-2 border_right_none">Budget Approx:</label>
 								<div class="col-md-2">
 									<strong><?php if(isset($cust->budget)){ echo $cust->budget; }?> </strong>
 								</div>
-								<div class="clearfix"></div>
-								<label class="col-md-2">Total Travellers:</label>
+								<!-- <div class="clearfix"></div> -->
+								<label class="col-md-2 border_right_none">Total Travellers:</label>
 								<div class="col-md-2">
 									<strong>Adults: <?php if(isset($cust->adults)){ echo $cust->adults; }?></strong>
 									<strong><?php if(isset($cust->child)){ echo "Child: " . $cust->child . "( " . $cust->child_age . " )"; } ?></strong>
@@ -334,13 +334,15 @@
 										<div class="clearfix"></div>
 										<!--Flight Section-->
 										<?php $flight =!empty($flight_details[0]) ? $flight_details[0] : ''; ?>
-										<section class="well details-package" id="flight_section" <?php if( isset($iti->is_flight) && $iti->is_flight  == 1 ){ echo "style='display: block;'"; } ?> >
-											<h3 class="text-center">Flight Details</h3>
-											<div class="text-center">
-												<div class="btn-group" data-toggle="buttons">
-													<label class="btn btn-default btn-primary custom_active <?php if( isset($flight->trip_type) && $flight->trip_type  == "oneway" || empty($flight) ){ echo "active"; }?> ">
+										<section class="overflow_visible bg_white position_relative margin-top-30 margin-bottom-40 row well details-package padding-0" id="flight_section" <?php if( isset($iti->is_flight) && $iti->is_flight  == 1 ){ echo "style='display: block;'"; } ?> >
+											<div class="form_ft_caption">
+												<h3 class="text-center">Flight Details</h3>
+											</div>
+											<div class="text-center form_ft_btns  margin_top_n40">
+												<div class="btn-group flight_train_btns margin-bottom-40" data-toggle="buttons">
+													<label class="btn btn-default  custom_active <?php if( isset($flight->trip_type) && $flight->trip_type  == "oneway" || empty($flight) ){ echo "active"; }?> ">
 														<input <?php if( isset($flight->trip_type) && $flight->trip_type  == "oneway" || empty($flight) ){ echo "checked"; }?> type="radio" name="trip_r" class="trip_r" value="oneway" required />One Way</label>
-													<label class="btn btn-default btn-primary  custom_active <?php if( isset($flight->trip_type) && $flight->trip_type  == "round" ){ echo "active"; } ?>"><input <?php if( isset($flight->trip_type) && $flight->trip_type  == "round" ){ echo "checked"; } ?> required type="radio" name="trip_r" class="trip_r" value="round" />Round Trip</label>
+													<label class="btn btn-default  custom_active <?php if( isset($flight->trip_type) && $flight->trip_type  == "round" ){ echo "active"; } ?>"><input <?php if( isset($flight->trip_type) && $flight->trip_type  == "round" ){ echo "checked"; } ?> required type="radio" name="trip_r" class="trip_r" value="round" />Round Trip</label>
 												</div>	
 											</div>	<p></p>
 											<div class="clearfix"></div>
@@ -458,13 +460,15 @@
 										<!--End Flight Section-->
 										<!--Train Section-->
 										<?php $train =  !empty($train_details[0]) ?  $train_details[0] : ''; ?>
-										<section class="well details-package" id="train_section" <?php if( isset($iti->is_train) && $iti->is_train  == 1 ){ echo "style='display: block;'"; } ?> >
-											<h3 class="text-center">Train Details</h3>
-											<div class="text-center">
-												<div class="btn-group" data-toggle="buttons">
-													<label class="btn btn-default btn-primary custom_active <?php if( isset($train->t_trip_type) && $train->t_trip_type  == "oneway" || empty($train) ){ echo "active"; }?> ">
+										<section class="padding-0 bg_white well row details-package position_relative margin-top-30 overflow_visible" id="train_section" <?php if( isset($iti->is_train) && $iti->is_train  == 1 ){ echo "style='display: block;'"; } ?> >
+											<div class="form_ft_caption">
+												<h3 >Train Details</h3>
+											</div>
+											<div class="text-center form_ft_btns margin_top_n40">
+												<div class="btn-group flight_train_btns margin-bottom-40" data-toggle="buttons">
+													<label class="btn btn-default custom_active <?php if( isset($train->t_trip_type) && $train->t_trip_type  == "oneway" || empty($train) ){ echo "active"; }?> ">
 														<input <?php if( isset($train->t_trip_type) && $train->t_trip_type  == "oneway" || empty($train) ){ echo "checked"; }?> type="radio" name="t_trip_r" class="t_trip_r" value="oneway" required />One Way</label>
-													<label class="btn btn-default btn-primary custom_active <?php if( isset($train->t_trip_type) && $train->t_trip_type  == "round" ){ echo "active"; } ?>"><input <?php if( isset($train->t_trip_type) && $train->t_trip_type  == "round" ){ echo "checked"; } ?> required type="radio" name="t_trip_r" class="t_trip_r" value="round" />Round Trip</label>
+													<label class="btn btn-default  custom_active <?php if( isset($train->t_trip_type) && $train->t_trip_type  == "round" ){ echo "active"; } ?>"><input <?php if( isset($train->t_trip_type) && $train->t_trip_type  == "round" ){ echo "checked"; } ?> required type="radio" name="t_trip_r" class="t_trip_r" value="round" />Round Trip</label>
 												</div>	
 											</div>	<p></p>
 											<div class="clearfix"></div>

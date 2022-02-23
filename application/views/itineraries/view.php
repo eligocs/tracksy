@@ -70,10 +70,17 @@
                         Q. Type: <strong class="text-white">
                             <?php echo check_iti_type( $iti->iti_id ) . ' ( ' . $iti->iti_package_type . ')'; ?></strong>
                     </div>
+                    
                     <a class="btn btn-success pull-right" href="<?php echo site_url("itineraries"); ?>"
                         title="Back">Back</a>
                     <a class="btn btn-info pull-right" style='margin: 5px;' onclick="Print_iti();"
                         href="javscript:void(0)" title="Back">Print</a>
+                        <?php if( ( $iti->iti_status == 0 || $iti->iti_status == 6 ) && is_admin_or_manager_or_sales() ){ ?>
+                            <a title='Edit Itinerary'
+                                href=" <?php echo site_url("itineraries/edit/{$iti->iti_id}/{$iti->temp_key}") ; ?> "
+                                class='btn_pencil pull-right margin-top-15 margin-right-10'><i class='fa fa-pencil' aria-hidden='true'></i>
+                            </a>
+                        <?php } ?>
                     <?php 
                   //show review link
                   if( ($user_role == 99 || $user_role == 98 || $user_role == 96 ) && $iti->iti_status == 9 && isset( $paymentDetails[0] ) ){
@@ -104,49 +111,49 @@
             echo "<p class='text-center'><strong class='red'> Reason: </strong> {$pay_detail->approved_note}</p>";
             }*/ ?>
             <!--if final_amount exits-->
-            <div class="custom_card">
-                <?php if( isset( $paymentDetails[0] ) && !empty( $paymentDetails[0] ) && $iti->iti_status == 9 ){ 
-            $pay_detail = $paymentDetails[0];
-            //$is_gst_final = $pay_detail->is_gst == 1 ? "GST Inc." : "GST Extra";
-            $is_gst_final = "";
-            echo $is_amendment . $amendment_note;
-            echo !empty($pay_detail->iti_package_type) ? "<h4 class='text-center red uppercase'>{$pay_detail->iti_package_type}</h4>" : "";
-            if( $pay_detail->iti_booking_status == 0 ){
-            	echo '<h1 class="text-center green uppercase margin-bottom-40">Booked Itinerary</h1>';
-            }else if( $pay_detail->iti_booking_status == 1 ){
-            	echo '<h1 class="text-center red uppercase margin-bottom-30">Itinerary On Hold</h1>';
-            }else{
-            	echo '<h1 class="text-center red uppercase">Itinerary Rejected By Manager</h1>';
-            	echo "<p class='text-center'><strong class='red'> Reason: </strong> {$pay_detail->approved_note}</p>";
-            } ?>
-                <div class="mt-element-step">
-                    <div class="row step-background-thin ">
-                        <div class="col-md-4 bg-grey-steel mt-step-col error ">
-                            <div class="mt-step-number">1</div>
-                            <div class="mt-step-title uppercase font-grey-cascade"><strong>INR
-                                    <?php echo $iti->final_amount; ?>/- </strong>
+            <div class="">
+            <div class="">
+                    <?php if( isset( $paymentDetails[0] ) && !empty( $paymentDetails[0] ) && $iti->iti_status == 9 ){ 
+                    $pay_detail = $paymentDetails[0];
+                    //$is_gst_final = $pay_detail->is_gst == 1 ? "GST Inc." : "GST Extra";
+                    $is_gst_final = "";
+                    echo $is_amendment . $amendment_note;
+                    echo !empty($pay_detail->iti_package_type) ? "<h4 class='text-center red uppercase'>{$pay_detail->iti_package_type}</h4>" : "";
+                    if( $pay_detail->iti_booking_status == 0 ){
+                        echo '<h1 class="text-center green uppercase margin-bottom-40">Booked Itinerary</h1>';
+                    }else if( $pay_detail->iti_booking_status == 1 ){
+                        echo '<h1 class="text-center red uppercase margin-bottom-30">Itinerary On Hold</h1>';
+                    }else{
+                        echo '<h1 class="text-center red uppercase">Itinerary Rejected By Manager</h1>';
+                        echo "<p class='text-center'><strong class='red'> Reason: </strong> {$pay_detail->approved_note}</p>";
+                    } ?>
+                        <div class="mt-element-step">
+                            <div class="row step-background-thin ">
+                                <div class="col-md-4 bg-grey-steel mt-step-col error ">
+                                    <div class="mt-step-number">1</div>
+                                    <div class="mt-step-title uppercase font-grey-cascade"><strong>INR
+                                            <?php echo $iti->final_amount; ?>/- </strong>
+                                    </div>
+                                    <div class="mt-step-content font-grey-cascade">Package Final Cost: <span
+                                            style="color: #fff;">(<?php echo $is_gst_final;  ?>)</span></div>
+                                </div>
+                                <div class="col-md-4 bg-grey-steel mt-step-col active">
+                                    <div class="mt-step-number">2</div>
+                                    <div class="mt-step-title uppercase font-grey-cascade">
+                                        <strong><?php echo $iti->approved_package_category; ?></strong>
+                                    </div>
+                                    <div class="mt-step-content font-grey-cascade">Package Category</div>
+                                </div>
+                                <div class="col-md-4 bg-grey-steel mt-step-col done">
+                                    <?php $t_date = get_travel_date($iti->iti_id); ?>
+                                    <div class="mt-step-number">3</div>
+                                    <div class="mt-step-title uppercase font-grey-cascade">
+                                        <?php echo !empty($t_date) ? $t_date : "--/--/----"; ?></strong>
+                                    </div>
+                                    <div class="mt-step-content font-grey-cascade">Travel Date</div>
+                                </div>
                             </div>
-                            <div class="mt-step-content font-grey-cascade">Package Final Cost: <span
-                                    style="color: #fff;">(<?php echo $is_gst_final;  ?>)</span></div>
                         </div>
-                        <div class="col-md-4 bg-grey-steel mt-step-col active">
-                            <div class="mt-step-number">2</div>
-                            <div class="mt-step-title uppercase font-grey-cascade">
-                                <strong><?php echo $iti->approved_package_category; ?></strong>
-                            </div>
-                            <div class="mt-step-content font-grey-cascade">Package Category</div>
-                        </div>
-                        <div class="col-md-4 bg-grey-steel mt-step-col done">
-                            <?php $t_date = get_travel_date($iti->iti_id); ?>
-                            <div class="mt-step-number">3</div>
-                            <div class="mt-step-title uppercase font-grey-cascade">
-                                <?php echo !empty($t_date) ? $t_date : "--/--/----"; ?></strong>
-                            </div>
-                            <div class="mt-step-content font-grey-cascade">Travel Date</div>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="clearfix"></div>
                 <div class="mt-element-step">
                     <div class="row step-background-thin ">
@@ -175,6 +182,8 @@
                     </div>
                 </div>
                 <div class="clearfix"></div>
+                </div>
+
             </div>
             <!--show payment screenshot details-->
             <hr>
@@ -750,7 +759,7 @@
         <?php } 
          else if($iti->iti_status == 6 ){ ?>
         <!-- Rejected Reason -->
-        <div class="well well-sm text-center">
+        <div class="well well-sm text-center custom_card">
             <h2 class="red">Rejected Itinerary</h2>
             <p class="red">Reason: <strong><?php echo $iti->iti_reject_comment; ?></strong></p>
         </div>
@@ -1726,7 +1735,7 @@
                 <?php } ?>
                 <div class="portlet box blue">
                     <div class="portlet-title">
-                        <div class="caption">Package Overview</div>
+                        <div class="custom_title">Package Overview</div>
                     </div>
                     <div class="portlet-body ">
                         <div class="table-responsive">
@@ -1808,7 +1817,6 @@
                     </div>
                 </div>
                 <div class="clearfix"></div>
-                <hr>
 
                 <!--If Flight Exists-->
                 <?php if( isset( $flight_details ) && !empty( $flight_details ) && $iti->is_flight == 1 ){ ?>
@@ -1866,108 +1874,112 @@
                 </div>
                 <div class="clearfix"></div>
                 <?php } ?>
-                <hr>
                 <!--End Flight Section-->
                 <!--If Train Exists-->
                 <?php if( isset( $train_details ) && !empty( $train_details ) && $iti->is_train == 1 ){ ?>
                 <?php $train = $train_details[0]; ?>
-                <div class="well well-sm ">
-                    <h3>Train Details</h3>
+                <div class="custom_card">
+                    <div class="well well-sm ">
+                        <h3>Train Details</h3>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered ">
+                            <tbody>
+                                <tr class="thead-inverse">
+                                    <td width="33%"><strong>Trip Type</strong></td>
+                                    <td width="33%"><strong>Train Name</strong></td>
+                                    <td width="33%"><strong>Train Number</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><?php echo ucfirst($train->t_trip_type); ?></td>
+                                    <td><?php echo $train->train_name; ?></td>
+                                    <td><?php echo $train->train_number; ?></td>
+                                </tr>
+                                <tr class="thead-inverse">
+                                    <td width="33%"><strong>Departure City</strong></td>
+                                    <td width="33%"><strong>Arrival city</strong></td>
+                                    <td width="33%"><strong>No. of Passengers</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><?php echo $train->t_dep_city; ?></td>
+                                    <td><?php echo $train->t_arr_city; ?></td>
+                                    <td><?php echo $train->t_passengers; ?></td>
+                                </tr>
+                                <tr class="thead-inverse">
+                                    <td width="33%"><strong>Arrival Date/Time</strong></td>
+                                    <td width="33%"><strong>Departure Date/Time</strong></td>
+                                    <td width="33%"><strong>Return Date/Time</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><?php echo $train->t_arr_time; ?></td>
+                                    <td><?php echo $train->t_dep_date; ?></td>
+                                    <td><?php echo $train->t_return_date; ?></td>
+                                </tr>
+                                <tr class="thead-inverse">
+                                    <td width="33%"><strong>Return Arrival Date/Time</strong></td>
+                                    <td width="33%"><strong>Price</strong></td>
+                                    <td width="33%"><strong>Class</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><?php echo $train->t_return_arr_date; ?></td>
+                                    <td><?php echo $train->t_cost; ?></td>
+                                    <td><?php echo $train->train_class; ?></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="clearfix"></div>
+                    </div>
                 </div>
-                <div class="table-responsive">
-                    <table class="table table-bordered ">
-                        <tbody>
-                            <tr class="thead-inverse">
-                                <td width="33%"><strong>Trip Type</strong></td>
-                                <td width="33%"><strong>Train Name</strong></td>
-                                <td width="33%"><strong>Train Number</strong></td>
-                            </tr>
-                            <tr>
-                                <td><?php echo ucfirst($train->t_trip_type); ?></td>
-                                <td><?php echo $train->train_name; ?></td>
-                                <td><?php echo $train->train_number; ?></td>
-                            </tr>
-                            <tr class="thead-inverse">
-                                <td width="33%"><strong>Departure City</strong></td>
-                                <td width="33%"><strong>Arrival city</strong></td>
-                                <td width="33%"><strong>No. of Passengers</strong></td>
-                            </tr>
-                            <tr>
-                                <td><?php echo $train->t_dep_city; ?></td>
-                                <td><?php echo $train->t_arr_city; ?></td>
-                                <td><?php echo $train->t_passengers; ?></td>
-                            </tr>
-                            <tr class="thead-inverse">
-                                <td width="33%"><strong>Arrival Date/Time</strong></td>
-                                <td width="33%"><strong>Departure Date/Time</strong></td>
-                                <td width="33%"><strong>Return Date/Time</strong></td>
-                            </tr>
-                            <tr>
-                                <td><?php echo $train->t_arr_time; ?></td>
-                                <td><?php echo $train->t_dep_date; ?></td>
-                                <td><?php echo $train->t_return_date; ?></td>
-                            </tr>
-                            <tr class="thead-inverse">
-                                <td width="33%"><strong>Return Arrival Date/Time</strong></td>
-                                <td width="33%"><strong>Price</strong></td>
-                                <td width="33%"><strong>Class</strong></td>
-                            </tr>
-                            <tr>
-                                <td><?php echo $train->t_return_arr_date; ?></td>
-                                <td><?php echo $train->t_cost; ?></td>
-                                <td><?php echo $train->train_class; ?></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="clearfix"></div>
-                    <hr>
-                    <?php } ?>
-                    <!--End Flight Section-->
-                    <div class="custom_card">
-                        <div class="well well-sm">
-                            <h3>Day Wise Itinerary</h3>
-                        </div>
+                <?php } ?>
+
+                <!--End Flight Section-->
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <h3 class="custom_title">Day Wise Itinerary</h3>
+                    </div>
+                    <div class="portlet-body">
                         <div class="table-responsive2">
                             <table class="table table-bordered">
                                 <tbody>
                                     <?php //$day_wise = $iti->daywise_meta; 
-                                 $tourData = unserialize($iti->daywise_meta);
-                                 $count_day = count( $tourData );
-                                 if( $count_day > 0 ){
-                                     //print_r( $tourData );
-                                     for ( $i = 0; $i < $count_day; $i++ ) {
-                                     echo "<tr><td width='10%'>";
-                                         $day = $i+1;
-                                         echo "<span class=''><strong>Day: ".$tourData[$i]['tour_day']."</strong> </span>";
-                                         echo "</td><td width='80%'>";
-                                         echo "<!--<div class='some-space'></div>--><strong>" . $tourData[$i]['tour_name'] . "</strong><br>"; 
-                                         echo "<strong>Tour Date:</strong><em> " .display_date_month($tourData[$i]['tour_date']) . "</em><br>"; 
-                                         echo "<strong>Meal Plan:</strong><em> " .$tourData[$i]['meal_plan'] . "</em><br>"; 
-                                         echo "<strong>Tour Description:</strong><em> " .$tourData[$i]['tour_des'] . "</em><br>"; 
-                                         echo "<strong>Distance:</strong><em> " .$tourData[$i]['tour_distance'] . " KMS</em><br>";
-                                         //hot destination
-                                         if( isset($tourData[$i]['hot_des'] ) && !empty( $tourData[$i]['hot_des'] ) ){
-                                             $hot_dest = '';
-                                             $htd = explode(",", $tourData[$i]['hot_des']);
-                                             foreach($htd as $t) {
-                                                 $t = trim($t);
-                                                 $hot_dest .= "<span>" . $t . "</span>";
-                                             }
-                                             echo '<div class="hot_des_view "><strong>Attraction: </strong>' . $hot_dest . '</div>';
-                                         }	
-                                         echo "</td>";
-                                     echo "</tr>";
-                                     }
-                                 }	?>
+                                    $tourData = unserialize($iti->daywise_meta);
+                                    $count_day = count( $tourData );
+                                    if( $count_day > 0 ){
+                                        //print_r( $tourData );
+                                        for ( $i = 0; $i < $count_day; $i++ ) {
+                                        echo "<tr><td width='10%'>";
+                                            $day = $i+1;
+                                            echo "<span class=''><strong>Day: ".$tourData[$i]['tour_day']."</strong> </span>";
+                                            echo "</td><td width='80%'>";
+                                            echo "<!--<div class='some-space'></div>--><strong>" . $tourData[$i]['tour_name'] . "</strong><br>"; 
+                                            echo "<strong>Tour Date:</strong><em> " .display_date_month($tourData[$i]['tour_date']) . "</em><br>"; 
+                                            echo "<strong>Meal Plan:</strong><em> " .$tourData[$i]['meal_plan'] . "</em><br>"; 
+                                            echo "<strong>Tour Description:</strong><em> " .$tourData[$i]['tour_des'] . "</em><br>"; 
+                                            echo "<strong>Distance:</strong><em> " .$tourData[$i]['tour_distance'] . " KMS</em><br>";
+                                            //hot destination
+                                            if( isset($tourData[$i]['hot_des'] ) && !empty( $tourData[$i]['hot_des'] ) ){
+                                                $hot_dest = '';
+                                                $htd = explode(",", $tourData[$i]['hot_des']);
+                                                foreach($htd as $t) {
+                                                    $t = trim($t);
+                                                    $hot_dest .= "<span>" . $t . "</span>";
+                                                }
+                                                echo '<div class="hot_des_view "><strong>Attraction: </strong>' . $hot_dest . '</div>';
+                                            }	
+                                            echo "</td>";
+                                        echo "</tr>";
+                                        }
+                                    }	?>
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                    <hr>
-                    <div class="custom_card">
-                        <div class="well well-sm">
-                            <h3>Inclusion & Exclusion</h3>
-                        </div>
+                </div>
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <h3 class="custom_title">Inclusion & Exclusion</h3>
+                    </div>
+                    <div class="portlet-body">
                         <div class="table-responsive">
                             <table class="table table-bordered">
                                 <thead class="thead-default">
@@ -1978,77 +1990,78 @@
                                 </thead>
                                 <tbody>
                                     <?php 
-                                 $inclusion = unserialize($iti->inc_meta); 
-                                 $count_inc = count( $inclusion );
-                                 $exclusion = unserialize($iti->exc_meta); 
-                                 $count_exc = count( $exclusion );
-                                 echo "<tr><td><ul>";
-                                 if( $count_inc > 0 ){
-                                     for ( $i = 0; $i < $count_inc; $i++ ) {
-                                         echo "<li>" . $inclusion[$i]["tour_inc"] . "</li>";
-                                     }	
-                                 }
-                                 echo "</ul></td><td><ul>";
-                                 if( $count_exc > 0 ){
-                                     for ( $i = 0; $i < $count_exc; $i++ ) {
-                                         echo "<li>" . $exclusion[$i]["tour_exc"] . "</li>";
-                                     }	
-                                 }
-                                 echo "</ul></td></tr>";
-                                 ?>
+                                    $inclusion = unserialize($iti->inc_meta); 
+                                    $count_inc = count( $inclusion );
+                                    $exclusion = unserialize($iti->exc_meta); 
+                                    $count_exc = count( $exclusion );
+                                    echo "<tr><td><ul>";
+                                    if( $count_inc > 0 ){
+                                        for ( $i = 0; $i < $count_inc; $i++ ) {
+                                            echo "<li>" . $inclusion[$i]["tour_inc"] . "</li>";
+                                        }	
+                                    }
+                                    echo "</ul></td><td><ul>";
+                                    if( $count_exc > 0 ){
+                                        for ( $i = 0; $i < $count_exc; $i++ ) {
+                                            echo "<li>" . $exclusion[$i]["tour_exc"] . "</li>";
+                                        }	
+                                    }
+                                    echo "</ul></td></tr>";
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                    <hr>
-                    <div class="custom_card">
-                        <?php 
+                </div>
+
+                <div class="portlet box blue margin-top-40">
+                    <?php 
                         //check if special inclusion exists
                         $sp_inc = unserialize($iti->special_inc_meta); 
                         $count_sp_inc = count( $sp_inc );
                         if( !empty($sp_inc) ){
-                        	echo '<div class="well well-sm"><h3>Special Inclusions</h3></div>';
-                        	echo "   <ul class='inclusion'>";
+                        	echo '<div class="portlet-title"><h3 class="custom_title">Special Inclusions</h3></div>';
+                        	echo "<div class='portlet-body'>   <ul class='inclusion'>";
                         	if( $count_sp_inc > 0 ){
                         		for ( $i = 0; $i < $count_sp_inc; $i++ ) {	
                         			echo "<li>" . $sp_inc[$i]["tour_special_inc"] . "</li>";
                         		}	
                         	}
-                        	echo "</ul>";
+                        	echo "</ul> </div>";
                         }
                         ?>
-                    </div>
-                    <hr>
-                    <div class="custom_card">
-                        <?php 
+                </div>
+                <div class="portlet box blue">
+                    <?php 
                         //check if benefits
                         $benefits_m = unserialize($iti->booking_benefits_meta); 
                         $count_bn_inc = count( $benefits_m );
                         if( !empty($benefits_m) ){
-                        	echo '<div class="well well-sm"><h3>Benefits of Booking With Us</h3></div>';
-                        	echo "   <ul class='inclusion'>";
+                        	echo '<div class=" portlet-title"><h3 class="custom_title">Benefits of Booking With Us</h3></div>';
+                        	echo "<div class='portlet-body'>   <ul class='inclusion'>";
                         	if( $count_bn_inc > 0 ){
                         		for ( $i = 0; $i < $count_bn_inc; $i++ ) {	
                         			echo isset($benefits_m[$i]["benefit_inc"]) ? "<li>" . $benefits_m[$i]["benefit_inc"] . "</li>" : "";
                         		}	
                         	}
-                        	echo "</ul>";
+                        	echo "</ul> </div>";
                         }
                         ?>
+                </div>
+
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <h3 class="custom_title">Hotel Details</h3>
                     </div>
-                    <hr>
-                    <div class="custom_card">
-                        <div class="well well-sm">
-                            <h3>Hotel Details</h3>
-                        </div>
+                    <div class="portlet-body">
                         <?php 
-                        $f_cost =  !empty( $iti->final_amount )  && $iti->iti_status == 9  && get_iti_booking_status($iti->iti_id) == 0 ? "<strong class='green'> " . number_format($iti->final_amount) . " /-</strong> " : "";
-                        //echo $f_cost;
-                        //if final price exists strike all price
-                        $strike_class_final = !empty( $iti->final_amount ) && $iti->iti_status == 9 ? "strikeLine" : "";
-                        $hotel_meta = unserialize($iti->hotel_meta); 
-                        if( !empty( $hotel_meta ) ){
-                        	$count_hotel = count( $hotel_meta ); ?>
+                            $f_cost =  !empty( $iti->final_amount )  && $iti->iti_status == 9  && get_iti_booking_status($iti->iti_id) == 0 ? "<strong class='green'> " . number_format($iti->final_amount) . " /-</strong> " : "";
+                            //echo $f_cost;
+                            //if final price exists strike all price
+                            $strike_class_final = !empty( $iti->final_amount ) && $iti->iti_status == 9 ? "strikeLine" : "";
+                            $hotel_meta = unserialize($iti->hotel_meta); 
+                            if( !empty( $hotel_meta ) ){
+                                $count_hotel = count( $hotel_meta ); ?>
                         <div class="table-responsive">
                             <table class="table table-bordered">
                                 <thead class="thead-default">
@@ -2062,240 +2075,243 @@
                                 </thead>
                                 <tbody>
                                     <?php 
-                                 /* print_r( $hotel_meta ); */
-                                 if( $count_hotel > 0 ){
-                                 	for ( $i = 0; $i < $count_hotel; $i++ ) {
-                                 		echo "<tr><td><strong>" .$hotel_meta[$i]["hotel_location"] . "</strong></td><td>";
-                                 			$hotel_standard =  $hotel_meta[$i]["hotel_standard"];
-                                 			echo $hotel_standard;
-                                 		echo "</td><td>";
-                                 			$hotel_deluxe =  $hotel_meta[$i]["hotel_deluxe"];
-                                 			echo $hotel_deluxe;
-                                 		echo "</td><td>";
-                                 			$hotel_super_deluxe =  $hotel_meta[$i]["hotel_super_deluxe"];
-                                 			echo $hotel_super_deluxe;
-                                 		echo "</td><td>";
-                                 			$hotel_luxury =  $hotel_meta[$i]["hotel_luxury"];
-                                 			echo $hotel_luxury;
-                                 		echo "</td></tr>";
-                                 	} 	
-                                 	//Rate meta
-                                 	$rate_meta 	  = unserialize($iti->rates_meta);
-                                 	$strike_class = !empty( $discountPriceData ) ? "strikeLine" : " ";
-                                 	$iti_close_status = $iti->iti_close_status;
-                                 	//print_r( $rate_meta );
-                                 	if( empty($iti_close_status) ){
-                                 	if( !empty( $rate_meta ) ){
-                                 		if( $iti->pending_price == 4 ){
-                                 			echo "<tr><td  colspan=5 class='red'>Awaiting price verfication from super manager.</td></tr>"; 
-                                 		}else{
-                                 			$per_person_ratemeta 	= unserialize($iti->per_person_ratemeta);
-                                 			//$inc_gst = isset( $per_person_ratemeta["inc_gst"] ) && $per_person_ratemeta["inc_gst"] == 1 ? "(GST Inc.)" : "(GST Extra)";
-                                 			$inc_gst = "";
-                                 			$below_base_price = isset( $per_person_ratemeta["below_base_price"] ) && $per_person_ratemeta["below_base_price"] == 1 ? "(Below BP.)" : "";
-                                 			$bbp_css = isset( $per_person_ratemeta["below_base_price"] ) && $per_person_ratemeta["below_base_price"] == 1 ? "bbptr" : "";
-                                 			
-                                 			//get percentage added by agent
-                                 			$agent_price_percentage = !empty($iti->agent_price) ? $iti->agent_price : 0;
-                                 			$app = !empty($iti->agent_price) ? "(". $iti->agent_price . "%)" : "";
-                                 			//echo $app;
-                                 			
-                                 			$agent_sp = $agent_dp = $agent_sdp = $agent_lp = "";
-                                 			//if percentage exists
-                                 			if( $agent_price_percentage ){
-                                 				$as_pp = isset( $per_person_ratemeta["standard_rates"] ) && !empty($per_person_ratemeta["standard_rates"]) ? " Rs." . ( $per_person_ratemeta["standard_rates"] +  $per_person_ratemeta["standard_rates"] * $agent_price_percentage/100 ). " Per/Person" : "";
-                                 				$ad_pp = isset( $per_person_ratemeta["deluxe_rates"] ) && !empty($per_person_ratemeta["deluxe_rates"]) ? " Rs." . ($per_person_ratemeta["deluxe_rates"] +  $per_person_ratemeta["deluxe_rates"] * $agent_price_percentage/100 ). " Per/Person" : "";
-                                 				$asd_pp = isset( $per_person_ratemeta["super_deluxe_rates"] ) && !empty($per_person_ratemeta["super_deluxe_rates"]) ? " Rs." . ( $per_person_ratemeta["super_deluxe_rates"] +  $per_person_ratemeta["super_deluxe_rates"] * $agent_price_percentage/100 ) . " Per/Person" : "";
-                                 				$al_pp = isset( $per_person_ratemeta["luxury_rates"] ) && !empty($per_person_ratemeta["luxury_rates"]) ? " Rs." . ( $per_person_ratemeta["luxury_rates"] +  $per_person_ratemeta["luxury_rates"] * $agent_price_percentage/100 ) . " Per/Person" : "";
-                                 
-                                 				//child rates
-                                 				$achild_s_pp = isset( $per_person_ratemeta["child_standard_rates"] ) && !empty($per_person_ratemeta["child_standard_rates"]) ? "RS. " .  number_format( $per_person_ratemeta["child_standard_rates"]  + $per_person_ratemeta["child_standard_rates"] * $agent_price_percentage/100  ) . "/- Per Child" : "";
-                                 				
-                                 				$achild_d_pp = isset( $per_person_ratemeta["child_deluxe_rates"] ) && !empty($per_person_ratemeta["child_deluxe_rates"]) ? "RS. " . number_format( $per_person_ratemeta["child_deluxe_rates"] +  $per_person_ratemeta["child_deluxe_rates"] * $agent_price_percentage/100 ) . "/- Per Child" : "";
-                                 				
-                                 				$achild_sd_pp = isset( $per_person_ratemeta["child_super_deluxe_rates"] ) && !empty($per_person_ratemeta["child_super_deluxe_rates"]) ? "RS. " . number_format( $per_person_ratemeta["child_super_deluxe_rates"] +  $per_person_ratemeta["child_super_deluxe_rates"] * $agent_price_percentage/100 ) . "/- Per Child" : "";
-                                 				
-                                 				$achild_l_pp = isset( $per_person_ratemeta["child_luxury_rates"] ) && !empty($per_person_ratemeta["child_luxury_rates"]) ? "RS. " .   number_format( $per_person_ratemeta["child_luxury_rates"] +  $per_person_ratemeta["child_luxury_rates"] * $agent_price_percentage/100 ) . "/- Per Child" : "";													
-                                 				
-                                 				$astandard_rates = !empty( $rate_meta["standard_rates"]) ? number_format($rate_meta["standard_rates"] + $rate_meta["standard_rates"] * $agent_price_percentage / 100 ) . "/- {$inc_gst}" : "<strong class='red'>On Request</strong>";
-                                 				
-                                 				$adeluxe_rates = !empty( $rate_meta["deluxe_rates"]) ? number_format($rate_meta["deluxe_rates"] + $rate_meta["deluxe_rates"] * $agent_price_percentage / 100 ) . "/- {$inc_gst}" : "<strong class='red'>On Request</strong>";
-                                 				
-                                 				$asuper_deluxe_rates = !empty( $rate_meta["super_deluxe_rates"]) ? number_format($rate_meta["super_deluxe_rates"] + $rate_meta["super_deluxe_rates"] * $agent_price_percentage / 100  ) . "/- {$inc_gst}" : "<strong class='red'>On Request</strong>";
-                                 				$arate_luxry = !empty( $rate_meta["luxury_rates"]) ? number_format($rate_meta["luxury_rates"] + $rate_meta["luxury_rates"] * $agent_price_percentage / 100 ) . "/- {$inc_gst}" : "<strong class='red'>On Request</strong>";
-                                 				
-                                 				$agent_sp = "<br><strong class='aprice'> AP( " . $astandard_rates . "</strong> <br> {$as_pp} <br> {$achild_s_pp} )";
-                                 				$agent_dp = "<br><strong class='aprice'> AP( " . $adeluxe_rates . "</strong> <br> {$ad_pp} <br> {$achild_d_pp} )";
-                                 				$agent_sdp = "<br><strong class='aprice'> AP( " . $asuper_deluxe_rates . "</strong> <br> {$asd_pp} <br> {$achild_sd_pp} )";
-                                 				$agent_lp = "<br><strong class='aprice'> AP( " . $arate_luxry . "</strong> <br> {$al_pp} <br> {$achild_l_pp} )";
-                                 			}
-                                 			
-                                 			//get per person price
-                                 			$s_pp = isset( $per_person_ratemeta["standard_rates"] ) && !empty($per_person_ratemeta["standard_rates"]) ? "RS. " . number_format($per_person_ratemeta["standard_rates"]) . "/- Per Person" : "";
-                                 			
-                                 			$d_pp = isset( $per_person_ratemeta["deluxe_rates"] ) && !empty($per_person_ratemeta["deluxe_rates"]) ? "RS. " . number_format($per_person_ratemeta["deluxe_rates"]) . "/- Per Person" : "";
-                                 			
-                                 			$sd_pp = isset( $per_person_ratemeta["super_deluxe_rates"] ) && !empty($per_person_ratemeta["super_deluxe_rates"]) ? "RS. " . number_format($per_person_ratemeta["super_deluxe_rates"]) . "/- Per Person" : "";
-                                 			
-                                 			$l_pp = isset( $per_person_ratemeta["luxury_rates"] ) && !empty($per_person_ratemeta["luxury_rates"]) ? "RS. " . number_format($per_person_ratemeta["luxury_rates"]) . "/- Per Person" : "";
-                                 			
-                                 			//child rates
-                                 			$child_s_pp = isset( $per_person_ratemeta["child_standard_rates"] ) && !empty($per_person_ratemeta["child_standard_rates"]) ? "RS. " . $per_person_ratemeta["child_standard_rates"] . "/- Per Child" : "";
-                                 			$child_d_pp = isset( $per_person_ratemeta["child_deluxe_rates"] ) && !empty($per_person_ratemeta["child_deluxe_rates"]) ? "RS. " . $per_person_ratemeta["child_deluxe_rates"] . "/- Per Child" : "";
-                                 			
-                                 			$child_sd_pp = isset( $per_person_ratemeta["child_super_deluxe_rates"] ) && !empty($per_person_ratemeta["child_super_deluxe_rates"]) ? "RS. " . $per_person_ratemeta["child_super_deluxe_rates"] . "/- Per Child" : "";
-                                 			
-                                 			$child_l_pp = isset( $per_person_ratemeta["child_luxury_rates"] ) && !empty($per_person_ratemeta["child_luxury_rates"]) ? "RS. " . $per_person_ratemeta["child_luxury_rates"] . "/- Per Child" : "";
-                                 			
-                                 		
-                                 			$standard_rates = !empty( $rate_meta["standard_rates"]) ? "RS. " . number_format($rate_meta["standard_rates"]) . "/- {$inc_gst}" : "<strong class='red'>On Request</strong>";
-                                 			
-                                 			$deluxe_rates = !empty( $rate_meta["deluxe_rates"]) ? "RS. " . number_format($rate_meta["deluxe_rates"]) . "/- {$inc_gst}" : "<strong class='red'>On Request</strong>";
-                                 			
-                                 			$super_deluxe_rates = !empty( $rate_meta["super_deluxe_rates"]) ? "RS. " . number_format($rate_meta["super_deluxe_rates"]) . "/- {$inc_gst}" : "<strong class='red'>On Request</strong>";
-                                 			
-                                 			$rate_luxry = !empty( $rate_meta["luxury_rates"]) ? "RS. " . number_format($rate_meta["luxury_rates"]) . "/- {$inc_gst}" : "<strong class='red'>On Request</strong>";
-                                 			
-                                 			echo "<tr class='{$strike_class} {$strike_class_final} {$bbp_css}'><td>Price {$below_base_price} {$app}</td>
-                                 					<td>		
-                                 						<strong> BP( " . $standard_rates . "</strong>  {$s_pp}  {$child_s_pp} )
-                                 						{$agent_sp}
-                                 					</td>
-                                 					<td>
-                                 						<strong>BP( " . $deluxe_rates . "</strong>  {$d_pp} {$child_d_pp} )
-                                 						{$agent_dp}
-                                 					</td>
-                                 					<td>
-                                 						<strong>BP( " . $super_deluxe_rates . "</strong>  {$sd_pp} {$child_sd_pp} )
-                                 						{$agent_sdp}
-                                 					</td>
-                                 					<td>
-                                 						<strong>BP(  " . $rate_luxry . "</strong>  {$l_pp} {$child_l_pp} )
-                                 						{$agent_lp}
-                                 					</td></tr>";
-                                 		}		
-                                 	}else{
-                                 		echo "<tr><td><strong class='red'>Price</strong></td>
-                                 				<td>
-                                 					<strong class='red'> Coming Soon </strong>
-                                 				</td>
-                                 				<td>
-                                 					<strong class='red'> Coming Soon</strong>
-                                 				</td>
-                                 				<td>
-                                 					<strong class='red'> Coming Soon </strong>
-                                 				</td>
-                                 				<td>
-                                 					<strong class='red'> Coming Soon </strong>
-                                 				</td></tr>";
-                                 	}
-                                 	//discount data
-                                 	if( !empty( $discountPriceData ) && empty($iti_close_status) ){
-                                 		foreach( $discountPriceData as $price ){
-                                 			$agent_price_percentage = !empty($price->agent_price) ? $price->agent_price : 0;
-                                 			$app = !empty($price->agent_price) ? "(". $price->agent_price . "%)" : "";
-                                 			//echo $app;
-                                 			$sent_status = $price->sent_status;
-                                 			//get per person price
-                                 			$per_person_ratemeta 	= unserialize($price->per_person_ratemeta);
-                                 			//$inc_gst = isset( $per_person_ratemeta["inc_gst"] ) && $per_person_ratemeta["inc_gst"] == 1 ? "(GST Inc.)" : "(GST Extra)";
-                                 			$inc_gst = "";
-                                 			$below_base_price = isset( $per_person_ratemeta["below_base_price"] ) && $per_person_ratemeta["below_base_price"] == 1 ? "(Below BP.)" : "";
-                                 			$bbp_css = isset( $per_person_ratemeta["below_base_price"] ) && $per_person_ratemeta["below_base_price"] == 1 ? "bbptr" : "";
-                                 			
-                                 			$agent_sp = $agent_dp = $agent_sdp = $agent_lp = "";
-                                 			//if percentage exists
-                                 			if( $agent_price_percentage ){
-                                 				$ad_s_pp = isset( $per_person_ratemeta["standard_rates"] ) && !empty($per_person_ratemeta["standard_rates"] ) ? "RS. " . number_format( $per_person_ratemeta["standard_rates"] +  $per_person_ratemeta["standard_rates"] * $agent_price_percentage/100 ) . "/- Per Person" : "";
-                                 				$ad_d_pp = isset( $per_person_ratemeta["deluxe_rates"] ) && !empty($per_person_ratemeta["deluxe_rates"]) ? "RS. " . number_format($per_person_ratemeta["deluxe_rates"] +  $per_person_ratemeta["deluxe_rates"] * $agent_price_percentage/100 ) . "/- Per Person" : "";
-                                 				$ad_sd_pp = isset( $per_person_ratemeta["super_deluxe_rates"] ) && !empty($per_person_ratemeta["super_deluxe_rates"]) ? "RS. " . number_format($per_person_ratemeta["super_deluxe_rates"] +  $per_person_ratemeta["super_deluxe_rates"] * $agent_price_percentage/100) . "/- Per Person" : "";
-                                 				$ad_l_pp = isset( $per_person_ratemeta["luxury_rates"] ) && !empty($per_person_ratemeta["luxury_rates"]) ? "RS. " . number_format($per_person_ratemeta["luxury_rates"] +  $per_person_ratemeta["luxury_rates"] * $agent_price_percentage/100 ) . "/- Per Person" : "";
-                                 				
-                                 				//child rates
-                                 				$ad_child_s_pp = isset( $per_person_ratemeta["child_standard_rates"] ) && !empty($per_person_ratemeta["child_standard_rates"]) ? "RS. " . number_format($per_person_ratemeta["child_standard_rates"] +  $per_person_ratemeta["child_standard_rates"] * $agent_price_percentage/100 ) . "/- Per Child" : "";
-                                 				$ad_child_d_pp = isset( $per_person_ratemeta["child_deluxe_rates"] ) && !empty($per_person_ratemeta["child_deluxe_rates"]) ? "RS. " . number_format($per_person_ratemeta["child_deluxe_rates"] +  $per_person_ratemeta["child_deluxe_rates"] * $agent_price_percentage/100) . "/- Per Child" : "";
-                                 				$ad_child_sd_pp = isset( $per_person_ratemeta["child_super_deluxe_rates"] ) && !empty($per_person_ratemeta["child_super_deluxe_rates"]) ? "RS. " . number_format($per_person_ratemeta["child_super_deluxe_rates"] +  $per_person_ratemeta["child_super_deluxe_rates"] * $agent_price_percentage/100 ) . "/- Per Child" : "";
-                                 				$ad_child_l_pp = isset( $per_person_ratemeta["child_luxury_rates"] ) && !empty($per_person_ratemeta["child_luxury_rates"]) ? "RS. " . number_format($per_person_ratemeta["child_luxury_rates"] +  $per_person_ratemeta["child_luxury_rates"] * $agent_price_percentage/100 ) . "/- Per Child" : "";			
-                                 				
-                                 				//get rates
-                                 				$ad_s_price = !empty( $price->standard_rates) ? number_format($price->standard_rates + $price->standard_rates * $agent_price_percentage/100 ) . "/- {$inc_gst} {$ad_s_pp}  {$ad_child_s_pp}" : "<strong class='red'>On Request</strong>";
-                                 				
-                                 				$ad_d_price = !empty( $price->deluxe_rates) ? number_format($price->deluxe_rates + $price->deluxe_rates * $agent_price_percentage/100) . "/- {$inc_gst}  {$ad_d_pp}  {$ad_child_d_pp}" : "<strong class='red'>On Request</strong>";
-                                 				
-                                 				$ad_sd_price = !empty( $price->super_deluxe_rates) ? number_format($price->super_deluxe_rates + $price->super_deluxe_rates * $agent_price_percentage/100) . "/- {$inc_gst}  {$ad_sd_pp}  {$ad_child_sd_pp}"  : "<strong class='red'>On Request</strong>";
-                                 				
-                                 				$ad_l_price = !empty( $price->luxury_rates) ? number_format($price->luxury_rates + $price->luxury_rates * $agent_price_percentage/100) . "/- {$inc_gst} <br> {$ad_l_pp}  {$ad_child_l_pp}"  : "<strong class='red'>On Request</strong>";
-                                 				
-                                 				$agent_sp = "<strong class='aprice'> AP( " . $ad_s_price . "</strong>)";
-                                 				$agent_dp = "<strong class='aprice'>  AP( " . $ad_d_price . "</strong>)";
-                                 				$agent_sdp = "<strong class='aprice'> AP( " . $ad_sd_price . "</strong>)";
-                                 				$agent_lp = "<strong class='aprice'>  AP( " . $ad_l_price . "</strong>)";
-                                 			}
-                                 			
-                                 			
-                                 			$s_pp = isset( $per_person_ratemeta["standard_rates"] ) && !empty($per_person_ratemeta["standard_rates"] ) ? "RS. " . number_format($per_person_ratemeta["standard_rates"]) . "/- Per Person" : "";
-                                 			$d_pp = isset( $per_person_ratemeta["deluxe_rates"] ) && !empty($per_person_ratemeta["deluxe_rates"]) ? "RS. " . number_format($per_person_ratemeta["deluxe_rates"]) . "/- Per Person" : "";
-                                 			$sd_pp = isset( $per_person_ratemeta["super_deluxe_rates"] ) && !empty($per_person_ratemeta["super_deluxe_rates"]) ? "RS. " . number_format($per_person_ratemeta["super_deluxe_rates"]) . "/- Per Person" : "";
-                                 			$l_pp = isset( $per_person_ratemeta["luxury_rates"] ) && !empty($per_person_ratemeta["luxury_rates"]) ? "RS. " . number_format($per_person_ratemeta["luxury_rates"]) . "/- Per Person" : "";
-                                 			
-                                 			//child rates
-                                 			$child_s_pp = isset( $per_person_ratemeta["child_standard_rates"] ) && !empty($per_person_ratemeta["child_standard_rates"]) ? "RS. " . $per_person_ratemeta["child_standard_rates"] . "/- Per Child" : "";
-                                 			$child_d_pp = isset( $per_person_ratemeta["child_deluxe_rates"] ) && !empty($per_person_ratemeta["child_deluxe_rates"]) ? "RS. " . $per_person_ratemeta["child_deluxe_rates"] . "/- Per Child" : "";
-                                 			$child_sd_pp = isset( $per_person_ratemeta["child_super_deluxe_rates"] ) && !empty($per_person_ratemeta["child_super_deluxe_rates"]) ? "RS. " . $per_person_ratemeta["child_super_deluxe_rates"] . "/- Per Child" : "";
-                                 			$child_l_pp = isset( $per_person_ratemeta["child_luxury_rates"] ) && !empty($per_person_ratemeta["child_luxury_rates"]) ? "RS. " . $per_person_ratemeta["child_luxury_rates"] . "/- Per Child" : "";
-                                 			
-                                 			$s_price = !empty( $price->standard_rates) ? number_format($price->standard_rates) . "/- {$inc_gst}  {$s_pp}  {$child_s_pp}" : "<strong class='red'>N/A</strong>";
-                                 			
-                                 			$d_price = !empty( $price->deluxe_rates) ? number_format($price->deluxe_rates) . "/- {$inc_gst} {$d_pp}  {$child_d_pp}" : "<strong class='red'>N/A</strong>";
-                                 			
-                                 			$sd_price = !empty( $price->super_deluxe_rates) ? number_format($price->super_deluxe_rates) . "/- {$inc_gst} {$sd_pp} {$child_sd_pp}"  : "<strong class='red'>N/A</strong>";
-                                 			
-                                 			$l_price = !empty( $price->luxury_rates) ? number_format($price->luxury_rates) . "/- {$inc_gst} {$l_pp}  {$child_l_pp}"  : "<strong class='red'>N/A</strong>";
-                                 			
-                                 			$count_price = count( $discountPriceData );
-                                 			$strike_class = ($price !== end($discountPriceData) && $count_price > 1 ) ? "strikeLine" : "";
-                                 			
-                                 			echo "<tr class='{$strike_class} {$strike_class_final} {$bbp_css}'><td>Price {$below_base_price} {$app}</td>
-                                 			<td>BP( <strong>" . $s_price . "</strong>) {$agent_sp} </td>";
-                                 			echo "<td>BP(<strong>" . $d_price . "</strong>) {$agent_dp} </td>";
-                                 			echo "<td>BP(<strong>" . $sd_price . "</strong>) {$agent_sdp} </td>";
-                                 			echo "<td>BP(<strong>" . $l_price . "</strong>) {$agent_lp} </td></tr>";
-                                 		}
-                                 	} 
-                                 	} 
-                                 
-                                 	$rate_comment = isset( $iti->rate_comment ) && $iti->pending_price == 2 && $iti->discount_rate_request == 0 ? $iti->rate_comment : "";
-                                 	echo "<tr><td colspan=5><p class='red margin_zero'><strong>Note: </strong>{$rate_comment} </td></tr>";
-                                 	echo "<tr><td colspan=5><p class='red margin_zero'><strong>Final Package Cost: </strong>{$f_cost} </td></tr>";
-                                 } ?>
+                                    /* print_r( $hotel_meta ); */
+                                    if( $count_hotel > 0 ){
+                                        for ( $i = 0; $i < $count_hotel; $i++ ) {
+                                            echo "<tr><td><strong>" .$hotel_meta[$i]["hotel_location"] . "</strong></td><td>";
+                                                $hotel_standard =  $hotel_meta[$i]["hotel_standard"];
+                                                echo $hotel_standard;
+                                            echo "</td><td>";
+                                                $hotel_deluxe =  $hotel_meta[$i]["hotel_deluxe"];
+                                                echo $hotel_deluxe;
+                                            echo "</td><td>";
+                                                $hotel_super_deluxe =  $hotel_meta[$i]["hotel_super_deluxe"];
+                                                echo $hotel_super_deluxe;
+                                            echo "</td><td>";
+                                                $hotel_luxury =  $hotel_meta[$i]["hotel_luxury"];
+                                                echo $hotel_luxury;
+                                            echo "</td></tr>";
+                                        } 	
+                                        //Rate meta
+                                        $rate_meta 	  = unserialize($iti->rates_meta);
+                                        $strike_class = !empty( $discountPriceData ) ? "strikeLine" : " ";
+                                        $iti_close_status = $iti->iti_close_status;
+                                        //print_r( $rate_meta );
+                                        if( empty($iti_close_status) ){
+                                        if( !empty( $rate_meta ) ){
+                                            if( $iti->pending_price == 4 ){
+                                                echo "<tr><td  colspan=5 class='red'>Awaiting price verfication from super manager.</td></tr>"; 
+                                            }else{
+                                                $per_person_ratemeta 	= unserialize($iti->per_person_ratemeta);
+                                                //$inc_gst = isset( $per_person_ratemeta["inc_gst"] ) && $per_person_ratemeta["inc_gst"] == 1 ? "(GST Inc.)" : "(GST Extra)";
+                                                $inc_gst = "";
+                                                $below_base_price = isset( $per_person_ratemeta["below_base_price"] ) && $per_person_ratemeta["below_base_price"] == 1 ? "(Below BP.)" : "";
+                                                $bbp_css = isset( $per_person_ratemeta["below_base_price"] ) && $per_person_ratemeta["below_base_price"] == 1 ? "bbptr" : "";
+                                                
+                                                //get percentage added by agent
+                                                $agent_price_percentage = !empty($iti->agent_price) ? $iti->agent_price : 0;
+                                                $app = !empty($iti->agent_price) ? "(". $iti->agent_price . "%)" : "";
+                                                //echo $app;
+                                                
+                                                $agent_sp = $agent_dp = $agent_sdp = $agent_lp = "";
+                                                //if percentage exists
+                                                if( $agent_price_percentage ){
+                                                    $as_pp = isset( $per_person_ratemeta["standard_rates"] ) && !empty($per_person_ratemeta["standard_rates"]) ? " Rs." . ( $per_person_ratemeta["standard_rates"] +  $per_person_ratemeta["standard_rates"] * $agent_price_percentage/100 ). " Per/Person" : "";
+                                                    $ad_pp = isset( $per_person_ratemeta["deluxe_rates"] ) && !empty($per_person_ratemeta["deluxe_rates"]) ? " Rs." . ($per_person_ratemeta["deluxe_rates"] +  $per_person_ratemeta["deluxe_rates"] * $agent_price_percentage/100 ). " Per/Person" : "";
+                                                    $asd_pp = isset( $per_person_ratemeta["super_deluxe_rates"] ) && !empty($per_person_ratemeta["super_deluxe_rates"]) ? " Rs." . ( $per_person_ratemeta["super_deluxe_rates"] +  $per_person_ratemeta["super_deluxe_rates"] * $agent_price_percentage/100 ) . " Per/Person" : "";
+                                                    $al_pp = isset( $per_person_ratemeta["luxury_rates"] ) && !empty($per_person_ratemeta["luxury_rates"]) ? " Rs." . ( $per_person_ratemeta["luxury_rates"] +  $per_person_ratemeta["luxury_rates"] * $agent_price_percentage/100 ) . " Per/Person" : "";
+                                    
+                                                    //child rates
+                                                    $achild_s_pp = isset( $per_person_ratemeta["child_standard_rates"] ) && !empty($per_person_ratemeta["child_standard_rates"]) ? "RS. " .  number_format( $per_person_ratemeta["child_standard_rates"]  + $per_person_ratemeta["child_standard_rates"] * $agent_price_percentage/100  ) . "/- Per Child" : "";
+                                                    
+                                                    $achild_d_pp = isset( $per_person_ratemeta["child_deluxe_rates"] ) && !empty($per_person_ratemeta["child_deluxe_rates"]) ? "RS. " . number_format( $per_person_ratemeta["child_deluxe_rates"] +  $per_person_ratemeta["child_deluxe_rates"] * $agent_price_percentage/100 ) . "/- Per Child" : "";
+                                                    
+                                                    $achild_sd_pp = isset( $per_person_ratemeta["child_super_deluxe_rates"] ) && !empty($per_person_ratemeta["child_super_deluxe_rates"]) ? "RS. " . number_format( $per_person_ratemeta["child_super_deluxe_rates"] +  $per_person_ratemeta["child_super_deluxe_rates"] * $agent_price_percentage/100 ) . "/- Per Child" : "";
+                                                    
+                                                    $achild_l_pp = isset( $per_person_ratemeta["child_luxury_rates"] ) && !empty($per_person_ratemeta["child_luxury_rates"]) ? "RS. " .   number_format( $per_person_ratemeta["child_luxury_rates"] +  $per_person_ratemeta["child_luxury_rates"] * $agent_price_percentage/100 ) . "/- Per Child" : "";													
+                                                    
+                                                    $astandard_rates = !empty( $rate_meta["standard_rates"]) ? number_format($rate_meta["standard_rates"] + $rate_meta["standard_rates"] * $agent_price_percentage / 100 ) . "/- {$inc_gst}" : "<strong class='red'>On Request</strong>";
+                                                    
+                                                    $adeluxe_rates = !empty( $rate_meta["deluxe_rates"]) ? number_format($rate_meta["deluxe_rates"] + $rate_meta["deluxe_rates"] * $agent_price_percentage / 100 ) . "/- {$inc_gst}" : "<strong class='red'>On Request</strong>";
+                                                    
+                                                    $asuper_deluxe_rates = !empty( $rate_meta["super_deluxe_rates"]) ? number_format($rate_meta["super_deluxe_rates"] + $rate_meta["super_deluxe_rates"] * $agent_price_percentage / 100  ) . "/- {$inc_gst}" : "<strong class='red'>On Request</strong>";
+                                                    $arate_luxry = !empty( $rate_meta["luxury_rates"]) ? number_format($rate_meta["luxury_rates"] + $rate_meta["luxury_rates"] * $agent_price_percentage / 100 ) . "/- {$inc_gst}" : "<strong class='red'>On Request</strong>";
+                                                    
+                                                    $agent_sp = "<br><strong class='aprice'> AP( " . $astandard_rates . "</strong> <br> {$as_pp} <br> {$achild_s_pp} )";
+                                                    $agent_dp = "<br><strong class='aprice'> AP( " . $adeluxe_rates . "</strong> <br> {$ad_pp} <br> {$achild_d_pp} )";
+                                                    $agent_sdp = "<br><strong class='aprice'> AP( " . $asuper_deluxe_rates . "</strong> <br> {$asd_pp} <br> {$achild_sd_pp} )";
+                                                    $agent_lp = "<br><strong class='aprice'> AP( " . $arate_luxry . "</strong> <br> {$al_pp} <br> {$achild_l_pp} )";
+                                                }
+                                                
+                                                //get per person price
+                                                $s_pp = isset( $per_person_ratemeta["standard_rates"] ) && !empty($per_person_ratemeta["standard_rates"]) ? "RS. " . number_format($per_person_ratemeta["standard_rates"]) . "/- Per Person" : "";
+                                                
+                                                $d_pp = isset( $per_person_ratemeta["deluxe_rates"] ) && !empty($per_person_ratemeta["deluxe_rates"]) ? "RS. " . number_format($per_person_ratemeta["deluxe_rates"]) . "/- Per Person" : "";
+                                                
+                                                $sd_pp = isset( $per_person_ratemeta["super_deluxe_rates"] ) && !empty($per_person_ratemeta["super_deluxe_rates"]) ? "RS. " . number_format($per_person_ratemeta["super_deluxe_rates"]) . "/- Per Person" : "";
+                                                
+                                                $l_pp = isset( $per_person_ratemeta["luxury_rates"] ) && !empty($per_person_ratemeta["luxury_rates"]) ? "RS. " . number_format($per_person_ratemeta["luxury_rates"]) . "/- Per Person" : "";
+                                                
+                                                //child rates
+                                                $child_s_pp = isset( $per_person_ratemeta["child_standard_rates"] ) && !empty($per_person_ratemeta["child_standard_rates"]) ? "RS. " . $per_person_ratemeta["child_standard_rates"] . "/- Per Child" : "";
+                                                $child_d_pp = isset( $per_person_ratemeta["child_deluxe_rates"] ) && !empty($per_person_ratemeta["child_deluxe_rates"]) ? "RS. " . $per_person_ratemeta["child_deluxe_rates"] . "/- Per Child" : "";
+                                                
+                                                $child_sd_pp = isset( $per_person_ratemeta["child_super_deluxe_rates"] ) && !empty($per_person_ratemeta["child_super_deluxe_rates"]) ? "RS. " . $per_person_ratemeta["child_super_deluxe_rates"] . "/- Per Child" : "";
+                                                
+                                                $child_l_pp = isset( $per_person_ratemeta["child_luxury_rates"] ) && !empty($per_person_ratemeta["child_luxury_rates"]) ? "RS. " . $per_person_ratemeta["child_luxury_rates"] . "/- Per Child" : "";
+                                                
+                                            
+                                                $standard_rates = !empty( $rate_meta["standard_rates"]) ? "RS. " . number_format($rate_meta["standard_rates"]) . "/- {$inc_gst}" : "<strong class='red'>On Request</strong>";
+                                                
+                                                $deluxe_rates = !empty( $rate_meta["deluxe_rates"]) ? "RS. " . number_format($rate_meta["deluxe_rates"]) . "/- {$inc_gst}" : "<strong class='red'>On Request</strong>";
+                                                
+                                                $super_deluxe_rates = !empty( $rate_meta["super_deluxe_rates"]) ? "RS. " . number_format($rate_meta["super_deluxe_rates"]) . "/- {$inc_gst}" : "<strong class='red'>On Request</strong>";
+                                                
+                                                $rate_luxry = !empty( $rate_meta["luxury_rates"]) ? "RS. " . number_format($rate_meta["luxury_rates"]) . "/- {$inc_gst}" : "<strong class='red'>On Request</strong>";
+                                                
+                                                echo "<tr class='{$strike_class} {$strike_class_final} {$bbp_css}'><td>Price {$below_base_price} {$app}</td>
+                                                        <td>		
+                                                            <strong> BP( " . $standard_rates . "</strong>  {$s_pp}  {$child_s_pp} )
+                                                            {$agent_sp}
+                                                        </td>
+                                                        <td>
+                                                            <strong>BP( " . $deluxe_rates . "</strong>  {$d_pp} {$child_d_pp} )
+                                                            {$agent_dp}
+                                                        </td>
+                                                        <td>
+                                                            <strong>BP( " . $super_deluxe_rates . "</strong>  {$sd_pp} {$child_sd_pp} )
+                                                            {$agent_sdp}
+                                                        </td>
+                                                        <td>
+                                                            <strong>BP(  " . $rate_luxry . "</strong>  {$l_pp} {$child_l_pp} )
+                                                            {$agent_lp}
+                                                        </td></tr>";
+                                            }		
+                                        }else{
+                                            echo "<tr><td><strong class='red'>Price</strong></td>
+                                                    <td>
+                                                        <strong class='red'> Coming Soon </strong>
+                                                    </td>
+                                                    <td>
+                                                        <strong class='red'> Coming Soon</strong>
+                                                    </td>
+                                                    <td>
+                                                        <strong class='red'> Coming Soon </strong>
+                                                    </td>
+                                                    <td>
+                                                        <strong class='red'> Coming Soon </strong>
+                                                    </td></tr>";
+                                        }
+                                        //discount data
+                                        if( !empty( $discountPriceData ) && empty($iti_close_status) ){
+                                            foreach( $discountPriceData as $price ){
+                                                $agent_price_percentage = !empty($price->agent_price) ? $price->agent_price : 0;
+                                                $app = !empty($price->agent_price) ? "(". $price->agent_price . "%)" : "";
+                                                //echo $app;
+                                                $sent_status = $price->sent_status;
+                                                //get per person price
+                                                $per_person_ratemeta 	= unserialize($price->per_person_ratemeta);
+                                                //$inc_gst = isset( $per_person_ratemeta["inc_gst"] ) && $per_person_ratemeta["inc_gst"] == 1 ? "(GST Inc.)" : "(GST Extra)";
+                                                $inc_gst = "";
+                                                $below_base_price = isset( $per_person_ratemeta["below_base_price"] ) && $per_person_ratemeta["below_base_price"] == 1 ? "(Below BP.)" : "";
+                                                $bbp_css = isset( $per_person_ratemeta["below_base_price"] ) && $per_person_ratemeta["below_base_price"] == 1 ? "bbptr" : "";
+                                                
+                                                $agent_sp = $agent_dp = $agent_sdp = $agent_lp = "";
+                                                //if percentage exists
+                                                if( $agent_price_percentage ){
+                                                    $ad_s_pp = isset( $per_person_ratemeta["standard_rates"] ) && !empty($per_person_ratemeta["standard_rates"] ) ? "RS. " . number_format( $per_person_ratemeta["standard_rates"] +  $per_person_ratemeta["standard_rates"] * $agent_price_percentage/100 ) . "/- Per Person" : "";
+                                                    $ad_d_pp = isset( $per_person_ratemeta["deluxe_rates"] ) && !empty($per_person_ratemeta["deluxe_rates"]) ? "RS. " . number_format($per_person_ratemeta["deluxe_rates"] +  $per_person_ratemeta["deluxe_rates"] * $agent_price_percentage/100 ) . "/- Per Person" : "";
+                                                    $ad_sd_pp = isset( $per_person_ratemeta["super_deluxe_rates"] ) && !empty($per_person_ratemeta["super_deluxe_rates"]) ? "RS. " . number_format($per_person_ratemeta["super_deluxe_rates"] +  $per_person_ratemeta["super_deluxe_rates"] * $agent_price_percentage/100) . "/- Per Person" : "";
+                                                    $ad_l_pp = isset( $per_person_ratemeta["luxury_rates"] ) && !empty($per_person_ratemeta["luxury_rates"]) ? "RS. " . number_format($per_person_ratemeta["luxury_rates"] +  $per_person_ratemeta["luxury_rates"] * $agent_price_percentage/100 ) . "/- Per Person" : "";
+                                                    
+                                                    //child rates
+                                                    $ad_child_s_pp = isset( $per_person_ratemeta["child_standard_rates"] ) && !empty($per_person_ratemeta["child_standard_rates"]) ? "RS. " . number_format($per_person_ratemeta["child_standard_rates"] +  $per_person_ratemeta["child_standard_rates"] * $agent_price_percentage/100 ) . "/- Per Child" : "";
+                                                    $ad_child_d_pp = isset( $per_person_ratemeta["child_deluxe_rates"] ) && !empty($per_person_ratemeta["child_deluxe_rates"]) ? "RS. " . number_format($per_person_ratemeta["child_deluxe_rates"] +  $per_person_ratemeta["child_deluxe_rates"] * $agent_price_percentage/100) . "/- Per Child" : "";
+                                                    $ad_child_sd_pp = isset( $per_person_ratemeta["child_super_deluxe_rates"] ) && !empty($per_person_ratemeta["child_super_deluxe_rates"]) ? "RS. " . number_format($per_person_ratemeta["child_super_deluxe_rates"] +  $per_person_ratemeta["child_super_deluxe_rates"] * $agent_price_percentage/100 ) . "/- Per Child" : "";
+                                                    $ad_child_l_pp = isset( $per_person_ratemeta["child_luxury_rates"] ) && !empty($per_person_ratemeta["child_luxury_rates"]) ? "RS. " . number_format($per_person_ratemeta["child_luxury_rates"] +  $per_person_ratemeta["child_luxury_rates"] * $agent_price_percentage/100 ) . "/- Per Child" : "";			
+                                                    
+                                                    //get rates
+                                                    $ad_s_price = !empty( $price->standard_rates) ? number_format($price->standard_rates + $price->standard_rates * $agent_price_percentage/100 ) . "/- {$inc_gst} {$ad_s_pp}  {$ad_child_s_pp}" : "<strong class='red'>On Request</strong>";
+                                                    
+                                                    $ad_d_price = !empty( $price->deluxe_rates) ? number_format($price->deluxe_rates + $price->deluxe_rates * $agent_price_percentage/100) . "/- {$inc_gst}  {$ad_d_pp}  {$ad_child_d_pp}" : "<strong class='red'>On Request</strong>";
+                                                    
+                                                    $ad_sd_price = !empty( $price->super_deluxe_rates) ? number_format($price->super_deluxe_rates + $price->super_deluxe_rates * $agent_price_percentage/100) . "/- {$inc_gst}  {$ad_sd_pp}  {$ad_child_sd_pp}"  : "<strong class='red'>On Request</strong>";
+                                                    
+                                                    $ad_l_price = !empty( $price->luxury_rates) ? number_format($price->luxury_rates + $price->luxury_rates * $agent_price_percentage/100) . "/- {$inc_gst} <br> {$ad_l_pp}  {$ad_child_l_pp}"  : "<strong class='red'>On Request</strong>";
+                                                    
+                                                    $agent_sp = "<strong class='aprice'> AP( " . $ad_s_price . "</strong>)";
+                                                    $agent_dp = "<strong class='aprice'>  AP( " . $ad_d_price . "</strong>)";
+                                                    $agent_sdp = "<strong class='aprice'> AP( " . $ad_sd_price . "</strong>)";
+                                                    $agent_lp = "<strong class='aprice'>  AP( " . $ad_l_price . "</strong>)";
+                                                }
+                                                
+                                                
+                                                $s_pp = isset( $per_person_ratemeta["standard_rates"] ) && !empty($per_person_ratemeta["standard_rates"] ) ? "RS. " . number_format($per_person_ratemeta["standard_rates"]) . "/- Per Person" : "";
+                                                $d_pp = isset( $per_person_ratemeta["deluxe_rates"] ) && !empty($per_person_ratemeta["deluxe_rates"]) ? "RS. " . number_format($per_person_ratemeta["deluxe_rates"]) . "/- Per Person" : "";
+                                                $sd_pp = isset( $per_person_ratemeta["super_deluxe_rates"] ) && !empty($per_person_ratemeta["super_deluxe_rates"]) ? "RS. " . number_format($per_person_ratemeta["super_deluxe_rates"]) . "/- Per Person" : "";
+                                                $l_pp = isset( $per_person_ratemeta["luxury_rates"] ) && !empty($per_person_ratemeta["luxury_rates"]) ? "RS. " . number_format($per_person_ratemeta["luxury_rates"]) . "/- Per Person" : "";
+                                                
+                                                //child rates
+                                                $child_s_pp = isset( $per_person_ratemeta["child_standard_rates"] ) && !empty($per_person_ratemeta["child_standard_rates"]) ? "RS. " . $per_person_ratemeta["child_standard_rates"] . "/- Per Child" : "";
+                                                $child_d_pp = isset( $per_person_ratemeta["child_deluxe_rates"] ) && !empty($per_person_ratemeta["child_deluxe_rates"]) ? "RS. " . $per_person_ratemeta["child_deluxe_rates"] . "/- Per Child" : "";
+                                                $child_sd_pp = isset( $per_person_ratemeta["child_super_deluxe_rates"] ) && !empty($per_person_ratemeta["child_super_deluxe_rates"]) ? "RS. " . $per_person_ratemeta["child_super_deluxe_rates"] . "/- Per Child" : "";
+                                                $child_l_pp = isset( $per_person_ratemeta["child_luxury_rates"] ) && !empty($per_person_ratemeta["child_luxury_rates"]) ? "RS. " . $per_person_ratemeta["child_luxury_rates"] . "/- Per Child" : "";
+                                                
+                                                $s_price = !empty( $price->standard_rates) ? number_format($price->standard_rates) . "/- {$inc_gst}  {$s_pp}  {$child_s_pp}" : "<strong class='red'>N/A</strong>";
+                                                
+                                                $d_price = !empty( $price->deluxe_rates) ? number_format($price->deluxe_rates) . "/- {$inc_gst} {$d_pp}  {$child_d_pp}" : "<strong class='red'>N/A</strong>";
+                                                
+                                                $sd_price = !empty( $price->super_deluxe_rates) ? number_format($price->super_deluxe_rates) . "/- {$inc_gst} {$sd_pp} {$child_sd_pp}"  : "<strong class='red'>N/A</strong>";
+                                                
+                                                $l_price = !empty( $price->luxury_rates) ? number_format($price->luxury_rates) . "/- {$inc_gst} {$l_pp}  {$child_l_pp}"  : "<strong class='red'>N/A</strong>";
+                                                
+                                                $count_price = count( $discountPriceData );
+                                                $strike_class = ($price !== end($discountPriceData) && $count_price > 1 ) ? "strikeLine" : "";
+                                                
+                                                echo "<tr class='{$strike_class} {$strike_class_final} {$bbp_css}'><td>Price {$below_base_price} {$app}</td>
+                                                <td>BP( <strong>" . $s_price . "</strong>) {$agent_sp} </td>";
+                                                echo "<td>BP(<strong>" . $d_price . "</strong>) {$agent_dp} </td>";
+                                                echo "<td>BP(<strong>" . $sd_price . "</strong>) {$agent_sdp} </td>";
+                                                echo "<td>BP(<strong>" . $l_price . "</strong>) {$agent_lp} </td></tr>";
+                                            }
+                                        } 
+                                        } 
+                                    
+                                        $rate_comment = isset( $iti->rate_comment ) && $iti->pending_price == 2 && $iti->discount_rate_request == 0 ? $iti->rate_comment : "";
+                                        echo "<tr><td colspan=5><p class='red margin_zero'><strong>Note: </strong>{$rate_comment} </td></tr>";
+                                        echo "<tr><td colspan=5><p class='red margin_zero'><strong>Final Package Cost: </strong>{$f_cost} </td></tr>";
+                                    } ?>
                                 </tbody>
                             </table>
                         </div>
-                        <?php } ?>
+                         <?php } ?>
                     </div>
                 </div>
-                <!--END PRINTABLE-->
-                <hr>
-                <div class="custom_card">
-                    <div class="well well-sm">
-                        <h3>Notes:</h3>
-                    </div>
+            </div>
+            <!--END PRINTABLE-->
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <h3 class="custom_title">Notes:</h3>
+                </div>
+                <div class="portlet-body">
                     <ul>
                         <?php 
-                        $hotel_note_meta = unserialize($iti->hotel_note_meta); 
-                        if( $hotel_note_meta ){
-                        	$count_hotel_meta = count( $hotel_note_meta );
-                        	for ( $i = 0; $i < $count_hotel_meta; $i++ ) {
-                        		echo isset($hotel_note_meta[$i]["hotel_note"]) ? "<li>" . $hotel_note_meta[$i]["hotel_note"] . "</li>" : '';
-                        	}	
-                        } ?>
+                            $hotel_note_meta = unserialize($iti->hotel_note_meta); 
+                            if( $hotel_note_meta ){
+                                $count_hotel_meta = count( $hotel_note_meta );
+                                for ( $i = 0; $i < $count_hotel_meta; $i++ ) {
+                                    echo isset($hotel_note_meta[$i]["hotel_note"]) ? "<li>" . $hotel_note_meta[$i]["hotel_note"] . "</li>" : '';
+                                }	
+                            } ?>
                     </ul>
                 </div>
-                <hr>
-                <div class="custom_card">
-                    <div class="well well-sm">
-                        <h3>Bank Details: Cash/Cheque at Bank or Net Transfer</h3>
-                    </div>
+            </div>
+
+            <div class="portlet box blue margin-top-50">
+                <div class="portlet-title">
+                    <h3 class="custom_title">Bank Details: Cash/Cheque at Bank or Net Transfer</h3>
+                </div>
+                <div class="portlet-body">
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead class="thead-default">
@@ -2310,49 +2326,50 @@
                             </thead>
                             <tbody>
                                 <?php $banks = get_all_banks(); 
-                              if( $banks ){
-                              	foreach( $banks as $bank ){ 
-                              		echo "<tr>";
-                              			echo "<td>" . $bank->bank_name . "</td>";
-                              			echo "<td>" . $bank->payee_name . "</td>";
-                              			echo "<td>" . $bank->account_type . "</td>";
-                              			echo "<td>" . $bank->account_number . "</td>";
-                              			echo "<td>" . $bank->branch_address . "</td>";
-                              			echo "<td>" . $bank->ifsc_code . "</td>";
-                              		echo "</tr>";
-                              	 }
-                              }
-                              ?>
+                                if( $banks ){
+                                    foreach( $banks as $bank ){ 
+                                        echo "<tr>";
+                                            echo "<td>" . $bank->bank_name . "</td>";
+                                            echo "<td>" . $bank->payee_name . "</td>";
+                                            echo "<td>" . $bank->account_type . "</td>";
+                                            echo "<td>" . $bank->account_number . "</td>";
+                                            echo "<td>" . $bank->branch_address . "</td>";
+                                            echo "<td>" . $bank->ifsc_code . "</td>";
+                                        echo "</tr>";
+                                    }
+                                }
+                                ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <hr>
-                <div class="custom_card">
-                    <?php
+            </div>
+            
+            <div class="">
+                <?php
                   //bank payment terms
                   $count_bank_payment_terms	= count( $online_payment_terms ); 
                   $count_bankTerms			= $count_bank_payment_terms-1; 
                   if(isset($online_payment_terms["heading"]) ) { 
-                  	echo "<div class='well well-sm'><h3>" . $online_payment_terms["heading"] . "</h3></div>"; 
+                  	echo "<div class='portlet box blue'><div class='portlet-title'><h3 class='custom_title'>" . $online_payment_terms["heading"] . "</h3></div>"; 
                   }
                   if( $count_bankTerms > 0 ){
-                  	echo "<ul class='client_listing'>";
+                  	echo "<div class='portlet-body'> <ul class='client_listing'>";
                   		for ( $i = 0; $i < $count_bankTerms; $i++ ) { 
                   			echo "<li>" . $online_payment_terms[$i]["terms"] . "</li>";
                   		}
-                  	echo "</ul>";
+                  	echo "</ul> </div> </div>";
                   }
                   	//how to book section
                   	$count_book_package	= count( $book_package_terms );
                   	if(isset($book_package_terms["heading"]) ) { 
-                  		echo "<div class='well well-sm margin-top-40'><h3>". $book_package_terms["heading"]  ."</h3></div>";
+                  		echo "<div class='portlet box blue'><div class='portlet-title'><h3 class='custom_title'>". $book_package_terms["heading"]  ."</h3></div>";
                   	}
                   	if(isset($book_package_terms["sub_heading"]) ) { 
-                  		echo "<h5>". $book_package_terms["sub_heading"]  ."</h5>";
+                  		echo "<div class='portlet-body'> <h5>". $book_package_terms["sub_heading"]  ."</h5>";
                   	}							
                   	if( $count_book_package > 0 ){
-                  		echo '<div class="">
+                  		echo '<div class="table-responsive">
                   					<table class="table table-bordered tbl_policy_view">
                   						<thead class="thead-default">
                   							<tr>
@@ -2371,29 +2388,29 @@
                   				</tr>";
                   				$counter++;
                   			}
-                  		echo "</tbody></table></div>";
+                  		echo "</tbody></table></div> </div> </div>";
                   	}	
                   	
                   	// advance payment section 
                   	$count_ad_pay	= count( $advance_payment_terms );
                   	if(isset($advance_payment_terms["heading"]) ) { 
-                  		echo "<div class='well well-sm'><h3>". $advance_payment_terms["heading"]  ."</h3></div>";
+                  		echo "<div class='portlet box blue'><div class='portlet-title'><h3 class='custom_title'>". $advance_payment_terms["heading"]  ."</h3></div>";
                   	}						
                   	if( $count_book_package > 0 ){
-                  		echo "<ul class='client_listing'>";
+                  		echo "<div class='portlet-body'><ul class='client_listing'>";
                   			for ( $i = 0; $i < $count_ad_pay-1; $i++ ) { 
                   				echo "<li>" . $advance_payment_terms[$i]["terms"] . "</li>";
                   			}
-                  		echo "</ul>";
+                  		echo "</ul></div> </div>";
                   	}
                   	
                   	//PAYMENT POLICY
                   	if(isset($payment_policy["heading"]) ) { 
-                  		echo "<div class='well well-sm'><h3>". $payment_policy["heading"]  ."</h3></div>";
+                  		echo "<div class='portlet box blue'><div class='portlet-title'><h3 class='custom_title'>". $payment_policy["heading"]  ."</h3></div>";
                   	}	
                   	$count_payment_policy	= count( $payment_policy );
                   	if( $count_payment_policy > 0 ){
-                  		echo '<div class="table-responsive">
+                  		echo '<div class="portlet-body"> <div class="table-responsive">
                   					<table class="table table-bordered tbl_policy_view">
                   						<thead class="thead-default">
                   							<tr>
@@ -2412,18 +2429,18 @@
                   				</tr>";
                   				$counter_pay++;
                   			}
-                  		echo "</tbody></table></div>";
+                  		echo "</tbody></table></div> </div> </div>";
                   	}								
                   	//end payment policy
                   	
                   	//AMENDMENT POLICY section	
                   	if(isset($amendment_policy["heading"]) ) { 
-                  		echo "<div class='well well-sm'><h3>". $amendment_policy["heading"]  ."</h3></div>";
+                  		echo "<div class='portlet box blue'><div class='portlet-title'><h3 class='custom_title'>". $amendment_policy["heading"]  ."</h3></div>";
                   	}	
                   	$count_amendment_policy	= count( $amendment_policy );
                   	
                   	if( $count_amendment_policy > 0 ){
-                  		echo '<div class="table-responsive">
+                  		echo '<div class="portlet-body"><div class="table-responsive">
                   					<table class="table table-bordered tbl_policy_view">
                   						<thead class="thead-default">
                   							<tr>
@@ -2442,21 +2459,21 @@
                   				</tr>";
                   				$counter_a++;
                   			}
-                  		echo "</tbody></table></div>";
+                  		echo "</tbody></table></div></div> </div>";
                   	}
                   	
                   	//refund policy
                   	if(isset($amendment_policy["heading"]) ) { 
-                  		echo "<div class='well well-sm'><h3>". $cancel_tour_by_client["heading"]  ."</h3></div>";
+                  		echo "<div class='portlet box blue'><div class='portlet-title'><h3 class='custom_title'>". $cancel_tour_by_client["heading"]  ."</h3></div>";
                   	}
                   	
                   	$count_cancel_content	= count( $cancel_tour_by_client );
                   	if( $count_cancel_content > 0 ){
-                  		echo '<div class="table-responsive">
+                  		echo '<div class="portlet-body"><div class="table-responsive">
                   					<table class="table table-bordered tbl_policy_view">
                   						<thead class="thead-default">
                   							<tr>
-                  								<th colspan=3> Cancellation and Refund Policy </th>
+                  								<th class="text-white" colspan=3> Cancellation and Refund Policy </th>
                   							</tr>
                   						</thead>
                   						<tbody>';
@@ -2471,28 +2488,28 @@
                   				</tr>";
                   				$counter_ra++;
                   			}
-                  		echo "</tbody></table></div>";
+                  		echo "</tbody></table></div> </div> </div>";
                   	}
                   	
                   	
                   	//terms and condition
                   	if(isset($terms_condition["heading"]) ) { 
-                  		echo "<div class='well well-sm'><h3>". $terms_condition["heading"]  ."</h3></div>";
+                  		echo "<div class='portlet box blue'><div class='portlet-title'><h3 class='custom_title'>". $terms_condition["heading"]  ."</h3></div>";
                   	}
                   	$count_cancel_content	= count( $terms_condition );
                   	if( $count_cancel_content > 0 ){
-                  		echo "<ul class='client_listing'>";
+                  		echo "<div class='portlet-body'> <ul class='client_listing'>";
                   			for ( $i = 0; $i < $count_cancel_content-1; $i++ ) { 
                   				echo "<li>" . $terms_condition[$i]["terms"] . "</li>";
                   			}
-                  		echo "</ul>";
+                  		echo "</ul> </div> </div>";
                   	}
                   ?>
-                </div>
-                <hr>
-                <div class="custom_card">
+            </div>
+            <hr>
+            <div class="custom_card">
 
-                    <?php
+                <?php
                   $agent_id = $iti->agent_id;
                   $user_info = get_user_info($agent_id);
                   if($user_info){
@@ -2505,46 +2522,122 @@
                   	echo "<strong>Website : </strong> " . $agent->website;
                   }	
                   ?>
-                    <hr>
-                    <div class="signature"><?php echo $signature; ?></div>
-                    <!--if amendment is done show old itinerary-->
-                    <?php if( !empty( $old_itineraries ) && $iti->is_amendment != 0 ){  ?>
-                    <p class="text-center">
-                        <?php $old_count = 1;
+                <hr>
+                <div class="signature"><?php echo $signature; ?></div>
+                <!--if amendment is done show old itinerary-->
+                <?php if( !empty( $old_itineraries ) && $iti->is_amendment != 0 ){  ?>
+                <p class="text-center">
+                    <?php $old_count = 1;
                      foreach( $old_itineraries as $old_iti ){ ?>
-                        <a title='View Old Quotation' target="_blank"
-                            href=" <?php echo site_url("itineraries/view_old_iti/{$old_iti->id}") ; ?> "
-                            class='btn btn-danger'><i class='fa fa-eye' aria-hidden='true'></i> View Old Quotation
-                            <?php echo $old_count; ?></a>
-                        <?php $old_count++; } ?>
-                    </p>
-                    <?php } ?>
+                    <a title='View Old Quotation' target="_blank"
+                        href=" <?php echo site_url("itineraries/view_old_iti/{$old_iti->id}") ; ?> "
+                        class='btn btn-danger'><i class='fa fa-eye' aria-hidden='true'></i> View Old Quotation
+                        <?php echo $old_count; ?></a>
+                    <?php $old_count++; } ?>
+                </p>
+                <?php } ?>
 
-                    <!--Request manager to add price to itinerary get_iti_booking_status == rejected iti-->
-                    <?php if( $user_role == 96 && ($iti->pending_price == "1" || $iti->pending_price == "4" || $iti->pending_price == "5" ) ){ ?>
-                    <p class="text-center"><strong class="alert alert-info">Waiting for price update from
-                            manager..</strong>
-                    </p>
-                    <?php }else if( $user_role == 96 && ( $iti->pending_price == "0" || (  $iti->iti_status == 6 && get_iti_booking_status( $iti->	iti_id ) == 3 )  ) ) { ?>
-                    <p class="text-center">
-                        <!--a class="btn btn-success" data-iti_id="<?php echo $iti->iti_id; ?>" data-temp_key="<?php echo $iti->temp_key; ?>" href="#" data-agent_id="<?php echo $iti->agent_id; ?>" id="send_price_request" title="Sent Price request for manager">Sent Price Request To Manager</a-->
-                        <a class="btn btn-success" data-iti_id="<?php echo $iti->iti_id; ?>"
-                            data-temp_key="<?php echo $iti->temp_key; ?>" href="#"
-                            data-agent_id="<?php echo $iti->agent_id; ?>" id="send_price_request"
-                            title="Sent Price request for manager">Sent Price Request To Manager</a>
+                <!--Request manager to add price to itinerary get_iti_booking_status == rejected iti-->
+                <?php if( $user_role == 96 && ($iti->pending_price == "1" || $iti->pending_price == "4" || $iti->pending_price == "5" ) ){ ?>
+                <p class="text-center"><strong class="alert alert-info">Waiting for price update from
+                        manager..</strong>
+                </p>
+                <?php }else if( $user_role == 96 && ( $iti->pending_price == "0" || (  $iti->iti_status == 6 && get_iti_booking_status( $iti->	iti_id ) == 3 )  ) ) { ?>
+                <p class="text-center">
+                    <!--a class="btn btn-success" data-iti_id="<?php echo $iti->iti_id; ?>" data-temp_key="<?php echo $iti->temp_key; ?>" href="#" data-agent_id="<?php echo $iti->agent_id; ?>" id="send_price_request" title="Sent Price request for manager">Sent Price Request To Manager</a-->
+                    <a class="btn btn-success" data-iti_id="<?php echo $iti->iti_id; ?>"
+                        data-temp_key="<?php echo $iti->temp_key; ?>" href="#"
+                        data-agent_id="<?php echo $iti->agent_id; ?>" id="send_price_request"
+                        title="Sent Price request for manager">Sent Price Request To Manager</a>
 
+            </div>
+
+            <div class="modal fade" id="price_req_modal" role="dialog">
+                <div class="modal-dialog modal-lg2">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Request For Update Price</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form id="frm_price_req_modal">
+                                <div class="form-group">
+                                    <div class="radio">
+                                        <label><input type="radio" class='' required name="send_request_to"
+                                                value='1'>Request To Manager</label>
+                                    </div>
+                                    <div class="radio">
+                                        <label><input type="radio" class='' required name="send_request_to"
+                                                value='2'>Request To Teamleader</label>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="iti_id" value="<?php echo $iti->iti_id; ?>">
+                                <input type="hidden" name="temp_key" value="<?php echo $iti->temp_key; ?>">
+                                <input type="hidden" name="agent_id" value="<?php echo $iti->agent_id; ?>">
+                                <button type="submit" id="reqDis_btnd" class="btn btn-default">Send</button>
+                                <div id="fpriceRes"></div>
+                            </form>
+                        </div>
+                        <!--div class="modal-footer">
+                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                           </div-->
+                    </div>
                 </div>
-
-                <div class="modal fade" id="price_req_modal" role="dialog">
+            </div>
+            </p>
+            <div id="price_req"></div>
+            <?php } ?>
+            <!--End Request manager to add price to itinerary -->
+            <!--Edit itinerary button if iti_status is zero status 6= rejected itinerary -->
+            <?php if( ( $iti->iti_status == 0 || $iti->iti_status == 6 ) && is_admin_or_manager_or_sales() ){ ?>
+            <a title='Edit Itinerary'
+                href=" <?php echo site_url("itineraries/edit/{$iti->iti_id}/{$iti->temp_key}") ; ?> "
+                class='btn_pencil pull-right'><i class='fa fa-pencil' aria-hidden='true'></i>Edit</a>
+            <?php } ?>
+            <!--Sent Itinerary To Customer-->
+            <?php if( is_admin_or_manager_or_sales() && $iti->publish_status == "publish" ) { ?>
+            <div class="form-group col-md-12 margin-top-30">
+                <input type="hidden" name="iti_id" value="<?php echo $iti->iti_id; ?>" id="iti_send_id">
+                <input type="hidden" name="temp_key" value="<?php echo $iti->temp_key; ?>" id="iti_send_key">
+                <a href="<?php echo site_url("itineraries"); ?>" class="btn green uppercase iti_back"
+                    title="Back">Back</a>
+                <!-- Request For Update Price -->
+                <?php if( $user_role == 96 && !empty( $get_rate_meta ) && $iti->email_count > 0 && $iti->discount_rate_request == 0 && $iti->iti_status == 0 && $countPrice < 6 ){ ?>
+                <span class="btn btn-green reqPrice_update" title="Request For Update Price">Request Manager To
+                    Update Price</span>
+                <!-- Modal Discount Price itinerary-->
+                <!-- The Modal -->
+                <div class="modal fade" id="update_priceModal" role="dialog">
                     <div class="modal-dialog modal-lg2">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Request For Update Price</h4>
+                                <h4 class="modal-title">Request for discount price</h4>
                             </div>
                             <div class="modal-body">
-                                <form id="frm_price_req_modal">
+                                <form id="reqPriceForm">
                                     <div class="form-group">
+                                        <div class="checkbox">
+                                            <label for="email">Please Select Hotel Category for price
+                                                discount</label><br>
+                                            <label><input name="hotel_cat_dis[]" required type="checkbox"
+                                                    value="Standard"> <span class="cr"><i
+                                                        class="cr-icon glyphicon glyphicon-ok"></i></span><strong>Deluxe</strong></label><br>
+                                            <label><input name="hotel_cat_dis[]" required type="checkbox"
+                                                    value="Deluxe"> <span class="cr"><i
+                                                        class="cr-icon glyphicon glyphicon-ok"></i></span><strong>Super
+                                                    Deluxe</strong></label><br>
+                                            <label><input name="hotel_cat_dis[]" required type="checkbox"
+                                                    value="Super Deluxe"> <span class="cr"><i
+                                                        class="cr-icon glyphicon glyphicon-ok"></i></span><strong>Luxury</strong></label><br>
+                                            <label><input type="checkbox" required name="hotel_cat_dis[]"
+                                                    value="Luxury"> <span class="cr"><i
+                                                        class="cr-icon glyphicon glyphicon-ok"></i></span><strong>Super
+                                                    Luxury</strong></label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ce"><strong>Request To : </strong></label><br>
                                         <div class="radio">
                                             <label><input type="radio" class='' required name="send_request_to"
                                                     value='1'>Request To Manager</label>
@@ -2557,341 +2650,263 @@
                                     <input type="hidden" name="iti_id" value="<?php echo $iti->iti_id; ?>">
                                     <input type="hidden" name="temp_key" value="<?php echo $iti->temp_key; ?>">
                                     <input type="hidden" name="agent_id" value="<?php echo $iti->agent_id; ?>">
-                                    <button type="submit" id="reqDis_btnd" class="btn btn-default">Send</button>
-                                    <div id="fpriceRes"></div>
+                                    <button type="submit" id="reqDis_btn" class="btn btn-default">Send</button>
+                                    <div id="priceRes"></div>
                                 </form>
                             </div>
                             <!--div class="modal-footer">
-                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                           </div-->
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              </div-->
                         </div>
                     </div>
                 </div>
-                </p>
-                <div id="price_req"></div>
-                <?php } ?>
-                <!--End Request manager to add price to itinerary -->
-                <!--Edit itinerary button if iti_status is zero status 6= rejected itinerary -->
-                <?php if( ( $iti->iti_status == 0 || $iti->iti_status == 6 ) && is_admin_or_manager_or_sales() ){ ?>
-                <a title='Edit Itinerary'
-                    href=" <?php echo site_url("itineraries/edit/{$iti->iti_id}/{$iti->temp_key}") ; ?> "
-                    class='btn btn-success pull-right'><i class='fa fa-pencil' aria-hidden='true'></i></a>
-                <?php } ?>
-                <!--Sent Itinerary To Customer-->
-                <?php if( is_admin_or_manager_or_sales() && $iti->publish_status == "publish" ) { ?>
-                <div class="form-group col-md-12 margin-top-30">
-                    <input type="hidden" name="iti_id" value="<?php echo $iti->iti_id; ?>" id="iti_send_id">
-                    <input type="hidden" name="temp_key" value="<?php echo $iti->temp_key; ?>" id="iti_send_key">
-                    <a href="<?php echo site_url("itineraries"); ?>" class="btn green uppercase iti_back"
-                        title="Back">Back</a>
-                    <!-- Request For Update Price -->
-                    <?php if( $user_role == 96 && !empty( $get_rate_meta ) && $iti->email_count > 0 && $iti->discount_rate_request == 0 && $iti->iti_status == 0 && $countPrice < 6 ){ ?>
-                    <span class="btn btn-green reqPrice_update" title="Request For Update Price">Request Manager To
-                        Update Price</span>
-                    <!-- Modal Discount Price itinerary-->
-                    <!-- The Modal -->
-                    <div class="modal fade" id="update_priceModal" role="dialog">
-                        <div class="modal-dialog modal-lg2">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Request for discount price</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <form id="reqPriceForm">
-                                        <div class="form-group">
-                                            <div class="checkbox">
-                                                <label for="email">Please Select Hotel Category for price
-                                                    discount</label><br>
-                                                <label><input name="hotel_cat_dis[]" required type="checkbox"
-                                                        value="Standard"> <span class="cr"><i
-                                                            class="cr-icon glyphicon glyphicon-ok"></i></span><strong>Deluxe</strong></label><br>
-                                                <label><input name="hotel_cat_dis[]" required type="checkbox"
-                                                        value="Deluxe"> <span class="cr"><i
-                                                            class="cr-icon glyphicon glyphicon-ok"></i></span><strong>Super
-                                                        Deluxe</strong></label><br>
-                                                <label><input name="hotel_cat_dis[]" required type="checkbox"
-                                                        value="Super Deluxe"> <span class="cr"><i
-                                                            class="cr-icon glyphicon glyphicon-ok"></i></span><strong>Luxury</strong></label><br>
-                                                <label><input type="checkbox" required name="hotel_cat_dis[]"
-                                                        value="Luxury"> <span class="cr"><i
-                                                            class="cr-icon glyphicon glyphicon-ok"></i></span><strong>Super
-                                                        Luxury</strong></label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="ce"><strong>Request To : </strong></label><br>
-                                            <div class="radio">
-                                                <label><input type="radio" class='' required name="send_request_to"
-                                                        value='1'>Request To Manager</label>
-                                            </div>
-                                            <div class="radio">
-                                                <label><input type="radio" class='' required name="send_request_to"
-                                                        value='2'>Request To Teamleader</label>
-                                            </div>
-                                        </div>
-                                        <input type="hidden" name="iti_id" value="<?php echo $iti->iti_id; ?>">
-                                        <input type="hidden" name="temp_key" value="<?php echo $iti->temp_key; ?>">
-                                        <input type="hidden" name="agent_id" value="<?php echo $iti->agent_id; ?>">
-                                        <button type="submit" id="reqDis_btn" class="btn btn-default">Send</button>
-                                        <div id="priceRes"></div>
-                                    </form>
-                                </div>
-                                <!--div class="modal-footer">
-                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                              </div-->
-                            </div>
-                        </div>
-                    </div>
-                    <?php }else if( ($iti->discount_rate_request == 1 || $iti->discount_rate_request == 3 ) && $user_role == 96  ){
+                <?php }else if( ($iti->discount_rate_request == 1 || $iti->discount_rate_request == 3 ) && $user_role == 96  ){
                      echo "<div class='alert alert-info text-center red'><td  colspan=5 class='red'>Awaiting price discount from manager.</td></div>";  
                      }else if( $iti->discount_rate_request == 2 ){
                      echo "<div class='alert alert-info text-center red'><td  colspan=5 class='red'>Awaiting discount price approval from Super Manager.</td></div>";
                      } ?>
-                    <!-- End Request For Update Price -->
-                    <!--Sent itinerary section -->
-                    <?php  
+                <!-- End Request For Update Price -->
+                <!--Sent itinerary section -->
+                <?php  
                      $iti_sent_counter = $iti->email_count; ?>
-                    <?php echo "<div class=' btn btn-info pull-right'>Itinerary Sent " . $iti_sent_counter . " Times.</div>"; ?>
-                    <?php if( $iti->iti_status == 0 && $iti->pending_price == 2 ){  ?>
-                    <a href="#" class="btn green uppercase pull-right" id="iti_send">Send</a>
-                    <!-- Modal sent itinerary-->
-                    <div class="modal fade" id="sendItiModal" role="dialog">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Send Itinerary</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <form id="sentItiForm">
-                                        <div class="frm_section">
-                                            <!--loader-->
-                                            <div class="spinner_load" style="display: none;">
-                                                <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
-                                                <span class="sr-only">Loading...</span>
-                                            </div>
-                                            <!--end loader-->
-                                            <div class="form-group">
-                                                <label for="email">Customer Email:</label>
-                                                <input required type="email" readonly
-                                                    value="<?php echo $customer_email; ?>" class="form-control"
-                                                    id="email" placeholder="Enter customer email" name="cus_email">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="sub">Subject:</label>
-                                                <input type="text" required class="form-control" id="sub"
-                                                    placeholder="Final confirmation Mail" name="subject" value="">
-                                            </div>
-                                            <div class="clearfix"></div>
-                                            <!--CC Email Address-->
-                                            <div class="form-group col-md-6">
-                                                <label for="cc_email">CC Email:</label>
-                                                <input type="text" value="" class="form-control" id="cc_email"
-                                                    placeholder="Enter CC Email.eg. admin@trackitinerary.org"
-                                                    name="cc_email">
-                                            </div>
-                                            <!--BCC Email Address-->
-                                            <div class="form-group col-md-6">
-                                                <label for="bcc_email">BCC Email:</label>
-                                                <input type="text" value="" class="form-control" id="bcc_email"
-                                                    placeholder="Enter BCC email eg. manager@trackitinerary.org"
-                                                    name="bcc_email">
-                                            </div>
-                                            <div class="clearfix"></div>
-                                            <div class="form-group col-md-6">
-                                                <label for="pwd">Contact Number:</label>
-                                                <input type="text" readonly value="<?php echo $customer_contact; ?>"
-                                                    class="form-control" id="pwd" placeholder="Enter Contact Number"
-                                                    name="contact_number">
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="cn">Additional Contact Number:</label>
-                                                <input type="text" value="" class="form-control" id="cn"
-                                                    placeholder="Enter Contact Number(Admin/Manager).Not Required"
-                                                    name="add_contact_number">
-                                            </div>
-                                            <div class="clearfix"></div>
-                                            <div class="col-md-6">
-                                                <label for="inp_inc_prices">Rate Comment*:</label>
-                                                <textarea required class="form-control"
-                                                    name="rate_comment"><?php echo isset($iti->rate_comment) ? $iti->rate_comment : ""; ?></textarea>
-                                            </div>
-                                            <!--div class="clearfix"></div-->
-                                            <?php
+                <?php echo "<div class=' btn btn-info pull-right'>Itinerary Sent " . $iti_sent_counter . " Times.</div>"; ?>
+                <?php if( $iti->iti_status == 0 && $iti->pending_price == 2 ){  ?>
+                <a href="#" class="btn green uppercase pull-right" id="iti_send">Send</a>
+                <!-- Modal sent itinerary-->
+                <div class="modal fade" id="sendItiModal" role="dialog">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Send Itinerary</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form id="sentItiForm">
+                                    <div class="frm_section">
+                                        <!--loader-->
+                                        <div class="spinner_load" style="display: none;">
+                                            <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+                                            <span class="sr-only">Loading...</span>
+                                        </div>
+                                        <!--end loader-->
+                                        <div class="form-group">
+                                            <label for="email">Customer Email:</label>
+                                            <input required type="email" readonly value="<?php echo $customer_email; ?>"
+                                                class="form-control" id="email" placeholder="Enter customer email"
+                                                name="cus_email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="sub">Subject:</label>
+                                            <input type="text" required class="form-control" id="sub"
+                                                placeholder="Final confirmation Mail" name="subject" value="">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <!--CC Email Address-->
+                                        <div class="form-group col-md-6">
+                                            <label for="cc_email">CC Email:</label>
+                                            <input type="text" value="" class="form-control" id="cc_email"
+                                                placeholder="Enter CC Email.eg. admin@trackitinerary.org"
+                                                name="cc_email">
+                                        </div>
+                                        <!--BCC Email Address-->
+                                        <div class="form-group col-md-6">
+                                            <label for="bcc_email">BCC Email:</label>
+                                            <input type="text" value="" class="form-control" id="bcc_email"
+                                                placeholder="Enter BCC email eg. manager@trackitinerary.org"
+                                                name="bcc_email">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="form-group col-md-6">
+                                            <label for="pwd">Contact Number:</label>
+                                            <input type="text" readonly value="<?php echo $customer_contact; ?>"
+                                                class="form-control" id="pwd" placeholder="Enter Contact Number"
+                                                name="contact_number">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="cn">Additional Contact Number:</label>
+                                            <input type="text" value="" class="form-control" id="cn"
+                                                placeholder="Enter Contact Number(Admin/Manager).Not Required"
+                                                name="add_contact_number">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-md-6">
+                                            <label for="inp_inc_prices">Rate Comment*:</label>
+                                            <textarea required class="form-control"
+                                                name="rate_comment"><?php echo isset($iti->rate_comment) ? $iti->rate_comment : ""; ?></textarea>
+                                        </div>
+                                        <!--div class="clearfix"></div-->
+                                        <?php
                                        $dis_arr = isset($discountPriceData) && !empty($discountPriceData) ? end($discountPriceData) : array();
                                        $old_per = isset($dis_arr->agent_price) ? $dis_arr->agent_price : $iti->agent_price;
                                        ?>
-                                            <!--hide if discount data exists-->
-                                            <?php if( empty($dis_arr) && $iti->iti_package_type !== "Fixed Departure" ){ 
+                                        <!--hide if discount data exists-->
+                                        <?php if( empty($dis_arr) && $iti->iti_package_type !== "Fixed Departure" ){ 
                                        /*
                                        ?>
-                                            <div class="col-md-6">
-                                                <label for="inp_inc_price">Add Margin In Base Price (%):</label>
-                                                <select id="inp_inc_price" class="form-control"
-                                                    data-old_percentage="<?php echo !empty($old_per) ? $old_per : 0; ?>"
-                                                    name="agnem" required>
-                                                    <option value="">Select Margin</option>
-                                                    <?php for($bp = 2 ; $bp<=20 ; $bp++ ){
+                                        <div class="col-md-6">
+                                            <label for="inp_inc_price">Add Margin In Base Price (%):</label>
+                                            <select id="inp_inc_price" class="form-control"
+                                                data-old_percentage="<?php echo !empty($old_per) ? $old_per : 0; ?>"
+                                                name="agnem" required>
+                                                <option value="">Select Margin</option>
+                                                <?php for($bp = 2 ; $bp<=20 ; $bp++ ){
                                              echo "<option value={$bp}>{$bp}%</option>";
                                              } ?>
-                                                </select>
-                                            </div>
-                                            */
-                                            ?>
-                                            <?php /* ?>
-                                            <div class="form-group col-md-12">
-                                                <label for="incPriceByAgent">Add Margin In Base Price
-                                                    <input type='checkbox' id='incPriceByAgent' required name="chkmarg"
-                                                        class='form-control'>
-                                                </label>
-                                                <div class="clearfix"></div>
-                                                <div class="showonPchange">
-                                                    <div class="col-md-6">
-                                                        <label for="inp_inc_price">Increase Price (%):</label>
-                                                        <select name="inp_inc_price" id="inp_inc_price"
-                                                            class="form-control"
-                                                            data-old_percentage="<?php echo !empty($old_per) ? $old_per : 0; ?>">
-                                                            <!--option value="0">No Margin</option-->
-                                                            <?php for($bp = 10 ; $bp<=100 ; $bp++ ){
+                                            </select>
+                                        </div>
+                                        */
+                                        ?>
+                                        <?php /* ?>
+                                        <div class="form-group col-md-12">
+                                            <label for="incPriceByAgent">Add Margin In Base Price
+                                                <input type='checkbox' id='incPriceByAgent' required name="chkmarg"
+                                                    class='form-control'>
+                                            </label>
+                                            <div class="clearfix"></div>
+                                            <div class="showonPchange">
+                                                <div class="col-md-6">
+                                                    <label for="inp_inc_price">Increase Price (%):</label>
+                                                    <select name="inp_inc_price" id="inp_inc_price" class="form-control"
+                                                        data-old_percentage="<?php echo !empty($old_per) ? $old_per : 0; ?>">
+                                                        <!--option value="0">No Margin</option-->
+                                                        <?php for($bp = 10 ; $bp<=100 ; $bp++ ){
                                                    echo "<option value={$bp}>{$bp}%</option>";
                                                    } ?>
-                                                        </select>
-                                                    </div>
+                                                    </select>
                                                 </div>
                                             </div>
-                                            */ ?>
-                                            <?php } ?>
-                                            <div class="table-responsive showonPchange1 col-md-12" id='a_price_table'>
-                                                <table class="table table-striped table-hover">
-                                                    <thead class="thead-default">
-                                                        <tr>
-                                                            <p class="text-center"><strong
-                                                                    style="color: red; font-size: 22px;">Price</strong>
-                                                            </p>
-                                                        </tr>
-                                                        <tr>
-                                                            <th> Deluxe</th>
-                                                            <th> Super Deluxe</th>
-                                                            <th> Luxury</th>
-                                                            <th> Super Luxury</th>
-                                                            <th> Agent Margin (%) </th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <?php if( isset( $dis_arr ) && !empty($dis_arr) ){ ?>
-                                                        <?php $inc_in = $dis_arr->id; 
-                                                //update itinerary_discount_price_data table ?>
-                                                        <tr>
-                                                            <td><?php echo !empty($dis_arr->standard_rates) ? "<strong class='s_base_price'>" . $dis_arr->standard_rates . "/-</strong>" : '--'; ?>
-                                                            </td>
-                                                            <td><?php echo !empty($dis_arr->deluxe_rates) ? "<strong class='d_base_price'>" . $dis_arr->deluxe_rates . "/-</strong>" : '--'; ?>
-                                                            </td>
-                                                            <td><?php echo !empty($dis_arr->super_deluxe_rates) ? "<strong class='sd_base_price'>" . $dis_arr->super_deluxe_rates . "/-</strong>" : '--'; ?>
-                                                            </td>
-                                                            <td><?php echo !empty($dis_arr->luxury_rates) ? "<strong class='l_base_price'>" . $dis_arr->luxury_rates . "/-</strong>" : '--'; ?>
-                                                            </td>
-                                                            <td> <?php echo $dis_arr->agent_price; ?>%</td>
-                                                        </tr>
-                                                        <?php }else{ ?>
-                                                        <?php $inc_in = 0; // update iti table ?>
-                                                        <tr>
-                                                            <td><?php echo isset( $get_rate_meta["standard_rates"] ) && !empty($get_rate_meta["standard_rates"]) ?  "<strong class='s_base_price'>" . $get_rate_meta["standard_rates"] . "/-</strong>" : '--'; ?>
-                                                            </td>
-                                                            <td><?php echo isset( $get_rate_meta["deluxe_rates"] ) ? "<strong class='d_base_price'>" . $get_rate_meta["deluxe_rates"] . "/-</strong>" : '--'; ?>
-                                                            </td>
-                                                            <td><?php echo isset($get_rate_meta["super_deluxe_rates"]) ? "<strong class='sd_base_price'>" . $get_rate_meta["super_deluxe_rates"] . "/-</strong>" : '--'; ?>
-                                                            </td>
-                                                            <td><?php echo isset( $get_rate_meta["luxury_rates"] ) ? "<strong class='l_base_price'>" . $get_rate_meta["luxury_rates"] . "/-</strong>" : '--'; ?>
-                                                            </td>
-                                                            <td> <?php echo $iti->agent_price; ?>%</td>
-                                                        </tr>
-                                                        <?php } ?>
-                                                        <tr class="new_pricesend2">
-                                                            <td><strong class='ns_base_price empty_this'></strong>
-                                                            </td>
-                                                            <td><strong class='nd_base_price empty_this'></strong>
-                                                            </td>
-                                                            <td><strong class='nsd_base_price empty_this'></strong>
-                                                            </td>
-                                                            <td><strong class='nl_base_price empty_this'></strong>
-                                                            </td>
-                                                            <td><strong class="newPer empty_this"></strong> </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <div class="clearfix"></div>
                                         </div>
-                                        <hr>
-                                        <input type="hidden" id="inp_inc_priceText"
-                                            value="<?php echo !empty($old_per) ? $old_per : 0; ?>" name="inp_inc_price">
-                                        <input type="hidden" name="price_update_in" value="<?php echo $inc_in; ?>">
-                                        <input type="hidden" name="iti_id" value="<?php echo $iti->iti_id; ?>">
-                                        <input type="hidden" name="temp_key" value="<?php echo $iti->temp_key; ?>">
-                                        <button type="submit" id="sentIti_btn" class="btn btn-success">Send
-                                            Itinerary</button>
-                                        <div id="mailSentResponse" class="sam_res"></div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                </div>
+                                        */ ?>
+                                        <?php } ?>
+                                        <div class="table-responsive showonPchange1 col-md-12" id='a_price_table'>
+                                            <table class="table table-striped table-hover">
+                                                <thead class="thead-default">
+                                                    <tr>
+                                                        <p class="text-center"><strong
+                                                                style="color: red; font-size: 22px;">Price</strong>
+                                                        </p>
+                                                    </tr>
+                                                    <tr>
+                                                        <th> Deluxe</th>
+                                                        <th> Super Deluxe</th>
+                                                        <th> Luxury</th>
+                                                        <th> Super Luxury</th>
+                                                        <th> Agent Margin (%) </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php if( isset( $dis_arr ) && !empty($dis_arr) ){ ?>
+                                                    <?php $inc_in = $dis_arr->id; 
+                                                //update itinerary_discount_price_data table ?>
+                                                    <tr>
+                                                        <td><?php echo !empty($dis_arr->standard_rates) ? "<strong class='s_base_price'>" . $dis_arr->standard_rates . "/-</strong>" : '--'; ?>
+                                                        </td>
+                                                        <td><?php echo !empty($dis_arr->deluxe_rates) ? "<strong class='d_base_price'>" . $dis_arr->deluxe_rates . "/-</strong>" : '--'; ?>
+                                                        </td>
+                                                        <td><?php echo !empty($dis_arr->super_deluxe_rates) ? "<strong class='sd_base_price'>" . $dis_arr->super_deluxe_rates . "/-</strong>" : '--'; ?>
+                                                        </td>
+                                                        <td><?php echo !empty($dis_arr->luxury_rates) ? "<strong class='l_base_price'>" . $dis_arr->luxury_rates . "/-</strong>" : '--'; ?>
+                                                        </td>
+                                                        <td> <?php echo $dis_arr->agent_price; ?>%</td>
+                                                    </tr>
+                                                    <?php }else{ ?>
+                                                    <?php $inc_in = 0; // update iti table ?>
+                                                    <tr>
+                                                        <td><?php echo isset( $get_rate_meta["standard_rates"] ) && !empty($get_rate_meta["standard_rates"]) ?  "<strong class='s_base_price'>" . $get_rate_meta["standard_rates"] . "/-</strong>" : '--'; ?>
+                                                        </td>
+                                                        <td><?php echo isset( $get_rate_meta["deluxe_rates"] ) ? "<strong class='d_base_price'>" . $get_rate_meta["deluxe_rates"] . "/-</strong>" : '--'; ?>
+                                                        </td>
+                                                        <td><?php echo isset($get_rate_meta["super_deluxe_rates"]) ? "<strong class='sd_base_price'>" . $get_rate_meta["super_deluxe_rates"] . "/-</strong>" : '--'; ?>
+                                                        </td>
+                                                        <td><?php echo isset( $get_rate_meta["luxury_rates"] ) ? "<strong class='l_base_price'>" . $get_rate_meta["luxury_rates"] . "/-</strong>" : '--'; ?>
+                                                        </td>
+                                                        <td> <?php echo $iti->agent_price; ?>%</td>
+                                                    </tr>
+                                                    <?php } ?>
+                                                    <tr class="new_pricesend2">
+                                                        <td><strong class='ns_base_price empty_this'></strong>
+                                                        </td>
+                                                        <td><strong class='nd_base_price empty_this'></strong>
+                                                        </td>
+                                                        <td><strong class='nsd_base_price empty_this'></strong>
+                                                        </td>
+                                                        <td><strong class='nl_base_price empty_this'></strong>
+                                                        </td>
+                                                        <td><strong class="newPer empty_this"></strong> </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <hr>
+                                    <input type="hidden" id="inp_inc_priceText"
+                                        value="<?php echo !empty($old_per) ? $old_per : 0; ?>" name="inp_inc_price">
+                                    <input type="hidden" name="price_update_in" value="<?php echo $inc_in; ?>">
+                                    <input type="hidden" name="iti_id" value="<?php echo $iti->iti_id; ?>">
+                                    <input type="hidden" name="temp_key" value="<?php echo $iti->temp_key; ?>">
+                                    <button type="submit" id="sentIti_btn" class="btn btn-success">Send
+                                        Itinerary</button>
+                                    <div id="mailSentResponse" class="sam_res"></div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
                 </div>
                 <?php } ?>
-                <div class="clearfix"></div>
-                <!--Comments Section -->
-                <div id="UpdatePanel1">
-                    <div class="modal-body">
-                        <?php if( $iti->iti_status == 0 && $iti->email_count > 0 && $iti->publish_status == "publish" ){ ?>
-                        <div class="contactForm">
-                            <form id="confirmForm">
-                                <h3>Enter Your Comment For Client</h3>
-                                <div class="form-group feedback">
-                                    <textarea required placeholder="Please Enter comment here...." rows="4" cols="20"
-                                        name="client_comment" class="form-control client_textarea" /></textarea>
-                                </div>
-                                <input type="hidden" name="iti_id" value="<?php echo $iti->iti_id; ?>">
-                                <input type="hidden" name="temp_key" value="<?php echo $iti->temp_key; ?>">
-                                <input type="hidden" name="sec_key" id="sec_key" value="<?php echo $sec_key; ?>">
-                                <input type="hidden" name="agent_id" id="agent_id"
-                                    value="<?php echo $iti->agent_id; ?>">
-                                <input type="hidden" name="customer_id" id="customer_id"
-                                    value="<?php echo $iti->customer_id; ?>">
-                                <div class="form-group col-md-12 row">
-                                    <button id="LinkButton1" type="submit"
-                                        class="btn green uppercase app_iti">Submit</button>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="response"></div>
-                            </form>
-                        </div>
-                        <?php } ?>
-                        <!--comments section-->
-                        <div id="comments">
-                            <?php if( !empty( $comments ) ){ ?>
-                            <div class="old-comments">
-                                <?php foreach( $comments as $comment ){ ?>
-                                <div class="well well-sm">
-                                    <?php $comment_by = empty( $comment->agent_id ) || $comment->agent_id == 0  ? "<span class='cc_cmt'>Comment by Client:</span>" : "<span class='r_cmt'>Comment by you:</span>"; ?>
-                                    <strong><?php echo $comment_by; ?></strong>
-                                    <p><?php echo $comment->comment_content; ?></p>
-                                    <p>Date: <?php echo $comment->created; ?></p>
-                                </div>
-                                <?php } ?>
+            </div>
+            <?php } ?>
+            <div class="clearfix"></div>
+            <!--Comments Section -->
+            <div id="UpdatePanel1">
+                <div class="modal-body">
+                    <?php if( $iti->iti_status == 0 && $iti->email_count > 0 && $iti->publish_status == "publish" ){ ?>
+                    <div class="contactForm">
+                        <form id="confirmForm">
+                            <h3>Enter Your Comment For Client</h3>
+                            <div class="form-group feedback">
+                                <textarea required placeholder="Please Enter comment here...." rows="4" cols="20"
+                                    name="client_comment" class="form-control client_textarea" /></textarea>
+                            </div>
+                            <input type="hidden" name="iti_id" value="<?php echo $iti->iti_id; ?>">
+                            <input type="hidden" name="temp_key" value="<?php echo $iti->temp_key; ?>">
+                            <input type="hidden" name="sec_key" id="sec_key" value="<?php echo $sec_key; ?>">
+                            <input type="hidden" name="agent_id" id="agent_id" value="<?php echo $iti->agent_id; ?>">
+                            <input type="hidden" name="customer_id" id="customer_id"
+                                value="<?php echo $iti->customer_id; ?>">
+                            <div class="form-group col-md-12 row">
+                                <button id="LinkButton1" type="submit"
+                                    class="btn green uppercase app_iti">Submit</button>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="response"></div>
+                        </form>
+                    </div>
+                    <?php } ?>
+                    <!--comments section-->
+                    <div id="comments">
+                        <?php if( !empty( $comments ) ){ ?>
+                        <div class="old-comments">
+                            <?php foreach( $comments as $comment ){ ?>
+                            <div class="well well-sm">
+                                <?php $comment_by = empty( $comment->agent_id ) || $comment->agent_id == 0  ? "<span class='cc_cmt'>Comment by Client:</span>" : "<span class='r_cmt'>Comment by you:</span>"; ?>
+                                <strong><?php echo $comment_by; ?></strong>
+                                <p><?php echo $comment->comment_content; ?></p>
+                                <p>Date: <?php echo $comment->created; ?></p>
                             </div>
                             <?php } ?>
                         </div>
-                        <!--End comments section-->
+                        <?php } ?>
                     </div>
+                    <!--End comments section-->
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 <!-- END CONTENT BODY -->
 </div>

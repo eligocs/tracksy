@@ -615,7 +615,7 @@ class Itineraries extends CI_Controller {
 					if( $iti->iti_type == 2 ){
 						$btn_view .= "<a data-customer_id='{$iti->customer_id}' data-iti_id='{$iti_id}' title='Duplicate Accommodation' href=" . site_url("itineraries/duplicate/{$iti_id}") . " class='btn btn-success child_clone' ><i class='fa fa-files-o' aria-hidden='true'></i></a>";
 					}else{
-						$btn_view .= "<a data-customer_id='{$iti->customer_id}' data-iti_id='{$iti_id}' title='Duplicate Itinerary' href=" . site_url(	"itineraries/duplicate/{$iti_id}") . " class='btn btn-success duplicateItiBtn' ><i class='fa fa-files-o' aria-hidden='true'></i></a>";
+						$btn_view .= "<a data-customer_id='{$iti->customer_id}' data-iti_id='{$iti_id}' title='Duplicate Itinerary' href=" . site_url(	"itineraries/duplicate/{$iti_id}") . " class='btn_duplicate duplicateItiBtn' ><i class='fa fa-files-o' aria-hidden='true'></i></a>";
 					}	
 				}	
 				
@@ -648,8 +648,10 @@ class Itineraries extends CI_Controller {
 						$st = "<span title='Itinerary Rejected' class='badge_danger_pill'>Rejected</span>";
 						$iti_s = "REJECTED";
 					}else{
-						$it_status = "<a title='working...' class='btn btn-success'><i class='fa fa-tasks' aria-hidden='true'></i></a>";
-						$st = "<i title='working...' class='fa fa-tasks' aria-hidden='true'></i>";
+						$it_status="";
+						$st="";
+						//$it_status = "<a title='working...' class='btn btn-success'><i class='fa fa-tasks' aria-hidden='true'></i></a>";
+						//$st = "<i title='working...' class='fa fa-tasks' aria-hidden='true'></i>";
 						
 						//$iti_s = empty( $iti->followup_id ) ? "NOT PROCESS" : "WORKING";
 						$iti_s = empty( is_iti_followup_exists( $iti->iti_id ) ) ? "NOT PROCESS" : "WORKING";

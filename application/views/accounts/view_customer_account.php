@@ -5,7 +5,7 @@
 			<div class="portlet box blue">
 				<div class="portlet-title">
 					<div class="caption"><i class="fa fa-users"></i>
-						<strong>Name: <span class="red"><?php echo $account_listing->customer_name; ?></span></strong>
+						<strong>Name: <span class=""><?php echo $account_listing->customer_name; ?></span></strong>
 					</div>
 					<a class="btn btn-success" href="<?php echo site_url("accounts/customeraccounts"); ?>" title="Back">Back</a>
 				</div>
@@ -13,72 +13,72 @@
 			<?php $message = $this->session->flashdata('success'); 
 				if($message){ echo '<span class="help-block help-block-success">'.$message.'</span>'; }
 			?>
-			<div class="portlet-body">
+			<div class="portlet-body custom_card">
 				<h3>Customer Details</h3>
 				<div class="table-responsive">	
-				<table class="table table-condensed table-hover">
+				<table class="table table-condensed table-hover table-bordered">
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Name: </strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Name: </strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><?php echo $account_listing->customer_name; ?></div></td>
 					</tr>
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Email: </strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Email: </strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><?php echo $account_listing->customer_email; ?></div></td>
 					</tr>	
 					
 				
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Mobile Number:</strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Mobile Number:</strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><?php echo $account_listing->customer_contact; ?></div></td>
 					</tr>
 					
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Alternate Number:</strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Alternate Number:</strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><strong><?php echo $account_listing->alternate_contact_number; ?></strong></div></td>
 					</tr>
 					
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Address:</strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Address:</strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><strong><?php echo $account_listing->address; ?></strong></div></td>
 					</tr>
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Country:</strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Country:</strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><strong><?php echo get_country_name($account_listing->country_id); ?></strong></div></td>
 					</tr>
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>State:</strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>State:</strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><strong><?php echo get_state_name($account_listing->state_id); ?></strong></div></td>
 					</tr>
 					
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl red"><strong>Place of Supply:</strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl red border_right_none"><strong>Place of Supply:</strong></div></td>	
 						<td><div class="col-mdd-10 form_vr red"><strong><?php echo get_state_name($account_listing->place_of_supply_state_id); ?></strong></div></td>
 					</tr>
 					
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl red"><strong>Client GST:</strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl red border_right_none"><strong>Client GST:</strong></div></td>	
 						<td><div class="col-mdd-10 form_vr red"><strong><?php echo $account_listing->client_gst; ?></strong></div></td>
 					</tr>
 					
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Remarks:</strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Remarks:</strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><strong><?php echo $account_listing->remarks; ?></strong></div></td>
 					</tr>
 					
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Status:</strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Status:</strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><strong><?php echo $account_listing->status == 1 ? "Blacklist" : "Active"; ?></strong></div></td>
 					</tr>
 					
 					
 					
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Updated By:</strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Updated By:</strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><strong><?php echo get_user_name($account_listing->updated_by); ?></strong></div></td>
 					</tr>
 					
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Created:</strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Created:</strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><strong><?php echo $account_listing->created_at; ?></strong></div></td>
 					</tr>
 				</table>
@@ -143,8 +143,8 @@
 									<td> {$invoice->lead_id}</td>
 									<td> {$invoice->transfer_ref}</td>
 									<td> {$invoice->amount_received}</td>
-									<td><a target='_blank' href=" . site_url("accounts/update_receipt/{$invoice->id}") . " class='btn btn-success ajax_edit_hotel_table' title='Update Invoice' ><i class='fa fa-pencil'></i></a>
-									<a target='_blank' href=" . site_url("accounts/view_receipt/{$invoice->id}") . " class='btn btn-success' title='view' ><i class='fa fa-eye'></i></a></td>
+									<td><a target='_blank' href=" . site_url("accounts/update_receipt/{$invoice->id}") . " class='btn_pencil ajax_edit_hotel_table' title='Update Invoice' ><i class='fa fa-pencil'></i></a>
+									<a target='_blank' href=" . site_url("accounts/view_receipt/{$invoice->id}") . " class='btn_eye' title='view' ><i class='fa fa-eye'></i></a></td>
 								</tr>";
 								$i++; 
 							}

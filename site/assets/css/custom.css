@@ -1052,23 +1052,33 @@ section.well.details-package {
 
 
 h3.package-details-heading {
-    background: #2b3643;
-    color: #fff;
+    background: #eb3e79;
+    color: #ffffff;
     margin-bottom: 0;
     margin-top: 0;
     line-height: 200%;
     text-align: center;
+    position: relative;
+    width: 190px;
+    top: -29px;
+    left: -15px;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
 p.package-details-sub-heading {
     margin: 0 auto;
-    background: #d64635;
+    background: #5e72e4;
     text-align: center;
     font-size: 18px;
     color: #ffffff;
-
     line-height: 200%;
     margin-bottom: 6px;
+    position: relative;
+    width: 250px;
+    border-radius: 5px !important;
+    top: -40px;
+    margin-bottom: -16px;
 }
 
 /* For Firefox */
@@ -1279,7 +1289,7 @@ form#itiForm_form .form-body {
 }
 
 .padding-0 {
-    padding: 0;
+    padding: 0 !important;
 }
 
 .getDashboardSection {
@@ -2026,7 +2036,7 @@ select.form-control {
 }
 
 .dashboard-stat .details .desc {
-    font-size: 18px;
+    font-size: 14px;
     width: 65%;
     float: left;
     text-align: left;
@@ -2747,6 +2757,11 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
     color: #f51414;
 }
 
+
+.btn_duplicate{
+    color: #2000ff;
+}
+
 .align_items_center {
     align-items: center !important;
 }
@@ -2815,7 +2830,7 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
 .itinerary-view .mt-step-title {
     padding: 0 !important;
     text-align: right !important;
-    font-size: 30px !important
+    font-size: 22px !important
 }
 
 .itinerary-view .itinerary_status {
@@ -2845,4 +2860,91 @@ hotelbooking-page .table>tbody>tr>td{
 .voucher_sign_sec{
     margin-left: 45px;
     margin-top: 40px;
+}
+
+.btn-group.flight_train_btns label {
+    margin: 0 15px;
+}
+
+.form_ft_caption {
+    background: #e0296a;
+    width: 150px;
+    text-align: center;
+    position: relative;
+    top: -20px;
+    z-index: 99999;
+    border-radius: 5px !important;
+}
+
+.overflow_visible{
+    overflow: visible !important;
+}
+
+.position_relative{
+    position: relative !important;
+}
+
+.margin_top_n40{
+    margin-top: -40px !important;
+}
+
+.btn_darkpink_outline{
+    color: #e0296a;
+    background-color: transparent;
+    border-color: #e0296a;
+}
+
+.section_customer_details{
+    min-height: 255px;
+}
+
+.form_ft_btns .btn-default {
+    background: transparent;
+    color: #e0296a;
+    font-weight: 700;
+    border-color: #e0296a;
+}
+
+
+.form_ft_btns  .btn-default.custom_active.active {
+    background: #5e72e4;
+    border-color: #5e72e4;
+}
+
+.form_ft_btns .btn-default:hover {
+    background: #eb3e79;
+    color: #fff;
+}
+
+.table tr td{
+    vertical-align: middle !important;
+}
+
+.custom_title {
+    width: fit-content;
+    margin: 0;
+    padding: 11px 10px !important;
+    border-radius: 5px !important;
+    font-size: 13px;
+    font-weight: 400;
+    position: relative;
+    top: -16px;
+    color: #fff !important;
+    /* background: linear-gradient(195deg,#8bc1f5,#7f8cda) !important; */
+    background: linear-gradient(195deg,#3b9ae7,#7d14dd) !important;
+}
+
+
+.padding_top_15{
+    padding-top: 15px !important;
+}
+
+thead.thead-default tr {
+    /* background: linear-gradient(11deg,#c6c7ca,#9da9fb) !important; */
+    background: #fdfdfd !important;
+}
+
+
+.margin-top-50{
+    margin-top: 50px !important;
 }

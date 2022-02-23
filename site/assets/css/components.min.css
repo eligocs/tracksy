@@ -3045,8 +3045,8 @@ li [class*=" fa-"].icon-large, li [class*=" glyphicon-"].icon-large, li [class*=
 
 .btn.green:not(.btn-outline) {
     color: #FFF;
-    background-color: #32c5d2;
-    border-color: #32c5d2
+    background-color: #5e72e4;
+    border-color: #5e72e4;
 }
 
 .btn.green:not(.btn-outline).focus, .btn.green:not(.btn-outline):focus {
@@ -3057,8 +3057,8 @@ li [class*=" fa-"].icon-large, li [class*=" glyphicon-"].icon-large, li [class*=
 
 .btn.green:not(.btn-outline).active, .btn.green:not(.btn-outline):active, .btn.green:not(.btn-outline):hover, .open>.btn.green:not(.btn-outline).dropdown-toggle {
     color: #FFF;
-    background-color: #26a1ab;
-    border-color: #2499a3
+    background-color: #5e72e4;
+    border-color: #5e72e4;
 }
 
 .btn.green:not(.btn-outline).active.focus, .btn.green:not(.btn-outline).active:focus, .btn.green:not(.btn-outline).active:hover, .btn.green:not(.btn-outline):active.focus, .btn.green:not(.btn-outline):active:focus, .btn.green:not(.btn-outline):active:hover, .open>.btn.green:not(.btn-outline).dropdown-toggle.focus, .open>.btn.green:not(.btn-outline).dropdown-toggle:focus, .open>.btn.green:not(.btn-outline).dropdown-toggle:hover {
@@ -13190,7 +13190,7 @@ body[ng-controller] .modal {
 .dashboard-stat .details .number {
     padding-top: 25px;
     text-align: right;
-    font-size: 34px;
+    font-size: 28px;
     line-height: 36px;
     letter-spacing: -1px;
     margin-bottom: 0;

@@ -5,9 +5,9 @@
             <div class="portlet box blue">
                 <div class="portlet-title">
                     <div class="caption"><i class="fa fa-users"></i>
-                        <strong>User Name: <span class="red"><?php echo $agent->user_name; ?></span></strong>
-                        <strong>Last Login: <span class="red"><?php echo $agent->last_login; ?></span></strong>
-                        <strong>Last Login Ip: <span class="red"><?php echo $agent->login_ip; ?></span></strong>
+                        <strong>User Name: <span class="text-white"><?php echo $agent->user_name; ?></span></strong>
+                        <strong>Last Login: <span class="text-white"><?php echo $agent->last_login; ?></span></strong>
+                        <strong>Last Login Ip: <span class="text-white"><?php echo $agent->login_ip; ?></span></strong>
                     </div>
                     <a class="btn btn-success" href="<?php echo site_url("agents"); ?>" title="Back">Back</a>
                 </div>

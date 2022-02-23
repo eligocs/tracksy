@@ -111,7 +111,7 @@
                             <!--End filter section-->
                             <?php }else{ ?>
                             <!--start filter section-->
-                            <form id="form-filter" class="form-horizontal marginRight <?php echo $hideClass; ?>">
+                            <form id="form-filter" class="form-horizontal  <?php echo $hideClass; ?>">
                                 <div class="actions custom_filter">
                                     <div class="row">
                                         <!--Calender-->

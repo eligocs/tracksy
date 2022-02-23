@@ -32,6 +32,7 @@
             <div class="portlet-title">
                <div class="caption"><i class="fa fa-users"></i>View Package ( State: <strong class=''> <?php echo get_state_name($pack->state_id); ?></strong> )</div>
                <a class="btn btn-success pull-right" href="<?php echo site_url("packages"); ?>" title="Back">Back</a>
+               <a title='Edit' href=" <?php echo site_url("packages/edit/{$pack->package_id}/{$pack->temp_key}") ; ?> " class='btn_pencil pull-right margin-top-15 margin-right-10' ><i class='fa fa-pencil' aria-hidden='true'></i></a>
             </div>
          </div>
          <div class="row second_custom_card">
@@ -354,10 +355,10 @@
             <hr>
             <div class="signature"><?php echo $signature; ?></div>
             <hr>
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-12 d-flex justify_content_between align_items_center">
                <a href="<?php echo site_url("packages"); ?>" class="btn green uppercase iti_back" title="Back">Back</a>
                <!--Edit itinerary button-->
-               <a title='Edit' href=" <?php echo site_url("packages/edit/{$pack->package_id}/{$pack->temp_key}") ; ?> " class='btn btn-success' ><i class='fa fa-pencil' aria-hidden='true'></i></a>
+               <a title='Edit' href=" <?php echo site_url("packages/edit/{$pack->package_id}/{$pack->temp_key}") ; ?> " class='btn_pencil' ><i class='fa fa-pencil' aria-hidden='true'></i>Edit</a>
             </div>
          </div>
       </div>

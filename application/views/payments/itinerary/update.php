@@ -182,11 +182,11 @@
                                     <strong>All Receipts</strong></p>
                             </tr>
                             <tr>
-                                <th> # </th>
-                                <th> Receipt Type </th>
-                                <th> Transfer Ref.</th>
-                                <th> Amount</th>
-                                <th> Action </th>
+                                <th class="text-white"> # </th>
+                                <th class="text-white"> Receipt Type </th>
+                                <th class="text-white"> Transfer Ref.</th>
+                                <th class="text-white"> Amount</th> class="text-white"
+                                <th class="text-white"> Action </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -224,14 +224,14 @@
                                         <strong>Payment Transactions</strong></p>
                                 </tr>
                                 <tr>
-                                    <th> Sr.No</th>
-                                    <th> Pay. Received</th>
-                                    <th> Pay. Refund</th>
-                                    <th> Date</th>
-                                    <th> Bank Name</th>
-                                    <th> Type</th>
-                                    <th> Agent</th>
-                                    <th> Action</th>
+                                    <th class="text-white"> Sr.No</th>
+                                    <th class="text-white"> Pay. Received</th>
+                                    <th class="text-white"> Pay. Refund</th>
+                                    <th class="text-white"> Date</th>
+                                    <th class="text-white"> Bank Name</th>
+                                    <th class="text-white"> Type</th>
+                                    <th class="text-white"> Agent</th>
+                                    <th class="text-white"> Action</th>
                                 </tr>
                             </thead>
                             <tbody>

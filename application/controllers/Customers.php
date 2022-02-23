@@ -435,7 +435,7 @@ class Customers extends CI_Controller {
 					
 					//reassign option if no-followUp
 					if( empty( $customer->cus_status ) &&  empty($customer->cus_last_followup_status) ){
-						$reassign ="<a class='btn btn-success' href=" . site_url("customers/edit/{$customer->customer_id}/{$customer->temp_key}") . " title='Reassign'><i class='fa fa-refresh' aria-hidden='true'></i> Reassign Lead</a>";
+						$reassign ="<a class='btn btn-success margin-top-10' href=" . site_url("customers/edit/{$customer->customer_id}/{$customer->temp_key}") . " title='Reassign'><i class='fa fa-refresh' aria-hidden='true'></i> Reassign Lead</a>";
 					}
 					
 					if( $customer->cus_status == 8 ){
