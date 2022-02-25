@@ -294,7 +294,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-4 col-lg-3"> 
+                    <div class="col-md-4 col-lg-3">
                         <div class="callCountBlock">
                             <a class="dashboard-stat dashboard-stat-v2 blue"
                                 href="<?php echo site_url("itineraries"). "/?todayStatus={$todAy}&leadStatus=QsentRevised&quotation=true"; ?>">
@@ -1394,12 +1394,27 @@
                         </div>
                         <!--End month full stats-->
                     </div> <!-- row -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="titile_section">
+                                <h3 class="col-lg-12">Total Target</h3>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-body analytics-info">
+                                            <div id="gauge" style="height: 400px"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div> <!-- portlet-body -->
             </div>
         </div>
     </div>
     <!---------------------------------End Todays Revised section ---------------------------->
     <div class="clearfix"></div>
+
 </div>
 </div>
 </div> <!-- portlet  close -->
