@@ -331,30 +331,27 @@
                         </div>
                     </div>
 
-                    <div class="table-responsive padding_top_15">
-
-                        
-                        <!--Show Volvo/Train/Flight booking if any-->
-                        <div class="portlet box blue">
-                            <div class="portlet-title">
-                                <div class="custom_title"><i class="fa fa-plane"></i> Volvo/Train/Flight Booking Details
-                                </div>
+                    <!--Show Volvo/Train/Flight booking if any-->
+                    <div class="portlet box blue">
+                        <div class="portlet-title">
+                            <div class="custom_title"><i class="fa fa-plane"></i> Volvo/Train/Flight Booking Details
                             </div>
-                            <div class="portlet-body ">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <thead class="thead-default">
-                                            <tr>
-                                                <th> Sr. </th>
-                                                <th> Type </th>
-                                                <th> Iti Id </th>
-                                                <th> Departure Date </th>
-                                                <th> Status </th>
-                                                <th> Action </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php 
+                        </div>
+                        <div class="portlet-body ">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="thead-default">
+                                        <tr>
+                                            <th> Sr. </th>
+                                            <th> Type </th>
+                                            <th> Iti Id </th>
+                                            <th> Departure Date </th>
+                                            <th> Status </th>
+                                            <th> Action </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php 
 												$continue_vtf = TRUE;
 												if( $vtf_bookings ){ 
 													$cv = 1;
@@ -369,54 +366,54 @@
 															$status = "<span class='blue'><i class='fa fa-refresh'></i> Processing</span>";
 														}
 														?>
-                                            <tr>
-                                                <td><?php echo $cv; ?></td>
-                                                <td><?php echo $vtf_book->booking_type; ?></td>
-                                                <td><?php echo $vtf_book->iti_id; ?></td>
-                                                <td><?php echo $vtf_book->dep_date; ?></td>
-                                                <td><?php echo $status; ?></td>
-                                                <td><a title='View'
-                                                        href="<?php echo site_url("vehiclesbooking/viewvehiclebooking/{$vtf_book->id}/{$vtf_book->iti_id}"); ?>"
-                                                        class='btn btn-success'><i class='fa fa-eye'
-                                                            aria-hidden='true'></i></a></td>
-                                            </tr>
-                                            <?php 
+                                        <tr>
+                                            <td><?php echo $cv; ?></td>
+                                            <td><?php echo $vtf_book->booking_type; ?></td>
+                                            <td><?php echo $vtf_book->iti_id; ?></td>
+                                            <td><?php echo $vtf_book->dep_date; ?></td>
+                                            <td><?php echo $status; ?></td>
+                                            <td><a title='View'
+                                                    href="<?php echo site_url("vehiclesbooking/viewvehiclebooking/{$vtf_book->id}/{$vtf_book->iti_id}"); ?>"
+                                                    class='btn btn-success'><i class='fa fa-eye'
+                                                        aria-hidden='true'></i></a></td>
+                                        </tr>
+                                        <?php 
 														$cv++;
 													} ?>
-                                            <?php }else{ ?>
-                                            <tr>
-                                                <td colspan="4">No Volvo/Train/Flight booking create against this
-                                                    itinerary.</td>
-                                            </tr>
-                                            <?php } ?>
-                                        </tbody>
-                                    </table>
-                                    <!--all vtf booking confirmation button -->
-                                </div>
+                                        <?php }else{ ?>
+                                        <tr>
+                                            <td colspan="4">No Volvo/Train/Flight booking create against this
+                                                itinerary.</td>
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                                <!--all vtf booking confirmation button -->
                             </div>
                         </div>
-                        <!--End Volvo/Train/Flight booking if any-->
-						
-                        <!--Show hotel booking if any-->
-                        <div class="portlet box blue">
-                            <div class="portlet-title">
-                                <div class="custom_title"><i class="fa fa-calendar"></i>  Hotel Booking Details</div>
-                            </div>
-                            <div class="portlet-body ">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <thead class="thead-default">
-                                            <tr>
-                                                <th>Sr.</th>
-                                                <th> City </th>
-                                                <th> Hotel Name </th>
-                                                <th> Sent Status </th>
-                                                <th> Status </th>
-                                                <th> Action </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php 
+                    </div>
+                    <!--End Volvo/Train/Flight booking if any-->
+
+                    <!--Show hotel booking if any-->
+                    <div class="portlet box blue">
+                        <div class="portlet-title">
+                            <div class="custom_title"><i class="fa fa-calendar"></i> Hotel Booking Details</div>
+                        </div>
+                        <div class="portlet-body ">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="thead-default">
+                                        <tr>
+                                            <th>Sr.</th>
+                                            <th> City </th>
+                                            <th> Hotel Name </th>
+                                            <th> Sent Status </th>
+                                            <th> Status </th>
+                                            <th> Action </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php 
 												$continue_hotel = true;
 												if( $hotel_bookings ){ 
 													$ch = 1;
@@ -434,95 +431,100 @@
 														}
 														?>
 
-                                            <tr>
-                                                <td><?php echo $ch; ?></td>
-                                                <td><?php echo get_city_name($h_book->city_id); ?></td>
-                                                <td><?php echo get_hotel_name($h_book->hotel_id); ?></td>
-                                                <td><?php echo $h_book->email_count . " Time Sent"; ?></td>
-                                                <td><?php echo $status; ?></td>
-                                                <td><a title='View'
-                                                        href="<?php echo site_url("hotelbooking/view/{$h_book->id}/{$h_book->iti_id}"); ?>"
-                                                        class='btn_eye'><i class='fa fa-eye' aria-hidden='true'></i></a>
-                                                </td>
-                                            </tr>
-                                            <?php 
+                                        <tr>
+                                            <td><?php echo $ch; ?></td>
+                                            <td><?php echo get_city_name($h_book->city_id); ?></td>
+                                            <td><?php echo get_hotel_name($h_book->hotel_id); ?></td>
+                                            <td><?php echo $h_book->email_count . " Time Sent"; ?></td>
+                                            <td><?php echo $status; ?></td>
+                                            <td><a title='View'
+                                                    href="<?php echo site_url("hotelbooking/view/{$h_book->id}/{$h_book->iti_id}"); ?>"
+                                                    class='btn_eye'><i class='fa fa-eye' aria-hidden='true'></i></a>
+                                            </td>
+                                        </tr>
+                                        <?php 
 														$ch++;
 													} ?>
-                                            <?php }else{ ?>
-                                            <tr>
-                                                <td colspan="5">No hotel booking create against this itinerary.</td>
-                                            </tr>
-                                            <?php } ?>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                        <?php }else{ ?>
+                                        <tr>
+                                            <td colspan="5">No hotel booking create against this itinerary.</td>
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                        <!--End hotel booking if any-->
-                        <!--BOOKING DETAILS -->
-                        <?php 
-							$hotel_booking_status 		= is_hotel_booking_done( $iti->iti_id );
-							$vtf_booking_status			= is_vtf_booking_done( $iti->iti_id );
-							$cab_booking_status			= is_cab_booking_done( $iti->iti_id );
-							$total_payment_recieved_percentage = get_iti_pay_receive_percentage( $iti->iti_id );
-							$is_voucher_confirm			 = is_voucher_confirm( $iti->iti_id );
-							
-							$pay_class 	=  $total_payment_recieved_percentage >= 50 ? "done" : "error"; 
-							$hotel_class	 =  !empty( $hotel_booking_status ) ? "done" : "error";
-							$vtf_class	 =  !empty($vtf_booking_status) ? "done" : "error"; 
-							$cab_class	 =  !empty($cab_booking_status) ? "done" : "error"; ?>
-							<div class="portlet box blue">
-							<div class="col-md-3 mt-step-col <?php echo $vtf_class; ?>"
-								title="Volvo/Train/Flight Booking Status. Green = done, Red = Pending"
-								data-toggle="tooltip">
-								<div class="mt-step-number bg-white">
-									<i class="fa fa-plane"></i>
-								</div>
-								<div class="mt-step-title uppercase font-grey-cascade">Fight/Train/volvo</div>
-							</div>
-
-							<div class="col-md-3 mt-step-col <?php echo $hotel_class; ?>"
-								title="Hotel Booking Status. Green = done, Red = Pending" data-toggle="tooltip">
-								<div class="mt-step-number bg-white">
-									<i class="fa fa-bed"></i>
-								</div>
-								<div class="mt-step-title uppercase font-grey-cascade">Hotel Booking</div>
-							</div>
-
-							<div class="col-md-3 mt-step-col <?php echo $cab_class; ?>"
-								title="Cab Booking Status. Green = done, Red = Pending" data-toggle="tooltip">
-								<div class="mt-step-number bg-white">
-									<i class="fa fa-bus"></i>
-								</div>
-								<div class="mt-step-title uppercase font-grey-cascade">Cab Booking</div>
-							</div>
-
-							<div class="col-md-3 mt-step-col <?php echo $pay_class; ?>"
-								title="Cab Booking Status. (Green >= 50 %, Red < 50%) Amount received"
-								data-toggle="tooltip">
-								<div class="mt-step-number bg-white">
-									<i class="fa fa-inr"></i>
-								</div>
-								<div class="mt-step-title uppercase font-grey-cascade">Payments</div>
-								<div class="mt-step-content font-grey-cascade">Min. Fifty Percentage Amount
-									( Received Amount: <?php echo $total_payment_recieved_percentage; ?>% )</div>
-							</div>
-						</div>
                     </div>
+                    <!--End hotel booking if any-->
+                    <!--BOOKING DETAILS -->
+                    <div class="portlet box blue">
+                        <div class="portlet-body">
+                            <?php 
+								$hotel_booking_status 		= is_hotel_booking_done( $iti->iti_id );
+								$vtf_booking_status			= is_vtf_booking_done( $iti->iti_id );
+								$cab_booking_status			= is_cab_booking_done( $iti->iti_id );
+								$total_payment_recieved_percentage = get_iti_pay_receive_percentage( $iti->iti_id );
+								$is_voucher_confirm			 = is_voucher_confirm( $iti->iti_id );
+								
+								$pay_class 	=  $total_payment_recieved_percentage >= 50 ? "done" : "error"; 
+								$hotel_class	 =  !empty( $hotel_booking_status ) ? "done" : "error";
+								$vtf_class	 =  !empty($vtf_booking_status) ? "done" : "error"; 
+								$cab_class	 =  !empty($cab_booking_status) ? "done" : "error"; ?>
 
-                    <!--show confirm voucher button if hotel and volovo/train/flight booking confirmed-->
-                    <p class="text-center" style="font-size:12px; color: red;"><strong>Note: </strong>To confirm
-                        voucher make sure that the all booking has been done.</p>
-                    <?php if( $is_voucher_confirm ){
+                            <div class="col-md-3 mt-step-col <?php echo $vtf_class; ?>"
+                                title="Volvo/Train/Flight Booking Status. Green = done, Red = Pending"
+                                data-toggle="tooltip">
+                                <div class="mt-step-number bg-white">
+                                    <i class="fa fa-plane"></i>
+                                </div>
+                                <div class="mt-step-title uppercase font-grey-cascade">Fight/Train/volvo</div>
+                            </div>
+
+                            <div class="col-md-3 mt-step-col <?php echo $hotel_class; ?>"
+                                title="Hotel Booking Status. Green = done, Red = Pending" data-toggle="tooltip">
+                                <div class="mt-step-number bg-white">
+                                    <i class="fa fa-bed"></i>
+                                </div>
+                                <div class="mt-step-title uppercase font-grey-cascade">Hotel Booking</div>
+                            </div>
+
+                            <div class="col-md-3 mt-step-col <?php echo $cab_class; ?>"
+                                title="Cab Booking Status. Green = done, Red = Pending" data-toggle="tooltip">
+                                <div class="mt-step-number bg-white">
+                                    <i class="fa fa-bus"></i>
+                                </div>
+                                <div class="mt-step-title uppercase font-grey-cascade">Cab Booking</div>
+                            </div>
+
+                            <div class="col-md-3 mt-step-col <?php echo $pay_class; ?>"
+                                title="Cab Booking Status. (Green >= 50 %, Red < 50%) Amount received"
+                                data-toggle="tooltip">
+                                <div class="mt-step-number bg-white">
+                                    <i class="fa fa-inr"></i>
+                                </div>
+                                <div class="mt-step-title uppercase font-grey-cascade">Payments</div>
+                                <div class="mt-step-content font-grey-cascade">Min. Fifty Percentage Amount
+                                    ( Received Amount: <?php echo $total_payment_recieved_percentage; ?>% )</div>
+                            </div>
+
+							</div>
+                    </div>
+                            <!--show confirm voucher button if hotel and volovo/train/flight booking confirmed-->
+                            <p class="text-center" style="font-size:12px; color: red;"><strong>Note: </strong>To confirm
+                                voucher make sure that the all booking has been done.</p>
+                            <?php if( $is_voucher_confirm ){
 							echo "<p class='alert alert-success text-center green'><strong>Voucher has been Confirmed.</strong></p>";
-						}else if( $hotel_booking_status && $vtf_booking_status && $cab_booking_status ){ ?>
-                    <div class="text-center confirm_voucher">
-                        <button type="submit" data-iti_id="<?php echo $iti->iti_id; ?>"
-                            class="btn green uppercase cnfrim_voucher" title="Confirm Voucher">Confirm
-                            Voucher</button>
-                        <p style="font-size:12px; color: red;"><strong>Note: </strong>To confirm voucher make sure
-                            that the payment is received greater than <strong>50%</strong>.</p>
-                    </div>
+							}else if( $hotel_booking_status && $vtf_booking_status && $cab_booking_status ){ ?>
+                            <div class="text-center confirm_voucher">
+                                <button type="submit" data-iti_id="<?php echo $iti->iti_id; ?>"
+                                    class="btn green uppercase cnfrim_voucher" title="Confirm Voucher">Confirm
+                                    Voucher</button>
+                                <p style="font-size:12px; color: red;"><strong>Note: </strong>To confirm voucher make
+                                    sure
+                                    that the payment is received greater than <strong>50%</strong>.</p>
+                            </div>
+
+               
                     <div id="confirmVoucherModal" class="modal" role="dialog">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -571,59 +573,60 @@
                             <?php if( isset( $paymentDetails[0] ) && !empty( $paymentDetails[0] ) && $iti->iti_status == 9 ){ 
 						$pay_detail = $paymentDetails[0]; ?>
                             <div class="portlet-title">
-								<h3 class="custom_title">Payments Details</h3>
-							</div>
+                                <h3 class="custom_title">Payments Details</h3>
+                            </div>
                             <div class="clearfix"></div>
-							<div class="portlet-body">
-								<div class="table-responsive">
-									<table class="table table-bordered ">
-										<tbody>
-											<tr class="thead-inverse">
-												<td width="33%"><strong>FINAL COST</strong></td>
-												<td width="33%"><strong>Package Category</strong></td>
-												<td width="33%"><strong>Travel Date</strong></td>
-											</tr>
+                            <div class="portlet-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered ">
+                                        <tbody>
+                                            <tr class="thead-inverse">
+                                                <td width="33%"><strong>FINAL COST</strong></td>
+                                                <td width="33%"><strong>Package Category</strong></td>
+                                                <td width="33%"><strong>Travel Date</strong></td>
+                                            </tr>
 
 
-											<tr class="">
-												<td width="33%"><strong>INR
-														<?php echo $paymentDetails[0]->total_package_cost; ?>/-</strong>
-												</td>
-												<td width="33%">
-													<strong><?php echo $iti->approved_package_category; ?></strong>
-												</td>
-												<td width="33%">
-													<strong><?php echo !empty($t_date) ? $t_date : "--/--/----"; ?></strong>
-												</td>
-											</tr>
+                                            <tr class="">
+                                                <td width="33%"><strong>INR
+                                                        <?php echo $paymentDetails[0]->total_package_cost; ?>/-</strong>
+                                                </td>
+                                                <td width="33%">
+                                                    <strong><?php echo $iti->approved_package_category; ?></strong>
+                                                </td>
+                                                <td width="33%">
+                                                    <strong><?php echo !empty($t_date) ? $t_date : "--/--/----"; ?></strong>
+                                                </td>
+                                            </tr>
 
 
-											<tr class="thead-inverse">
-												<td width="33%"><strong>Advance Recieved</strong></td>
-												<td width="33%"><strong>Balance Pending</strong></td>
-												<td width="33%"><strong>Booking Date</strong></td>
-											</tr>
-											<?php $booking_d = $paymentDetails[0]->booking_date; ?>
-											<tr class="">
-												<td width="33%"><strong>INR
-														<?php echo $paymentDetails[0]->advance_recieved; ?>/-</strong></td>
-												<td width="33%">
-													<strong><?php echo $paymentDetails[0]->total_balance_amount; ?>/-</strong>
-												</td>
-												<td width="33%">
-													<strong><?php echo !empty($booking_d) ? display_month_name($booking_d ) : "--/--/----"; ?></strong>
-												</td>
-											</tr>
+                                            <tr class="thead-inverse">
+                                                <td width="33%"><strong>Advance Recieved</strong></td>
+                                                <td width="33%"><strong>Balance Pending</strong></td>
+                                                <td width="33%"><strong>Booking Date</strong></td>
+                                            </tr>
+                                            <?php $booking_d = $paymentDetails[0]->booking_date; ?>
+                                            <tr class="">
+                                                <td width="33%"><strong>INR
+                                                        <?php echo $paymentDetails[0]->advance_recieved; ?>/-</strong>
+                                                </td>
+                                                <td width="33%">
+                                                    <strong><?php echo $paymentDetails[0]->total_balance_amount; ?>/-</strong>
+                                                </td>
+                                                <td width="33%">
+                                                    <strong><?php echo !empty($booking_d) ? display_month_name($booking_d ) : "--/--/----"; ?></strong>
+                                                </td>
+                                            </tr>
 
 
 
-										</tbody>
-									</table>
-								</div>
-							</div>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                             <?php } ?>
                         </div>
-						
+
 
                         <div class="portlet box blue margin-top-40">
 
@@ -713,72 +716,74 @@
                             </div>
                         </div>
                         <div class="clearfix"></div>
-                       
+
 
                         <!--If Flight Exists-->
                         <?php if( isset( $flight_details ) && !empty( $flight_details ) && $iti->is_flight == 1 ){ ?>
                         <?php $flight = $flight_details[0]; ?>
-						<div class="portlet box blue">
-							<div class="portlet-title">
-								<h3 class="custom_title">Flight Details</h3>
-							</div>
-							<div class="portlet-body">
-								<div class="table-responsive">
-									<table class="table table-bordered ">
-										<tbody>
-											<tr class="thead-inverse">
-												<td width="33%"><strong>Trip Type</strong></td>
-												<td width="33%"><strong>Flight Name</strong></td>
-												<td width="33%"><strong>Class</strong></td>
-											</tr>
-											<tr>
-												<td><?php echo ucfirst($flight->trip_type); ?></td>
-												<td><?php echo $flight->flight_name; ?></td>
-												<td><?php echo $flight->flight_class; ?></td>
-											</tr>
-											<tr class="thead-inverse">
-												<td width="33%"><strong>Departure City</strong></td>
-												<td width="33%"><strong>Arrival city</strong></td>
-												<td width="33%"><strong>No. of Passengers</strong></td>
-											</tr>
-											<tr>
-												<td><?php echo $flight->dep_city; ?></td>
-												<td><?php echo $flight->arr_city; ?></td>
-												<td><?php echo $flight->total_passengers; ?></td>
-											</tr>
-											<tr class="thead-inverse">
-												<td width="33%"><strong>Arrival Date/Time</strong></td>
-												<td width="33%"><strong>Departure Date/Time</strong></td>
-												<td width="33%"><strong>Return Date/Time</strong></td>
-											</tr>
-											<tr>
-												<td><?php echo $flight->arr_time; ?></td>
-												<td><?php echo $flight->dep_date; ?></td>
-												<td><?php echo $flight->return_date; ?></td>
-											</tr>
-											<tr class="thead-inverse">
-												<td width="33%"><strong>Return Arrival Date/Time</strong></td>
-												<td width="33%"><strong>Price</strong></td>
-											</tr>
-											<tr>
-												<td><?php echo $flight->return_arr_date; ?></td>
-												<td><?php echo $flight->flight_price; ?></td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
-						</div>
-                            <div class="clearfix"></div>
-                           
-                            <?php } ?>
-                            <!--End Flight Section-->
-                            <!--If Train Exists-->
-                            <?php if( isset( $train_details ) && !empty( $train_details ) && $iti->is_train == 1 ){ ?>
-                            <?php $train = $train_details[0]; ?>
+                        <div class="portlet box blue">
+                            <div class="portlet-title">
+                                <h3 class="custom_title">Flight Details</h3>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered ">
+                                        <tbody>
+                                            <tr class="thead-inverse">
+                                                <td width="33%"><strong>Trip Type</strong></td>
+                                                <td width="33%"><strong>Flight Name</strong></td>
+                                                <td width="33%"><strong>Class</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td><?php echo ucfirst($flight->trip_type); ?></td>
+                                                <td><?php echo $flight->flight_name; ?></td>
+                                                <td><?php echo $flight->flight_class; ?></td>
+                                            </tr>
+                                            <tr class="thead-inverse">
+                                                <td width="33%"><strong>Departure City</strong></td>
+                                                <td width="33%"><strong>Arrival city</strong></td>
+                                                <td width="33%"><strong>No. of Passengers</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td><?php echo $flight->dep_city; ?></td>
+                                                <td><?php echo $flight->arr_city; ?></td>
+                                                <td><?php echo $flight->total_passengers; ?></td>
+                                            </tr>
+                                            <tr class="thead-inverse">
+                                                <td width="33%"><strong>Arrival Date/Time</strong></td>
+                                                <td width="33%"><strong>Departure Date/Time</strong></td>
+                                                <td width="33%"><strong>Return Date/Time</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td><?php echo $flight->arr_time; ?></td>
+                                                <td><?php echo $flight->dep_date; ?></td>
+                                                <td><?php echo $flight->return_date; ?></td>
+                                            </tr>
+                                            <tr class="thead-inverse">
+                                                <td width="33%"><strong>Return Arrival Date/Time</strong></td>
+                                                <td width="33%"><strong>Price</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td><?php echo $flight->return_arr_date; ?></td>
+                                                <td><?php echo $flight->flight_price; ?></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <?php } ?>
+                        <!--End Flight Section-->
+                        <!--If Train Exists-->
+                        <?php if( isset( $train_details ) && !empty( $train_details ) && $iti->is_train == 1 ){ ?>
+                        <?php $train = $train_details[0]; ?>
+                        <div class="portlet box blue">
                             <div class="portlet-title">
                                 <h3 class="custom_title">Train Details</h3>
                             </div>
+                            <div class="portlet-body">
                                 <table class="table table-bordered ">
                                     <tbody>
                                         <tr class="thead-inverse">
@@ -824,19 +829,21 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <div class="clearfix"></div>
-                                
-                                <?php } ?>
-                                <!--End Flight Section-->
-                                <div class="portlet box blue margin-top-40">
-                                    <div class="portlet-title">
-                                        <h3 class="custom_title">Day Wise Itinerary</h3>
-                                    </div>
-									<div class="portlet-body">
-										<div class="table-responsive2">
-											<table class="table table-bordered">
-												<tbody>
-													<?php //$day_wise = $iti->daywise_meta; 
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <?php } ?>
+                        <!--End Flight Section-->
+                        <div class="portlet box blue margin-top-40">
+                            <div class="portlet-title">
+                                <h3 class="custom_title">Day Wise Itinerary</h3>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="table-responsive2">
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                            <?php //$day_wise = $iti->daywise_meta; 
 														$tourData = unserialize($iti->daywise_meta);
 														$count_day = count( $tourData );
 														if( $count_day > 0 ){
@@ -865,27 +872,27 @@
 															echo "</tr>";
 															}
 														}	?>
-												</tbody>
-											</table>
-										</div>
-									</div>
+                                        </tbody>
+                                    </table>
                                 </div>
-                                
-                                <div class="portlet box blue margin-top-40">
-                                    <div class='portlet-title'>
-                                        <h3 class="custom_title">Inclusion & Exclusion</h3>
-                                    </div>
-									<div class="portlet-body">
-										<div class="table-responsive">
-											<table class="table table-bordered">
-												<thead class="thead-default">
-													<tr class="thead-inverse">
-														<th width="50%"> Inclusion</th>
-														<th width="50%"> Exclusion</th>
-													</tr>
-												</thead>
-												<tbody>
-													<?php 
+                            </div>
+                        </div>
+
+                        <div class="portlet box blue margin-top-40">
+                            <div class='portlet-title'>
+                                <h3 class="custom_title">Inclusion & Exclusion</h3>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead class="thead-default">
+                                            <tr class="thead-inverse">
+                                                <th width="50%"> Inclusion</th>
+                                                <th width="50%"> Exclusion</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php 
 													$inclusion = unserialize($iti->inc_meta); 
 													$count_inc = count( $inclusion );
 													$exclusion = unserialize($iti->exc_meta); 
@@ -904,15 +911,15 @@
 													}
 													echo "</ul></td></tr>";
 													?>
-												</tbody>
-											</table>
-										</div>
-									</div>
+                                        </tbody>
+                                    </table>
                                 </div>
+                            </div>
+                        </div>
 
 
-                                <div class="portlet box blue margin-top-40">
-                                    <?php 
+                        <div class="portlet box blue margin-top-40">
+                            <?php 
 												//check if special inclusion exists
 												$sp_inc = unserialize($iti->special_inc_meta); 
 												$count_sp_inc = count( $sp_inc );
@@ -928,15 +935,15 @@
 													echo "</ul> </div>";
 													}
 											?>
-                                </div>
+                        </div>
 
-                                
-								<div class="portlet box blue margin-top-40">
-									<div class='portlet-title'>
-										<h3 class="custom_title">Hotel Details</h3>
-									</div>
-									<div class="portlet-body">
-										<?php 
+
+                        <div class="portlet box blue margin-top-40">
+                            <div class='portlet-title'>
+                                <h3 class="custom_title">Hotel Details</h3>
+                            </div>
+                            <div class="portlet-body">
+                                <?php 
 											$f_cost =  !empty( $iti->final_amount )  && $iti->iti_status == 9  && get_iti_booking_status($iti->iti_id) == 0 ? "<strong class='green'> " . number_format($iti->final_amount) . " /-</strong> " : "";
 											//echo $f_cost;
 											//if final price exists strike all price
@@ -945,19 +952,19 @@
 											$hotel_meta = unserialize($iti->hotel_meta); 
 											if( !empty( $hotel_meta ) ){
 												$count_hotel = count( $hotel_meta ); ?>
-											<div class="table-responsive margin_bottom_0">
-												<table class="table table-bordered">
-													<thead class="thead-default">
-														<tr class="thead-inverse">
-															<th> Hotel Category</th>
-															<th> Deluxe</th>
-															<th> Super Deluxe</th>
-															<th> Luxury</th>
-															<th> Super Luxury</th>
-														</tr>
-													</thead>
-													<tbody>
-														<?php 
+                                <div class="table-responsive margin_bottom_0">
+                                    <table class="table table-bordered">
+                                        <thead class="thead-default">
+                                            <tr class="thead-inverse">
+                                                <th> Hotel Category</th>
+                                                <th> Deluxe</th>
+                                                <th> Super Deluxe</th>
+                                                <th> Luxury</th>
+                                                <th> Super Luxury</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php 
 												/* print_r( $hotel_meta ); */
 												if( $count_hotel > 0 ){
 													for ( $i = 0; $i < $count_hotel; $i++ ) {
@@ -1155,23 +1162,23 @@
 													echo "<tr><td colspan=5><p class='red margin_zero'><strong>Note: </strong>{$rate_comment} </td></tr>";
 													echo "<tr><td colspan=5><p class='red margin_zero'><strong>Final Package Cost: </strong>{$f_cost} </td></tr>";
 												} ?>
-													</tbody>
-												</table>
-											</div>
-										<?php } ?>
-									</div>
-								</div>
-                            <!--END PRINTABLE-->
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <?php } ?>
+                            </div>
+                        </div>
+                        <!--END PRINTABLE-->
 
-                           
 
-							<div class="portlet box blue margin-top-40">
-								<div class="portlet-title">
-									<h3 class="custom_title">Notes:</h3>
-								</div>
-								<div class="portlet-body">
-									<ul>
-										<?php $hotel_note_meta = unserialize($iti->hotel_note_meta); 
+
+                        <div class="portlet box blue margin-top-40">
+                            <div class="portlet-title">
+                                <h3 class="custom_title">Notes:</h3>
+                            </div>
+                            <div class="portlet-body">
+                                <ul>
+                                    <?php $hotel_note_meta = unserialize($iti->hotel_note_meta); 
 											$count_hotel_meta = count( $hotel_note_meta );
 											
 											if( $count_hotel_meta > 0 ){
@@ -1179,30 +1186,30 @@
 													echo "<li>" . $hotel_note_meta[$i]["hotel_note"] . "</li>";
 												}	
 											} ?>
-									</ul>
-								</div>
-							</div>
+                                </ul>
+                            </div>
+                        </div>
 
-                            
-							<div class="portlet box blue margin-top-40">
-								<div class="portlet-title">
-									<h3 class="custom_title">Bank Details: Cash/Cheque at Bank or Net Transfer</h3>
-								</div>
-								<div class="portlet-body">
-									<div class="table-responsive">
-										<table class="table table-bordered">
-											<thead class="thead-default">
-												<tr class="thead-inverse">
-													<th> Bank Name</th>
-													<th> Payee Name</th>
-													<th> Account Type</th>
-													<th> Account Number</th>
-													<th> Branch Address</th>
-													<th> IFSC Code</th>
-												</tr>
-											</thead>
-											<tbody>
-												<?php $banks = get_all_banks(); 
+
+                        <div class="portlet box blue margin-top-40">
+                            <div class="portlet-title">
+                                <h3 class="custom_title">Bank Details: Cash/Cheque at Bank or Net Transfer</h3>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead class="thead-default">
+                                            <tr class="thead-inverse">
+                                                <th> Bank Name</th>
+                                                <th> Payee Name</th>
+                                                <th> Account Type</th>
+                                                <th> Account Number</th>
+                                                <th> Branch Address</th>
+                                                <th> IFSC Code</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php $banks = get_all_banks(); 
 										if( $banks ){
 											foreach( $banks as $bank ){ 
 												echo "<tr>";
@@ -1216,14 +1223,14 @@
 											}
 										}
 										?>
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-                            
-							<div class="custom_card">
-							<?php
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="custom_card">
+                            <?php
 								$agent_id = $iti->agent_id;
 								$user_info = get_user_info($agent_id);
 								if($user_info){
@@ -1236,59 +1243,59 @@
 									echo "<strong>Website : </strong> " . $agent->website;
 								}	
 								?>
-								<hr>
-                            <div class="signature"><?php echo $signature; ?></div>
-							</div>
-
                             <hr>
-                            <div class="clearfix"></div>
-                            <!--Comments Section -->
-							
-                            <div id="UpdatePanel1">
-                                <div class="modal-body">
-                                    <?php if( $iti->iti_status == 0 && $iti->email_count > 0 && $iti->publish_status == "publish" ){ ?>
-                                    <div class="contactForm">
-                                        <form id="confirmForm">
-                                            <h3>Enter Your Comment For Client</h3>
-                                            <div class="form-group feedback">
-                                                <textarea required placeholder="Please Enter comment here...." rows="4"
-                                                    cols="20" name="client_comment"
-                                                    class="form-control client_textarea" /></textarea>
-                                            </div>
-                                            <input type="hidden" name="iti_id" value="<?php echo $iti->iti_id; ?>">
-                                            <input type="hidden" name="temp_key" value="<?php echo $iti->temp_key; ?>">
-                                            <input type="hidden" name="sec_key" id="sec_key"
-                                                value="<?php echo $sec_key; ?>">
-                                            <input type="hidden" name="agent_id" id="agent_id"
-                                                value="<?php echo $iti->agent_id; ?>">
-                                            <input type="hidden" name="customer_id" id="customer_id"
-                                                value="<?php echo $iti->customer_id; ?>">
-                                            <div class="form-group col-md-12 row">
-                                                <button id="LinkButton1" type="submit"
-                                                    class="btn green uppercase app_iti">Submit</button>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                            <div class="response"></div>
-                                        </form>
-                                    </div> <?php } ?>
-                                    <!--comments section-->
-                                    <div id="comments">
-                                        <?php if( !empty( $comments ) ){ ?>
-                                        <div class="old-comments">
-                                            <?php foreach( $comments as $comment ){ ?>
-                                            <div class="well well-sm">
-                                                <?php $comment_by = empty( $comment->agent_id ) || $comment->agent_id == 0  ? "<span class='cc_cmt'>Comment by Client:</span>" : "<span class='r_cmt'>Comment by you:</span>"; ?>
-                                                <strong><?php echo $comment_by; ?></strong>
-                                                <p><?php echo $comment->comment_content; ?></p>
-                                                <p>Date: <?php echo $comment->created; ?></p>
-                                            </div>
-                                            <?php } ?>
+                            <div class="signature"><?php echo $signature; ?></div>
+                        </div>
+
+                        <hr>
+                        <div class="clearfix"></div>
+                        <!--Comments Section -->
+
+                        <div id="UpdatePanel1">
+                            <div class="modal-body">
+                                <?php if( $iti->iti_status == 0 && $iti->email_count > 0 && $iti->publish_status == "publish" ){ ?>
+                                <div class="contactForm">
+                                    <form id="confirmForm">
+                                        <h3>Enter Your Comment For Client</h3>
+                                        <div class="form-group feedback">
+                                            <textarea required placeholder="Please Enter comment here...." rows="4"
+                                                cols="20" name="client_comment"
+                                                class="form-control client_textarea" /></textarea>
+                                        </div>
+                                        <input type="hidden" name="iti_id" value="<?php echo $iti->iti_id; ?>">
+                                        <input type="hidden" name="temp_key" value="<?php echo $iti->temp_key; ?>">
+                                        <input type="hidden" name="sec_key" id="sec_key"
+                                            value="<?php echo $sec_key; ?>">
+                                        <input type="hidden" name="agent_id" id="agent_id"
+                                            value="<?php echo $iti->agent_id; ?>">
+                                        <input type="hidden" name="customer_id" id="customer_id"
+                                            value="<?php echo $iti->customer_id; ?>">
+                                        <div class="form-group col-md-12 row">
+                                            <button id="LinkButton1" type="submit"
+                                                class="btn green uppercase app_iti">Submit</button>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="response"></div>
+                                    </form>
+                                </div> <?php } ?>
+                                <!--comments section-->
+                                <div id="comments">
+                                    <?php if( !empty( $comments ) ){ ?>
+                                    <div class="old-comments">
+                                        <?php foreach( $comments as $comment ){ ?>
+                                        <div class="well well-sm">
+                                            <?php $comment_by = empty( $comment->agent_id ) || $comment->agent_id == 0  ? "<span class='cc_cmt'>Comment by Client:</span>" : "<span class='r_cmt'>Comment by you:</span>"; ?>
+                                            <strong><?php echo $comment_by; ?></strong>
+                                            <p><?php echo $comment->comment_content; ?></p>
+                                            <p>Date: <?php echo $comment->created; ?></p>
                                         </div>
                                         <?php } ?>
                                     </div>
-                                    <!--End comments section-->
+                                    <?php } ?>
                                 </div>
+                                <!--End comments section-->
                             </div>
+                        </div>
 
                     </div>
 
@@ -1350,7 +1357,7 @@
                 		}
                 		ajaxReq = $.ajax({				
                 			type: "POST",
-                			url: "<?php echo base_url('payments/ajax_generate_bank_receipt'); ?>",
+                			url: "<?php// echo base_url('payments/ajax_generate_bank_receipt'); ?>",
                 			dataType: 'json',
                 			data: formData,
                 			beforeSend: function(){

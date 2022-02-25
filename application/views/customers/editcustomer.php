@@ -7,8 +7,8 @@
 				<?php echo form_open('customers/editcustomer', $attributes); ?>
 				<div class="portlet box blue">
 					<div class="portlet-title">
-						<div class="caption"><i class="fa fa-users"></i>Customer Name: <strong><?php  echo $customer->customer_name; ?></strong>  Customer Type: <strong class='red'><?php  echo get_customer_type_name($customer->customer_type); ?></strong>
-							<?php echo $customer->cus_status == "8" ? "<< <strong class='red'>Declined Lead</strong> >> " : "";  ?>
+						<div class="caption"><i class="fa fa-users"></i>Customer Name: <strong><?php  echo $customer->customer_name; ?></strong>  Customer Type: <strong class=''><?php  echo get_customer_type_name($customer->customer_type); ?></strong>
+							<?php echo $customer->cus_status == "8" ? "<< <strong class=''>Declined Lead</strong> >> " : "";  ?>
 						</div>
 						<a class="btn btn-success" href="<?php echo site_url("customers"); ?>" title="Back">Back</a>
 					</div>

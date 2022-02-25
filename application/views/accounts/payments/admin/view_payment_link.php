@@ -22,7 +22,7 @@
 					color: red;
 				}
 			</style> 
-			<div class="portlet-body">
+			<div class="portlet-body custom_card">
 				<?php
 					$pay_status = $pay_link->paid_status == 1 ? "<strong class='green'>PAID</strong>" : "<strong class='red'>UNPAID</strong>";
 					$link_token	= base64_url_encode( $pay_link->link_token );
@@ -34,41 +34,41 @@
 				<p id="t_countdown"></p>
 				<div class="table-responsive">	
 				<!-- Target -->
-				<table class="table table-condensed table-hover">
+				<table class="table table-condensed table-hover table-bordered table-striped">
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Link ID: </strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Link ID: </strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><?php echo $pay_link->link_token; ?> ( <?php echo $pay_status; ?> )</div></td>
 					</tr>
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>ORDER ID: </strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>ORDER ID: </strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><?php echo $pay_link->order_id; ?> ( <?php echo $pay_status; ?> )</div></td>
 					</tr>
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Customer ID: </strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Customer ID: </strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><?php echo $pay_link->customer_id; ?></div></td>
 					</tr>
 					
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Iti ID: </strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Iti ID: </strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><a href="<?php echo iti_view_single_link( $pay_link->iti_id ); ?>" title='check quotation' target='_blank'><?php echo $pay_link->iti_id; ?></a></div></td>
 					</tr>
 					
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Amount: </strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Amount: </strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><?php echo $pay_link->trans_amount; ?></div></td>
 					</tr>
 					<?php if(  $pay_link->paid_status == 0  ){ ?>
 						<tr>
-							<td width="20%"><div class="col-mdd-2 form_vl"><strong>Payment Link: </strong></div></td>	
+							<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Payment Link: </strong></div></td>	
 							<td><div class="col-mdd-10 form_vr" id='copyme'><?php echo $client_link; ?>
 							</div>
-							<button class="btn btn-success copy-letter-button" data-clipboard-action="copy" data-clipboard-target="#copyme">Click To Copy Payment Link</button>
+							<button class="btn btn_blue_outline copy-letter-button margin-top-15" data-clipboard-action="copy" data-clipboard-target="#copyme">Click To Copy Payment Link</button>
 							
 							</td>
 						</tr>
 					
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Link Expire On: </strong></div></td>
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Link Expire On: </strong></div></td>
 						<?php
 						$exp = "";
 						if( !empty($pay_link->link_expire_date)  ){
@@ -118,19 +118,19 @@
 					
 					
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Updated By:</strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Updated By:</strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><strong><?php echo get_user_name($pay_link->agent_id); ?></strong></div></td>
 					</tr>
 					
 					<tr>
-						<td width="20%"><div class="col-mdd-2 form_vl"><strong>Created:</strong></div></td>	
+						<td width="20%"><div class="col-mdd-2 form_vl border_right_none"><strong>Created:</strong></div></td>	
 						<td><div class="col-mdd-10 form_vr"><strong><?php echo $pay_link->created; ?></strong></div></td>
 					</tr>
 				</table>
 			</div>	
 			
 			<div class="text-center">
-				<a title='Edit User' href="<?php echo site_url("accounts/create_payment_link/{$pay_link->id}"); ?>" class="btn btn-success" ><i class="fa fa-pencil"></i> Edit</a>
+				<a title='Edit User' href="<?php echo site_url("accounts/create_payment_link/{$pay_link->id}"); ?>" class="btn_pencil" ><i class="fa fa-pencil"></i> Edit</a>
 			</div>	
 		</div>	
 	</div>

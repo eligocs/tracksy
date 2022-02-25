@@ -118,92 +118,24 @@
         <div class="clearfix"></div>
         <!-- END DASHBOARD STATS 1-->
         <div class="row2">
-
             <div class="clearfix clearboth"></div>
-
             <!--AMENDMENT SECTION-->
             <div class="portlet box blue">
                 <div class="portlet-title">
                     <div class="caption"><i class="fa fa-calendar"></i>LATEST AMENDMENT</div>
                 </div>
-            </div>
-            <div class="row dashboard-tables-all-info">
-                <div class="col-lg-6 col-xs-12 col-sm-12 margin-bottom-30">
-                    <div class="portlet light bordered">
-                        <div class="portlet-title tabbable-line">
-                            <div class="caption">
-                                <i class="icon-bubbles font-dark hide"></i>
-                                <span class="caption-subject font-dark bold uppercase">Last 20 Amendments</span>
-                            </div>
-                        </div>
-                        <div class="portlet-body">
-                            <div class="tab-content">
-                                <div class="tab-pane active" id="portlet_comments_21">
-                                    <div class="dashboard-scroll">
-                                        <table class="table table-hover d-table table-fixed">
-                                            <tr>
-                                                <th>Sr.</th>
-                                                <th>Name</th>
-                                                <th>Package</th>
-                                                <th>agent</th>
-                                                <th>Action</th>
-                                            </tr>
-                                            <?php if( isset($amendmentItineraries) && !empty( $amendmentItineraries )) { 
-										$ii = 1;	
-										foreach( $amendmentItineraries as $am_iti ){ ?>
-
-                                            <tr>
-                                                <td><?php echo $ii;?>.</td>
-                                                <td><?php echo $am_iti->customer_name;?></td>
-                                                <td><?php echo $am_iti->package_name;?></td>
-                                                <td><?php echo get_user_name($am_iti->agent_id);?></td>
-
-                                                <td><a class="btn btn-custom" target="_blank"
-                                                        href="<?php echo site_url("itineraries/view_iti/{$am_iti->iti_id}/{$am_iti->temp_key}"); ?>">
-                                                        View</a></td>
-                                            </tr>
-                                            <?php 
-										$ii++;
-										} 
-									}else{ ?>
-                                            <tr>
-                                                <td colspan="5" class="text-center">
-                                                    <div class="mt-comment-text"> No Data found. </div>
-                                                </td>
-                                            </tr>
-                                            <?php } ?>
-                                            <!-- END: Pending Payments section -->
-                                        </table>
-                                    </div>
-                                </div>
-                                <button type="button" class="btn btn_blue_outline view_table_data"><i
-                                        class="fa fa-angle-down"></i> View All</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="clearfix"></div>
-                <!--END AMENDMENT SECTION-->
-                <!-- Pending Vouchers  -->
-                <div class="portlet box blue">
-                    <div class="portlet-title">
-                        <div class="caption"><i class="fa fa-calendar"></i>LATEST VOUCHERS</div>
-                    </div>
-                </div>
                 <div class="row dashboard-tables-all-info">
-                    <div class="col-lg-6 col-xs-12 col-sm-12">
-                        <div class="portlet light bordered">
+                    <div class="col-lg-12 col-xs-12 col-sm-12 margin-bottom-30">
+                        <div class="portlet light">
                             <div class="portlet-title tabbable-line">
                                 <div class="caption">
                                     <i class="icon-bubbles font-dark hide"></i>
-                                    <span class="caption-subject font-dark bold uppercase">Latest Pending
-                                        Vouchers</span>
+                                    <span class="caption-subject font-dark bold uppercase">Last 20 Amendments</span>
                                 </div>
                             </div>
                             <div class="portlet-body">
                                 <div class="tab-content">
-                                    <div class="tab-pane active" id="portlet_comments_1">
+                                    <div class="tab-pane active" id="portlet_comments_21">
                                         <div class="dashboard-scroll">
                                             <table class="table table-hover d-table table-fixed">
                                                 <tr>
@@ -213,9 +145,75 @@
                                                     <th>agent</th>
                                                     <th>Action</th>
                                                 </tr>
+                                                <?php if( isset($amendmentItineraries) && !empty( $amendmentItineraries )) { 
+                                            $ii = 1;	
+                                            foreach( $amendmentItineraries as $am_iti ){ ?>
+
+                                                <tr>
+                                                    <td><?php echo $ii;?>.</td>
+                                                    <td><?php echo $am_iti->customer_name;?></td>
+                                                    <td><?php echo $am_iti->package_name;?></td>
+                                                    <td><?php echo get_user_name($am_iti->agent_id);?></td>
+
+                                                    <td><a class="btn btn-custom" target="_blank"
+                                                            href="<?php echo site_url("itineraries/view_iti/{$am_iti->iti_id}/{$am_iti->temp_key}"); ?>">
+                                                            View</a></td>
+                                                </tr>
+                                                <?php 
+                                            $ii++;
+                                            } 
+                                        }else{ ?>
+                                                <tr>
+                                                    <td colspan="5" class="text-center">
+                                                        <div class="mt-comment-text"> No Data found. </div>
+                                                    </td>
+                                                </tr>
+                                                <?php } ?>
+                                                <!-- END: Pending Payments section -->
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn_blue_outline view_table_data"><i
+                                            class="fa fa-angle-down"></i> View All</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <!--END AMENDMENT SECTION-->
+            <!-- Pending Vouchers  -->
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption"><i class="fa fa-calendar"></i>LATEST VOUCHERS</div>
+                </div>
+
+                <div class="row dashboard-tables-all-info">
+                    <div class="col-md-12">
+                        <div class="panel">
+                            <div class="panel-heading2">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#latest_pending" data-toggle="tab">Latest Pending Vouchers</a>
+                                    </li>
+                                    <li><a href="#last_20_confirmed" data-toggle="tab">Last 20 Confirmed Vouchers</a></li>
+                                </ul>
+                            </div>
+                            <div class="panel-body padding-0">
+                                <div class="dashboard-scroll">
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade in active" id="latest_pending">
+                                            <table class="table table-hover d-table table-fixed">
+                                                <tr>
+                                                    <th>Sr.</th>
+                                                    <th>Name</th>
+                                                    <th>Package</th>
+                                                    <th>agent</th>
+                                                    <th>Action</th>
+                                                </tr>
                                                 <?php if( isset($pending_vouchers) && !empty($pending_vouchers) ) {
-											$dcnt = 1;	
-											foreach( $pending_vouchers as $pen_voucher ){ ?>
+                                                    $dcnt = 1;	
+                                                    foreach( $pending_vouchers as $pen_voucher ){ ?>
                                                 <tr>
                                                     <td><?php echo $dcnt; ?>.</td>
                                                     <td><?php echo $pen_voucher->customer_name;?></td>
@@ -226,9 +224,9 @@
                                                             View</a></td>
                                                 </tr>
                                                 <?php 
-												$dcnt++;
-											} 
-										}else{ ?>
+                                                        $dcnt++;
+                                                    } 
+                                                }else{ ?>
                                                 <tr>
                                                     <td colspan="5" class="text-center">
                                                         <div class="mt-comment-text"> No Data found. </div>
@@ -238,27 +236,7 @@
                                                 <!-- END: Pending Payments section -->
                                             </table>
                                         </div>
-                                    </div>
-                                    <button type="button" class="btn btn_blue_outline view_table_data"><i
-                                            class="fa fa-angle-down"></i> View All</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Confirmed Vouchers -->
-                    <div class="col-lg-6 col-xs-12 col-sm-12">
-                        <div class="portlet light bordered">
-                            <div class="portlet-title tabbable-line">
-                                <div class="caption">
-                                    <i class="icon-bubbles font-dark hide"></i>
-                                    <span class="caption-subject font-dark bold uppercase">Last 20 Confirmed
-                                        Vouchers</span>
-                                </div>
-                            </div>
-                            <div class="portlet-body">
-                                <div class="tab-content">
-                                    <div class="tab-pane active" id="portlet_comments_2">
-                                        <div class="dashboard-scroll">
+                                        <div class="tab-pane fade" id="last_20_confirmed">
                                             <table class="table table-hover d-table table-fixed">
                                                 <tr>
                                                     <th>Sr.</th>
@@ -268,8 +246,8 @@
                                                     <th>Action</th>
                                                 </tr>
                                                 <?php if( isset($confirmed_vouchers) && !empty($confirmed_vouchers) ) {
-										$cnt = 1;	
-										foreach( $confirmed_vouchers as $cnfrm_voucher ){ ?>
+                                                $cnt = 1;	
+                                                foreach( $confirmed_vouchers as $cnfrm_voucher ){ ?>
                                                 <tr>
                                                     <td><?php echo $cnt; ?>.</td>
                                                     <td><?php echo $cnfrm_voucher->customer_name;?></td>
@@ -280,9 +258,9 @@
                                                             View</a></td>
                                                 </tr>
                                                 <?php 
-												$cnt++;
-												} 
-												}else{ ?>
+                                                        $cnt++;
+                                                        } 
+                                                        }else{ ?>
                                                 <tr>
                                                     <td colspan="5" class="text-center">
                                                         <div class="mt-comment-text"> No Data found. </div>
@@ -293,14 +271,13 @@
                                             </table>
                                         </div>
                                     </div>
-                                    <button type="button" class="btn btn_blue_outline view_table_data"><i
-                                            class="fa fa-angle-down"></i> View All</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!--End Pending Vouchers  -->
         </div>
         <!-- END CONTENT BODY -->
     </div>

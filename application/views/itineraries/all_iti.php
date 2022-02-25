@@ -29,7 +29,7 @@
             </div>
             <div class="second_custom_card margin-bottom-25">
                 <div class="filter-box">
-                    <div class="row3 marginBottom clearfix">
+                    <div class="row3  clearfix">
                         <?php
                      $hideClass = "";
                      if( isset( $_GET["todayStatus"] ) ){	
@@ -45,8 +45,8 @@
                      
                      ?>
                         <!--start filter section-->
-                        <form id="form-filter" class=" form-horizontal <?php echo $hideClass; ?>">
-                            <div class="actions custom_filter">
+                        <form id="form-filter" class=" form-horizontal margin_bottom_0 <?php echo $hideClass; ?>">
+                            <div class="actions custom_filter"> 
                                 <div class="row">
                                     <!--Calender-->
                                     <div class="col-md-3"> <strong>Filter: </strong><br>
@@ -104,7 +104,7 @@
                         <!--End filter section-->
                         <?php }else{ ?>
                         <!--start filter section-->
-                        <form id="form-filter" class="form-horizontal marginRight <?php echo $hideClass; ?>">
+                        <form id="form-filter" class="form-horizontal margin_bottom_0 <?php echo $hideClass; ?>">
                             <div class="actions custom_filter">
                                 <div class="row">
                                     <!--Calender-->
@@ -186,12 +186,12 @@
                                             value="<?php if( isset( $_GET['quotation'] ) ){ echo "true"; }else{ echo "false";} ?>" />
                                         <input type="hidden" name="todayStatus" id="todayStatus"
                                             value="<?php if( isset( $_GET["todayStatus"] ) ){ echo $_GET["todayStatus"]; } ?>" />
-                                        
+
                                     </div>
-									<div class="col-md-3">
-										<label for="">&nbsp;</label>
-										<input type="submit" class="btn btn-success d_block" value="Filter">
-									</div>
+                                    <div class="col-md-3">
+                                        <label for="">&nbsp;</label>
+                                        <input type="submit" class="btn btn-success d_block" value="Filter">
+                                    </div>
                                 </div>
                                 <!-- row -->
                             </div>
@@ -217,13 +217,29 @@
                             </select>
                         </div>
                     </div>
+                    <label for="" class="d_block">&nbsp;</label>
+                    <div class="dropdown pull-right action_menu">
+                        <button class="btn btn_blue_outline dropdown-toggle" type="button" data-toggle="dropdown">Action
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <!-- dropdown-item -->
+                            <li>
+                                <a href="<?php echo site_url("itineraries"). "/?todayStatus={$todAy}&leadStatus=QsentPast&quotation=true"; ?>"><i class="fa fa-envelope"></i> Today Revised Quotation Sent</a>
+                            </li>
+                            <!-- dropdown-item -->
+                            <li>
+                                 <a href="<?php echo site_url("itineraries"). "/?todayStatus={$todAy}&leadStatus=Qsent&quotation=true"; ?>"><i class="fa fa-envelope"></i> Today Sent Quotation</a>
+                            </li>
+                            <!-- dropdown-item -->
+                        </ul>
+                    </div>
                     <!--export button for admin and manager-->
-                    <a href="<?php echo base_url("export/export_itinerary_fiter_data");?>"
+                    <!-- <a href="<?php// echo base_url("export/export_itinerary_fiter_data");?>"
                         class="btn btn-danger pull-right export_btn"><i class="fa fa-file-excel"></i> Export</a>
-                    <a href="<?php echo site_url("itineraries"). "/?todayStatus={$todAy}&leadStatus=Qsent&quotation=true"; ?>"
+                    <a href="<?php// echo site_url("itineraries"). "/?todayStatus={$todAy}&leadStatus=Qsent&quotation=true"; ?>"
                         class="btn btn-success pull-right"><i class="fa fa-envelope"></i> Today Sent Quotation</a>
-                    <a href="<?php echo site_url("itineraries"). "/?todayStatus={$todAy}&leadStatus=QsentPast&quotation=true"; ?>"
-                        class="btn btn-info pull-right"><i class="fa fa-envelope"></i> Today Revised Quotation Sent</a>
+                    <a href="<?php// echo site_url("itineraries"). "/?todayStatus={$todAy}&leadStatus=QsentPast&quotation=true"; ?>"
+                        class="btn btn-info pull-right"><i class="fa fa-envelope"></i> Today Revised Quotation Sent</a> -->
                 </div>
                 <?php }else if( is_teamleader() ){
 				$team_members = is_teamleader(); ?>
@@ -769,7 +785,7 @@ jQuery(document).ready(function($) {
                 resp.html("Please Choose Package First");
                 resp.html(
                     '<div class="alert alert-danger"><strong>Error! </strong>Please Choose Package First OR Reload page and try again.</div>'
-                    );
+                );
                 return false;
             }
             //resp.html( "Iti Id: " + iti_id + "Package Id: " + package_id + "Customer Id: " + customer_id );
@@ -785,7 +801,7 @@ jQuery(document).ready(function($) {
                 beforeSend: function() {
                     resp.html(
                         '<p><i class="fa fa-spinner fa-spin"></i> Please wait...</p>'
-                        );
+                    );
                 },
                 success: function(res) {
                     if (res.status == true) {
@@ -806,7 +822,7 @@ jQuery(document).ready(function($) {
                     console.log(r);
                     resp.html(
                         '<div class="alert alert-danger"><strong>Error!</strong> Please Try again later! </div>'
-                        );
+                    );
                 }
             });
         }

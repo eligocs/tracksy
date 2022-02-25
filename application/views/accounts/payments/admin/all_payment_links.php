@@ -44,12 +44,12 @@
 								$client_link = $delLink = $edLink = "";
 								
 								if( $pay_link->paid_status == 0 ){
-									$client_link = "<a class='btn btn-success' href='" . base_url("checkout/payinstallment?i={$link_token}") . "' target='_blank' title='Pay Now'><i class='fa fa-inr'></i> Client Payment Link</a>";
+									$client_link = "<a class='btn btn_blue_outline' href='" . base_url("checkout/payinstallment?i={$link_token}") . "' target='_blank' title='Pay Now'><i class='fa fa-inr'></i> Client Payment Link</a>";
 									
-									$delLink = "<a href='javascript: void(0)' data-id='{$pay_link->id}' class='btn btn-danger ajax_delete_bank' target='_blank' title='Delete Payement Link' ><i class='fa fa-trash'></i>
+									$delLink = "<a href='javascript: void(0)' data-id='{$pay_link->id}' class='btn_trash  ajax_delete_bank' target='_blank' title='Delete Payement Link' ><i class='fa fa-trash'></i>
 										</a>";
 										
-									$edLink = "<a href='" . base_url("accounts/create_payment_link/{$pay_link->id}") . "' class='btn btn-success ' target='_blank' title='Update Payement Link' ><i class='fa fa-pencil'></i>
+									$edLink = "<a href='" . base_url("accounts/create_payment_link/{$pay_link->id}") . "' class='btn_pencil ' target='_blank' title='Update Payement Link' ><i class='fa fa-pencil'></i>
 										</a>";
 								}	
 								
@@ -64,7 +64,7 @@
 									<td> {$pay_status}</td>
 									<td> {$agent}</td>
 									<td>
-										<a href=" . site_url("accounts/view_payment_link/{$pay_link->id}") . " class='btn btn-success' target='_blank' title='View Payement' ><i class='fa fa-eye'></i>
+										<a href=" . site_url("accounts/view_payment_link/{$pay_link->id}") . " class='btn_eye' target='_blank' title='View Payement' ><i class='fa fa-eye'></i>
 										{$edLink}
 										{$delLink}
 										{$client_link}
@@ -75,7 +75,7 @@
 						}else{
 							
 							echo "<tr>";
-							for( $colspan = 1 ; $colspan <= 8; $colspan++ ){
+							for( $colspan = 1 ; $colspan <= 9; $colspan++ ){
 								echo $colspan == 1 ? "<td style='border-left:none;border-right:none'>No Data Found !</td>" : "<td style='border-left:none;border-right:none'></td>";
 							}
 							echo "</tr>";
