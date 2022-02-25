@@ -21,6 +21,7 @@ jQuery(document).ready(function($) {
                             '2013-07-01',
                         ],
                     },
+
                     options: [{
                         series: [{
                             type: 'gauge',
