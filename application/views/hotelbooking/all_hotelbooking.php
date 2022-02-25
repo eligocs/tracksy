@@ -18,7 +18,13 @@
             <form id="form-filter" class="form-horizontal bg_white padding_zero margin_bottom_0">
                <div class="actions custom_filter">
                   <label class="control-label col-md-1"><strong>Filter: </strong></label>
-                  <div class="col-md-11">
+                  <div class="col-md-3">
+                  <input type="text" autocomplete="off" class="form-control" id="daterange"
+                                            name="dateRange" title="Checkin filter" placeholder='Checkin date' />
+                     <input type="hidden" name="date_from" id="date_from">
+                     <input type="hidden" name="date_to" id="date_to">
+                  </div>
+                  <div class="col-md-8">
                      <div class="btn-group" data-toggle="buttons">
                         <label class="btn btn-default  custom_active active"><input type="radio" name="filter" value="all" checked="checked" id="all"/>All</label>
                         <label class="btn btn-default  custom_active"><input type="radio" name="filter" value="upcomming" id="upcomming" />Upcomming</label>
@@ -47,7 +53,7 @@
                         <th> City </th>
                         <th> Hotel Name </th>
                         <th> Room Cat</th>
-                        <th> Booking Date </th>
+                        <th> Checkin Date </th>
                         <th> Total Cost </th>
                         <th>Sent Status</th>
                         <th>Status</th>
@@ -91,6 +97,7 @@
    		}   
    	});
    });
+
    jQuery(document).ready(function($){
    	$(document).on("click", ".ajax_booking_status", function(){
    		var iti_id = $(this).attr("data-id");
@@ -121,9 +128,40 @@
    	});
    });
 </script>
-<script type="text/javascript">
+<script type="text/javascript">   
    var table;
    $(document).ready(function() {
+       $("#daterange").daterangepicker({
+            locale: {
+                format: 'YYYY-MM-DD'
+            },
+            showDropdowns: true,
+            minDate: new Date(2016, 10 - 1, 25),
+            //singleDatePicker: true,
+            ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Tomorrow': [moment().add(1, 'days'), moment().add(1, 'days')],
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                'Next 30 Days': [moment(), moment().add(30, 'days')],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month')
+                    .endOf('month')
+                ],
+                'Last Three Month': [moment().subtract(3, 'month').startOf('month'), moment().subtract(1,
+                    'month').endOf('month')],
+            },
+            autoUpdateInput: false,            
+        },
+        function(start, end, label) {
+            $('#daterange').val(start.format('D MMMM, YYYY') + ' to ' + end.format('D MMMM, YYYY'));
+            //$('#daterange').val(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            $("#date_from").val(start.format('YYYY-MM-DD'));
+            $("#date_to").val(end.format('YYYY-MM-DD'));            
+            table.ajax.reload(null,true); 
+        });
+      
    	//Custom Filter
    	$(document).on("change", 'input[name=filter]:radio', function() {
    		var filter_val = $(this).val();
@@ -145,9 +183,11 @@
            "ajax": {
                "url": "<?php echo site_url('hotelbooking/ajax_hotelbooking_list')?>",
                "type": "POST",
-   			"data": function ( data ) {
-   				data.filter = $("#filter_val").val();
-   			} 
+   			   "data": function ( data ) {
+   				   data.filter = $("#filter_val").val();
+   				   data.date_from = $("#date_from").val();
+   				   data.date_to = $("#date_to").val();
+   			   } 
            },
            //Set column definition initialisation properties.
            "columnDefs": [

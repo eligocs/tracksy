@@ -396,9 +396,16 @@
 			</form>
 	</div>
 	</div>
-	<?php }else{
-		redirect(404);
-	} ?>
+	<?php }else{ ?>
+		
+			
+	<div class="page-container">
+	<div class="page-content-wrapper">
+	<div class="page-content">
+	</div>
+	</div>
+	</div>		
+	<?php } ?>
 <!-- Modal -->
  </div>
 <script type="text/javascript">

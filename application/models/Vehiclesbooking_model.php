@@ -57,6 +57,13 @@ class Vehiclesbooking_model extends CI_Model{
 	
 	//datatable view all Cab Bookings
 	private function _get_datatables_query($where){
+		if( isset($_POST['date_from']) && $_POST['date_from'] ){
+			$check_in = date("Y-m-d", strtotime( $_POST['date_from'] ));
+			$check_in_to = date("Y-m-d", strtotime( $_POST['date_to'] ));
+			$this->db->where("picking_date >=", $check_in );
+			$this->db->where("picking_date <=", date('Y-m-d H:i:s', strtotime($check_in_to . "23:59:59")) );
+		}
+
 		//add custom filter here
 		if( isset( $_POST['filter'] ) ){
 			$filter_data = trim($this->input->post('filter'));
@@ -149,6 +156,14 @@ class Vehiclesbooking_model extends CI_Model{
 	
 	//datatable view all Vehicles Bookings
 	private function _get_datatables_query_vol($where){
+
+		if( isset($_POST['date_from']) && $_POST['date_from'] ){
+			$check_in = date("Y-m-d", strtotime( $_POST['date_from'] ));
+			$check_in_to = date("Y-m-d", strtotime( $_POST['date_to'] ));
+			$this->db->where("dep_date >=", $check_in );
+			$this->db->where("dep_date <=", date('Y-m-d H:i:s', strtotime($check_in_to . "23:59:59")) );
+		}
+
 		//add custom filter here
 		if( isset( $_POST['filter'] ) ){
 			$filter_data = trim($this->input->post('filter'));

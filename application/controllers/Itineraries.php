@@ -61,6 +61,35 @@ class Itineraries extends CI_Controller {
 			redirect(404);
 		} 
 	}
+
+	public function confirmiti(){
+		$user = $this->session->userdata('logged_in');
+		$user_id = $user["user_id"];
+		$data['user_role'] 	= $user['role'];
+		$data['user_id'] 	= $user['user_id'];
+		if( $user['role'] == 99 || $user['role'] == 98 || $user['role'] == 97 ){
+			$this->load->view('inc/header');
+			$this->load->view('inc/sidebar');
+			$this->load->view('itineraries/confirm_iti', $data);
+			$this->load->view('inc/footer'); 
+		}else{
+			redirect(404);
+		} 
+	}
+	public function revisediti(){
+		$user = $this->session->userdata('logged_in');
+		$user_id = $user["user_id"];
+		$data['user_role'] 	= $user['role'];
+		$data['user_id'] 	= $user['user_id'];
+		if( $user['role'] == 99 || $user['role'] == 98 || $user['role'] == 97 ){
+			$this->load->view('inc/header');
+			$this->load->view('inc/sidebar');
+			$this->load->view('itineraries/revisediti', $data);
+			$this->load->view('inc/footer'); 
+		}else{
+			redirect(404);
+		} 
+	}
 	
 	//add Itinerary
 	public function add(){ 
@@ -483,6 +512,10 @@ class Itineraries extends CI_Controller {
 			//Iti type
 			if( isset( $_POST["iti_type"] ) && !empty( $_POST["iti_type"] ) )
 				$where["itinerary.iti_type"] = $_POST['iti_type'];
+
+			if( isset( $_POST["confirmiti"] ) ){
+
+			}	
 			
 		}elseif( $role == '96' ){
 			//condition for quotation sent filter

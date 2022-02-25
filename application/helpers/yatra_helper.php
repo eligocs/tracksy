@@ -1521,6 +1521,7 @@
 	* Sent Mail
 	*/
 	function sendEmail( $to, $subject="", $msg="", $bcc="", $cc ="", $from="" ){
+		return true;
 		$CI =& get_instance();
 		$CI->load->library('email');
 		
@@ -2817,4 +2818,22 @@
 	//DECIMAL FORMAT
 	function decimal_format($number){
 		return bcdiv(floatval($number), 1, 3); //two digits after decimal 
+	}
+
+	//count pending booking
+	function pending_hotel_bookings_count(){
+		$ci =& get_instance();
+		$res = $ci->db->from( "hotel_booking")->where("booking_status" ,0  )->count_all_results();
+		return $res;
+	}
+	function pending_cab_bookings_count(){
+		$ci =& get_instance();
+		$res = $ci->db->from( "cab_booking")->where("booking_status" ,0  )->count_all_results();
+		return $res;
+	}
+
+	function pending_vtf_bookings_count(){
+		$ci =& get_instance();
+		$res = $ci->db->from( "travel_booking")->where("booking_status" ,0  )->count_all_results();
+		return $res;
 	}

@@ -152,8 +152,7 @@
                      <li class="nav-item  ">
                          <a href="<?php echo site_url("itineraries/onholditineraries"); ?>" class="nav-link ">
                              <i class="fa fa-random"></i>
-                             <span class="title">On Hold Itineraries</span><span
-                                 class="badge badge-info"><?php echo onhold_itieraries_count(); ?></span>
+                             <span class="title">On Hold Itineraries</span><span class="badge badge-info"><?php echo onhold_itieraries_count(); ?></span>
                          </a>
                      </li>
                  </ul>
@@ -1280,6 +1279,18 @@
                              <span class="title">Booked Itineraries</span>
                          </a>
                      </li>
+                     <li class="nav-item  ">
+                         <a href="<?php echo site_url("itineraries/confirmiti"); ?>" class="nav-link ">
+                                <i class="icon-layers" aria-hidden="true"></i>
+                            <span class="title">Confirm Itineraries</span>
+                         </a>
+                     </li>
+                     <li class="nav-item  ">
+                         <a href="<?php echo site_url("itineraries/revisediti"); ?>" class="nav-link ">
+                                <i class="icon-layers" aria-hidden="true"></i>
+                            <span class="title">Revised Itineraries</span>
+                         </a>
+                     </li>
                  </ul>
              </li>
              <?php /*
@@ -1336,6 +1347,7 @@
                          <a href="<?php echo site_url("hotelbooking"); ?>" class="nav-link ">
                              <i class="icon-share-alt" aria-hidden="true"></i>
                              <span class="title">All Hotel Booking</span>
+                             <span class="badge badge-info"><?php echo pending_hotel_bookings_count(); ?></span>
                          </a>
                      </li>
                  </ul>
@@ -1352,12 +1364,14 @@
                          <a href="<?php echo site_url("vehiclesbooking"); ?>" class="nav-link ">
                              <i class="icon-share-alt" aria-hidden="true"></i>
                              <span class="title">All Cab Booking</span>
+                             <span class="badge badge-info"><?php echo pending_cab_bookings_count(); ?></span>
                          </a>
                      </li>
                      <li class="nav-item  ">
                          <a href="<?php echo site_url("vehiclesbooking/allvehiclesbookings"); ?>" class="nav-link ">
                              <i class="fa fa-bus" aria-hidden="true"></i>
                              <span class="title">All Bus/Train/Flight Booking</span>
+                             <span class="badge badge-info"><?php echo pending_vtf_bookings_count(); ?></span>
                          </a>
                      </li>
                  </ul>
