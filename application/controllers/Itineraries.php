@@ -3022,6 +3022,7 @@ class Itineraries extends CI_Controller {
 				$to = trim( $customer_email );
 				/*send email*/
 				$sent_mail = sendEmail($to, $subject, $message, $bccEmails, $ccEmails);
+				// print_r($sent_mail);die;
 				if( $sent_mail ){
 					/* send msg for customer on itinerary send */
 					$iti_link = site_url("promotion/itinerary/{$iti_id}/{$temp_key}");

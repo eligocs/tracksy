@@ -26,7 +26,7 @@ jQuery(document).ready(function($) {
                         series: [{
                             type: 'gauge',
                             min: 0,
-                            max: 1000000,
+                            max: 500000,
                             axisLine: {
                                 lineStyle: {
                                     width: 10,
@@ -68,7 +68,7 @@ jQuery(document).ready(function($) {
                                 formatter: '{value} ',
                                 color: 'auto'
                             },
-                            center: ['50%', '60%'],
+                            center: ['40%', '50%'],
                             radius: ['5%', '100%'],
                             data: [
                                 { value: res.totalsale }

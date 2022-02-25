@@ -1470,18 +1470,25 @@
 -->
 $(document).on("click",
 "#per_person_rate",
-function(e) {
-if ($(this).is(":checked")) {
+function(e)
+{
+if
+($(this).is(":checked"))
+{
 $(".perperson_section").show();
-} else {
+}
+else
+{
 $(".perperson_section").hide();
-$(".perperson_section input").val("");
+$(".perperson_sectioninput ").val("");
 }
 });
 $(document).on("click",
 "#incgst",
-function(e) {
-if ($(this).is(":checked"))
+function(e)
+{
+if
+($(this).is(":checked"))
 $(".incgst").val(1);
 else
 $(".incgst").val(0);
@@ -1607,7 +1614,7 @@ $(element).closest('.form-group').removeClass('has-error'); // set error class t
 
 success: function (label) {
 label.addClass('valid').closest('.form-group').removeClass('has-error').addClass('has-success'); // set success class to
-the control group },
+},
 });
 var handleTitle = function(tab, navigation, index) {
 var total = navigation.find('li').length;
@@ -1818,7 +1825,7 @@ var FormRepeater = function() {
                             nextDiv.each(function() {
                                 var z = 1;
                                 var newT = $(this).find(".tour_dt").val().split(
-                                "/");
+                                    "/");
                                 var ff = new Date(newT[2], newT[1] - 1, newT[0]);
                                 var new11 = moment(ff).subtract(z++, 'days'),
                                     nextDate1 = moment(new11).format('DD/MM/YYYY');

@@ -24,6 +24,7 @@ jQuery(document).ready(function($) {
             dataType: 'json',
             data: { selectedDate: selectedDate },
             success: function(data) {
+                console.log(data);
                 //init chart
                 var myChart = echarts.init(document.getElementById('pieChart'));
                 var idx = 1;
@@ -80,7 +81,59 @@ jQuery(document).ready(function($) {
                 myChart.setOption(pieChartOption);
             },
             error: function(e) {
-                alert("Some Error are occurred?")
+                var myChart = echarts.init(document.getElementById('pieChart'));
+                var idx = 1;
+                pieChartOption = {
+                    timeline: {
+                        show: false,
+                        data: [
+                            '2013-07-01',
+                        ],
+                    },
+                    options: [{
+                        tooltip: {
+                            trigger: 'item',
+                            formatter: "{a} <br/>{b} : {c} ({d}%)"
+                        },
+                        toolbox: {
+                            show: true,
+                            feature: {
+                                dataView: {
+                                    show: true,
+                                    readOnly: false
+                                },
+                                magicType: {
+                                    show: true,
+                                    type: ['pie', 'funnel'],
+                                    option: {
+                                        funnel: {
+                                            x: '25%',
+                                            width: '50%',
+                                            funnelAlign: 'left',
+                                            max: 1700
+                                        }
+                                    }
+                                },
+                                restore: {
+                                    show: true
+                                },
+                                saveAsImage: {
+                                    show: true
+                                }
+                            }
+                        },
+                        series: [{
+                            type: 'pie',
+                            center: ['50%', '55%'],
+                            radius: '70%',
+                            data: [{
+                                value: 1,
+                                name: 'Data Not Found'
+                            }],
+                        }]
+                    }]
+                };
+                myChart.setOption(pieChartOption);
             }
         })
     }

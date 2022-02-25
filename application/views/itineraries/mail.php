@@ -204,11 +204,6 @@
                                                     style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 150px; max-width: 100%; display: block;"
                                                     width="70">
                                                 <div style="font-size:1px;line-height:10px">&nbsp;</div>
-                                                <!--[if mso]>
-                           </td>
-                        </tr>
-                     </table>
-                     <![endif]-->
                                             </div>
                                             <!--[if (!mso)&(!IE)]><!-->
                                         </div>
@@ -335,7 +330,7 @@
                                                     <p
                                                         style="margin: 0; font-size: 30px; line-height: 1.2; text-align: center; word-break: break-word; mso-line-height-alt: 36px; margin-top: 0; margin-bottom: 0;">
                                                         <span style="font-size: 22px;">Dear
-                                                            [<?= $cust->customer_name ?>] greetings in holiday
+                                                            <?= $cust->customer_name ?> greetings in holiday
                                                             terms</span>
                                                     </p>
                                                 </div>
@@ -346,7 +341,7 @@
                                                     style="font-size: 14px; line-height: 1.2; color: #0685cf; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; mso-line-height-alt: 17px;">
                                                     <p
                                                         style="margin: 0; font-size: 16px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;">
-                                                        Here is your [<?= $iti->package_name ?>] tour detais as per your
+                                                        Here is your <?= $iti->package_name ?> tour detais as per your
                                                         requirements. Please find the details below :- &nbsp;
                                                     </p>
                                                 </div>
@@ -416,7 +411,10 @@
                                                     </td>
                                                     <td
                                                         style="padding:10px;vertical-align:top;color:rgb(0, 0, 0); border:1px solid">
-                                                        <?= $iti->quatation_date ?>
+                                                        <?php 
+                                                            $newDate = date("d-m-Y", strtotime($iti->quatation_date));  
+                                                            echo $newDate ;  
+                                                            ?>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -493,8 +491,7 @@
                                                         style="padding-left:34px;padding-right:34px;font-size:16px;display:inline-block;letter-spacing:undefined;"><span
                                                             style="font-size: 12px; line-height: 2; word-break: break-word; mso-line-height-alt: 24px;"><span
                                                                 style="font-size: 16px; line-height: 32px;"
-                                                                data-mce-style="font-size: 16px; line-height: 32px;">View
-                                                                Itinerary</span></span></span></a>
+                                                                data-mce-style="font-size: 16px; line-height: 32px; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;">View Pdf</span></span></span></a>
                                             </div>
                                         </div>
                                         <!--<![endif]-->
@@ -514,16 +511,6 @@
                                         <!--[if (!mso)&(!IE)]><!-->
                                         <div
                                             style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:20px; padding-bottom:30px; padding-right: 0px; padding-left: 0px;">
-                                            <!--<![endif]-->
-                                            <!-- <div class="img-container center autowidth big" align="center"
-                              style="padding-right: 0px;padding-left: 0px;">
-                              <img class="center autowidth" align="center" border="0"
-                                 src="./images/road_img.jpg"
-                                 alt="Flying Airplane Illustration"
-                                 title="Flying Airplane Illustration"
-                                 style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 600px; max-width: 100%; display: block;"
-                                 width="600">
-                           </div> -->
                                             <div
                                                 style="color:#00255b;font-family:'Merriwheater', 'Georgia', serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
                                                 <div class="txtTinyMce-wrapper"
@@ -564,10 +551,10 @@
                                                     style="font-size: 14px; line-height: 1.2; color: #66787f; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; mso-line-height-alt: 17px;">
                                                     <p
                                                         style="margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;">
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                                                        <!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                                                         do
                                                         eiusmod tempor incididunt ut labore et dolore magna
-                                                        aliqua.&nbsp;
+                                                        aliqua.&nbsp; -->
                                                     </p>
                                                 </div>
                                             </div>
@@ -621,7 +608,7 @@
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                            <div
+                                            <!-- <div
                                                 style="color:#667;font-family:'Merriwheater', 'Georgia', serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
                                                 <div class="txtTinyMce-wrapper"
                                                     style="font-size: 12px; line-height: 1.2; font-family: 'Merriwheater', 'Georgia', serif; color: #667; mso-line-height-alt: 14px;">
@@ -630,8 +617,8 @@
                                                         <span style="font-size: 14px;">Show us some support</span>
                                                     </p>
                                                 </div>
-                                            </div>
-                                            <table class="social_icons" cellpadding="0" cellspacing="0" width="100%"
+                                            </div> -->
+                                            <!-- <table class="social_icons" cellpadding="0" cellspacing="0" width="100%"
                                                 role="presentation"
                                                 style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;"
                                                 valign="top">
@@ -687,7 +674,7 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table>
+                                            </table> -->
                                         </div>
                                     </div>
                                 </div>

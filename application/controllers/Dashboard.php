@@ -1937,18 +1937,21 @@ class Dashboard extends CI_Controller {
 		if(!empty($leadsFilterdata)){
 			$totalNo = [];
 			$typeName = [];
-			foreach( $leadsFilterdata as $key => $value){
-				// if(!empty($value['value'])){
-				// 	$totalNo[] = $value['value'];
-				// 	}	
+			foreach( $leadsFilterdata as $key => $value){	
+					$totalNo =  $value['value'];
 					$typeName[] = $value['name'];
 				}
 			}
-			if( $leadsFilterdata){
-				$res = array('res' => true, 'msg'=> 'success', 'totalNo' => $leadsFilterdata, 'name' =>  $typeName);
+
+			// if($totalNo != 0){
+			if( $leadsFilterdata || $typeName){
+				$res = array('res' => true, 'msg'=> 'success', 'totalNo' => $leadsFilterdata, 'name' =>  $typeName, 'totalNo' => $totalNo);
 			}else{
 				$res = array('res' => false, 'msg'=> 'No Data Found', 'totalNo' => '', 'name' => '');
 			}
+		// }else{
+		// 	$res = array('res' => false, 'msg'=> 'No Data Found', 'totalNo' => '', 'name' => '');
+		// }
 			die(json_encode( $res ));
 		}
 	

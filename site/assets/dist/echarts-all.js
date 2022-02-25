@@ -755,7 +755,7 @@
             textStyle: {
                 decoration: "none",
                 fontFamily: "Arial, Verdana, sans-serif",
-                fontFamily2: "微软雅黑",
+                fontFamily2: "Microsoft Yahei",
                 fontSize: 12,
                 fontStyle: "normal",
                 fontWeight: "normal"
@@ -792,9 +792,9 @@
             effectBlendAlpha: .95,
             symbolList: ["circle", "rectangle", "triangle", "diamond", "emptyCircle", "emptyRectangle", "emptyTriangle", "emptyDiamond"],
             loadingEffect: "spin",
-            loadingText: "数据读取中...",
+            loadingText: "Reading data...",
             noDataEffect: "bubble",
-            noDataText: "暂无数据",
+            noDataText: "No data",
             calculable: !1,
             calculableColor: "rgba(255,165,0,0.6)",
             calculableHolderColor: "#ccc",

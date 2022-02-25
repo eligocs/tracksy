@@ -124,8 +124,8 @@
 			<script src="<?php echo base_url();?>site/assets/chart/admin_chart.js" type="text/javascript"></script>
 			<!-- <script src="<?php echo base_url();?>site/assets/echarts-en.min.js" type="text/javascript"></script> -->
 			<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.js"> </script> -->
-			<!-- <script src="<?php echo base_url();?>site/assets/js/echarts/echarts.js" type="text/javascript"></script> -->
-			<!-- <script src="<?php echo base_url();?>site/assets/js/charts_dashboard.js" type="text/javascript"></script> -->
+			<!-- <script src="<?php echo base_url();?>site/assets/js/echarts/echarts.js" type="text/javascript"></script>
+			<script src="<?php echo base_url();?>site/assets/js/charts_dashboard.js" type="text/javascript"></script> -->
 			<?php 
 		}
 		?>
