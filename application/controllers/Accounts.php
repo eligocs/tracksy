@@ -119,8 +119,7 @@
    		if( $user['role'] == '99' || $user['role'] == '93' ) {
    			$data['account_listing'] = $this->global_model->getdata("ac_customer_accounts", array( 'del_status' => 0), "", "id" );
    			//$data['account_listing'] = $this->accounts_model->get_all_customer_accounts();
-   			//echo $this->db->last_query(); die;
-   			
+   			//echo $this->db->last_query(); die;   			
    			$this->load->view('inc/header');
    			$this->load->view('inc/sidebar');
    			$this->load->view('accounts/customer_accounts_listing', $data);
@@ -143,8 +142,7 @@
    			if( $id ){
    				$data['account_listing'] = $this->global_model->getdata("ac_customer_accounts", array( 'id' => $id, 'del_status' => 0) );
    				$data['booking_listing'] = $this->global_model->getdata("ac_booking_reference_details", array( 'cus_account_id' => $id ));
-   			}
-   			
+   			}   			
    			$this->load->view('inc/header');
    			$this->load->view('inc/sidebar');
    			$this->load->view('accounts/add_customer_account', $data);

@@ -1,4 +1,5 @@
 <div class="page-container itinerary-view view_call_info">
+    test
     <div class="page-content-wrapper">
         <div class="page-content">
             <!--Show success message if hotel edit/add -->
@@ -756,11 +757,10 @@
 
                         </div>
                     </div>
-                </div>
-
+                </div>                            
                 <!--End hotel booking if any-->
                 <!--step line start-->
-                <?php /*
+                
 					<hr>
 					<?php $pay_class 	=  $total_payment_recieved_percentage >= 50 ? "done" : "error"; 
 						$hotel_class	 =  !empty( $hotel_booking_status ) ? "done" : "error";
@@ -816,7 +816,7 @@
                     <!--show confirm voucher button if hotel and volovo/train/flight booking confirmed-->
                     <?php if( $is_voucher_confirm ){
 							echo "<p class='text-center green'><strong>Voucher has been Confirmed.</strong></p>";
-						}else if( $hotel_booking_status && $vtf_booking_status && $cab_booking_status ){ ?>
+						}else if( $hotel_booking_status && $vtf_booking_status && $cab_booking_status && $total_payment_recieved_percentage >= 40 ){ ?>
                     <div class="text-center confirm_voucher">
                         <button type="submit" data-iti_id="<?php echo $iti->iti_id; ?>"
                             class="btn green uppercase cnfrim_voucher" title="Confirm Voucher">Confirm Voucher</button>
@@ -853,7 +853,7 @@
                     <?php } ?>
                 </div>
                 <!--End step line start-->
-                */ ?>
+                 ?>
                 <div class="clearfix"></div>
                 <div class="custom_card">
                     <div class="inquery_section margin-bottom-25">

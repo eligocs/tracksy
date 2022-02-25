@@ -332,7 +332,7 @@
 
                  </ul>
              </li>
-             <li class="nav-item  <?php if( $menu_name == "vouchers" ){ echo 'active'; }?>">
+                <li class="nav-item  <?php if( $menu_name == "vouchers" ){ echo 'active'; }?>">
                  <a href="javascript:;" class="nav-link nav-toggle">
                      <i class="icon-folder" aria-hidden="true"></i>
                      <span class="title">Vouchers</span>
@@ -1660,6 +1660,22 @@
                      </li>
                  </ul>
              </li>
+
+             <li class="nav-item  <?php if( $menu_name == "vouchers" ){ echo 'active'; }?>">
+                 <a href="javascript:;" class="nav-link nav-toggle">
+                     <i class="icon-folder" aria-hidden="true"></i>
+                     <span class="title">Vouchers</span>
+                     <span class="arrow"></span>
+                 </a>
+                 <ul class="sub-menu">
+                    <li class="nav-item  ">
+                        <a href="<?php echo site_url("vouchers"); ?>" class="nav-link ">
+                            <i class="fa fa-check"></i>
+                            <span class="title">Confirmed Vouchers</span>
+                        </a>
+                    </li>                   
+                 </ul>
+             </li>
              <!-- <li class="nav-item  <?php if( $menu_name == "clientsection" ){ echo 'active'; }?>">
                  <a href="javascript:;" class="nav-link nav-toggle">
                      <i class="fa fa-briefcase" aria-hidden="true"></i>
@@ -2203,9 +2219,39 @@
                          <span class="title">Order Status</span>
                      </a>
                  </li>
-
-             </ul>
+            </ul>
          </li>
+
+         <!--ledger menu-->
+         <li class="nav-item  <?php if( $menu_name == "ledger" ){ echo 'active'; }?>">
+             <a href="javascript:;" class="nav-link nav-toggle">
+                 <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                 <span class="title">Ledger</span>
+                 <span class="arrow"></span>
+             </a>
+             <ul class="sub-menu">                
+                <li class="nav-item  ">
+                    <a href="<?php echo site_url("ledger"); ?>" class="nav-link ">
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                        <span class="title">Vendor Accounts</span>
+                    </a>
+                </li>
+
+                <!--li class="nav-item  ">
+                    <a href="<?php echo site_url("ledger/ledger_type"); ?>" class="nav-link ">
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                        <span class="title">Ledger Type</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                    <a href="<?php echo site_url("ledger/vendor_receipts"); ?>" class="nav-link ">
+                        <i class="fa fa-inr" aria-hidden="true"></i>
+                        <span class="title">Receipts</span>
+                    </a>
+                </li--> 
+            </ul>
+         </li><!--end ledger menu-->
+
          <div class='sidebar_heading'>
              <span> Configuration </span>
          </div>

@@ -2837,3 +2837,15 @@
 		$res = $ci->db->from( "travel_booking")->where("booking_status" ,0  )->count_all_results();
 		return $res;
 	}
+
+	function pm_get_client_adhar_card( $customer_id = null ){
+		$ci =& get_instance();
+		if( $customer_id ){			
+			$res = $ci->global_model->getdata("iti_payment_details", array( "customer_id" => $customer_id ), "client_aadhar_card" );
+			$doc_path =  base_url() .'site/assets/client_docs/';
+			if($res){
+				return $doc_path . $res;
+			}
+		}
+		return false;
+	}

@@ -14,11 +14,18 @@ class Voucher_model extends CI_Model{
 	
 	//datatable view all Vouchers
 	private function _get_datatables_query($where){
+		$user = $this->session->userdata('logged_in');
+		$u_id = $user['user_id'];
+		$role = $user['role'];
 		//get data
 		$this->db->select('v.*,p2.package_name,p2.temp_key, p2.iti_type, c.customer_name, c.customer_contact,c.customer_email')
 		->from('iti_vouchers_status as v')
 		->join('itinerary as p2', 'v.iti_id = p2.iti_id', 'INNER')
 		->join('customers_inquery as c', 'c.customer_id = p2.customer_id', 'INNER');
+
+		if( $role == 96 ){
+			$this->db->where( 'p2.agent_id', $u_id );
+		}
 		
 		if (!empty($where)) {
 			foreach($where as $key => $value){
