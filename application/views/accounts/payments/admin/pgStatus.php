@@ -44,7 +44,7 @@
 				if (isset($responseParamList) && count($responseParamList)>0 )
 				{ 
 				?>
-				<hr>
+				
 				<div class="portlet box blue">
 					<div class="portlet-title">
 						<div class="caption">

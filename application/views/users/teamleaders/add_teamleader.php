@@ -9,7 +9,7 @@
 				</div>
 			</div>
 			<?php echo $this->session->flashdata('message'); ?>
-			<div class="portlet-body">
+			<div class="portlet-body custom_card">
 				<?php if( empty($all_unassigned_sales_agent) ){
 					echo "<div class='alert alert-danger'>No agents found</div>";
 				}else{ ?>
@@ -47,9 +47,8 @@
 						</div>
 					</div>
 					<div class="clearfix"></div>
-				<hr>
 				
-				<div class="col-md-12">
+				<div class="col-md-12 margin-top-30">
 					<div class="margiv-top-10">
 						<button type="submit" class="btn green uppercase add_agent">Add Team</button>
 					</div>

@@ -47,7 +47,7 @@
                 <!--sort by agent -->
                 <div class="second_custom_card margin-bottom-20">
                     <div class="filter-box">
-                        <div class="row3 marginBottom clearfix">
+                        <div class="row3 clearfix">
                             <?php
                         //$hideClass = isset( $_GET["todayStatus"] ) || isset( $_GET["leadfrom"] ) ? "hideFilter" : "";
                         if( isset( $_GET["todayStatus"] ) ){	
@@ -60,7 +60,7 @@
                         ?>
                             <?php if( $user_role == 97 ){ ?>
                             <!--start filter section-->
-                            <form id="form-filter" class="flex form-horizontal <?php echo $hideClass; ?>">
+                            <form id="form-filter" class="flex form-horizontal margin_bottom_0 <?php echo $hideClass; ?>">
                                 <div class="actions custom_filter">
                                     <div class="row">
                                         <!--Calender-->
@@ -111,7 +111,7 @@
                             <!--End filter section-->
                             <?php }else{ ?>
                             <!--start filter section-->
-                            <form id="form-filter" class="form-horizontal  <?php echo $hideClass; ?>">
+                            <form id="form-filter" class="form-horizontal margin_bottom_0  <?php echo $hideClass; ?>">
                                 <div class="actions custom_filter">
                                     <div class="row">
                                         <!--Calender-->
@@ -212,14 +212,33 @@
                         </div>
                         <!--export button for admin and manager-->
                         <div class="col-md-9">
-                            <a href="javscript:void(0)" class="btn btn-danger pull-right export_btn"><i
+                            <label for="" class="d_block">&nbsp;</label>
+                            <div class="dropdown pull-right action_menu">
+                                <button class="btn btn_blue_outline dropdown-toggle" type="button" data-toggle="dropdown">Action
+                                <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <!-- dropdown-item -->
+                                    <li>
+                                       <a href="<?php echo site_url("customers") . "/?todayStatus={$todAy}"; ?>" ><i class="fa fa-users"></i> Today's Lead</a>
+                                    </li>
+                                    <!-- dropdown-item -->
+                                    <li>
+                                        <a href="<?php echo site_url("customers") . "/?todayStatus={$todAy}&leadStatus=callpicked"; ?>"><i class="fa fa-phone"></i> Today Call Picked</a>
+                                    </li>
+                                    <!-- dropdown-item -->
+                                    <li>
+                                       <a href="<?php echo site_url("customers") . "/?todayStatus={$todAy}&leadStatus=callnotpicked"; ?>"><i class="fa fa-phone"></i> Today Call Not Picked</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- <a href="javscript:void(0)" class="btn btn-danger pull-right export_btn"><i
                                     class="fa fa-file-excel"></i> Export</a>
-                            <a href="<?php echo site_url("customers") . "/?todayStatus={$todAy}&leadStatus=callnotpicked"; ?>"
+                            <a href="<?php// echo site_url("customers") . "/?todayStatus={$todAy}&leadStatus=callnotpicked"; ?>"
                                 class="btn btn-info pull-right"><i class="fa fa-phone"></i> Today Call Not Picked</a>
-                            <a href="<?php echo site_url("customers") . "/?todayStatus={$todAy}&leadStatus=callpicked"; ?>"
+                            <a href="<?php// echo site_url("customers") . "/?todayStatus={$todAy}&leadStatus=callpicked"; ?>"
                                 class="btn btn-success pull-right"><i class="fa fa-phone"></i> Today Call Picked</a>
-                            <a href="<?php echo site_url("customers") . "/?todayStatus={$todAy}"; ?>"
-                                class="btn btn-info pull-right"><i class="fa fa-users"></i> Today's Lead</a>
+                            <a href="<?php// echo site_url("customers") . "/?todayStatus={$todAy}"; ?>"
+                                class="btn btn-info pull-right"><i class="fa fa-users"></i> Today's Lead</a> -->
                         </div>
                     </div>
                     <?php }else if( is_teamleader() ){
@@ -246,7 +265,7 @@
                         <table id="customers" class="table table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th> # </th>
+                                    <!-- <th> # </th> -->
                                     <th> Lead ID </th>
                                     <?php if( is_admin_or_manager() ){  ?>
                                     <th> Type </th>

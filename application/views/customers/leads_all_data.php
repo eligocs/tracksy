@@ -104,7 +104,7 @@ div#quotation_type_section,
                 <!--customer details-->
                 <div class="customer-details custom_card margin-bottom-20">
                     <div class=" ">
-                        <h3 class='text-center uppercase'>Lead Info</h3>
+                        <h3 class='font_size_18'>Lead Info</h3>
                         <div class="col-md-6 col-lg-4">
                             <div class="col-md-6 form_vl"><strong>Lead Id:</strong></div>
                             <div class="col-md-6 form_vr"><?php echo $customer->customer_id; ?></div>
@@ -1709,7 +1709,7 @@ jQuery(document).ready(function($) {
                 },
                 beforeSend: function() {
                     resp.html(
-                    '<p><i class="fa fa-spinner fa-spin"></i> Please wait...</p>');
+                        '<p><i class="fa fa-spinner fa-spin"></i> Please wait...</p>');
                 },
                 success: function(res) {
                     resp.html("");
@@ -1804,7 +1804,7 @@ jQuery(document).ready(function($) {
                 resp.html("Please Choose Package First");
                 resp.html(
                     '<div class="alert alert-danger"><strong>Error! </strong>Please Choose Package First OR Reload page and try again.</div>'
-                    );
+                );
                 return false;
             }
             //resp.html( "Iti Id: " + iti_id + "Package Id: " + package_id + "Customer Id: " + customer_id );
@@ -1820,7 +1820,7 @@ jQuery(document).ready(function($) {
                 beforeSend: function() {
                     resp.html(
                         '<p><i class="fa fa-spinner fa-spin"></i> Please wait...</p>'
-                        );
+                    );
                 },
                 success: function(res) {
                     if (res.status == true) {
@@ -1841,7 +1841,7 @@ jQuery(document).ready(function($) {
                     console.log(r);
                     resp.html(
                         '<div class="alert alert-danger"><strong>Error!</strong> Please Try again later! </div>'
-                        );
+                    );
                 }
             });
         }
@@ -2109,7 +2109,7 @@ jQuery(document).ready(function($) {
             beforeSend: function() {
                 resp.html(
                     '<p class="alert alert-info"><i class="fa fa-spinner fa-spin"></i> Please wait...</p>'
-                    );
+                );
             },
             success: function(data) {
                 $("#sId").val("");
@@ -2124,7 +2124,7 @@ jQuery(document).ready(function($) {
                     $('#DropdownCusInfo').html("");
                     $('#DropdownCusInfo').append(
                         '<li role="displaycuslist" ><a role="menuitem dropdowncusli" data-customer_id = "" class="dropdownlivalue"><strong>No Data Found</strong></a></li>'
-                        );
+                    );
                     $('#customer_id').attr("data-toggle", "");
                 }
                 $.each(data, function(key, value) {
@@ -2198,7 +2198,7 @@ jQuery(document).ready(function($) {
                 beforeSend: function() {
                     response.show().html(
                         '<p class="alert alert-info"><i class="fa fa-spinner fa-spin"></i> Please wait...</p>'
-                        );
+                    );
 
                 },
                 success: function(res) {
@@ -2217,7 +2217,7 @@ jQuery(document).ready(function($) {
                 error: function() {
                     response.html(
                         '<div class="alert alert-danger"><strong>Error! </strong>Please Try again later! </div>'
-                        );
+                    );
                 }
             });
         }
@@ -2367,7 +2367,7 @@ jQuery(document).ready(function($) {
                     $(".spinner_load").show();
                     resp.html(
                         '<p class="alert alert-info"><i class="fa fa-spinner fa-spin"></i> Please wait...</p>'
-                        );
+                    );
                 },
 
                 success: function(res) {
@@ -2437,7 +2437,7 @@ jQuery(document).ready(function($) {
                 resp.html("Please Choose Package First");
                 resp.html(
                     '<div class="alert alert-danger"><strong>Error! </strong>Please Choose Package First</div>'
-                    );
+                );
                 return false;
             }
             //resp.html( "Package Id: " + package_id + "Customer Id: " + customer_id );
@@ -2452,7 +2452,7 @@ jQuery(document).ready(function($) {
                 beforeSend: function() {
                     resp.html(
                         '<p><i class="fa fa-spinner fa-spin"></i> Please wait...</p>'
-                        );
+                    );
                 },
                 success: function(res) {
                     if (res.status == true) {
@@ -2473,7 +2473,7 @@ jQuery(document).ready(function($) {
                     console.log(e);
                     resp.html(
                         '<div class="alert alert-danger"><strong>Error!</strong> Please Try again later! </div>'
-                        );
+                    );
                 }
             });
         }
@@ -2762,7 +2762,7 @@ jQuery(document).ready(function($) {
         if (cat_price < 0 || $.isNumeric(cat_price) == false) {
             $(".resPonse").html(
                 '<div class="alert alert-danger"><strong>Error! </strong>Please enter positive Final Amount value</div>'
-                );
+            );
             return false;
         } else {
             $(".resPonse").html("");
@@ -2807,7 +2807,7 @@ jQuery(document).ready(function($) {
         if (_this_val == '' || !$.isNumeric(_this_val) || _this_val < 0) {
             $(".resPonse").html(
                 '<div class="alert alert-danger"><strong>Error! </strong>Please enter positive value</div>'
-                );
+            );
             _this.val("");
             return false;
         } else {
@@ -2818,7 +2818,7 @@ jQuery(document).ready(function($) {
             swal("Warning!", "Advance should be less than final amount", "warning");
             $(".resPonse").html(
                 '<div class="alert alert-danger"><strong>Error! </strong>Advance should be less than final amount</div>'
-                );
+            );
             _this.val("");
             return false;
         } else {
@@ -2878,7 +2878,7 @@ jQuery(document).ready(function($) {
         if (_this_val == '' || !$.isNumeric(_this_val) || _this_val < 0) {
             $(".resPonse").html(
                 '<div class="alert alert-danger"><strong>Error! </strong>Please enter positive value</div>'
-                );
+            );
             _this.val("");
             return false;
         } else {
@@ -2937,7 +2937,7 @@ jQuery(document).ready(function($) {
         if (_this_val == '' || !$.isNumeric(_this_val) || _this_val < 0) {
             $(".resPonse").html(
                 '<div class="alert alert-danger"><strong>Error! </strong>Please enter positive value</div>'
-                );
+            );
             _this.val("");
             return false;
         } else {
@@ -3083,7 +3083,7 @@ jQuery(document).ready(function($) {
                 $(".spinner_load").show();
                 resp.html(
                     '<div class="alert alert-success"><i class="fa fa-spinner fa-spin"></i> Please wait...</div>'
-                    );
+                );
             },
             success: function(res) {
                 $(".spinner_load").hide();
@@ -3101,7 +3101,8 @@ jQuery(document).ready(function($) {
                     if (booked_lead) {
                         //window.location.href = "<?php echo site_url('itineraries/view/');?>" + hid_iti_id + "/" + hid_temp_key + "?firework=true";
                         alert(
-                            "Form Submited Successfully. Itnerary is booked after verified by the sales manager.");
+                            "Form Submited Successfully. Itnerary is booked after verified by the sales manager."
+                            );
                         //window.location.href = "<?php echo site_url('itineraries/view/');?>" + hid_iti_id + "/" + hid_temp_key;
                         location.reload();
                     } else {
@@ -3120,7 +3121,7 @@ jQuery(document).ready(function($) {
                 $("#submit_frm").removeAttr("disabled");
                 resp.html(
                     '<div class="alert alert-danger"><strong>Error! </strong>Try again later.</div>'
-                    );
+                );
                 console.log(e);
             }
         });

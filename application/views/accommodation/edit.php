@@ -35,51 +35,51 @@
 							<?php $get_customer_info = get_customer( $iti->customer_id ); 
 							$cust = $get_customer_info[0];
 							if( !empty( $get_customer_info ) ){  ?>
-								<section class="well">
+								<section class="well overflow_visible bg_white section_customer_details">
 								<p class="package-details-sub-heading">Customer Details</p>
-								<label class="col-md-2">Customer Name:</label>
-								<div class="col-md-2">
+								<label class="col-md-2 border_right_none">Customer Name:</label>
+								<div class="col-md-2 border_right_none">
 									<strong><?php if(isset($cust->customer_name)){ echo $cust->customer_name; }?></strong>
 								</div>
-								<label class="col-md-2">Contact:</label>
-								<div class="col-md-2">
+								<label class="col-md-2 border_right_none">Contact:</label>
+								<div class="col-md-2 border_right_none">
 									<strong><?php if(isset($cust->customer_contact)){ echo $cust->customer_contact; }?></strong>
 								</div>
-								<label class="col-md-2">Customer Email:</label>
-								<div class="col-md-2">
+								<label class="col-md-2 border_right_none">Customer Email:</label>
+								<div class="col-md-2 ">
 									<strong><?php if(isset($cust->customer_email)){ echo $cust->customer_email; }?> </strong>
 								</div>
-								<div class="clearfix"></div>
-								<label class="col-md-2">Travel Date:</label>
-								<div class="col-md-2">
+								<!-- <div class="clearfix"></div> -->
+								<label class="col-md-2 border_right_none">Travel Date:</label>
+								<div class="col-md-2 border_right_none">
 									<strong><?php if(isset($cust->travel_date)){ echo $cust->travel_date; }?></strong>
 								</div>
-								<label class="col-md-2">Package Type:</label>
+								<label class="col-md-2 border_right_none">Package Type:</label>
 								<?php 
 									$pkBy =	$cust->package_type;
 									$pack_T = $pkBy == "Other" ? $cust->package_type_other : $pkBy; ?>
-								<div class="col-md-6 col-lg-2">
+								<div class="col-md-6 col-lg-2 border_right_none">
 									<strong><?php echo $pack_T;?></strong>
 								</div>
-								<label class="col-md-2">Destination:</label>
+								<label class="col-md-2 border_right_none">Destination:</label>
 								<div class="col-md-2">
 									<strong><?php if(isset($cust->destination)){ echo $cust->destination; }?> </strong>
 								</div>
-								<div class="clearfix"></div>
-								<label class="col-md-2">Meal Plan:</label>
-								<div class="col-md-2">
+								<!-- <div class="clearfix"></div> -->
+								<label class="col-md-2 border_right_none">Meal Plan:</label>
+								<div class="col-md-2 border_right_none">
 									<strong><?php if(isset($cust->meal_plan)){ echo $cust->meal_plan; }?></strong>
 								</div>
-								<label class="col-md-2">Hotel Category:</label>
-								<div class="col-md-2">
+								<label class="col-md-2 border_right_none">Hotel Category:</label>
+								<div class="col-md-2 border_right_none">
 									<strong><?php if(isset($cust->hotel_category)){ echo $cust->hotel_category; }?></strong>
 								</div>
-								<label class="col-md-2">Budget Approx:</label>
+								<label class="col-md-2 border_right_none">Budget Approx:</label>
 								<div class="col-md-2">
 									<strong><?php if(isset($cust->budget)){ echo $cust->budget; }?> </strong>
 								</div>
-								<div class="clearfix"></div>
-								<label class="col-md-2">Total Travellers:</label>
+								<!-- <div class="clearfix"></div> -->
+								<label class="col-md-2 border_right_none">Total Travellers:</label>
 								<div class="col-md-2">
 									<strong>Adults: <?php if(isset($cust->adults)){ echo $cust->adults; }?></strong>
 									<strong><?php if(isset($cust->child)){ echo "Child: " . $cust->child . "( " . $cust->child_age . " )"; } ?></strong>

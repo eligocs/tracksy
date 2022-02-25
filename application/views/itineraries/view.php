@@ -112,21 +112,22 @@
             }*/ ?>
             <!--if final_amount exits-->
             <div class="">
-            <div class="">
-                    <?php if( isset( $paymentDetails[0] ) && !empty( $paymentDetails[0] ) && $iti->iti_status == 9 ){ 
-                    $pay_detail = $paymentDetails[0];
-                    //$is_gst_final = $pay_detail->is_gst == 1 ? "GST Inc." : "GST Extra";
-                    $is_gst_final = "";
-                    echo $is_amendment . $amendment_note;
-                    echo !empty($pay_detail->iti_package_type) ? "<h4 class='text-center red uppercase'>{$pay_detail->iti_package_type}</h4>" : "";
-                    if( $pay_detail->iti_booking_status == 0 ){
-                        echo '<h1 class="text-center green uppercase margin-bottom-40">Booked Itinerary</h1>';
-                    }else if( $pay_detail->iti_booking_status == 1 ){
-                        echo '<h1 class="text-center red uppercase margin-bottom-30">Itinerary On Hold</h1>';
-                    }else{
-                        echo '<h1 class="text-center red uppercase">Itinerary Rejected By Manager</h1>';
-                        echo "<p class='text-center'><strong class='red'> Reason: </strong> {$pay_detail->approved_note}</p>";
-                    } ?>
+                <div class="portlet box blue">
+                    <div class="portlet-body">
+                        <?php if( isset( $paymentDetails[0] ) && !empty( $paymentDetails[0] ) && $iti->iti_status == 9 ){ 
+                        $pay_detail = $paymentDetails[0];
+                        //$is_gst_final = $pay_detail->is_gst == 1 ? "GST Inc." : "GST Extra";
+                        $is_gst_final = "";
+                        echo $is_amendment . $amendment_note;
+                        echo !empty($pay_detail->iti_package_type) ? "<h4 class='text-center red uppercase'>{$pay_detail->iti_package_type}</h4>" : "";
+                        if( $pay_detail->iti_booking_status == 0 ){
+                            echo '<h1 class="text-center green uppercase margin-bottom-40">Booked Itinerary</h1>';
+                        }else if( $pay_detail->iti_booking_status == 1 ){
+                            echo '<h1 class="text-center red uppercase margin-bottom-30">Itinerary On Hold</h1>';
+                        }else{
+                            echo '<h1 class="text-center red uppercase">Itinerary Rejected By Manager</h1>';
+                            echo "<p class='text-center'><strong class='red'> Reason: </strong> {$pay_detail->approved_note}</p>";
+                        } ?>
                         <div class="mt-element-step">
                             <div class="row step-background-thin ">
                                 <div class="col-md-4 bg-grey-steel mt-step-col error ">
@@ -154,34 +155,35 @@
                                 </div>
                             </div>
                         </div>
-                <div class="clearfix"></div>
-                <div class="mt-element-step">
-                    <div class="row step-background-thin ">
-                        <div class="col-md-4 bg-grey-steel mt-step-col done ">
-                            <div class="mt-step-number">1</div>
-                            <div class="mt-step-title uppercase font-grey-cascade"><strong>INR
-                                    <?php echo $paymentDetails[0]->advance_recieved; ?>/- </strong>
+                        <div class="clearfix"></div>
+                        <div class="mt-element-step">
+                            <div class="row step-background-thin ">
+                                <div class="col-md-4 bg-grey-steel mt-step-col done ">
+                                    <div class="mt-step-number">1</div>
+                                    <div class="mt-step-title uppercase font-grey-cascade"><strong>INR
+                                            <?php echo $paymentDetails[0]->advance_recieved; ?>/- </strong>
+                                    </div>
+                                    <div class="mt-step-content font-grey-cascade">Advance Recieved </div>
+                                </div>
+                                <div class="col-md-4 bg-grey-steel mt-step-col error">
+                                    <div class="mt-step-number">2</div>
+                                    <div class="mt-step-title uppercase font-grey-cascade">
+                                        <strong><?php echo $paymentDetails[0]->total_balance_amount; ?>/-</strong>
+                                    </div>
+                                    <div class="mt-step-content font-grey-cascade">Balance Pending</div>
+                                </div>
+                                <div class="col-md-4 bg-grey-steel mt-step-col active">
+                                    <?php $booking_d = $paymentDetails[0]->booking_date; ?>
+                                    <div class="mt-step-number">3</div>
+                                    <div class="mt-step-title uppercase font-grey-cascade">
+                                        <?php echo !empty($booking_d) ? display_month_name($booking_d ) : "--/--/----"; ?></strong>
+                                    </div>
+                                    <div class="mt-step-content font-grey-cascade">Booking Date</div>
+                                </div>
                             </div>
-                            <div class="mt-step-content font-grey-cascade">Advance Recieved </div>
                         </div>
-                        <div class="col-md-4 bg-grey-steel mt-step-col error">
-                            <div class="mt-step-number">2</div>
-                            <div class="mt-step-title uppercase font-grey-cascade">
-                                <strong><?php echo $paymentDetails[0]->total_balance_amount; ?>/-</strong>
-                            </div>
-                            <div class="mt-step-content font-grey-cascade">Balance Pending</div>
-                        </div>
-                        <div class="col-md-4 bg-grey-steel mt-step-col active">
-                            <?php $booking_d = $paymentDetails[0]->booking_date; ?>
-                            <div class="mt-step-number">3</div>
-                            <div class="mt-step-title uppercase font-grey-cascade">
-                                <?php echo !empty($booking_d) ? display_month_name($booking_d ) : "--/--/----"; ?></strong>
-                            </div>
-                            <div class="mt-step-content font-grey-cascade">Booking Date</div>
-                        </div>
+                        <div class="clearfix"></div>
                     </div>
-                </div>
-                <div class="clearfix"></div>
                 </div>
 
             </div>
@@ -1538,110 +1540,114 @@
             $total_booking_cost = 0; //hotel+cab+volvo
             $sr = 1;
             ?>
-            <div class="caption">
-                <h3 style="background: green; color: #fff; padding: 5px;">BOOKING DETAILS</h3>
-            </div>
-            <div class="table-responsive booking_details_pro" style="">
-                <table class="table table-bordered bg_white">
-                    <thead class="thead-default">
-                        <tr>
-                            <th>Sr.</th>
-                            <th> Booking Type </th>
-                            <th> Status </th>
-                            <th> Cost </th>
-                            <th> Action </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!--HOTEL BOOKING LISTING-->
-                        <?php if( isset( $hotel_bookings ) && !empty( $hotel_bookings ) ){ 
-                     foreach( $hotel_bookings as $hotel_book ){
-                     	$hotel_id = $hotel_book->hotel_id;
-                     	$hotel_name = get_hotel_name( $hotel_id );
-                     	$city = get_city_name($hotel_book->city_id);
-                     	$total_cost	= number_format($hotel_book->total_cost);
-                     	
-                     	$view_btn = "<a title='View' href=" . site_url("hotelbooking/view/{$hotel_book->id}/{$hotel_book->iti_id}") . " class='btn_eye' target='_blank' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
-                     	
-                     	echo "<tr>
-                     		<td>{$sr}.</td>
-                     		<td><strong style='color: red'>HOTEL </strong><strong> {$hotel_name} ( {$city} ) </strong></td>
-                     		<td>BOOKED</td>
-                     		<td>{$total_cost}</td>
-                     		<td>{$view_btn}</td>
-                     		</tr>";
-                     		$total_booking_cost += $hotel_book->total_cost;
-                     	$sr++;
-                     }
-                     } ?>
-                        <!--CAB BOOKING LISTING-->
-                        <?php if( isset( $cab_bookings ) && !empty( $cab_bookings ) ){ 
-                     foreach( $cab_bookings as $c_book ){
-                     	//$total_cabs = $c_book->total_cabs;
-                     	//$cab_rate = $c_book->cab_rate;;
-                     	//$total_cab_cost_perday = $total_cabs * $cab_rate;
-                     	//$inclusion_cost = $c_book->extra_charges;
-                     	$total_cost = number_format($c_book->total_cost);
-                     	$cab = get_car_name($c_book->cab_id);
-                     	$total_cab = $c_book->total_cabs;
-                     	$view_btn = "<a title='View' href=" . site_url("vehiclesbooking/viewbooking/{$c_book->id}") . " class='btn_eye' target='_blank' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
-                     	
-                     	echo "<tr>
-                     		<td>{$sr}.</td>
-                     		<td><strong style='color: green'>CAB</strong> ( {$cab} * {$total_cab} ) </td>
-                     		<td>BOOKED</td>
-                     		<td>{$total_cost}</td>
-                     		<td>{$view_btn}</td>
-                     		</tr>";
-                     		
-                     		$total_booking_cost += $c_book->total_cost;
-                     	$sr++;
-                     }
-                     } ?>
-                        <!--VOLVO/TRAIN/FLIGHT BOOKING LISTING-->
-                        <?php if( isset( $vtf_bookings ) && !empty( $vtf_bookings ) ){ 
-                     foreach( $vtf_bookings as $vtf_book ){
-                     	$single_trip_cost = $vtf_book->cost_per_seat * $vtf_book->total_seats;
-                     	$return_trip_cost = !empty( $vtf_book->cost_per_seat_return_trip ) ? $vtf_book->cost_per_seat_return_trip * $vtf_book->total_seats : 0;
-                     	$tc = $single_trip_cost + $return_trip_cost;
-                     	$total_cost = number_format( $tc );
-                     	
-                     	$view_btn = "<a title='View' href=" . site_url("vehiclesbooking/viewvehiclebooking/{$c_book->id}/{$vtf_book->id}/{$vtf_book->iti_id}") . " class='btn_eye' target='_blank' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
-                     	$type = ucfirst($vtf_book->booking_type);
-                     	echo "<tr>
-                     		<td>{$sr}.</td>
-                     		<td><strong>{$type}</strong></td>
-                     		<td>BOOKED</td>
-                     		<td>{$total_cost}</td>
-                     		<td>{$view_btn}</td>
-                     		</tr>";
-                     		
-                     		$total_booking_cost += $tc;
-                     	$sr++;
-                     }
-                     } ?>
-                        <!--calculate profit/loss-->
-                        <?php 
-                     $profit = $total_p_cost - $total_booking_cost;
-                     $pro_text = $profit < 0 ? "<strong style='color: red'> ( Loss )</strong>" : "<strong style='color: green'> ( PROFIT ) </strong>";
-                     ?>
-                        <tr>
-                            <td colspan="2"></td>
-                            <td><strong>Total Expenses : </strong></td>
-                            <td colspan="2"><?php echo number_format($total_booking_cost); ?></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"></td>
-                            <td><strong>Package Cost : </strong></td>
-                            <td colspan="2"><?php echo number_format($total_p_cost); ?></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"></td>
-                            <td><strong>Profit/Loss : </strong></td>
-                            <td colspan="2"><strong><?php echo number_format($profit) . "</strong>" . $pro_text; ?></td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <h3 class="custom_title">BOOKING DETAILS</h3>
+                </div>
+                <div class="portlet-body">
+                    <div class="table-responsive booking_details_pro" style="">
+                        <table class="table table-bordered bg_white">
+                            <thead class="thead-default">
+                                <tr>
+                                    <th>Sr.</th>
+                                    <th> Booking Type </th>
+                                    <th> Status </th>
+                                    <th> Cost </th>
+                                    <th> Action </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!--HOTEL BOOKING LISTING-->
+                                <?php if( isset( $hotel_bookings ) && !empty( $hotel_bookings ) ){ 
+                            foreach( $hotel_bookings as $hotel_book ){
+                                $hotel_id = $hotel_book->hotel_id;
+                                $hotel_name = get_hotel_name( $hotel_id );
+                                $city = get_city_name($hotel_book->city_id);
+                                $total_cost	= number_format($hotel_book->total_cost);
+                                
+                                $view_btn = "<a title='View' href=" . site_url("hotelbooking/view/{$hotel_book->id}/{$hotel_book->iti_id}") . " class='btn_eye' target='_blank' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
+                                
+                                echo "<tr>
+                                    <td>{$sr}.</td>
+                                    <td><strong style='color: red'>HOTEL </strong><strong> {$hotel_name} ( {$city} ) </strong></td>
+                                    <td>BOOKED</td>
+                                    <td>{$total_cost}</td>
+                                    <td>{$view_btn}</td>
+                                    </tr>";
+                                    $total_booking_cost += $hotel_book->total_cost;
+                                $sr++;
+                            }
+                            } ?>
+                                <!--CAB BOOKING LISTING-->
+                                <?php if( isset( $cab_bookings ) && !empty( $cab_bookings ) ){ 
+                            foreach( $cab_bookings as $c_book ){
+                                //$total_cabs = $c_book->total_cabs;
+                                //$cab_rate = $c_book->cab_rate;;
+                                //$total_cab_cost_perday = $total_cabs * $cab_rate;
+                                //$inclusion_cost = $c_book->extra_charges;
+                                $total_cost = number_format($c_book->total_cost);
+                                $cab = get_car_name($c_book->cab_id);
+                                $total_cab = $c_book->total_cabs;
+                                $view_btn = "<a title='View' href=" . site_url("vehiclesbooking/viewbooking/{$c_book->id}") . " class='btn_eye' target='_blank' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
+                                
+                                echo "<tr>
+                                    <td>{$sr}.</td>
+                                    <td><strong style='color: green'>CAB</strong> ( {$cab} * {$total_cab} ) </td>
+                                    <td>BOOKED</td>
+                                    <td>{$total_cost}</td>
+                                    <td>{$view_btn}</td>
+                                    </tr>";
+                                    
+                                    $total_booking_cost += $c_book->total_cost;
+                                $sr++;
+                            }
+                            } ?>
+                                <!--VOLVO/TRAIN/FLIGHT BOOKING LISTING-->
+                                <?php if( isset( $vtf_bookings ) && !empty( $vtf_bookings ) ){ 
+                            foreach( $vtf_bookings as $vtf_book ){
+                                $single_trip_cost = $vtf_book->cost_per_seat * $vtf_book->total_seats;
+                                $return_trip_cost = !empty( $vtf_book->cost_per_seat_return_trip ) ? $vtf_book->cost_per_seat_return_trip * $vtf_book->total_seats : 0;
+                                $tc = $single_trip_cost + $return_trip_cost;
+                                $total_cost = number_format( $tc );
+                                
+                                $view_btn = "<a title='View' href=" . site_url("vehiclesbooking/viewvehiclebooking/{$c_book->id}/{$vtf_book->id}/{$vtf_book->iti_id}") . " class='btn_eye' target='_blank' ><i class='fa fa-eye' aria-hidden='true'></i></a>";
+                                $type = ucfirst($vtf_book->booking_type);
+                                echo "<tr>
+                                    <td>{$sr}.</td>
+                                    <td><strong>{$type}</strong></td>
+                                    <td>BOOKED</td>
+                                    <td>{$total_cost}</td>
+                                    <td>{$view_btn}</td>
+                                    </tr>";
+                                    
+                                    $total_booking_cost += $tc;
+                                $sr++;
+                            }
+                            } ?>
+                                <!--calculate profit/loss-->
+                                <?php 
+                            $profit = $total_p_cost - $total_booking_cost;
+                            $pro_text = $profit < 0 ? "<strong style='color: red'> ( Loss )</strong>" : "<strong style='color: green'> ( PROFIT ) </strong>";
+                            ?>
+                                <tr>
+                                    <td colspan="2"></td>
+                                    <td><strong>Total Expenses : </strong></td>
+                                    <td colspan="2"><?php echo number_format($total_booking_cost); ?></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"></td>
+                                    <td><strong>Package Cost : </strong></td>
+                                    <td colspan="2"><?php echo number_format($total_p_cost); ?></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"></td>
+                                    <td><strong>Profit/Loss : </strong></td>
+                                    <td colspan="2"><strong><?php echo number_format($profit) . "</strong>" . $pro_text; ?></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
             <?php } ?>
             <!--END BOOKING DETAILS-->
@@ -1649,9 +1655,9 @@
                 <!--START PRINTABLE SECTION -->
                 <?php if( isset( $paymentDetails[0] ) && !empty( $paymentDetails[0] ) && $iti->iti_status == 9 ){ 
                $pay_detail = $paymentDetails[0]; ?>
-                <div class="portlet box blue">
+                <div class="portlet box blue margin-top-50">
                     <div class="portlet-title">
-                        <div class="caption">PAYMENT DETAILS</div>
+                        <div class="custom_title">PAYMENT DETAILS</div>
                     </div>
                     <div class="portlet-body">
                         <div class="table-responsive">
@@ -1981,7 +1987,7 @@
                     </div>
                     <div class="portlet-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered">
+                            <table class="table table-bordered inclusions_table">
                                 <thead class="thead-default">
                                     <tr class="thead-inverse">
                                         <th width="50%"> Inclusion</th>

@@ -454,7 +454,7 @@
 								<div class="col-md-offset-3 col-md-9 text-right">
 									<a href="javascript:;" class="btn default button-previous">
 										<i class="fa fa-angle-left"></i> Back </a>
-									<a href="javascript:;" class="btn btn-outline green button-next"> Save & Continue
+									<a href="javascript:;" class="btn btn_blue_outline button-next"> Save & Continue
 										<i class="fa fa-angle-right"></i>
 									</a>
 									<a href="javascript:;" id="SubmitForm" class="btn green button-submit">Submit</a>

@@ -294,7 +294,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-4 col-lg-3"> 
+                    <div class="col-md-4 col-lg-3">
                         <div class="callCountBlock">
                             <a class="dashboard-stat dashboard-stat-v2 blue"
                                 href="<?php echo site_url("itineraries"). "/?todayStatus={$todAy}&leadStatus=QsentRevised&quotation=true"; ?>">
