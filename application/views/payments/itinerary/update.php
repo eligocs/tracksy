@@ -428,7 +428,7 @@
 					//if( is_empty( $chkBalance ) && empty($nextPay)  ){
 					if( ( is_empty( $chkBalance ) && empty($nextPay) ) || $pay->iti_close_status == 1  ){
 						echo "<div class='well well-sm text-center red'><strong>No Balance Pending</strong></div>";
-					}else{
+					}else{ 
 						$nxtPayAmount = "<strong class='green'> Payment Amount To Receive: " . number_format( $nextPay ) . " /- </strong>";
 						echo "<div class='well well-sm text-center'>
 							{$nxtPayAmount}
