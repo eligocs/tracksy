@@ -171,14 +171,17 @@ class Customers extends CI_Controller {
 	public function edit($request_id = '' ){
 		$user = $this->session->userdata('logged_in');
 		$user_id = $user['user_id'];
-		if( $user['role'] == '99' || $user['role'] == '98' ){
+		//if( $user['role'] == '99' || $user['role'] == '98' is_leads_manager ){
+		if( $user['role'] == '99' || is_leads_manager() ){
 			$where = array("customer_id" => $request_id);
 			$data['customers'] = $this->customer_model->getdata( "customers_inquery", $where );
 			$this->load->view('inc/header');
 			$this->load->view('inc/sidebar');
 			$this->load->view('customers/editcustomer', $data);
 			$this->load->view('inc/footer');
-		}elseif( is_teamleader() ){
+		}
+		
+		/*elseif( is_teamleader() ){
 			$teammem = is_teamleader();
 			$where_in = !empty($teammem) ? implode(",", $teammem) : $u_id;
 			$where_d = "customer_id = {$request_id} AND (agent_id = {$user_id} OR agent_id IN ({$where_in})) AND del_status = 0";
@@ -188,7 +191,7 @@ class Customers extends CI_Controller {
 			$this->load->view('inc/sidebar');
 			$this->load->view('customers/editcustomer', $data);
 			$this->load->view('inc/footer');
-		}
+		}*/
 		/* elseif( $user['role'] == '96' ){
 			$where = array("customer_id" => $request_id ,"agent_id" => $user_id);
 			$data['customers'] = $this->customer_model->getdata( "customers_inquery", $where );

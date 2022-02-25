@@ -15,7 +15,7 @@
                   if( !empty( $rev_link ) ){
                   ?>
                     <div class="pull-right">
-                        <!-- <button class="btn btn-success margin_top_4" onclick="copy_rev_link()">Copy Review Link</button> -->
+                        <button class="btn btn-success margin_top_4" onclick="copy_rev_link()">Copy Review Link</button>
                         <strong id="altPassTemp" class='hide'><?php echo $rev_link; ?></strong>
                     </div>
                     <?php } ?>

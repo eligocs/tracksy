@@ -5,7 +5,6 @@ class Agents extends CI_Controller {
 	   	parent::__Construct();
 		validate_login();
 		$this->load->model('Login_model');
-
 	}
 	
 	public function index(){

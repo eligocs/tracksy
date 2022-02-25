@@ -1394,12 +1394,27 @@
                         </div>
                         <!--End month full stats-->
                     </div> <!-- row -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="titile_section">
+                                <h3 class="col-lg-12">Total Target</h3>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-body analytics-info">
+                                            <div id="gauge" style="height: 400px"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div> <!-- portlet-body -->
             </div>
         </div>
     </div>
     <!---------------------------------End Todays Revised section ---------------------------->
     <div class="clearfix"></div>
+
 </div>
 </div>
 </div> <!-- portlet  close -->

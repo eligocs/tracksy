@@ -179,19 +179,21 @@
                         <thead class="thead-default">
                             <tr>
                                 <p class="text-center uppercase green margin-bottom-10 margin-top-10 font_size_16">
-                                    <strong>All Receipts</strong></p>
+                                    <strong>All Receipts</strong>                                
+                                    <a target='_blank' href='<?php echo site_url("/accounts/create_receipt/{$pay->customer_id}"); ?>' title='Click here to create new receopt' class='btn btn-success pull-right'>Create New Recipt</a>
+                                </p>
                             </tr>
                             <tr>
                                 <th class="text-white"> # </th>
                                 <th class="text-white"> Receipt Type </th>
                                 <th class="text-white"> Transfer Ref.</th>
-                                <th class="text-white"> Amount</th> class="text-white"
+                                <th class="text-white"> Amount</th>
                                 <th class="text-white"> Action </th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php 
-								if( !empty( $receipts ) ){ 
+								if( !empty( $receipts ) ){
 									$indx = 1;
 									foreach( $receipts as $receipt ){ ?>
                             <tr>

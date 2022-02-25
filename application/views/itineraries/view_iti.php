@@ -463,6 +463,11 @@
                               	} 
                               
                               	$rate_comment = isset( $iti->rate_comment ) && $iti->pending_price == 2 && $iti->discount_rate_request == 0 ? $iti->rate_comment : "";
+                                $approved_price_date = isset($iti->approved_price_date) && $iti->approved_price_date ? date("d.m.Y h:i A", strtotime( $iti->approved_price_date )) : '';
+                                
+                                if( $approved_price_date ){
+                                    echo "<tr><td colspan=5><p class='green margin_zero'><strong>Price updated on: </strong>{$approved_price_date} </td></tr>";
+                                }
                               	echo "<tr><td colspan=5><p class='red margin_bottom_0'><strong>Note: </strong>{$rate_comment} </td></tr>";
                               	echo "<tr><td colspan=5><p class='red margin_bottom_0'><strong>Final Package Cost: </strong>{$f_cost} </td></tr>";
                               } ?>

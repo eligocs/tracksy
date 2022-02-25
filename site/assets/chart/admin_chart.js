@@ -95,7 +95,6 @@ jQuery(document).ready(function($) {
             dataType: 'json',
             data: { selectedDate: selectedDate },
             success: function(res) {
-                console.log(res);
                 //init chart
                 var myChart = echarts.init(document.getElementById('main'));
                 var idx = 1;
@@ -158,6 +157,7 @@ jQuery(document).ready(function($) {
             }
         });
     }
+
 });
 
 
@@ -186,6 +186,9 @@ $(".daterange").daterangepicker({
     },
 
 });
+
+
+
 
 
 

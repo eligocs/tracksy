@@ -892,7 +892,38 @@
                         <span class="caption-subject bold uppercase">Statistics</span>
                     </div>
                 </div>
+                <div class="row">
                 <div class="col-md-6">
+                        <div class="titile_section">
+                            <div class="card">
+                                <h3>Leads Chart</h3>
+                                <input type="text" autocomplete="off" class="form-control daterange dateHide" id="daterangelead"
+                                    name="daterangelead" value="" required />
+                                    <h5 class="col-lg-12"> Leads Graph By Customer Type</h5>
+                                <div class="card-body">
+                                    <div id="char"></div>
+                                    <div id="pieChart" style="height:500px; padding:10px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="titile_section">
+                            <h3 class="col-lg-12">Leads Chart</h3>
+                            <div class="card">
+                                <input type="text" autocomplete="off" class="form-control daterange dateHide" id="leadsDate"
+                                    name="daterangelead" value="" required />
+                                <div class="card-body">
+                                <h5 class="col-lg-12"> Leads Graph By Working Type</h5>
+                                    <div class="card-body analytics-info">
+                                        <div id="main" style="height: 400px"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-md-6">
                     <div class="titile_section">
                         <h3 class="col-lg-12">ITINERARIES GRAPH</h3>
                         <div class="form-group col-lg-6">
@@ -962,7 +993,7 @@
                         <div id="leads_echarts_bar" style="height:400px;"></div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="clearfix"></div>
         <hr>

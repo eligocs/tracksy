@@ -137,10 +137,22 @@ class Itinerary_model extends CI_Model{
 		
 		//Service team show if voucher not confirmed
 		if( $role == 97 ){
-			$this->db->join('iti_vouchers_status AS iti_v', 'itinerary.iti_id = iti_v.iti_id AND iti_v.confirm_voucher = 1', 'LEFT');
-			$this->db->where("pay.iti_booking_status", 0 );
+			//$this->db->join('iti_vouchers_status AS iti_v', 'itinerary.iti_id = iti_v.iti_id AND iti_v.confirm_voucher = 1', 'LEFT');			
+			$this->db->where("pay.iti_booking_status", 0 );	
+			
+			
+			$confirmiti = $this->input->post('confirmiti');
+			if( $confirmiti ){				
+				$this->db->where("pay.travel_date !=", '' );
+			}
+			
+			$revised_iti = $this->input->post('revised_iti');
+			if( $revised_iti ){		
+				$this->db->where("itinerary.is_amendment", 2 );						
+			}
+			
 			//$this->db->where("pay.approved_by_account_team", 1 );
-			$this->db->where("iti_v.iti_id IS NULL");
+			//$this->db->where("iti_v.iti_id IS NULL");
 		}
 		
 		//Accounts team show if iti not in hold 

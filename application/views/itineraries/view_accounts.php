@@ -232,9 +232,9 @@
 												echo "<td>" . $doc->file_url . "</td>";
 												echo "<td>" . $doc->comment . "</td>";
 												echo "<td>"; ?>
-                                <a href="<?php echo $doc_path . $doc->file_url; ?>" target="_blank" class="btn_eye"
-                                    style="position:relative;">
-                                    <i class="fa fa-eye"></i></a>
+												<a href="<?php echo $doc_path . $doc->file_url; ?>" target="_blank" class="btn_eye"
+													style="position:relative;">
+													<i class="fa fa-eye"></i></a>
                                 </td>
                                 <?php 	
 										echo "</tr>";	

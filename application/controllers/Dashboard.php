@@ -1914,15 +1914,43 @@ class Dashboard extends CI_Controller {
 		return $time_24;
 	}
 	
+//filter by customer type
+	public function leadsFilterByType(){
+		$user = $this->session->userdata('logged_in');
+		$date = $this->input->post('selectedDate'); 
+		$leadsFilterdata = $this->dashboard_model->leads_data($date);
+		if(!empty($leadsFilterdata)){
+			$typeName = [];
+			foreach( $leadsFilterdata as $key => $value){
+				$typeName[] = $value['name'];
+			}
+		}
+			$res = array('res' => true, 'msg'=> 'success', 'totalNo' => $leadsFilterdata, 'name' => $typeName);
+		die(json_encode( $res ));
+	}
+
 
 	public function leadsFilter(){
 		$user = $this->session->userdata('logged_in');
-		
-		// $theYear = $this->input->post('date');
-		$res = array('res' => false, 'msg'=> 'No Data Found', 'data1' => '', 'data2' => '', 'data3' => '' );
-		die(json_encode( $theYear ));
-		// $agent_id = $this->input->post('agent_id');
-	}
+		$date = $this->input->post('selectedDate'); 
+		$leadsFilterdata = $this->dashboard_model->getLeadsByRefrence($date);
+		if(!empty($leadsFilterdata)){
+			$totalNo = [];
+			$typeName = [];
+			foreach( $leadsFilterdata as $key => $value){
+				// if(!empty($value['value'])){
+				// 	$totalNo[] = $value['value'];
+				// 	}	
+					$typeName[] = $value['name'];
+				}
+			}
+			if( $leadsFilterdata){
+				$res = array('res' => true, 'msg'=> 'success', 'totalNo' => $leadsFilterdata, 'name' =>  $typeName);
+			}else{
+				$res = array('res' => false, 'msg'=> 'No Data Found', 'totalNo' => '', 'name' => '');
+			}
+			die(json_encode( $res ));
+		}
 	
 	//Get Monthly Data for Itineraries Bar Chart
 	public function chart_data_monthly_iti_ajax(){
@@ -2048,6 +2076,26 @@ class Dashboard extends CI_Controller {
 		//dump( $send_otp );
 		die;
 	}
-	
+
+// Iti Sale this month by one agent 
+
+	public function agentSalesThisMonth(){
+		$user = $this->session->userdata('logged_in');
+		$data['user_id'] = $user['user_id'];
+		$user_id = $user['user_id'];
+		$month = date('Y-m');
+		$get_booked_iti = $this->global_model->ajax_check_agent_incentive( $month , $user_id);
+		$total_pacages_cost  = 0;
+		foreach( $get_booked_iti as $key => $iti_Data){
+			$package_cost = $iti_Data->package_cost;
+			$total_pacages_cost += $package_cost;
+		}
+		if($get_booked_iti){
+			$res = array('res' => true, 'msg'=> 'success', 'totalsale' => $total_pacages_cost);
+		}else{
+			$res = array('res' => false, 'msg'=> 'No Data Found', 'totalsale' => '');
+		}
+		die(json_encode( $res ));
+	}
 	
 }

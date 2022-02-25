@@ -191,6 +191,22 @@
                @media(max-width:1400px){
                .clock {font-size: 20px;}
                }
+               .swal-overlay {
+               background-color: rgba(43, 165, 137, 0.45);
+               }
+               .swal-button {
+               padding: 7px 19px;
+               border-radius: 2px;
+               background-color: #4962B3;
+               font-size: 12px;
+               border: 1px solid #3e549a;
+               text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+               }
+
+               .swal-modal {
+               background-color: rgba(63,255,106,0.69);
+               border: 3px solid white;
+               }
             </style>
             <script>
                function showTime(){

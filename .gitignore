@@ -1,4 +1,5 @@
 application/config/config.php
 application/config/database.php
-application/logs/
-system/cache/
+application/logs/*
+system/cache/*
+system/*

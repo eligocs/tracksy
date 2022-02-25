@@ -903,9 +903,10 @@ class Vehiclesbooking extends CI_Controller {
 		$user_id = $user['user_id'];
 		if( $user['role'] == '99' || $user['role'] == '98' || $user['role'] == '97' ){
 			$where = array( 'id' => $booking_id , 'is_approved_by_gm' => 2 );
+			//$where = array( 'id' => $booking_id );
 			$data['travel_booking'] = $this->global_model->getdata( 'travel_booking', $where );
 			$data['vtf_booking_docs'] = $this->global_model->getdata( 'vtf_booking_docs', array("booking_id" => $booking_id ) );
-			
+
 			$this->load->view('inc/header');
 			$this->load->view('inc/sidebar');
 			$this->load->view('vehiclesbooking/update_vtf_tickets', $data);

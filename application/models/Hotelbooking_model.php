@@ -95,6 +95,13 @@ class Hotelbooking_model extends CI_Model{
 		$this->db->from('hotel_booking as h_book')
 		->join('hotels as hotels', 'h_book.hotel_id = hotels.id', 'LEFT')
 		->join('customers_inquery as cus', 'h_book.customer_id = cus.customer_id', 'LEFT');
+
+		if( isset($_POST['date_from']) && $_POST['date_from'] ){
+			$check_in = date("Y-m-d", strtotime( $_POST['date_from'] ));
+			$check_in_to = date("Y-m-d", strtotime( $_POST['date_to'] ));
+			$this->db->where("h_book.check_in >=", $check_in );
+			$this->db->where("h_book.check_in <=", date('Y-m-d H:i:s', strtotime($check_in_to . "23:59:59")) );
+		}
 		
 		//add custom filter here
 		if( isset( $_POST['filter'] ) ){
@@ -128,8 +135,7 @@ class Hotelbooking_model extends CI_Model{
 					$this->db->where("h_book.check_in < ",$today);
 					$this->db->order_by( "h_book.check_in", "DESC" );
 					break;	
-				default:
-					continue2;
+				default:					
 					break;
 			} 
         }

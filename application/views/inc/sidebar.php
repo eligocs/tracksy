@@ -152,8 +152,7 @@
                      <li class="nav-item  ">
                          <a href="<?php echo site_url("itineraries/onholditineraries"); ?>" class="nav-link ">
                              <i class="fa fa-random"></i>
-                             <span class="title">On Hold Itineraries</span><span
-                                 class="badge badge-info"><?php echo onhold_itieraries_count(); ?></span>
+                             <span class="title">On Hold Itineraries</span><span class="badge badge-info"><?php echo onhold_itieraries_count(); ?></span>
                          </a>
                      </li>
                  </ul>
@@ -333,7 +332,7 @@
 
                  </ul>
              </li>
-             <li class="nav-item  <?php if( $menu_name == "vouchers" ){ echo 'active'; }?>">
+                <li class="nav-item  <?php if( $menu_name == "vouchers" ){ echo 'active'; }?>">
                  <a href="javascript:;" class="nav-link nav-toggle">
                      <i class="icon-folder" aria-hidden="true"></i>
                      <span class="title">Vouchers</span>
@@ -1280,6 +1279,18 @@
                              <span class="title">Booked Itineraries</span>
                          </a>
                      </li>
+                     <li class="nav-item  ">
+                         <a href="<?php echo site_url("itineraries/confirmiti"); ?>" class="nav-link ">
+                                <i class="icon-layers" aria-hidden="true"></i>
+                            <span class="title">Confirm Itineraries</span>
+                         </a>
+                     </li>
+                     <li class="nav-item  ">
+                         <a href="<?php echo site_url("itineraries/revisediti"); ?>" class="nav-link ">
+                                <i class="icon-layers" aria-hidden="true"></i>
+                            <span class="title">Revised Itineraries</span>
+                         </a>
+                     </li>
                  </ul>
              </li>
              <?php /*
@@ -1336,6 +1347,7 @@
                          <a href="<?php echo site_url("hotelbooking"); ?>" class="nav-link ">
                              <i class="icon-share-alt" aria-hidden="true"></i>
                              <span class="title">All Hotel Booking</span>
+                             <span class="badge badge-info"><?php echo pending_hotel_bookings_count(); ?></span>
                          </a>
                      </li>
                  </ul>
@@ -1352,12 +1364,14 @@
                          <a href="<?php echo site_url("vehiclesbooking"); ?>" class="nav-link ">
                              <i class="icon-share-alt" aria-hidden="true"></i>
                              <span class="title">All Cab Booking</span>
+                             <span class="badge badge-info"><?php echo pending_cab_bookings_count(); ?></span>
                          </a>
                      </li>
                      <li class="nav-item  ">
                          <a href="<?php echo site_url("vehiclesbooking/allvehiclesbookings"); ?>" class="nav-link ">
                              <i class="fa fa-bus" aria-hidden="true"></i>
                              <span class="title">All Bus/Train/Flight Booking</span>
+                             <span class="badge badge-info"><?php echo pending_vtf_bookings_count(); ?></span>
                          </a>
                      </li>
                  </ul>
@@ -1545,7 +1559,12 @@
                  </ul>
              </li> */ ?>
              <!-- <hr> -->
-
+             <li class="nav-item">
+                 <a href="<?php echo base_url("dashboard/profile"); ?>" class="nav-link">
+                     <i class="fa fa-user" aria-hidden="true"></i>
+                     <span class="title">My Profile</span>
+                 </a>
+             </li>
 
              <li class="nav-item">
                  <a href="<?php echo base_url("dashboard/logout"); ?>" class="nav-link">
@@ -1639,6 +1658,22 @@
                              <span class="title">Add Package</span>
                          </a>
                      </li>
+                 </ul>
+             </li>
+
+             <li class="nav-item  <?php if( $menu_name == "vouchers" ){ echo 'active'; }?>">
+                 <a href="javascript:;" class="nav-link nav-toggle">
+                     <i class="icon-folder" aria-hidden="true"></i>
+                     <span class="title">Vouchers</span>
+                     <span class="arrow"></span>
+                 </a>
+                 <ul class="sub-menu">
+                    <li class="nav-item  ">
+                        <a href="<?php echo site_url("vouchers"); ?>" class="nav-link ">
+                            <i class="fa fa-check"></i>
+                            <span class="title">Confirmed Vouchers</span>
+                        </a>
+                    </li>                   
                  </ul>
              </li>
              <!-- <li class="nav-item  <?php if( $menu_name == "clientsection" ){ echo 'active'; }?>">
@@ -2184,18 +2219,48 @@
                          <span class="title">Order Status</span>
                      </a>
                  </li>
-
-             </ul>
+            </ul>
          </li>
+
+         <!--ledger menu-->
+         <li class="nav-item  <?php if( $menu_name == "ledger" ){ echo 'active'; }?>">
+             <a href="javascript:;" class="nav-link nav-toggle">
+                 <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                 <span class="title">Ledger</span>
+                 <span class="arrow"></span>
+             </a>
+             <ul class="sub-menu">                
+                <li class="nav-item  ">
+                    <a href="<?php echo site_url("ledger"); ?>" class="nav-link ">
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                        <span class="title">Vendor Accounts</span>
+                    </a>
+                </li>
+
+                <!--li class="nav-item  ">
+                    <a href="<?php echo site_url("ledger/ledger_type"); ?>" class="nav-link ">
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                        <span class="title">Ledger Type</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                    <a href="<?php echo site_url("ledger/vendor_receipts"); ?>" class="nav-link ">
+                        <i class="fa fa-inr" aria-hidden="true"></i>
+                        <span class="title">Receipts</span>
+                    </a>
+                </li--> 
+            </ul>
+         </li><!--end ledger menu-->
+
          <div class='sidebar_heading'>
              <span> Configuration </span>
          </div>
          <li class="nav-item">
-             <a href="<?php echo base_url("dashboard/profile"); ?>" class="nav-link">
-                 <i class="fa fa-user" aria-hidden="true"></i>
-                 <span class="title">My Profile</span>
-             </a>
-         </li>
+                 <a href="<?php echo base_url("dashboard/profile"); ?>" class="nav-link">
+                     <i class="fa fa-user" aria-hidden="true"></i>
+                     <span class="title">My Profile</span>
+                 </a>
+             </li>
          <li class="nav-item">
              <a href="<?php echo base_url("dashboard/logout"); ?>" class="nav-link">
                  <i class="fa fa-power-off" aria-hidden="true"></i>
