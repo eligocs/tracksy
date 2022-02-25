@@ -409,6 +409,10 @@
    			);
    			
    			$insert_invoice = $this->global_model->insert_data("ac_receipts", $data);
+
+			//delete pending payement notifications
+			$whereD = array( "notification_type" => 4 , "customer_id" => $id);   		
+			$delete_notification = $this->global_model->delete_data("notifications", $whereD);
    			
    			//UPDATE voucher number
    			$voucher_number = $receipt_type == "bank" ? "BR-{$insert_invoice}" : "CR-{$insert_invoice}";

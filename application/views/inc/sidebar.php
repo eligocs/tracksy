@@ -316,12 +316,12 @@
                          </a>
                      </li>
 
-                     <li class="nav-item  ">
+                     <!--li class="nav-item  ">
                          <a href="<?php echo site_url("accounts/payment_links"); ?>" class="nav-link ">
                              <i class="fa fa-link" aria-hidden="true"></i>
                              <span class="title">Payment Links</span>
                          </a>
-                     </li>
+                     </li-->
 
                      <li class="nav-item  ">
                          <a href="<?php echo site_url("accounts/check_payment_status"); ?>" class="nav-link ">
@@ -2206,12 +2206,12 @@
                      </a>
                  </li>
 
-                 <li class="nav-item  ">
+                 <!--li class="nav-item  ">
                      <a href="<?php echo site_url("accounts/payment_links"); ?>" class="nav-link ">
                          <i class="fa fa-link" aria-hidden="true"></i>
                          <span class="title">Payment Links</span>
                      </a>
-                 </li>
+                 </li-->
 
                  <li class="nav-item  ">
                      <a href="<?php echo site_url("accounts/check_payment_status"); ?>" class="nav-link ">
