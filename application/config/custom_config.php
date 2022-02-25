@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $config['monthly_target'] = 10;
 
 //google review link
-$config['google_review_link'] = "https://goo.gl/T5vJo7";
+$config['google_review_link'] = "http://trackitinerary.com/";
 
 //EMAILS
 $config['accounts_team_email'] 		= "accounts1test@trackitinerary.in";

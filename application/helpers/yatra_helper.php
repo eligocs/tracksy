@@ -1521,7 +1521,7 @@
 	* Sent Mail
 	*/
 	function sendEmail( $to, $subject="", $msg="", $bcc="", $cc ="", $from="" ){
-		return true;
+
 		$CI =& get_instance();
 		$CI->load->library('email');
 		

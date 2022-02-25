@@ -120,10 +120,12 @@
 		<!--call chart script for dashboard only -->
 		<?php 
 		if( ( $segment_one == "dashboard" || $current_url == base_url() ) && is_admin_or_manager() ){ ?>
-			<!-- <script src="<?php echo base_url();?>site/assets/dist/apexcharts.min.js" type="text/javascript"></script>
-			<script src="<?php echo base_url();?>site/assets/dist/apex-chart/apex.pie.init.js" type="text/javascript"></script> -->
-			<script src="<?php echo base_url();?>site/assets/js/echarts/echarts.js" type="text/javascript"></script>
-			<script src="<?php echo base_url();?>site/assets/js/charts_dashboard.js" type="text/javascript"></script>
+			<script src="<?php echo base_url();?>site/assets/dist/echarts-all.js" type="text/javascript"></script>
+			<script src="<?php echo base_url();?>site/assets/dist/apex-chart/apex.pie.init.js" type="text/javascript"></script>
+			<!-- <script src="<?php echo base_url();?>site/assets/echarts-en.min.js" type="text/javascript"></script> -->
+			<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.js"> </script> -->
+			<!-- <script src="<?php echo base_url();?>site/assets/js/echarts/echarts.js" type="text/javascript"></script> -->
+			<!-- <script src="<?php echo base_url();?>site/assets/js/charts_dashboard.js" type="text/javascript"></script> -->
 		<?php } ?>
 		
 		<!--desktop notifications script 103.97.231.30 -->

@@ -1559,7 +1559,12 @@
                  </ul>
              </li> */ ?>
              <!-- <hr> -->
-
+             <li class="nav-item">
+                 <a href="<?php echo base_url("dashboard/profile"); ?>" class="nav-link">
+                     <i class="fa fa-user" aria-hidden="true"></i>
+                     <span class="title">My Profile</span>
+                 </a>
+             </li>
 
              <li class="nav-item">
                  <a href="<?php echo base_url("dashboard/logout"); ?>" class="nav-link">
@@ -2205,11 +2210,11 @@
              <span> Configuration </span>
          </div>
          <li class="nav-item">
-             <a href="<?php echo base_url("dashboard/profile"); ?>" class="nav-link">
-                 <i class="fa fa-user" aria-hidden="true"></i>
-                 <span class="title">My Profile</span>
-             </a>
-         </li>
+                 <a href="<?php echo base_url("dashboard/profile"); ?>" class="nav-link">
+                     <i class="fa fa-user" aria-hidden="true"></i>
+                     <span class="title">My Profile</span>
+                 </a>
+             </li>
          <li class="nav-item">
              <a href="<?php echo base_url("dashboard/logout"); ?>" class="nav-link">
                  <i class="fa fa-power-off" aria-hidden="true"></i>

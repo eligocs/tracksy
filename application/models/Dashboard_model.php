@@ -542,6 +542,64 @@ class Dashboard_Model extends CI_Model{
 		return $q->result();
 	}
 	
+	public function getLeadsByRefrence($date){
+		if(!empty($date)){
+			$explodeDate = explode('-', $date);
+			$initDate = $explodeDate[0];
+			$secDate = $explodeDate[1];
+		}
+		$customers_inquery_Data = [];
+		$customers_inquery_get = 0;
+		$customers_inquery = [];
+		$query = $this->db->get('customer_type');
+		$result=$query->result();
+		foreach( $result as $key => $value){
+				$this->db->where('customer_type', $value->id);
+				if(!empty($date)){
+					$this->db->where('DATE(created) BETWEEN "'. date('Y-m-d 00:00:01', strtotime($initDate)). '" and "'. date('Y-m-d 00:59:59', strtotime($secDate)).'"');
+				}
+				$customers_inquery_get = $this->db->get('customers_inquery')->num_rows();
+				$customers_inquery_Data['value'] = $customers_inquery_get;
+				$customers_inquery_Data['name'] = $value->name;
+				$customers_inquery[] = $customers_inquery_Data;
+		}
+		// dump($customers_inquery);
+		return $customers_inquery;
+		// $this->db->where('customer_type', $date);
+	
+	}
+	
+	public function leads_data($date){
+		if(!empty($date)){
+			$explodeDate = explode('-', $date);
+			$initDate = $explodeDate[0];
+			$secDate = $explodeDate[1];
+		}
+		$customers_inquery_Data = [];
+		$customers_inquery_get = 0;
+		$customers_inquery = [];
+		$query = array('8', '9', '0');
+		foreach( $query as $key => $value){
+			$this->db->where('cus_status', $value);
+			if(!empty($date)){
+				$this->db->where('DATE(created) BETWEEN "'. date('Y-m-d 00:00:01', strtotime($initDate)). '" and "'. date('Y-m-d 00:59:59', strtotime($secDate)).'"');
+			}
+			$customers_inquery_get = $this->db->get('customers_inquery')->num_rows();
+			$customers_inquery_Data['value'] = $customers_inquery_get;
+			if($value == '8'){
+				$customers_inquery_Data['name'] = 'Decline';
+			}else if($value == '9'){
+				$customers_inquery_Data['name'] = 'Approved';
+			}else if($value == '0'){
+				$customers_inquery_Data['name'] = 'Working';
+			}
+			$customers_inquery[] = $customers_inquery_Data;
+		}	
+		// dump($customers_inquery);die;
+		return $customers_inquery;
+		// $this->db->where('customer_type', $date);
+	
+	}
 	
 	//Get monthly LEADS count for echart working iti
 	public function get_monthly_leads_data( $year = '', $type = "" , $agent_id = NULL ){
