@@ -403,16 +403,16 @@ class Customers extends CI_Controller {
 				if( $cus_pro_status == "Warm" ){
 					$l_class = "green";
 				}else if( $cus_pro_status == "Hot" ){
-					$l_class = "black";
-				}else if( $cus_pro_status == "Cold" ){
 					$l_class = "red";
+				}else if( $cus_pro_status == "Cold" ){
+					$l_class = "black";
 				}else{
 					$l_class = "";
 				}
 				
 				$no++;
 				$row = array();
-				$row[] = $no;
+				//$row[] = $no;
 				$row[] = $customer->customer_id;
 				
 				if( $role == 99 || $role == 98 ){
@@ -438,12 +438,12 @@ class Customers extends CI_Controller {
 					
 					//reassign option if no-followUp
 					if( empty( $customer->cus_status ) &&  empty($customer->cus_last_followup_status) ){
-						$reassign ="<a class='btn btn-success margin-top-10' href=" . site_url("customers/edit/{$customer->customer_id}/{$customer->temp_key}") . " title='Reassign'><i class='fa fa-refresh' aria-hidden='true'></i> Reassign Lead</a>";
+						$reassign ="<a class='btn btn-success btn_table' href=" . site_url("customers/edit/{$customer->customer_id}/{$customer->temp_key}") . " title='Reassign'><i class='fa fa-refresh' aria-hidden='true'></i> Reassign Lead</a>";
 					}
 					
 					if( $customer->cus_status == 8 ){
 						//reopen if lead is declined
-						$reopen_s ="<a class='btn btn-danger' href=" . site_url("customers/view/{$customer->customer_id}/{$customer->temp_key}?action=reopen") . " title='Reopen'><i class='fa fa-refresh' aria-hidden='true'></i> Reopen Lead</a>";
+						$reopen_s ="<a class='btn btn-success' href=" . site_url("customers/view/{$customer->customer_id}/{$customer->temp_key}?action=reopen") . " title='Reopen'><i class='fa fa-refresh' aria-hidden='true'></i> Reopen </a>";
 					}	
 				}else if( is_teamleader() ){
 					
@@ -474,11 +474,11 @@ class Customers extends CI_Controller {
 						}
 						
 						$decUserStatus = "<strong class='btn btn-success'>Lead Approved</strong>";
-						$add_iti = "<strong class='badge_success_pill'>Lead Verified</strong>";
+						$add_iti = "<strong class='badge_success_pill'> Verified</strong>";
 						break;
 					case 8:
-						$add_iti = "<strong class='badge_danger_pill'>Lead Declined</strong>";
-						$decUserStatus = "<strong class='badge_danger_pill'>Lead Declined</strong>";
+						$add_iti = "<strong class='badge_danger_pill'> Declined</strong>";
+						$decUserStatus = "<strong class='badge_danger_pill'> Declined</strong>";
 						$iti_s = "DECLINED";
 						break;
 					default:
@@ -564,7 +564,7 @@ class Customers extends CI_Controller {
 					}elseif($customer->reopen_status == 7 ){
 						$reopen_s = "<strong class='btn btn-success'>Working</strong>";
 					}else{
-						$reopen_s = '<a class="btn btn-success" href="#" data-customer_id="'. $customer->customer_id .'" data-temp_key = "'. $customer->temp_key .'" id="reopenLead" title="Reopen"><i class="fa fa-refresh" aria-hidden="true"></i> Reopen Lead</a> 
+						$reopen_s = '<a class="btn btn-success btn_table" href="#" data-customer_id="'. $customer->customer_id .'" data-temp_key = "'. $customer->temp_key .'" id="reopenLead" title="Reopen"><i class="fa fa-refresh" aria-hidden="true"></i> Reopen Lead</a> 
 						<div id="rr"></div> ';
 					}
 					// View 

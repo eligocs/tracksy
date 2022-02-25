@@ -76,7 +76,8 @@ input:checked+.custom_slide_btn:before {
 }
 
 .target_section {
-    background: #d8d8ce;
+    /* background: #d8d8ce; */
+    background: #8bc34a;
     padding: 11px;
     color: #fff;
 }
@@ -2518,7 +2519,7 @@ input[type=checkbox] {
     background: white !important;
     padding: 15px !important;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-    border-radius: 4px !important;
+    border-radius: 12px !important;
 }
 
 /* ----second_custom_card----- */
@@ -2625,16 +2626,23 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
 
 
 .badge_success_pill {
-    background: #5cb85c;
+    /* background: #5cb85c;
     color: white;
     padding: 3px 6px;
     border-radius: 15px !important;
     font-size: 12px;
+    display: inline-block; */
+    background: transparent;
+    color: #22ac22;
+    padding: 3px 6px;
+    border-radius: 3px !important;
+    font-size: 11px;
     display: inline-block;
+    border: 1px solid #22ac22 !important;
 }
 
 
-.badge_danger_pill {
+/* .badge_danger_pill {
     background: #ff0a00;
     color: white;
     padding: 3px 6px;
@@ -2645,6 +2653,20 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
     margin-bottom: 5px;
     min-width: 108px;
     text-align: center;
+} */
+
+.badge_danger_pill {
+    background: transparent;
+    color: #ff0a00;
+    padding: 3px 6px;
+    border-radius: 15px !important;
+    font-size: 12px;
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    min-width: 108px;
+    text-align: center;
+    border: 1px solid #ff0a00;
 }
 
 
@@ -2758,7 +2780,7 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
 }
 
 
-.btn_duplicate{
+.btn_duplicate {
     color: #2000ff;
 }
 
@@ -2783,7 +2805,7 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
 }
 
 .margin_left_15 {
-    margin-left: 15px;
+    margin-left: 15px !important;
 }
 
 .bg_white {
@@ -2812,9 +2834,10 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
 .itinerary-view .row.step-background-thin>div {
     border-radius: 10px !important;
     width: 30% !important;
-    margin-right: 3% !important;
+    margin-right: 1% !important;
     display: flex;
-    flex-direction: column-reverse
+    flex-direction: column-reverse;
+    margin-left: 2%;
 }
 
 .itinerary-view .mt-element-step .step-background-thin .mt-step-content {
@@ -2853,11 +2876,11 @@ table.dataTable.display tbody tr:hover>.sorting_1, table.dataTable.order-column.
     width: 36%;
 }
 
-hotelbooking-page .table>tbody>tr>td{
+hotelbooking-page .table>tbody>tr>td {
     padding: 15px;
 }
 
-.voucher_sign_sec{
+.voucher_sign_sec {
     margin-left: 45px;
     margin-top: 40px;
 }
@@ -2876,25 +2899,25 @@ hotelbooking-page .table>tbody>tr>td{
     border-radius: 5px !important;
 }
 
-.overflow_visible{
+.overflow_visible {
     overflow: visible !important;
 }
 
-.position_relative{
+.position_relative {
     position: relative !important;
 }
 
-.margin_top_n40{
+.margin_top_n40 {
     margin-top: -40px !important;
 }
 
-.btn_darkpink_outline{
+.btn_darkpink_outline {
     color: #e0296a;
     background-color: transparent;
     border-color: #e0296a;
 }
 
-.section_customer_details{
+.section_customer_details {
     min-height: 255px;
 }
 
@@ -2906,7 +2929,7 @@ hotelbooking-page .table>tbody>tr>td{
 }
 
 
-.form_ft_btns  .btn-default.custom_active.active {
+.form_ft_btns .btn-default.custom_active.active {
     background: #5e72e4;
     border-color: #5e72e4;
 }
@@ -2916,7 +2939,7 @@ hotelbooking-page .table>tbody>tr>td{
     color: #fff;
 }
 
-.table tr td{
+.table tr td {
     vertical-align: middle !important;
 }
 
@@ -2931,11 +2954,11 @@ hotelbooking-page .table>tbody>tr>td{
     top: -16px;
     color: #fff !important;
     /* background: linear-gradient(195deg,#8bc1f5,#7f8cda) !important; */
-    background: linear-gradient(195deg,#3b9ae7,#7d14dd) !important;
+    background: linear-gradient(195deg, #3b9ae7, #7d14dd) !important;
 }
 
 
-.padding_top_15{
+.padding_top_15 {
     padding-top: 15px !important;
 }
 
@@ -2945,6 +2968,37 @@ thead.thead-default tr {
 }
 
 
-.margin-top-50{
+.margin-top-50 {
     margin-top: 50px !important;
+}
+
+
+.inclusions_table tr td {
+    vertical-align: top !important;
+}
+
+.manager_roles label strong {
+    margin-left: 10px;
+}
+
+.action_menu .dropdown-menu li:hover a {
+    background: #5e72e4 !important;
+}
+
+.action_menu .dropdown-menu li:hover a i {
+    color: #fff !important;
+}
+
+.newsletter_radio_group strong {
+    margin-left: 8px !important;
+    margin-right: 16px;
+}
+
+.fw_700{
+    font-weight: 700 !important;
+}
+
+.btn_table{
+    font-size: 11px !important;
+    margin-left: 10px !important;
 }

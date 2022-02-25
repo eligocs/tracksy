@@ -40,11 +40,11 @@
 							</div> 
 						</div>	
 						<div class="col-md-3">
-						<div class="form-group">
-							<br>
-							<input type="submit" class="btn btn-success" value="Generate Incentive">
-							<input type="hidden" id="datefrom" name="datefrom" value="<?php echo date("Y-m"); ?>" >
-						</div>
+							<div class="form-group">
+								<label for="" class="d_block">&nbsp;</label>
+								<input type="submit" class="btn btn-success" value="Generate Incentive">
+								<input type="hidden" id="datefrom" name="datefrom" value="<?php echo date("Y-m"); ?>" >
+							</div>
 						</div>
 						
 						<div class="col-md-3">
@@ -62,7 +62,7 @@
 				
 				<div class="clearfix"></div>
 				<hr>
-			<div class="portlet-body">
+			<div class="portlet-body custom_card">
 				<div class='agent_info_section' style="display:none;">
 					<!--congratulation section-->
 					<!--theme 1-->

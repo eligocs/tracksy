@@ -1190,7 +1190,8 @@ a.fc-more:hover {
 }
 
 .form-wizard .steps>li>a.step>.number {
-  background: #2b3643;
+  /* background: #2b3643; */
+  background: #5e72e4 !important;
   color: #ffffff9c;
   font-weight: bold;
   font-size: 28px;
@@ -1488,13 +1489,16 @@ tr.repeat_follow:hover {
 }
 
 .portlet-title>a.btn.btn-success {
-  background: #d64635;
-  border: 1px solid #ff3b24;
+  /* background: #5e72e4; */
+  border: 1px solid #5e72e4;
+  background: transparent;
+  color: #5e72e4;
 }
 
 .portlet-title>a.btn.btn-success:hover {
-  background: #ff3b24;
-  border: 1px solid #d64635;
+  background: #5e72e4 !important;
+  border: 1px solid #5e72e4;
+  color: #ffffff !important;
 }
 
 .portlet .portlet-body .alert {

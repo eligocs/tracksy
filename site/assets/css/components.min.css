@@ -3050,9 +3050,9 @@ li [class*=" fa-"].icon-large, li [class*=" glyphicon-"].icon-large, li [class*=
 }
 
 .btn.green:not(.btn-outline).focus, .btn.green:not(.btn-outline):focus {
-    color: #FFF;
-    background-color: #26a1ab;
-    border-color: #18666d
+    color: #5e72e4;
+    background-color: transparent;
+    border-color: #5e72e4;
 }
 
 .btn.green:not(.btn-outline).active, .btn.green:not(.btn-outline):active, .btn.green:not(.btn-outline):hover, .open>.btn.green:not(.btn-outline).dropdown-toggle {

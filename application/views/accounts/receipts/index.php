@@ -60,10 +60,10 @@
                         			<td> {$invoice->transfer_ref}</td>
                         			<td> {$invoice->amount_received}</td>
                         			<td> {$invoice->sent_count} Times</td>
-                        			<td><a href=" . site_url("accounts/update_receipt/{$invoice->id}") . " class='btn btn-success ajax_edit_hotel_table' title='Update Invoice' ><i class='fa fa-pencil'></i></a>
-                        			<a href=" . site_url("accounts/view_receipt/{$invoice->id}") . " class='btn btn-success' title='view' ><i class='fa fa-eye'></i></a>
+                        			<td><a href=" . site_url("accounts/update_receipt/{$invoice->id}") . " class='btn_pencil ajax_edit_hotel_table' title='Update Invoice' ><i class='fa fa-pencil'></i></a>
+                        			<a href=" . site_url("accounts/view_receipt/{$invoice->id}") . " class='btn_eye' title='view' ><i class='fa fa-eye'></i></a>
                         				{$client_v}
-                        			<a href='javascript:void(0)' class='btn btn-danger ajax_delete_bank'><i class='fa fa-trash-o'></i></a></td>
+                        			<a href='javascript:void(0)' class='btn_trash ajax_delete_bank'><i class='fa fa-trash-o'></i></a></td>
                         			<td> {$agent}</td>
                         		</tr>";
                         		$i++; 

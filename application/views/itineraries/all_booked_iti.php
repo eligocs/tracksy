@@ -35,7 +35,7 @@
             <!--sort by agent -->
             <div class="row margin-bottom-25 second_custom_card">
                 <?php if( $user_role == 99 || $user_role == 98 ){ ?>
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <?php $sales_team_agents = get_all_sales_team_agents(); ?>
                     <div class="form-group">
                         <label for="sales_user_id">Select Sales Team User:</label>
@@ -51,9 +51,9 @@
                 </div>
                 <?php } ?>
                 <!--start filter section-->
-                <form id="form-filter" class="form-horizontal bg_white padding_zero">
+                <form id="form-filter" class="form-horizontal bg_white padding_zero overflow_visible">
                     <div class="marginBottom <?php echo $hideClass; ?> col-md-3">
-                        <div class="actions custom_filter pull-left">
+                        <div class="actions custom_filter">
                             <label>Filter: </label>
                             <!--Calender-->
                             <input type="text" autocomplete="off" class="form-control d_block" id="daterange"
@@ -97,7 +97,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <label for="" class="d_block">&nbsp;</label>
                         <input type="submit" class="btn btn-success" value="Filter">
                         <?php if( $user_role == 99 || $user_role == 98 ){ ?>

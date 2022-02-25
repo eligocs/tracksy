@@ -113,54 +113,54 @@
 				$val_m = isset( $agent->is_super_manager ) && $agent->is_super_manager==1 ? 0 : 1; ?>
                     <tr>
                         <td width="20%">
-                            <div class="col-mdd-2 form_vl"><strong>Is Super Manager:</strong></div>
+                            <div class="col-mdd-2 form_vl border_right_none"><strong>Is Super Manager:</strong></div>
                         </td>
                         <td>
-                            <div class="col-mdd-10 form_vr">
+                            <div class="col-mdd-10 form_vr manager_roles">
                                 <!--label class='mt-checkbox'> 
-				<input <?php //echo $checked; ?> type='checkbox' value='<?php //echo $val_m; ?>' data-user_id =<?php //echo $agent->user_id; ?> id='isSuper_manager' class='form-control'>
-				<span class="chk_is_manager"></span>
-				</label-->
+                                    <input <?php //echo $checked; ?> type='checkbox' value='<?php //echo $val_m; ?>' data-user_id =<?php //echo $agent->user_id; ?> id='isSuper_manager' class='form-control'>
+                                    <span class="chk_is_manager"></span>
+                                    </label-->
                                 <label class='mt-radio5'>
                                     <input type='radio' <?php echo $checked_gm; ?> value='5' id='isSuper_manager6'
                                         title="General Manager" name="change_status"
-                                        class='form-control isSuper_manager'><strong>GM</strong>
+                                        class=' isSuper_manager'><strong>GM</strong>
                                 </label> &nbsp;&nbsp;
                                 <label class='mt-radio1'>
                                     <input type='radio' <?php echo $checked; ?> value='1' id='isSuper_manager'
-                                        title="Super Manager" name="change_status" class='form-control isSuper_manager'>
+                                        title="Super Manager" name="change_status" class=' isSuper_manager'>
                                     <strong>Super Manager</strong>
                                 </label>&nbsp;&nbsp;
                                 <label class='mt-radio2'>
                                     <input type='radio' <?php echo $checked_leads; ?> value='2' id='isSuper_manager2'
                                         title="Leads Manager" name="change_status"
-                                        class='form-control isSuper_manager'><strong>Leads Manager</strong>
+                                        class=' isSuper_manager'><strong>Leads Manager</strong>
                                 </label>&nbsp;&nbsp;
                                 <label class='mt-radio3'>
                                     <input type='radio' <?php echo $checked_sales; ?> value='3' id='isSuper_manager4'
                                         title="Sales Manager" name="change_status"
-                                        class='form-control isSuper_manager'><strong>Sales Manager</strong>
+                                        class=' isSuper_manager'><strong>Sales Manager</strong>
                                 </label>&nbsp;&nbsp;
-                                <!--label class='mt-radio5'>
-				<input type='radio' <?php echo $checked_acc; ?> value='4' id='isSuper_manager5' title="Account Manager" name="change_status" class='form-control isSuper_manager'><strong>Account Manager</strong>
-				</label-->
+                                    <!--label class='mt-radio5'>
+                                    <input type='radio' <?php echo $checked_acc; ?> value='4' id='isSuper_manager5' title="Account Manager" name="change_status" class='form-control isSuper_manager'><strong>Account Manager</strong>
+                                    </label-->
                                 <label class='mt-radio2'>
                                     <input type='radio' <?php echo $checked_none; ?> value='0' id='isSuper_manager3'
                                         title="Manager" name="change_status"
-                                        class='form-control isSuper_manager'><strong>Manager</strong>
+                                        class=' isSuper_manager'><strong>Manager</strong>
                                 </label>
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td width="20%">
-                            <div class="col-mdd-2 form_vl"><strong>Pin: </strong></div>
+                            <div class="col-mdd-2 form_vl border_right_none"><strong>Pin: </strong></div>
                         </td>
                         <td>
                             <div class="col-mdd-10 form_vr"><span
                                     id="altPassTemp"><?php echo $agent->alt_pass; ?></span>
                                 <?php if( !empty( $agent->alt_pass ) ){ ?>
-                                <button class="" onclick="copy_alt_pass()">Copy</button>
+                                <button class="btn btn_blue_outline margin_left_15" onclick="copy_alt_pass()">Copy</button>
                                 <?php } ?>
                             </div>
                         </td>

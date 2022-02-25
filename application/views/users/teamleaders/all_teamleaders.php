@@ -140,7 +140,7 @@ ol.unassign_list li:hover{    cursor: move;}
 								$counter++;
 							}
 						}else{
-							echo "<tr><td colspan='6'> No Team Leader Found.</td></tr>";
+							echo "<tr><td colspan='7'> No Team Leader Found.</td></tr>";
 						} ?>
 						<!--Data table -->
 						</tbody>

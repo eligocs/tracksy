@@ -564,7 +564,6 @@ class Itineraries extends CI_Controller {
 				
 				//Count All Child Itineraries
 				$countChildIti = $this->global_model->count_all( 'itinerary', array("parent_iti_id" => $iti_id, "del_status" => 0) );
-				
 				$childLink = "<a title='View Child Itineraries' href=" . site_url("itineraries/childIti/{$iti_id}/{$key}") . " class='btn btn-success blue' ><i class='fa fa-child' aria-hidden='true'></i></a>";
 				
 				$showChildItiBtn = $countChildIti > 0 ? $childLink : "";
@@ -668,7 +667,8 @@ class Itineraries extends CI_Controller {
 						$st = "On Hold";
 						$iti_s = isset( $iti->booking_status ) && $iti->booking_status == 0 ? "APPROVED" : "ON HOLD";
 					}else if( $iti_status == 9 ){
-						$it_status = "<a title='itinerary booked' class='btn btn-green' title='Itinerary Booked'><i class='fa fa-check-circle-o' aria-hidden='true'></i></a>";
+						$it_status ="";
+						//$it_status = "<a title='itinerary booked' class='btn btn-green' title='Itinerary Booked'><i class='fa fa-check-circle-o' aria-hidden='true'></i></a>";
 						$st = "<i title='itinerary booked' class='fa fa-check-circle-o' aria-hidden='true'></i>";
 						$iti_s = "APPROVED";
 					}else if( $iti_status == 7 ){
