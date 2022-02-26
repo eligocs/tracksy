@@ -14,7 +14,7 @@
 				<a class="btn btn-success" href="<?php echo site_url("terms/office_branches");?>" title="Back">Back</a>
 			</div>
 		</div>	
-			<div class="portlet-body">
+			<div class="portlet-body custom_card">
 			
 				<div class="row">
 				<div class="col-md-4">
@@ -46,7 +46,8 @@
 				</div>
 			
 				
-				<div class="margiv-top-10">
+				<div class="col-md-3">
+					<label for="" class="d_block">&nbsp;</label>
 					<button type="submit" class="btn green uppercase add_Bank">Add Branch</button>
 				</div>
 				
