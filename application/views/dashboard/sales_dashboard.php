@@ -1401,7 +1401,7 @@
         <div class="portlet box blue">
             <div class="row">
                 <div class="col-md-6">
-                    <h3>Total Sales</h3>
+                    <h3>This Month's Total Sales</h3>
                     <div class="card">
                         <div class="card-body">
                             <div class="card-body analytics-info">

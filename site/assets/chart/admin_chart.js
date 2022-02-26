@@ -10,6 +10,19 @@ jQuery(document).ready(function($) {
         // $("#main").html('')
         hm_leads_chart();
     });
+
+
+    //Leads //on agent change
+    $("#agent_graph").change(function() {
+        leads_date_filter();
+    });
+
+       //on agent change
+       $("#agent_graph_lead").change(function() {
+        hm_leads_chart();
+    });
+
+
     // call to date filter
     leads_date_filter();
     hm_leads_chart();
@@ -18,13 +31,16 @@ jQuery(document).ready(function($) {
     function leads_date_filter() {
         var selectedDate = $('#daterangelead').val();
         var BASE_URL = $("#base_url").val();
+        var agent_id = $("#agent_graph").val();
         $.ajax({
             url: BASE_URL + "dashboard/leadsFilter",
             method: "POST",
             dataType: 'json',
-            data: { selectedDate: selectedDate },
+            data: { selectedDate: selectedDate,
+                    agent_id: agent_id },
             success: function(data) {
                 console.log(data);
+                
                 //init chart
                 var myChart = echarts.init(document.getElementById('pieChart'));
                 var idx = 1;
@@ -142,11 +158,13 @@ jQuery(document).ready(function($) {
     function hm_leads_chart() {
         var selectedDate = $('#leadsDate').val();
         var BASE_URL = $("#base_url").val();
+        var agent_id = $("#agent_graph_lead").val();
         $.ajax({
             url: BASE_URL + "dashboard/leadsFilterByType",
             method: "POST",
             dataType: 'json',
-            data: { selectedDate: selectedDate },
+            data: { selectedDate: selectedDate,
+                agent_id: agent_id },
             success: function(res) {
                 //init chart
                 var myChart = echarts.init(document.getElementById('main'));

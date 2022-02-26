@@ -43,6 +43,12 @@
 														</div>	
 													</div>	
 													<div class="form-group">
+														<label class="control-label col-md-3">Site Link:</label>
+														<div class="col-md-9">
+															<input type="text" class="form-control" name="inp[site_link]" value="<?php if($settings!= NULL){ echo $settings[0]->site_link; }?>"/>
+														</div>	
+													</div>	
+													<div class="form-group">
 														<label class="control-label col-md-3">Admin Email*:</label>
 														<div class="col-md-9">
 															<input type="email" class="form-control" name="inp[admin_email]" value="<?php if($settings!= NULL){ echo $settings[0]->admin_email; }?>"/>

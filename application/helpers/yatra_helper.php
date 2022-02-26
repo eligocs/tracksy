@@ -17,6 +17,18 @@
 		return $result;
 	}
 
+	/*get site link name */
+	function get_site_link() {
+		$ci = & get_instance();
+		$res = $ci->global_model->getdata( "settings", "", "site_link","",1 );
+		if( $res ){
+			$result = $res;
+		}else{
+			$result = "Track It";
+		}	
+		return $result;
+	}
+
 
 	function getLogo(){
 		$ci = & get_instance();
@@ -648,6 +660,7 @@
 	/*
 	 * Get Admin Email
 	*/
+	
 	function admin_email() {
 		$ci = & get_instance();
 		$where = array();
@@ -659,7 +672,6 @@
 		}
 		return $result;
 	}
-	
 	
 
 	

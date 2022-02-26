@@ -26,9 +26,10 @@ class Pdf extends TCPDF{
 			$this->SetFont('helvetica', '', 10);
 			// $this->Cell(0, 7, 'Phone No: 0177-000', 0, false, 'R', 0, '', 0, false, 'M', 'M');
 			$this->Ln();
-			$this->Cell(0, 7, 'Email: info@trackitinerary.com', 0, false, 'R', 0, '', 0, false, 'M', 'M');
+			$this->Cell(0, 7, 'Email:' . ' ' . admin_email() , 0, false, 'R', 0, '', 0, false, 'M', 'M');
 			$this->Ln();
-			$this->Cell(0, 7, 'Website: www.trackitinerary.com', 0, false, 'R', 0, '', 0, false, 'M', 'M');
+			// set margins
+			$this->Cell(0, 7, 'Website:' . ' ' .  get_site_link() , 0, false, 'R', 0, '', 0, false, 'M', 'M');
 			
 			// set margins
 			$this->SetMargins(5, PDF_MARGIN_TOP, 5);
@@ -53,7 +54,7 @@ class Pdf extends TCPDF{
         $this->SetFont('helvetica', 'I', 8);
         // Page number
         $this->Cell(0, 10, 'Page '.$this->getAliasNumPage().'/'.$this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');
-		$this->Cell( 0,10, "info@trackitinerary.org", 0, true, 'R', 0, '', 0, false, 'T', 'M');
+		$this->Cell( 0,10,  admin_email(), 0, true, 'R', 0, '', 0, false, 'T', 'M');
 		
     }
 }

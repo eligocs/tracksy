@@ -76,7 +76,7 @@
 		
 		<!-- BEGIN FOOTER -->
             <div class="page-footer container">
-                <div class="page-footer-inner"> <?php echo date("Y"); ?> &copy; Track Itinerary Develop By
+                <div class="page-footer-inner"> <?php echo date("Y"); ?> &copy; Develop By
                     <a target="_blank" href="http://eligocs.com">Eligocs</a></div>
 					<div class="text-right text-white">Page rendered in <strong>{elapsed_time}</strong> seconds</div>
                 <div class="scroll-to-top">
