@@ -1918,7 +1918,8 @@ class Dashboard extends CI_Controller {
 	public function leadsFilterByType(){
 		$user = $this->session->userdata('logged_in');
 		$date = $this->input->post('selectedDate'); 
-		$leadsFilterdata = $this->dashboard_model->leads_data($date);
+		$agent_id = $this->input->post('agent_id');
+		$leadsFilterdata = $this->dashboard_model->leads_data($date, $agent_id);
 		if(!empty($leadsFilterdata)){
 			$typeName = [];
 			foreach( $leadsFilterdata as $key => $value){
@@ -1933,19 +1934,20 @@ class Dashboard extends CI_Controller {
 	public function leadsFilter(){
 		$user = $this->session->userdata('logged_in');
 		$date = $this->input->post('selectedDate'); 
-		$leadsFilterdata = $this->dashboard_model->getLeadsByRefrence($date);
+		$agent_id = $this->input->post('agent_id');
+		$leadsFilterdata = $this->dashboard_model->getLeadsByRefrence($date, $agent_id);
 		if(!empty($leadsFilterdata)){
 			$totalNo = [];
 			$typeName = [];
 			foreach( $leadsFilterdata as $key => $value){	
-					$totalNo =  $value['value'];
+					$totalNo[] =  $value['value'];
 					$typeName[] = $value['name'];
 				}
 			}
 
 			// if($totalNo != 0){
 			if( $leadsFilterdata || $typeName){
-				$res = array('res' => true, 'msg'=> 'success', 'totalNo' => $leadsFilterdata, 'name' =>  $typeName, 'totalNo' => $totalNo);
+				$res = array('res' => true, 'msg'=> 'success', 'totalNo' => $leadsFilterdata, 'name' =>  $typeName);
 			}else{
 				$res = array('res' => false, 'msg'=> 'No Data Found', 'totalNo' => '', 'name' => '');
 			}
@@ -2093,10 +2095,43 @@ class Dashboard extends CI_Controller {
 			$package_cost = $iti_Data->package_cost;
 			$total_pacages_cost += $package_cost;
 		}
-		if($get_booked_iti){
-			$res = array('res' => true, 'msg'=> 'success', 'totalsale' => $total_pacages_cost);
+
+		$total_booking = count($get_booked_iti);
+		$incentive = 0;
+		$turnover_slab = 0;
+
+
+		if( !empty( $total_booking ) ){
+			//calculate incentive
+			switch( $total_booking ){
+				case ( $total_booking <= 10 ):
+					$incentive = $total_booking * 250; //250 per package
+					break;
+				case ($total_booking > 10 && $total_booking <= 20 ):
+					$incentive = $total_booking * 300; //300 per package;
+					break;
+				case ($total_booking > 20):
+					$incentive = $total_booking * 500; //500 per package;
+					break;
+				default:
+					$incentive =  0;
+				break;
+			}	
+		}
+
+		//turn over slab
+		if( $total_pacages_cost > 300000 ){
+			$turnover_slab = ( $total_pacages_cost * 1 ) / 100;
 		}else{
-			$res = array('res' => false, 'msg'=> 'No Data Found', 'totalsale' => '');
+			$remain = 300000 - $total_pacages_cost;
+		}
+		//total incentive
+		$total_inc = $turnover_slab + $incentive;
+
+		if($get_booked_iti){
+			$res = array('res' => true, 'msg'=> 'success', 'totalsale' => $total_pacages_cost, 'totInc' => $total_inc);
+		}else{
+			$res = array('res' => false, 'msg'=> 'No Data Found', 'totalsale' => '', 'totInc' => '');
 		}
 		die(json_encode( $res ));
 	}

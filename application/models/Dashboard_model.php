@@ -542,7 +542,7 @@ class Dashboard_Model extends CI_Model{
 		return $q->result();
 	}
 	
-	public function getLeadsByRefrence($date){
+	public function getLeadsByRefrence($date, $agent_id){
 		if(!empty($date)){
 			$explodeDate = explode('-', $date);
 			$initDate = $explodeDate[0];
@@ -558,18 +558,19 @@ class Dashboard_Model extends CI_Model{
 				if(!empty($date)){
 					$this->db->where('DATE(created) BETWEEN "'. date('Y-m-d 00:00:01', strtotime($initDate)). '" and "'. date('Y-m-d 00:59:59', strtotime($secDate)).'"');
 				}
+				if(!empty($agent_id)){
+					$this->db->where('agent_id', $agent_id);
+				}
 				$customers_inquery_get = $this->db->get('customers_inquery')->num_rows();
 				$customers_inquery_Data['value'] = $customers_inquery_get;
 				$customers_inquery_Data['name'] = $value->name;
 				$customers_inquery[] = $customers_inquery_Data;
 		}
-		// dump($customers_inquery);
 		return $customers_inquery;
-		// $this->db->where('customer_type', $date);
-	
 	}
 	
-	public function leads_data($date){
+	//get Total Leads By Type
+	public function leads_data($date, $agent_id){
 		if(!empty($date)){
 			$explodeDate = explode('-', $date);
 			$initDate = $explodeDate[0];
@@ -584,6 +585,9 @@ class Dashboard_Model extends CI_Model{
 			if(!empty($date)){
 				$this->db->where('DATE(created) BETWEEN "'. date('Y-m-d 00:00:01', strtotime($initDate)). '" and "'. date('Y-m-d 00:59:59', strtotime($secDate)).'"');
 			}
+			if(!empty($agent_id)){
+				$this->db->where('agent_id', $agent_id);
+			}
 			$customers_inquery_get = $this->db->get('customers_inquery')->num_rows();
 			$customers_inquery_Data['value'] = $customers_inquery_get;
 			if($value == '8'){
@@ -595,10 +599,7 @@ class Dashboard_Model extends CI_Model{
 			}
 			$customers_inquery[] = $customers_inquery_Data;
 		}	
-		// dump($customers_inquery);die;
-		return $customers_inquery;
-		// $this->db->where('customer_type', $date);
-	
+		return $customers_inquery;	
 	}
 	
 	//Get monthly LEADS count for echart working iti

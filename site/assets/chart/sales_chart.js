@@ -25,11 +25,13 @@ jQuery(document).ready(function($) {
                     options: [{
                         series: [{
                             type: 'gauge',
+                            startAngle: 180,
+                            endAngle: 0,
                             min: 0,
                             max: 500000,
                             axisLine: {
                                 lineStyle: {
-                                    width: 10,
+                                    width: 25,
                                     color: [
                                         [0.3, 'red'],
                                         [0.7, 'Cyan'],
@@ -42,16 +44,15 @@ jQuery(document).ready(function($) {
                                     color: 'auto'
                                 }
                             },
-                            // axisTick: {
-                            //     distance: -30,
-                            //     length: 8,
-                            //     lineStyle: {
-                            //         color: '#re',
-                            //         width: 2
-                            //     }
-                            // },
+                            axisTick: {
+                                show: false,
+                                lineStyle: {
+                                    color: '#re',
+                                    width: 2
+                                }
+                            },
                             splitLine: {
-                                distance: -30,
+                                show: false,
                                 length: 30,
                                 lineStyle: {
                                     color: '#fff',
@@ -61,15 +62,16 @@ jQuery(document).ready(function($) {
                             axisLabel: {
                                 color: 'auto',
                                 distance: 0,
-                                fontSize: 20
+                                fontSize: 10
                             },
                             detail: {
                                 valueAnimation: true,
-                                formatter: '{value} ',
+                                offsetCenter: [0, '-20%'],
+                                formatter: '{value} ₹ ',
                                 color: 'auto'
                             },
                             center: ['40%', '50%'],
-                            radius: ['5%', '100%'],
+                            radius: ['40%', '100%'],
                             data: [
                                 { value: res.totalsale }
                             ],
