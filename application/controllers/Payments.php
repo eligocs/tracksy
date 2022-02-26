@@ -32,9 +32,8 @@ class Payments extends CI_Controller {
 		if( $user['role'] == '99' || is_super_manager() || $user['role'] == '97' || $user['role'] == '93' ){
 			$data["payment"] = $this->global_model->getdata("iti_payment_details", array("id" => $id, "iti_id" => $iti_id) );
 			$data["payment_transaction"] = $this->global_model->getdata("iti_payment_transactions", array("iti_id" => $iti_id) );
-			$data["refund_transaction"] = $this->global_model->getdata("payment_refund", array("iti_id" => $iti_id) );
-			
-			$data["receipts"] = $this->global_model->getdata("ac_receipts", array("lead_id" => $data["payment"][0]->customer_id, "del_status" => 0 ) );
+			$data["refund_transaction"] = $this->global_model->getdata("payment_refund", array("iti_id" => $iti_id) );			
+			$data["receipts"] 			= $this->global_model->getdata("ac_receipts", array("lead_id" => $data["payment"][0]->customer_id, "del_status" => 0 ) );
 			
 			$this->load->view('inc/header');
 			$this->load->view('inc/sidebar');
@@ -309,7 +308,7 @@ class Payments extends CI_Controller {
 			$where_notif 		= array( "notification_type" => 4, "customer_id" => $customer_id );
 			$this->global_model->delete_data("notifications", $where_notif);
 			
-	/* 		//Create notification if next call time exists
+	 		//Create notification if next call time exists
 			if( !empty( $next_payment_date_notify ) ){
 				$title 		= "Payment Pending";
 				$c_date 	= date("Y-m-d", strtotime($next_payment_date_notify ));
@@ -328,7 +327,7 @@ class Payments extends CI_Controller {
 				);
 				//Insert notification
 				$this->global_model->insert_data( "notifications", $notification_data );
-			} */
+			} 
 			
 			/**
 			* END NOTIFICATION SECTION
@@ -476,7 +475,7 @@ class Payments extends CI_Controller {
 						"agent_id"			=> $u_id,
 					);
 					//Insert notification
-					//$this->global_model->insert_data( "notifications", $notification_data );
+					$this->global_model->insert_data( "notifications", $notification_data );
 				}
 				
 				/**
@@ -741,7 +740,7 @@ class Payments extends CI_Controller {
 					$notif_link = "payments/update_payment/{$id}/{$iti_id}";
 					
 					//if less then 50% payment received send notification to agent
-					/* $total_payment_recieved_percentage = get_iti_pay_receive_percentage( $iti_id );
+					$total_payment_recieved_percentage = get_iti_pay_receive_percentage( $iti_id );
 					if( $total_payment_recieved_percentage < 50 ){
 						$notif_link_ag = "itineraries/view/{$iti_id}/{$temp_key}";
 						$agent_notify = array(
@@ -756,7 +755,7 @@ class Payments extends CI_Controller {
 						);
 						//Insert notification
 						$this->global_model->insert_data( "notifications", $agent_notify );
-					} */
+					}
 					
 					$notification_data = array(
 						"customer_id"		=> $customer_id,
@@ -770,7 +769,7 @@ class Payments extends CI_Controller {
 					);
 					
 					//Insert notification
-					//$this->global_model->insert_data( "notifications", $notification_data );
+					$this->global_model->insert_data( "notifications", $notification_data );
 				}	
 				
 				/**
@@ -1064,7 +1063,7 @@ class Payments extends CI_Controller {
 						"agent_id"			=> $u_id,
 					);
 					//Insert notification
-					//$this->global_model->insert_data( "notifications", $notification_data );
+					$this->global_model->insert_data( "notifications", $notification_data );
 				}
 				
 				//if refund exists create notification
@@ -1086,7 +1085,7 @@ class Payments extends CI_Controller {
 					);
 					
 					//Insert notification
-					//$this->global_model->insert_data( "notifications", $notification_data );
+					$this->global_model->insert_data( "notifications", $notification_data );
 				}
 				
 				/**

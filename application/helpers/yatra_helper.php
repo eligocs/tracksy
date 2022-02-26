@@ -2849,3 +2849,34 @@
 		}
 		return false;
 	}
+
+	//Get Total amount recieved
+	function total_amount_recieved_recipt( $lead_id = null , $recipt_id_not_in = null ){
+		if( !$lead_id ) return 0;
+		$ci =& get_instance();		
+		$ci->db->select_sum('amount_received');
+		$ci->db->from('ac_receipts')->where('lead_id', $lead_id)->where("del_status" , 0);		
+		if( $recipt_id_not_in ){
+			$ci->db->where("id !=", $recipt_id_not_in);
+		}
+		$q = $ci->db->get();
+		$res = $q->result();
+		if( $res ){
+			return $res[0]->amount_received;
+		}
+		return 0;
+	}
+
+	//Get Total package cost
+	function get_package_total_cost_by_customer_id( $lead_id = null ){
+		if( !$lead_id ) return 0;
+		$ci =& get_instance();		
+		$ci->db->select('total_package_cost');
+		$ci->db->from('iti_payment_details')->where('customer_id', $lead_id);		
+		$q = $ci->db->get();
+		$res = $q->result();
+		if( $res ){
+			return $res[0]->total_package_cost;
+		}
+		return 0;
+	}

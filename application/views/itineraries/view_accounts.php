@@ -89,7 +89,7 @@
 						$doc_path =  base_url() .'site/assets/client_docs/';
 						//$is_gst_final = $paymentDetails[0]->is_gst == 1 ? "GST Inc." : "GST Extra";
 						$is_gst_final = "";
-						
+
 						if( $iti->iti_close_status == 1 ){
 							$close_status = "<strong class='red'>ITINERARY CLOSED</strong>";
 							$invoice_btn = "";
@@ -160,21 +160,21 @@
             <div class="custom_card" id="update_iti_hold_status">
                 <!-- client_aadhar_card payment_screenshot -->
                 <?php
-									$aadhar_card_img = !empty( $pay_detail->client_aadhar_card ) ? $pay_detail->client_aadhar_card : "";
-									$payment_screenshot = !empty( $pay_detail->payment_screenshot ) ? $pay_detail->payment_screenshot : "";
-								?>
+                $aadhar_card_img = !empty( $pay_detail->client_aadhar_card ) ? $pay_detail->client_aadhar_card : "";
+                $payment_screenshot = !empty( $pay_detail->payment_screenshot ) ? $pay_detail->payment_screenshot : "";
+				?>
                 <div class="col-md-4">
                     <h4 class="uppercase">Aadhar Card Screenshot</h4>
                     <?php if($aadhar_card_img){ ?>
-                    <a target="_blank" href="<?php echo $doc_path . $aadhar_card_img; ?>" class="example-image-link"
-                        data-lightbox="example-set" data-title="Adhar card Screenshot.">
-                        <img src="<?php echo $doc_path . $aadhar_card_img; ?>" width="150" height="150"
-                            class="image-responsive">
-                    </a>
+                        <a target="_blank" href="<?php echo $doc_path . $aadhar_card_img; ?>" class="example-image-link"
+                            data-lightbox="example-set" data-title="Adhar card Screenshot.">
+                            <img src="<?php echo $doc_path . $aadhar_card_img; ?>" width="150" height="150"
+                                class="image-responsive">
+                        </a>
                     <?php }else{
-										echo "<strong class='red'>Aadhar card Not Updated</strong>";
-										//echo '<img src=" ' . $doc_path . 'dummy.jpg" width="150" height="150" class="image-responsive">';
-									} ?>
+                        echo "<strong class='red'>Aadhar card Not Updated</strong>";
+                        //echo '<img src=" ' . $doc_path . 'dummy.jpg" width="150" height="150" class="image-responsive">';
+                    } ?>
                 </div>
                 <div class="col-md-4">
                     <h4 class="uppercase">Payment Screenshot</h4>
@@ -185,9 +185,9 @@
                             class="image-responsive">
                     </a>
                     <?php }else{
-										echo "<strong class='red'>Payment Screenshot Not Updated</strong>";
-										//echo '<img src=" ' . $doc_path . 'dummy.jpg" width="150" height="150" class="image-responsive">';
-									} ?>
+                        echo "<strong class='red'>Payment Screenshot Not Updated</strong>";
+                        //echo '<img src=" ' . $doc_path . 'dummy.jpg" width="150" height="150" class="image-responsive">';
+                    } ?>
                 </div>
                 <div class="col-md-4">
                     <h4 class="uppercase">Iti Status</h4>
