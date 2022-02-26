@@ -1,7 +1,6 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js' type='text/javascript'></script>
 <!-- CSS -->
 <link href='https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css' rel='stylesheet' type='text/css'>
-
 <div class="page-container">
 	<div class="page-content-wrapper">
 		<div class="page-content">
@@ -132,7 +131,7 @@
 		</div>
  <script>
 jQuery(document).ready(function($){
-	 $('[data-toggle="tooltip"]').tooltip();
+		$('[data-toggle="tooltip"]').tooltip();
 	//date picker
 	$(".datepicker").datepicker({ 
 		endDate: '0d', 

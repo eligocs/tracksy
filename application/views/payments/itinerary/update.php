@@ -179,7 +179,7 @@
                         <thead class="thead-default">
                             <tr>
                                 <p class="text-center uppercase green margin-bottom-10 margin-top-10 font_size_16">
-                                    <strong>All Receipts</strong>                                
+                                    <strong>All Receipts</strong>                                    
                                     <a target='_blank' href='<?php echo site_url("/accounts/create_receipt/{$pay->customer_id}"); ?>' title='Click here to create new receopt' class='btn btn-success pull-right'>Create New Recipt</a>
                                 </p>
                             </tr>
@@ -201,8 +201,8 @@
                                 <td><?php echo ucfirst($receipt->receipt_type) ?></td>
                                 <td><?php echo $receipt->transfer_ref ?></td>
                                 <td><?php echo $receipt->amount_received ?></td>
-                                <?php echo "<td><a href=" . site_url("accounts/update_receipt/{$receipt->id}") . " class='btn_pencil margin-right-10 ajax_edit_hotel_table' title='Update receipt' ><i class='fa fa-pencil'></i></a>
-												<a href=" . site_url("accounts/view_receipt/{$receipt->id}") . " class='btn_eye' title='view' ><i class='fa fa-eye'></i></a></td>"; ?>
+                                <?php echo "<td><a href=" . site_url("accounts/update_receipt/{$receipt->id}") . " class='btn_pencil margin-right-10 ajax_edit_hotel_table'  target='_blank' title='Update receipt' ><i class='fa fa-pencil'></i></a>
+												<a href=" . site_url("accounts/view_receipt/{$receipt->id}") . " class='btn_eye' target='_blank' title='view' ><i class='fa fa-eye'></i></a></td>"; ?>
                             <tr>
                                 <?php 
 										$indx++;
@@ -273,13 +273,13 @@
                                     <td>
                                         <a title="Update details" class="btn_pencil edit_trans" target="_blank"
                                             href="javascript: void(0)"><i class="fa fa-pencil"></i></a>
-                                        <a title="Delete" data-id="<?php echo $pay_trans->tra_id; ?>"
+                                        <!--a title="Delete" data-id="<?php echo $pay_trans->tra_id; ?>"
                                             class="btn_trash del_trans" target="_blank" href="javascript: void(0)"><i
-                                                class="fa fa-trash-o"></i></a>
+                                                class="fa fa-trash-o"></i></a-->
                                     </td>
                                 </tr>
                                 <?php 
-										$pay_received += $pay_trans->payment_received;
+									$pay_received += $pay_trans->payment_received;
 									} 
 								}
 								//If refund exists

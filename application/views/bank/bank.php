@@ -58,9 +58,9 @@
                         
                         			<td> {$bank->ifsc_code}</td>
                         
-                        			<td><a href=" . site_url("bank/edit/{$bank->bank_id}") . " class='btn btn-success ajax_edit_hotel_table' >Edit</a></td>
+                        			<td><a href=" . site_url("bank/edit/{$bank->bank_id}") . " class='btn_pencil ajax_edit_hotel_table' ><i class='fa fa-pencil'></i></a></td>
                         
-                        			<td><a href='javascript:void(0)' class='btn btn-danger ajax_delete_bank'>Delete</a></td>
+                        			<td><a href='javascript:void(0)' class='btn_trash ajax_delete_bank'><i class='fa fa-trash-o'></i></a></td>
                         
                         		</tr>";
                         

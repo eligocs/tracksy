@@ -19,7 +19,7 @@
 					</div>
 		</div>
 			 
-				<div class="portlet-body">
+				<div class="portlet-body custom_card">
 				<div class="row">
 				<div class="col-md-4">
 				<div class="form-group">
@@ -67,7 +67,7 @@
 				<div class="clearfix"></div>
 				<div class="margiv-top-10">
 					<input type="hidden" name="branch_id" value="<?php echo $branch->branch_id; ?>"/>
-					<button type="submit" class="btn green uppercase edit_Customer">Update Branch Details</button>
+					<button type="submit" class="btn green uppercase edit_Customer margin_left_15">Update Branch Details</button>
 				</div>
 				<div class="clearfix"></div>
 			<div id="res"></div>		

@@ -374,6 +374,10 @@
    			$transfer_date	 = $this->input->post('transfer_date');
    			$narration	 	= $this->input->post('narration');
    			$amount_received	= $this->input->post('amount_received');
+
+			$total_amount_recieved = total_amount_recieved_recipt( $lead_id );
+			$package_cost 	= get_package_total_cost_by_customer_id( $lead_id );
+			$balance 		= $package_cost - $total_amount_recieved;
    			
    			//check if transfer_ref exists
    			if( $receipt_type == "bank" ){
@@ -389,6 +393,11 @@
    				$res = array( 'status' => false, 'msg' => "Please enter valid amount." );
    				die( json_encode($res) );
    			}
+
+			if( $amount_received > $balance ){
+				$res = array( 'status' => false, 'msg' => "You can't update receipt more than {$balance}. Balance Pending : {$balance}" );
+   				die( json_encode($res) );
+			}
    			
    			$voucher_date = change_date_format_dmy_to_ymd( $voucher_date );
    			$transfer_date = change_date_format_dmy_to_ymd( $transfer_date );
@@ -407,11 +416,19 @@
    				"amount_received" => $amount_received,
    				"agent_id" => $user_id,
    			);
-   			
+			      			
    			$insert_invoice = $this->global_model->insert_data("ac_receipts", $data);
 
+			//update payment details
+			//update pending balance
+			$total_amount_recieved = total_amount_recieved_recipt( $lead_id );
+			$pending_balance 		= $package_cost - $total_amount_recieved;
+			$wherePay = array("customer_id" => $lead_id );
+			$update_payment = ["total_balance_amount" => $pending_balance];
+			$update_data = $this->global_model->update_data("iti_payment_details", $wherePay, $update_payment );			
+
 			//delete pending payement notifications
-			$whereD = array( "notification_type" => 4 , "customer_id" => $id);   		
+			$whereD = array( "notification_type" => 4 , "customer_id" => $lead_id);   		
 			$delete_notification = $this->global_model->delete_data("notifications", $whereD);
    			
    			//UPDATE voucher number
@@ -464,8 +481,14 @@
    			$amount_received	= $this->input->post('amount_received');
    			$narration	 		= $this->input->post('narration');
    			$id	 				= $this->input->post('id');
-   			
-   			
+
+			$get_recipt		 = $this->global_model->getdata("ac_receipts", array("id" => trim( $id ) ) );
+			$lead_id		= isset($get_recipt[0]) ? $get_recipt[0]->lead_id : '';
+
+			$total_amount_recieved = total_amount_recieved_recipt( $lead_id , $id);
+			$package_cost 	= get_package_total_cost_by_customer_id( $lead_id );
+			$balance 		= $package_cost - $total_amount_recieved;
+
    			//check if transfer_ref exists
    			$check_transfer_ref = $this->global_model->getdata("ac_receipts", array("transfer_ref" => trim( $transfer_ref ), "id !=" => $id ) );
    			if( $check_transfer_ref ){
@@ -478,6 +501,10 @@
    				$res = array( 'status' => false, 'msg' => "Please enter valid amount." );
    				die( json_encode($res) );
    			}
+			if( $amount_received > $balance ){
+				$res = array( 'status' => false, 'msg' => "You can't update receipt more than {$balance}. Balance Pending : {$balance}" );
+   				die( json_encode($res) );
+			}
    			
    			$voucher_date = change_date_format_dmy_to_ymd( $voucher_date );
    			$transfer_date = change_date_format_dmy_to_ymd( $transfer_date );
@@ -494,6 +521,14 @@
    			);
    			
    			$update = $this->global_model->update_data("ac_receipts", array("id" => $id), $data);
+			//update payment details
+			//update pending balance
+			$total_amount_recieved = total_amount_recieved_recipt( $lead_id );
+			$pending_balance 		= $package_cost - $total_amount_recieved;
+			$wherePay = array("customer_id" => $lead_id );
+			$update_payment = ["total_balance_amount" => $pending_balance];
+			$update_data = $this->global_model->update_data("iti_payment_details", $wherePay, $update_payment );			
+
    			if( $update ){
    				$res = array( 'status' => true, 'msg' => "Receipt generate successfully." );
    			}else{
@@ -526,7 +561,19 @@
    	public function delete_invoice(){
    		$id = $this->input->get('id');
    		$where = array( "id" => $id );
-   		$result = $this->global_model->update_data( "ac_receipts", $where, array('del_status' => 1 ) );
+		$get_recipt		 = $this->global_model->getdata("ac_receipts", array("id" => trim( $id ) ) );
+		$lead_id		= isset($get_recipt[0]) ? $get_recipt[0]->lead_id : '';
+
+		$result = $this->global_model->update_data( "ac_receipts", $where, array('del_status' => 1 ) );
+
+		//update pending balance		
+		$total_amount_recieved = total_amount_recieved_recipt( $lead_id );
+		$package_cost 	= get_package_total_cost_by_customer_id( $lead_id );
+		$balance 		= $package_cost - $total_amount_recieved;
+		$wherePay = array("customer_id" => $lead_id );
+		$update_payment = ["total_balance_amount" => $balance];
+		$update_data = $this->global_model->update_data("iti_payment_details", $wherePay, $update_payment );	
+
    		if( $result){
    			$res = array('status' => true, 'msg' => "Receipt delete Successfully!");
    		}else{
