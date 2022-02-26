@@ -116,54 +116,54 @@
                                     <h3 class="text-white">&nbsp;Payment Details</h3>
                                 </div>
                                 <div class="col-md-6 col-lg-6">
-                                    <div class="col-md-4 form_vl"><strong>Itinerary Id:</strong></div>
-                                    <div class="col-md-8 form_vr"><?php echo $pay->iti_id; ?></div>
+                                    <div class="col-md-6 form_vl"><strong>Itinerary Id:</strong></div>
+                                    <div class="col-md-6 form_vr"><?php echo $pay->iti_id; ?></div>
                                 </div>
                                 <div class="col-md-6 col-lg-6">
-                                    <div class="col-md-4 form_vl"><strong>Customer Name:</strong></div>
-                                    <div id='cus_name' class="col-md-8 form_vr"><?php echo $pay->customer_name; ?></div>
+                                    <div class="col-md-6 form_vl"><strong>Customer Name:</strong></div>
+                                    <div id='cus_name' class="col-md-6 form_vr"><?php echo $pay->customer_name; ?></div>
                                 </div>
                                 <div class="col-md-6 col-lg-6">
-                                    <div class="col-md-4 form_vl"><strong>Customer Contact:</strong></div>
-                                    <div class="col-md-8 form_vr"><?php echo $pay->customer_contact; ?></div>
+                                    <div class="col-md-6 form_vl"><strong>Customer Contact:</strong></div>
+                                    <div class="col-md-6 form_vr"><?php echo $pay->customer_contact; ?></div>
                                 </div>
                                 <div class="col-md-6 col-lg-6">
-                                    <div class="col-md-4 form_vl"><strong>Customer Email:</strong></div>
-                                    <div class="col-md-8 form_vr red"><?php echo $pay->customer_email; ?></div>
+                                    <div class="col-md-6 form_vl"><strong>Customer Email:</strong></div>
+                                    <div class="col-md-6 form_vr red"><?php echo $pay->customer_email; ?></div>
                                 </div>
                                 <div class="col-md-6 col-lg-6">
-                                    <div class="col-md-4 form_vl"><strong>Package Cost:</strong></div>
-                                    <div class="col-md-8 form_vr">
+                                    <div class="col-md-6 form_vl"><strong>Package Cost:</strong></div>
+                                    <div class="col-md-6 form_vr">
                                         <?php echo number_format($pay->total_package_cost) . " /-"; ?></div>
                                 </div>
                                 <div class="col-md-6 col-lg-6">
-                                    <div class="col-md-4 form_vl"><strong>Advance Received (as 1st
+                                    <div class="col-md-6 form_vl"><strong>Advance Received (as 1st
                                             installment):</strong></div>
-                                    <div class="col-md-8 form_vr">
+                                    <div class="col-md-6 form_vr">
                                         <?php echo number_format($pay->advance_recieved) . " /-"; ?></div>
                                 </div>
                                 <div class="col-md-6 col-lg-6">
-                                    <div class="col-md-4 form_vl"><strong>Advance Received Date (as 1st
+                                    <div class="col-md-6 form_vl"><strong>Advance Received Date (as 1st
                                             installment):</strong></div>
-                                    <div class="col-md-8 form_vr"><?php echo $pay->booking_date; ?></div>
+                                    <div class="col-md-6 form_vr"><?php echo $pay->booking_date; ?></div>
                                 </div>
                                 <div class="col-md-6 col-lg-6">
-                                    <div class="col-md-4 form_vl"><strong>Next Installment Amount:</strong></div>
-                                    <div class="col-md-8 form_vr"><?php echo $pay->next_payment; ?></div>
+                                    <div class="col-md-6 form_vl"><strong>Next Installment Amount:</strong></div>
+                                    <div class="col-md-6 form_vr"><?php echo $pay->next_payment; ?></div>
                                 </div>
                                 <div class="col-md-6 col-lg-6">
-                                    <div class="col-md-4 form_vl"><strong>Next Installment Date:</strong></div>
-                                    <div class="col-md-8 form_vr">
+                                    <div class="col-md-6 form_vl"><strong>Next Installment Date:</strong></div>
+                                    <div class="col-md-6 form_vr">
                                         <?php echo display_month_name( $pay->next_payment_due_date ); ?></div>
                                 </div>
                                 <div class="col-md-6 col-lg-6">
-                                    <div class="col-md-4 form_vl"><strong>Balance Pending:</strong></div>
-                                    <div class="col-md-8 form_vr">
+                                    <div class="col-md-6 form_vl"><strong>Balance Pending:</strong></div>
+                                    <div class="col-md-6 form_vr">
                                         <?php echo number_format( $pay->total_balance_amount ) . " /-"; ?></div>
                                 </div>
                                 <div class="col-md-6 col-lg-6">
-                                    <div class="col-md-4 form_vl"><strong class='red'>Travel Date</strong></div>
-                                    <div class="col-md-8 form_vr"><strong
+                                    <div class="col-md-6 form_vl"><strong class='red'>Travel Date</strong></div>
+                                    <div class="col-md-6 form_vr"><strong
                                             class='green'><?php echo display_month_name($pay->travel_date); ?></strong>
                                     </div>
                                 </div>
@@ -182,13 +182,19 @@
                                     <strong>All Receipts</strong>                                    
                                     <a target='_blank' href='<?php echo site_url("/accounts/create_receipt/{$pay->customer_id}"); ?>' title='Click here to create new receopt' class='btn btn-success pull-right'>Create New Recipt</a>
                                 </p>
+                               <div class="d-flex align_items_center justify_content_between margin-bottom-10">
+                                    <p class="text-center uppercase green margin-bottom-10 margin-top-10 font_size_16">
+                                            <strong>All Receipts</strong>                                
+                                        </p>
+                                        <a target='_blank' href='<?php echo site_url("/accounts/create_receipt/{$pay->customer_id}"); ?>' title='Click here to create new receopt' class='btn btn-success'>Create New Recipt</a>
+                               </div>
                             </tr>
                             <tr>
-                                <th class="text-white"> # </th>
-                                <th class="text-white"> Receipt Type </th>
-                                <th class="text-white"> Transfer Ref.</th>
-                                <th class="text-white"> Amount</th>
-                                <th class="text-white"> Action </th>
+                                <th> # </th>
+                                <th> Receipt Type </th>
+                                <th> Transfer Ref.</th>
+                                <th> Amount</th>
+                                <th> Action </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -226,14 +232,14 @@
                                         <strong>Payment Transactions</strong></p>
                                 </tr>
                                 <tr>
-                                    <th class="text-white"> Sr.No</th>
-                                    <th class="text-white"> Pay. Received</th>
-                                    <th class="text-white"> Pay. Refund</th>
-                                    <th class="text-white"> Date</th>
-                                    <th class="text-white"> Bank Name</th>
-                                    <th class="text-white"> Type</th>
-                                    <th class="text-white"> Agent</th>
-                                    <th class="text-white"> Action</th>
+                                    <th> Sr.No</th>
+                                    <th> Pay. Received</th>
+                                    <th> Pay. Refund</th>
+                                    <th> Date</th>
+                                    <th> Bank Name</th>
+                                    <th> Type</th>
+                                    <th> Agent</th>
+                                    <th> Action</th>
                                 </tr>
                             </thead>
                             <tbody>

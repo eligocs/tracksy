@@ -16,9 +16,9 @@
 				</div>
 				
 			</div>
-			<div class="portlet-body">
+			<div class="portlet-body custom_card">
 				<div class="table-responsive">
-					<table class="table table-bordered">
+					<table class="table table-striped">
 						<thead>
 							<tr>
 								<th> # </th>
@@ -59,17 +59,19 @@
 								$i++; 
 							}
 						}else{
-							echo "<tr><td colspan='5'>No Invoice Found !</td></tr>";
+							echo "<tr><td colspan='8'>No Invoice Found !</td></tr>";
 						} ?>
 						</tbody>
 					</table>
 				</div>
-			</div>			</div>
+			</div>
+			</div>
 	</div>
 	<!-- END CONTENT BODY -->
 </div>
 <!-- Modal -->
 <script type="text/javascript">
-jQuery(document).ready(function($){	$(".table").DataTable();
+jQuery(document).ready(function($){
+	$(".table").DataTable();
 });
 </script>

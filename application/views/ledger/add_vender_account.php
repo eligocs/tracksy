@@ -30,14 +30,13 @@
                     <div class="caption">
                         <i class="icon-plus"></i>Add Vednder Account Details
                     </div>
-                    <a class="btn btn-success" href="<?php echo site_url("ledger");?>"
-                        title="Back">Back</a>
+                    <a class="btn btn-success" href="<?php echo site_url("ledger");?>" title="Back">Back</a>
                 </div>
 
             </div>
             <div class="portlet-body custom_card">
                 <div class="row">
-					<form id="addAcc_frm">
+                    <form id="addAcc_frm">
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Name*</label>
@@ -50,8 +49,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Email*</label>
-                                <input type="email" placeholder="Email" name="email"
-                                    class="form-control"
+                                <input type="email" placeholder="Email" name="email" class="form-control"
                                     value="<?php echo isset( $account_listing[0]->email ) ? $account_listing[0]->email : ""; ?>"
                                     required="required" />
                             </div>
@@ -60,8 +58,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Contact*</label>
-                                <input type="text" placeholder="Contact" name="contact"
-                                    class="form-control"
+                                <input type="text" placeholder="Contact" name="contact" class="form-control"
                                     value="<?php echo isset( $account_listing[0]->contact ) ? $account_listing[0]->contact : ""; ?>"
                                     required="required" />
                             </div>
@@ -70,13 +67,13 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Alternate Contact</label>
-                                <input type="text" placeholder="Alternate Contact"
-                                    name="alternate_contact_number" class="form-control"
+                                <input type="text" placeholder="Alternate Contact" name="alternate_contact_number"
+                                    class="form-control"
                                     value="<?php echo isset( $account_listing[0]->alternate_contact_number ) ? $account_listing[0]->alternate_contact_number : ""; ?>" />
                             </div>
                         </div>
 
-                      
+
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="control-label">Address*</label>
@@ -94,15 +91,14 @@
                             </div>
                         </div>
 
-                        <div class="clearfix"></div>
+                        <div class="col-md-3">
+                            <input type="hidden" name="id"
+                                value="<?php echo isset( $account_listing[0]->id ) ? $account_listing[0]->id : ""; ?>">
+                            <button type="submit" class="btn green uppercase add_Bank">Update Account</button>
+                        </div>
                 </div>
-				<div class="margiv-top-10">
-                <input type="hidden" name="id"
-                    value="<?php echo isset( $account_listing[0]->id ) ? $account_listing[0]->id : ""; ?>">                           
-                <button type="submit" class="btn green uppercase add_Bank">Update Account</button>
-            </div>
             </div> <!-- row close -->
-            <div class="clearfix"></div>          
+            <div class="clearfix"></div>
             <div class="clearfix"></div>
             <div id="res"></div>
             </form>
@@ -137,7 +133,7 @@ jQuery(document).ready(function($) {
                 beforeSend: function() {
                     resp.html(
                         '<p class="alert alert-info"><i class="fa fa-spinner fa-spin"></i> Please wait...</p>'
-                        );
+                    );
                 },
                 success: function(res) {
                     if (res.status == true) {
@@ -157,7 +153,7 @@ jQuery(document).ready(function($) {
                     }
                 },
                 error: function(e) {
-                    console.log(e);                    
+                    console.log(e);
                 }
             });
             return false;
