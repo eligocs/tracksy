@@ -115,7 +115,7 @@
 					<div class="col-md-4">
 						<div class="form-group">
 							<label class="control-label">Amount Received*</label>
-							<input type="number" placeholder="Amount Received" name="amount_received" class="form-control" value="<?php echo isset( $invoice[0]->amount_received ) && !empty( $invoice[0]->amount_received ) ? $invoice[0]->amount_received : ""; ?>" required="required"/> 
+							<input type="number" placeholder="Amount Received" name="amount_received" readonly class="form-control" value="<?php echo isset( $invoice[0]->amount_received ) && !empty( $invoice[0]->amount_received ) ? $invoice[0]->amount_received : ""; ?>" required="required"/> 
 						</div>
 					</div>
 					

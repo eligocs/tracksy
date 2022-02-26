@@ -208,7 +208,7 @@
 										$indx++;
 									} 
 								}else{
-									echo "<tr><td colspan=4>No receipts found.</td></tr>";
+									echo "<tr><td colspan=5>No receipts found.</td></tr>";
 								}
 								?>
                         </tbody>
@@ -634,10 +634,10 @@
                                 <input type="hidden" name="customer_id" value="<?php echo $pay->customer_id; ?>">
                                 <input type="hidden" name="tra_id" value="<?php echo $pay->id; ?>">
                                 <input type="hidden" name="ins_number" value="<?php echo $inst_count; ?>">
-                                <div class="margiv-top-10">
+                                <!--div class="margiv-top-10">
                                     <button type="submit" class="btn green uppercase submit_frm"
                                         id="submit_frm">Submit</button>
-                                </div>
+                                </div-->
                                 <div class="clearfix"></div>
                                 <div class="resPonse"></div>
                                 </form>

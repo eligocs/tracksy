@@ -416,16 +416,115 @@
    				"amount_received" => $amount_received,
    				"agent_id" => $user_id,
    			);
-			      			
+
    			$insert_invoice = $this->global_model->insert_data("ac_receipts", $data);
 
 			//update payment details
 			//update pending balance
-			$total_amount_recieved = total_amount_recieved_recipt( $lead_id );
+			$total_amount_recieved 	= total_amount_recieved_recipt( $lead_id );
 			$pending_balance 		= $package_cost - $total_amount_recieved;
-			$wherePay = array("customer_id" => $lead_id );
-			$update_payment = ["total_balance_amount" => $pending_balance];
-			$update_data = $this->global_model->update_data("iti_payment_details", $wherePay, $update_payment );			
+			$checkPaymentdetails	= $this->global_model->getdata("iti_payment_details", ['customer_id' => $lead_id ] );			
+			if( isset($checkPaymentdetails[0] ) ){
+				$payment = $checkPaymentdetails[0];
+				$id = $payment->id;				
+				$wherePay 				= array("id" => $id );
+
+				//if all payment done clear all payment shedule
+				$advance_recieved = $payment->advance_recieved;
+				if( $pending_balance <= 0 ){	
+					$updateData["total_balance_amount"] = $pending_balance;
+					$updateData["second_payment_bal"]	= "";
+					$updateData["second_payment_date"] 	= "";
+					$updateData["second_pay_status"] 	= "";
+					$updateData["third_payment_bal"]	= "";
+					$updateData["third_payment_date"] 	= "";
+					$updateData["third_pay_status"] 	= "";
+					$updateData["final_payment_bal"]	= "";
+					$updateData["final_payment_date"] 	= "";
+					$updateData["final_pay_status"] 	= "";
+					$updateData["next_payment"]		 		= "";
+					$updateData["next_payment_due_date"] 	= "";
+					$update_data			= $this->global_model->update_data("iti_payment_details", $wherePay, $updateData );			
+				}else{
+					//if advance payment receipt
+					if( $total_amount_recieved <= $advance_recieved ){
+						$updateData 		= [ "total_balance_amount" => $pending_balance];
+						$update_data		= $this->global_model->update_data("iti_payment_details", $wherePay, $updateData );			
+					}else{		
+						$updateData 		= [ "total_balance_amount" => $pending_balance];										
+						//break down payment schedule
+						$next_payment = !empty( $payment->next_payment ) ? $payment->next_payment : 0;
+						$second_ins_unpaid = !empty( $payment->second_payment_bal ) && ( $payment->second_pay_status == "unpaid" ) ? $payment->second_payment_bal : 0;
+						$third_ins_unpaid = !empty( $payment->third_payment_bal ) && ($payment->third_pay_status == "unpaid") ? $payment->third_payment_bal : 0;
+						$final_ins_unpaid = !empty( $payment->final_payment_bal ) && ($payment->final_pay_status == "unpaid") ? $payment->final_payment_bal : 0;
+						
+                        if ($amount_received == $next_payment) {
+							if( $second_ins_unpaid ){
+								$updateData["second_pay_status"]		= "paid";
+								$updateData["next_payment"]				= $third_ins_unpaid;
+								$updateData["next_payment_due_date"]	= $payment->third_payment_date;
+							}elseif( $third_ins_unpaid ){
+								$updateData["second_pay_status"]		= "paid";
+								$updateData["third_pay_status"]			= "paid";
+								$updateData["next_payment"]				= $final_ins_unpaid;
+								$updateData["next_payment_due_date"]	= $payment->final_payment_date;
+							}else{
+								$updateData["second_pay_status"]		= "paid";
+								$updateData["third_pay_status"]			= "paid";								
+								$updateData["final_pay_status"]			= "paid";	
+								$updateData["next_payment"]				= '';
+								$updateData["next_payment_due_date"]	= '';							
+							}
+						}elseif( $amount_received < $next_payment ){
+							$updateData["next_payment"]					= $next_payment - $amount_received;
+							if( $second_ins_unpaid ){
+								$updateData["second_payment_bal"]		= $second_ins_unpaid - $amount_received;
+								$updateData["next_payment_due_date"]	= $payment->second_payment_date;
+							}elseif( $third_ins_unpaid ){
+								$updateData["second_pay_status"]		= "paid";
+								$updateData["third_payment_bal"]		= $third_ins_unpaid - $amount_received;
+								$updateData["next_payment_due_date"]	= $payment->third_payment_date;
+							}elseif( $final_ins_unpaid ){
+								$updateData["second_pay_status"]		= "paid";
+								$updateData["third_pay_status"]			= "paid";
+								$updateData["final_payment_bal"]		= $final_ins_unpaid - $amount_received;
+								$updateData["next_payment_due_date"]	= $payment->final_payment_date;
+							}
+						}else{
+							//if amount received is greater than next installment
+							$b_remain = 0;							
+							$total_ins_amount = $third_ins_unpaid + $second_ins_unpaid + $final_ins_unpaid;
+							$inst_second_third = $third_ins_unpaid + $second_ins_unpaid;							
+							if( $second_ins_unpaid ){							
+								$updateData["second_pay_status"]		= "paid";
+							}
+
+							//if payment adjust in second/third inst
+							if( $inst_second_third >= $amount_received ){																							
+								if ($inst_second_third == $amount_received) {
+									$updateData["third_pay_status"]			= "paid";
+									$updateData["final_payment_bal"]		= $total_ins_amount - $amount_received;
+									$updateData["next_payment"]				= $total_ins_amount - $amount_received;
+									$updateData["next_payment_due_date"]	= $payment->final_payment_date;
+								}else{																							
+									$updateData["third_payment_bal"]		= $inst_second_third - $amount_received;																
+									$updateData["next_payment"]				= $inst_second_third - $amount_received;																
+									$updateData["next_payment_due_date"]	= $payment->third_payment_date;
+								}	
+							}else{
+								if( $final_ins_unpaid ){
+									$updateData["second_pay_status"]		= "paid";
+									$updateData["third_pay_status"]			= "paid";
+									$updateData["final_payment_bal"]		= $total_ins_amount - $amount_received;
+									$updateData["next_payment"]				= $total_ins_amount - $amount_received;
+									$updateData["next_payment_due_date"]	= $payment->final_payment_date;
+								}
+							}
+						}	
+						$update_data		= $this->global_model->update_data("iti_payment_details", $wherePay, $updateData );				
+					}
+				}
+			}
 
 			//delete pending payement notifications
 			$whereD = array( "notification_type" => 4 , "customer_id" => $lead_id);   		
