@@ -178,10 +178,10 @@
                     <table class="table table-bordered d-table">
                         <thead class="thead-default">
                             <tr>
-                                <p class="text-center uppercase green margin-bottom-10 margin-top-10 font_size_16">
+                                <!-- <p class="text-center uppercase green margin-bottom-10 margin-top-10 font_size_16">
                                     <strong>All Receipts</strong>                                    
-                                    <a target='_blank' href='<?php echo site_url("/accounts/create_receipt/{$pay->customer_id}"); ?>' title='Click here to create new receopt' class='btn btn-success pull-right'>Create New Recipt</a>
-                                </p>
+                                    <a target='_blank' href='<?php// echo site_url("/accounts/create_receipt/{$pay->customer_id}"); ?>' title='Click here to create new receopt' class='btn btn-success pull-right'>Create New Recipt</a>
+                                </p> -->
                                <div class="d-flex align_items_center justify_content_between margin-bottom-10">
                                     <p class="text-center uppercase green margin-bottom-10 margin-top-10 font_size_16">
                                             <strong>All Receipts</strong>                                
@@ -228,7 +228,7 @@
                         <table class="table table-bordered d-table">
                             <thead class="thead-default">
                                 <tr>
-                                    <p class="text-center uppercase green margin-bottom-10 margin-top-10 font_size_16">
+                                    <p class="uppercase green margin-bottom-10 margin-top-10 font_size_16">
                                         <strong>Payment Transactions</strong></p>
                                 </tr>
                                 <tr>
@@ -446,9 +446,8 @@
 						?>
             <!--postpone payment-->
             <!-- Pending Vouchers  -->
-            <div class="custom_card">
-                <div class="portlet ">
-                    <div class="portlet-title tabbable-line">
+                <div class="portlet box blue">
+                    <div class="portlet-title">
                         <div class="caption">
                             <i class="icon-bubbles font-dark hide"></i>
                             <span class="caption-subject font-dark bold uppercase">PAYMENT SECTION</span>
@@ -726,7 +725,6 @@
                 </div>
             </div>
         </div>
-    </div>
     <!--eND IF Payment Pending-->
     <?php }	?>
 </div>

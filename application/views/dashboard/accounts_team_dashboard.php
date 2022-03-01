@@ -34,11 +34,6 @@
             </div>
         </div>
 
-        <!--div class="more-info-right-sidebar">
-			<button class="btn blue sidebar-button btn-side-1" data-toggle="modal" data-target="#myModal2"><i class="fa fa-money"></i> Payment Follow Up</button>
-			<button class="btn blue sidebar-button btn-side-2" data-toggle="modal" data-target="#myModal3"><i class="fa fa-money"></i> Travel Dates</button>
-		</div-->
-
         <nav class="quick-nav">
             <a class="quick-nav-trigger" href="javascript: void(0)">
                 <span aria-hidden="true"></span>
@@ -78,7 +73,7 @@
         <!-- END PAGE HEADER-->
         <!-- BEGIN DASHBOARD STATS 1-->
 
-        <div class="portlet box blue">
+        <div class="portlet box blue margin-top-40">
             <div class="portlet-title">
                 <div class="caption"><i class="fa fa-calendar"></i>Today's Status</div>
             </div>
@@ -233,176 +228,157 @@
             <div class="clearfix clearboth"></div>
 
             <!--AMENDMENT SECTION-->
-            <div class="portlet box blue">
+            <div class="portlet box blue margin-top-40">
                 <div class="portlet-title">
                     <div class="caption"><i class="fa fa-inr"></i>Today's Payment</div>
                 </div>
-            </div>
-            <div class="row dashboard-tables-all-info">
-                <div class="col-lg-6 col-xs-12 col-sm-12">
-                    <div class="portlet light bordered">
-                        <div class="portlet-title tabbable-line">
-                            <div class="caption">
-                                <i class="icon-bubbles font-dark hide"></i>
-                                <span class="caption-subject font-dark bold uppercase">Pending Payments</span>
+                <div class="row dashboard-tables-all-info">
+                    <div class="col-md-12">
+                        <div class="panel">
+                            <div class="panel-heading2">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#pending_pay" data-toggle="tab">Pending Payments</a>
+                                    </li>
+                                    <li><a href="#online_pay" data-toggle="tab">RECEIVED PAYMENTS (ONLINE)</a></li>
+                                </ul>
                             </div>
-                        </div>
-                        <div class="portlet-body">
-                            <div class="tab-content">
-                                <div class="tab-pane active" id="portlet_comments_122">
-                                    <div class="dashboard-scroll">
-                                        <table class="table table-hover d-table table-fixed">
-                                            <tr>
-                                                <th>Sr.</th>
-                                                <th>Name</th>
-                                                <th>Contact No</th>
-                                                <th>Payment</th>
-                                                <th>Action</th>
-                                            </tr>
-                                            <?php if( isset($pendingPaymentsFollow) && !empty($pendingPaymentsFollow) ) { 
-										$icount = 1;	
-										foreach( $pendingPaymentsFollow as $pen_pay ){ ?>
+                            <div class="panel-body padding-0">
+                                <div class="dashboard-scroll">
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade in active" id="pending_pay">
+                                            <table class="table table-hover d-table table-fixed">
+                                                <tr>
+                                                    <th>Sr.</th>
+                                                    <th>Name</th>
+                                                    <th>Contact No</th>
+                                                    <th>Payment</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                                <?php if( isset($pendingPaymentsFollow) && !empty($pendingPaymentsFollow) ) { 
+										    $icount = 1;	
+										    foreach( $pendingPaymentsFollow as $pen_pay ){ ?>
 
-                                            <tr>
-                                                <td><?php echo $icount;?>.</td>
-                                                <td><?php echo $pen_pay->customer_name;?></td>
-                                                <!--td><?php //echo $t_leads->customer_email;?></td-->
-                                                <td><?php echo $pen_pay->customer_contact;?></td>
-                                                <td><?php echo $pen_pay->next_payment;?></td>
+                                                <tr>
+                                                    <td><?php echo $icount;?>.</td>
+                                                    <td><?php echo $pen_pay->customer_name;?></td>
+                                                    <!--td><?php //echo $t_leads->customer_email;?></td-->
+                                                    <td><?php echo $pen_pay->customer_contact;?></td>
+                                                    <td><?php echo $pen_pay->next_payment;?></td>
 
-                                                <td><a class="btn btn-custom"
-                                                        href="<?php echo site_url("payments/update_payment/{$pen_pay->id}/{$pen_pay->iti_id}"); ?>">
-                                                        View</a></td>
-                                            </tr>
-                                            <?php 
-										$icount++;
-										} 
-									}else{ ?>
-                                            <tr>
-                                                <td colspan="5" class="text-center">
-                                                    <div class="mt-comment-text"> No Data found. </div>
-                                                </td>
-                                            </tr>
-                                            <?php } ?>
-                                            <!-- END: Pending Payments section -->
-                                        </table>
+                                                    <td><a class="btn btn-custom"
+                                                            href="<?php echo site_url("payments/update_payment/{$pen_pay->id}/{$pen_pay->iti_id}"); ?>">
+                                                            View</a></td>
+                                                </tr>
+                                                <?php 
+										        $icount++;
+										        } 
+									        }else{ ?>
+                                                <tr>
+                                                    <td colspan="5" class="text-center">
+                                                        <div class="mt-comment-text"> No Data found. </div>
+                                                    </td>
+                                                </tr>
+                                                <?php } ?>
+                                                <!-- END: Pending Payments section -->
+                                            </table>
+                                            <button type="button" class="btn btn_blue_outline view_table_data"><i
+                                                    class="fa fa-angle-down"></i> View All</button>
+                                        </div>
+                                        <div class="tab-pane fade" id="online_pay">
+                                            <table class="table table-hover d-table table-fixed">
+                                                <tr>
+                                                    <th>Sr.</th>
+                                                    <th>OrderId</th>
+                                                    <th>Name</th>
+                                                    <th>Payment</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                                <?php if( isset($todayPaymentReceived) && !empty($todayPaymentReceived) ) { 
+                                                $icountd = 1;	
+                                                foreach( $todayPaymentReceived as $transaction ){ ?>
+
+                                                <tr>
+                                                    <td><?php echo $icountd;?>.</td>
+                                                    <td><?php echo $transaction->order_id;?></td>
+                                                    <td><?php echo $transaction->customer_name;?></td>
+                                                    <td><?php echo $transaction->trans_amount;?></td>
+                                                    <td><a class="btn btn-custom" target='_blank'
+                                                            href="<?php echo site_url("accounts/view_pay/{$transaction->id}"); ?>">
+                                                            View</a></td>
+                                                </tr>
+                                                <?php 
+                                                    $icountd++;
+                                                    } 
+                                                }else{ ?>
+                                                <tr>
+                                                    <td colspan="5" class="text-center">
+                                                        <div class="mt-comment-text"> No Data found. </div>
+                                                    </td>
+                                                </tr>
+                                                <?php } ?>
+                                                <!-- END: Pending Payments section -->
+                                            </table>
+                                            <button type="button" class="btn btn_blue_outline view_table_data"><i
+                                                    class="fa fa-angle-down"></i> View All</button>
+                                        </div>
                                     </div>
                                 </div>
-                                <button type="button" class="btn purple view_table_data"><i
-                                        class="fa fa-angle-down"></i> View All</button>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!--ONLINE PAYMENT RECIEVED -->
-                <div class="col-lg-6 col-xs-12 col-sm-12">
-                    <div class="portlet light bordered">
-                        <div class="portlet-title tabbable-line" style="background: green;">
-                            <div class="caption">
-                                <i class=" icon-social-twitter font-dark hide"></i>
-                                <span class="caption-subject font-dark bold uppercase">Received Payments (ONLINE)</span>
-                            </div>
-                        </div>
-                        <div class="portlet-body">
-                            <div class="tab-content">
-                                <div class="tab-pane active" id="portlet_comments_1223">
-                                    <div class="dashboard-scroll">
-                                        <table class="table table-hover d-table table-fixed">
-                                            <tr>
-                                                <th>Sr.</th>
-                                                <th>OrderId</th>
-                                                <th>Name</th>
-                                                <th>Payment</th>
-                                                <th>Action</th>
-                                            </tr>
-                                            <?php if( isset($todayPaymentReceived) && !empty($todayPaymentReceived) ) { 
-										$icountd = 1;	
-										foreach( $todayPaymentReceived as $transaction ){ ?>
-
-                                            <tr>
-                                                <td><?php echo $icountd;?>.</td>
-                                                <td><?php echo $transaction->order_id;?></td>
-                                                <td><?php echo $transaction->customer_name;?></td>
-                                                <td><?php echo $transaction->trans_amount;?></td>
-                                                <td><a class="btn btn-custom" target='_blank'
-                                                        href="<?php echo site_url("accounts/view_pay/{$transaction->id}"); ?>">
-                                                        View</a></td>
-                                            </tr>
-                                            <?php 
-										$icountd++;
-										} 
-									}else{ ?>
-                                            <tr>
-                                                <td colspan="5" class="text-center">
-                                                    <div class="mt-comment-text"> No Data found. </div>
-                                                </td>
-                                            </tr>
-                                            <?php } ?>
-                                            <!-- END: Pending Payments section -->
-                                        </table>
-                                    </div>
-                                </div>
-                                <button type="button" class="btn purple view_table_data"><i
-                                        class="fa fa-angle-down"></i> View All</button>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
                 </div>
             </div>
 
             <!--REFUND PaymentS-->
-            <div class="col-lg-6 col-xs-12 col-sm-12 margin-bottom-30">
-                <div class="portlet light bordered">
-                    <div class="portlet-title tabbable-line">
-                        <div class="caption">
-                            <i class="icon-bubbles font-dark hide"></i>
-                            <span class="caption-subject font-dark bold uppercase">Refund Pending</span>
-                        </div>
+            <div class="blue box portlet">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="icon-bubbles font-dark hide"></i>
+                        <span class="caption-subject font-dark bold uppercase">Refund Pending</span>
                     </div>
-                    <div class="portlet-body">
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="portlet_comments_d1">
-                                <div class="dashboard-scroll">
-                                    <table class="table table-hover d-table table-fixed">
-                                        <tr>
-                                            <th>Sr.</th>
-                                            <th>Name</th>
-                                            <th>Amount</th>
-                                            <th>Contact</th>
-                                            <th>Action</th>
-                                        </tr>
-                                        <?php if( isset($get_refund_payments) && !empty( $get_refund_payments ) ) { 
-										$ir = 1;	
-										foreach( $get_refund_payments as $rf_iti ){ ?>
+                </div>
+                <div class="portlet-body">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="portlet_comments_d1">
+                            <div class="dashboard-scroll">
+                                <table class="table table-hover d-table table-fixed">
+                                    <tr>
+                                        <th>Sr.</th>
+                                        <th>Name</th>
+                                        <th>Amount</th>
+                                        <th>Contact</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    <?php if( isset($get_refund_payments) && !empty( $get_refund_payments ) ) { 
+                                    $ir = 1;	
+                                    foreach( $get_refund_payments as $rf_iti ){ ?>
 
-                                        <tr>
-                                            <td><?php echo $ir;?>.</td>
-                                            <td><?php echo $rf_iti->customer_name;?></td>
-                                            <td><?php echo $rf_iti->refund_amount;?></td>
-                                            <td><?php echo $rf_iti->customer_contact;?></td>
+                                    <tr>
+                                        <td><?php echo $ir;?>.</td>
+                                        <td><?php echo $rf_iti->customer_name;?></td>
+                                        <td><?php echo $rf_iti->refund_amount;?></td>
+                                        <td><?php echo $rf_iti->customer_contact;?></td>
 
-                                            <td><a class="btn btn-custom" target="_blank"
-                                                    href="<?php echo site_url("payments/update_payment/{$rf_iti->id}/{$rf_iti->iti_id}"); ?>">
-                                                    View</a></td>
-                                        </tr>
-                                        <?php 
-										$ir++;
-										} 
-									}else{ ?>
-                                        <tr>
-                                            <td colspan="5" class="text-center">
-                                                <div class="mt-comment-text"> No Data found. </div>
-                                            </td>
-                                        </tr>
-                                        <?php } ?>
-                                        <!-- END: Pending Payments section -->
-                                    </table>
-                                </div>
+                                        <td><a class="btn btn-custom" target="_blank"
+                                                href="<?php echo site_url("payments/update_payment/{$rf_iti->id}/{$rf_iti->iti_id}"); ?>">
+                                                View</a></td>
+                                    </tr>
+                                    <?php 
+                                    $ir++;
+                                    } 
+                                }else{ ?>
+                                    <tr>
+                                        <td colspan="5" class="text-center">
+                                            <div class="mt-comment-text"> No Data found. </div>
+                                        </td>
+                                    </tr>
+                                    <?php } ?>
+                                    <!-- END: Pending Payments section -->
+                                </table>
                             </div>
-                            <button type="button" class="btn purple view_table_data"><i class="fa fa-angle-down"></i>
-                                View All</button>
                         </div>
+                        <button type="button" class="btn purple view_table_data"><i class="fa fa-angle-down"></i>
+                            View All</button>
                     </div>
                 </div>
             </div>
@@ -416,9 +392,9 @@
                 </div>
             </div>
             <div class="row dashboard-tables-all-info">
-                <div class="col-lg-6 col-xs-12 col-sm-12">
-                    <div class="portlet light bordered">
-                        <div class="portlet-title tabbable-line">
+                <div class="col-md-12">
+                    <div class="portlet box blue">
+                        <div class="portlet-title">
                             <div class="caption">
                                 <i class="icon-bubbles font-dark hide"></i>
                                 <span class="caption-subject font-dark bold uppercase">Last 20 Amendments</span>
@@ -651,7 +627,7 @@ jQuery(document).ready(function($) {
             displayEventTime: false,
             eventLimit: true, // allow "more" link when too many events
             events: base_url +
-            'dashboard/advance_payment_pending_followup?type=1', // Type 1 = pay received less than 50%
+                'dashboard/advance_payment_pending_followup?type=1', // Type 1 = pay received less than 50%
             selectable: true,
             selectHelper: false,
             editable: false, // Make the event resizable true  
@@ -695,7 +671,7 @@ jQuery(document).ready(function($) {
             displayEventTime: false,
             eventLimit: true, // allow "more" link when too many events
             events: base_url +
-            'dashboard/advance_payment_pending_followup?type=2', // Type 2 = pay pending less than 50%
+                'dashboard/advance_payment_pending_followup?type=2', // Type 2 = pay pending less than 50%
             selectable: true,
             selectHelper: false,
             editable: false, // Make the event resizable true  

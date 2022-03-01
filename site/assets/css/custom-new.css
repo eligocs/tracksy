@@ -279,7 +279,7 @@ table thead tr th{
     font-weight: 600;
 }
 
-.panel-heading2 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+.panel-heading2 .nav-tabs>li.active>a{
     border-color: transparent;
     background-color: #fff;
     color: #5e72e4;

@@ -508,9 +508,9 @@
                             </div>
 
 							</div>
-                    </div>
-                            <!--show confirm voucher button if hotel and volovo/train/flight booking confirmed-->
-                            <p class="text-center" style="font-size:12px; color: red;"><strong>Note: </strong>To confirm
+
+                             <!--show confirm voucher button if hotel and volovo/train/flight booking confirmed-->
+                             <p class="text-center" style="font-size:12px; color: red;"><strong>Note: </strong>To confirm
                                 voucher make sure that the all booking has been done.</p>
                             <?php if( $is_voucher_confirm ){
 							echo "<p class='alert alert-success text-center green'><strong>Voucher has been Confirmed.</strong></p>";
@@ -523,7 +523,7 @@
                                     sure
                                     that the payment is received greater than <strong>50%</strong>.</p>
                             </div>
-
+                    </div>
                
                     <div id="confirmVoucherModal" class="modal" role="dialog">
                         <div class="modal-dialog">
@@ -884,7 +884,7 @@
                             </div>
                             <div class="portlet-body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered">
+                                    <table class="table table-bordered inclusions_table">
                                         <thead class="thead-default">
                                             <tr class="thead-inverse">
                                                 <th width="50%"> Inclusion</th>

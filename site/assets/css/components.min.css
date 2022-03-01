@@ -16032,7 +16032,7 @@ body[ng-controller] .modal {
 
 .tabbable-line>.nav-tabs>li.active {
     background: 0 0;
-    border-bottom: 4px solid #36c6d3;
+    border-bottom: 4px solid #5e72e4;
     position: relative
 }
 
@@ -16047,7 +16047,7 @@ body[ng-controller] .modal {
 
 .tabbable-line>.nav-tabs>li.open, .tabbable-line>.nav-tabs>li:hover {
     background: 0 0;
-    border-bottom: 4px solid #9fe4ea
+    border-bottom: 4px solid #a7b0e5;
 }
 
 .tabbable-line>.nav-tabs>li.open>a, .tabbable-line>.nav-tabs>li:hover>a {
