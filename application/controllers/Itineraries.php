@@ -3088,6 +3088,9 @@ class Itineraries extends CI_Controller {
 	public function pdf(){
 		
 		// $this->load->library('Pdf');
+		
+
+		
 		$iti_id = trim($this->uri->segment(3));
 		$temp_key = trim($this->uri->segment(4));
 		if( !empty( $iti_id ) && !empty($temp_key) ){
@@ -3097,7 +3100,7 @@ class Itineraries extends CI_Controller {
 			$where_i = array("del_status" => 0, "iti_id" => $iti_id, "temp_key" => $temp_key);
 			$get_iti = $this->global_model->getdata( 'itinerary', $where_i );
 			//get view folder
-			$view_file = !empty( $get_iti ) && $get_iti[0]->iti_type == 2  ? "accommodation/pdf_new" : "itineraries/pdf_new";
+			$view_file = !empty( $get_iti ) && $get_iti[0]->iti_type == 2  ? "accommodation/pdf_new2" : "itineraries/pdf_new2";
 			$data['discountPriceData'] 	= $this->global_model->getdata( 'itinerary_discount_price_data', array("iti_id" => $iti_id, "price_status" => 0) );
 			$data['flight_details'] = $this->global_model->getdata( "flight_details", array("iti_id" => $iti_id) );
 			$data['train_details'] = $this->global_model->getdata( "train_details", array("iti_id" => $iti_id) );
@@ -3107,15 +3110,33 @@ class Itineraries extends CI_Controller {
 				// $this->load->view('inc/header');
 				// $this->load->view('inc/sidebar');
 				// $this->load->view('inc/footer');
+				
 				$this->load->view($view_file, $data);
+				$html = $this->output->get_output();
+						// Load pdf library
+				$this->load->library('pdf');
+				$this->pdf->loadHtml($html);
+				$this->pdf->setPaper('A4', 'Portrait');
+				$this->pdf->render();
+				
+				// Output the generated PDF (1 = download and 0 = preview)
+				$this->pdf->stream("html_contents.pdf", array("Attachment"=> 0));	
 			}elseif($user['role'] == '96'){
 				//$data['discountPriceData'] 	= $this->global_model->getdata( 'itinerary_discount_price_data', array("iti_id" => $iti_id) );
 				$where = array("del_status" => 0, "agent_id" => $user_id, "iti_id" => $iti_id, "temp_key" => $temp_key );
 				$data['itinerary'] 		= $this->global_model->getdata( 'itinerary', $where );
-				$this->load->view('inc/header');
-				$this->load->view('inc/sidebar');
+				// $this->load->view('inc/header');
+				// $this->load->view('inc/sidebar');
+				// $this->load->view('inc/footer');
 				$this->load->view($view_file, $data);
-				$this->load->view('inc/footer');
+				$html = $this->output->get_output();
+						// Load pdf library
+				$this->load->library('pdf');
+				$this->pdf->loadHtml($html);
+				$this->pdf->setPaper('A4', 'Portrait');
+				$this->pdf->render();
+				// Output the generated PDF (1 = download and 0 = preview)
+				$this->pdf->stream("html_contents.pdf", array("Attachment"=> 0));
 			}else{
 				redirect("dashboard");
 			}	 
@@ -4551,6 +4572,19 @@ class Itineraries extends CI_Controller {
 		}else{
 			echo "<option>Select Package Cat</option>";
 		}
+	}
+
+
+	function GeneratePdf(){
+		$this->load->view('itineraries/pdf_new2');
+		$html = $this->output->get_output();
+        		// Load pdf library
+		$this->load->library('pdf');
+		$this->pdf->loadHtml($html);
+		$this->pdf->setPaper('A4', 'Portrait');
+		$this->pdf->render();
+		// Output the generated PDF (1 = download and 0 = preview)
+		$this->pdf->stream("html_contents.pdf", array("Attachment"=> 0));		
 	}
 }	
 ?>

@@ -1,11 +1,12 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-require_once dirname(__FILE__) . '/TCPDF/tcpdf.php';
-class Pdf extends TCPDF{
-    function __construct(){
-        parent::__construct();
-		//add font run once
-		//TCPDF_FONTS::addTTFfont( K_PATH_FONTS . 'font.ttf', 'TrueTypeUnicode', "" , 32);
-    }
+<?php
+//  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+// require_once dirname(__FILE__) . '/TCPDF/tcpdf.php';
+// class Pdf extends TCPDF{
+//     function __construct(){
+//         parent::__construct();
+// 		//add font run once
+// 		//TCPDF_FONTS::addTTFfont( K_PATH_FONTS . 'font.ttf', 'TrueTypeUnicode', "" , 32);
+//     }
 	
 	//Page header
     // public function Header() {
@@ -58,4 +59,16 @@ class Pdf extends TCPDF{
 	// 	$this->Cell( 0,10,  admin_email(), 0, true, 'R', 0, '', 0, false, 'T', 'M');
 		
     // }
-}
+
+if (!defined('BASEPATH'))
+  exit('No direct script access allowed'); 
+require_once 'dompdf/autoload.inc.php';
+use Dompdf\Dompdf;
+
+class Pdf extends Dompdf { 
+    public function __construct() { 
+        parent::__construct();
+    } 
+} 
+
+?>
